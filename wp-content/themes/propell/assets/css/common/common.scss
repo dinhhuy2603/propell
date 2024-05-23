@@ -1,0 +1,49 @@
+// default settings
+@import "../_base/settings";
+@import "../_base/mixin";
+
+// reset browser (chrome, safari, firefox, ie, edge)
+// only for new website (remove if you are updating for other website)
+// ===================================================================
+@import "normalize";
+@import "reset";
+
+// common
+@import "fonts";
+@import "utility";
+@import "header";
+@import "footer";
+
+// component
+@import "../component/title";
+@import "../component/button";
+@import "../component/slider-controls";
+
+body {
+  @include fontManrope;
+  letter-spacing: -0.04em;
+  color: $cl-body;
+  @include sp {
+    font-size: rem(14);
+  }
+}
+main {
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  max-width: rem(1320);
+  padding-inline: rem(20);
+  margin: 0 auto;
+  @include sp {
+    padding-inline: rem(16);
+  }
+}
+.img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+a {
+  text-decoration: none;
+}

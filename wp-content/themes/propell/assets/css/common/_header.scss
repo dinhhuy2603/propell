@@ -1,0 +1,407 @@
+.header {
+  padding: rem(40) 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  @include sp {
+    padding: rem(8) 0 rem(8);
+  }
+  &__wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    width: rem(120);
+    @include sp {
+      width: rem(66);
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    color: $cl-body;
+    .language {
+      position: relative;
+      @include sp {
+        border-top: 1px solid $cl-gray;
+        padding-top: rem(24);
+        margin-top: rem(24);
+        color: $cl-line;
+      }
+      &__btn {
+        display: flex;
+        align-items: center;
+        padding-right: rem(35);
+        position: relative;
+        font-size: rem(16);
+        user-select: none;
+        cursor: pointer;
+        @include sp {
+          padding-block: rem(13);
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin-top: rem(-12);
+          width: rem(24);
+          height: rem(24);
+          background: url(../../img/icon-arrow-drop_down-gray.png) no-repeat center center / 100%;
+        }
+        img {
+          margin-right: rem(8);
+          width: rem(24);
+        }
+      }
+      ul {
+        display: none;
+        list-style: none;
+        padding: rem(5) 0;
+        z-index: 1;
+        @include pc {
+          width: rem(150);
+          position: absolute;
+          top: 100%;
+          left: 0;
+        }
+        li {
+          display: flex;
+          align-items: center;
+          position: relative;
+          padding: rem(8) 0 rem(4) 0;
+          cursor: pointer;
+          @include sp {
+            padding: rem(12) 0;
+            opacity: 0.32;
+            color: $cl-line;
+          }
+          span {
+            display: inline-block;
+            padding-right: rem(32);
+            @include sp {
+              display: block;
+            }
+          }
+          img {
+            margin-right: rem(8);
+            width: rem(24);
+            @include sp {
+              display: none;
+            }
+          }
+          &.active {
+            @include pc {
+              span {
+                background: url(../../img/icon-ticked.png) no-repeat center right;
+                background-size: rem(24);
+              }
+            }
+            @include sp {
+              background: url(../../img/icon-ticked.png) no-repeat center right;
+              background-size: rem(24);
+              opacity: 1;
+              color: $cl-white;
+            }
+          }
+        }
+      }
+    }
+    .search {
+      width: rem(24);
+      margin-left: rem(40);
+      cursor: pointer;
+      transition: all ease .3s;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  &__nav {
+    margin-right: rem(30);
+    margin-left: auto;
+    @include sp {
+      display: none;
+    }
+    ul {
+      list-style: none;
+      li {
+        display: inline-block;
+        margin-left: rem(25);
+        font-weight: bold;
+        color: #3B4043;
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        .c-btn {
+          padding: 0 rem(20);
+          line-height: rem(40);
+        }
+      }
+    }
+  }
+  .hamburger {
+    margin-left: rem(40);
+    cursor: pointer;
+    &__menu {
+      display: flex;
+      align-items: center;
+      padding: rem(10) 0;
+      transition: all ease .3s;
+      &:hover {
+        opacity: 0.7;
+      }
+      span {
+        margin-right: rem(18);
+      }
+      b {
+        display: block;
+        width: rem(40);
+        height: rem(12);
+        position: relative;
+        &:before, &:after {
+          content: '';
+          width: 100%;
+          position: absolute;
+          left: 0;
+          border-top: 2px solid $cl-body;
+        }
+        &:before {
+          top: 0;
+        }
+        &:after {
+          bottom: 0;
+        }
+      }
+    }
+    &__close {
+      background: url(../../img/icon-close-nav.png) no-repeat center center / 100%;
+      position: absolute;
+      top: rem(40);
+      right: rem(40);
+      width: rem(56);
+      height: rem(56);
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+      @include sp {
+        background-image: url(../../img/icon-close-nav_sp.png);
+        top: rem(24);
+        right: rem(24);
+        width: rem(44);
+        height: rem(44);
+      }
+    }
+  }
+  .menu-toggle {
+    display: none;
+    background: url(../../img/bg_menu.jpg) no-repeat bottom right / cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    padding: 0 rem(120);
+    color: $cl-body;
+    @include sp {
+      background: url(../../img/bg_menu_sp.jpg) no-repeat center center / cover;
+      padding: rem(24) rem(24) rem(56);
+      color: #fff;
+    }
+    &__wrap {
+      display: flex;
+      justify-content: space-between;
+      padding-top: rem(100);
+      @include sp {
+        padding-top: 0;
+        display: block;
+        overflow: auto;
+        max-height: 100%;
+      }
+    }
+    &__logo {
+      width: rem(250);
+      @include sp {
+        width: rem(108);
+      }
+    }
+    &__nav {
+      @include fontBonaNova;
+      width: rem(600);
+      margin-left: auto;
+      list-style: none;
+      font-size: rem(60);
+      line-height: calc(80/60);
+      @include sp {
+        margin-top: rem(24);
+        width: 100%;
+        font-size: rem(32);
+        line-height: calc(38/32);
+      }
+      li {
+        margin-bottom: rem(16);
+        @include sp {
+          margin-bottom: rem(24);
+        }
+        a {
+          background-repeat: no-repeat;
+          background-position: center right;
+          background-size: rem(80);
+          transition: all ease .3s;
+          position: relative;
+          color: inherit;
+          text-decoration: none;
+          display: block;
+          &:hover {
+            background-image: url(../../img/icon-arrow-link_right-blue.png);
+            color: $cl-primary;
+          }
+        }
+      }
+    }
+    &__social {
+      @include fontManrope;
+      font-size: rem(14);
+      font-weight: 700;
+      list-style: none;
+      color: inherit;
+      @include pc {
+        font-size: rem(24);
+        position: absolute;
+        bottom: rem(100);
+        left: rem(120);
+        color: $cl-line;
+      }
+      @include sp {
+        padding-top: rem(24);
+        color: $cl-line;
+      }
+      li {
+        margin-bottom: rem(16);
+        transition: all ease .3s;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+        &:hover {
+          color: $cl-primary;
+        }
+      }
+    }
+  }
+  .search-toggle {
+    display: none;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    padding-block: rem(136) rem(40);
+    color: $cl-body;
+    @include sp {
+      background: url(../../img/bg_search_sp.jpg) no-repeat center center;
+      background-size: cover;
+      padding: rem(88) rem(16) rem(40);
+      color: $cl-white;
+    }
+    &__wrap {
+      max-width: rem(848);
+      margin: 0 auto;
+      max-height: 100%;
+      overflow: auto;
+    }
+    .hamburger__close {
+      @include sp {
+        top: rem(16);
+        right: rem(16);
+      }
+    }
+    &__input {
+      background: url(../../img/icon-search-gray.png) no-repeat center right;
+      background-size: rem(44);
+      border-bottom: 1px solid;
+      padding: rem(24) rem(60) rem(24) 0;
+      @include sp {
+        background-image: url(../../img/icon-search.png);
+      }
+      input {
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        height: rem(72);
+        color: $cl-body;
+        @include sp {
+          height: rem(44);
+          color: inherit;
+          &::placeholder {
+            color: $cl-body;
+          }
+        }
+      }
+    }
+    &__menu {
+      display: flex;
+      gap: rem(80);
+      margin-top: rem(32);
+      @include sp {
+        gap: rem(10);
+        color: $cl-line;
+      }
+      ul {
+        list-style: none;
+        @include sp {
+          width: 50%;
+        }
+        li {
+          padding: rem(8) 0;
+          letter-spacing: 0;
+          &:hover {
+            color: $cl-primary;
+          }
+          a {
+            color: inherit;
+          }
+        }
+      }
+    }
+    &__article {
+      .item {
+        margin-top: rem(40);
+        @include pc {
+          @include grid(275, 40);
+        }
+        @include sp {
+          padding-bottom: rem(40);
+          border-bottom: 1px solid;
+        }
+        .group {
+          h3 {
+            margin-bottom: rem(16);
+          }
+          @include sp {
+            margin-top: rem(16);
+            h3 {
+              margin-bottom: rem(8);
+              color: inherit;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+body.nav--open {
+  overflow: hidden;
+}

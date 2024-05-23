@@ -1,0 +1,45 @@
+.c-tabs {
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: rem(16);
+    & > .item {
+      width: 50%;
+      list-style: none;
+      border-bottom: rem(2) solid #3D3C42;
+      font-size: rem(14);
+      line-height: rem(24);
+      letter-spacing: 0.05em;
+      text-align: center;
+      transition: all ease .3s;
+      &.active {
+        border-bottom-color: red;
+      }
+      a {
+        display: block;
+        padding: rem(3) 0;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      span {
+        position: relative;
+      }
+    }
+  }
+  &__main {
+    overflow: hidden;
+  }
+  
+  @include pc {
+    &__btn {
+      .item {
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  @include sp {
+    
+  }
+}

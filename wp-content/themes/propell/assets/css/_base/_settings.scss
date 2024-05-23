@@ -1,0 +1,28 @@
+// design settings
+$design-pc--width: 1440;
+$design-sp--width: 390;
+
+// font size (browser default font-size: 16px; => 1em = 16px)
+$font-size-default: 16;
+$font-family-default: "Manrope", sans-serif;
+
+// breakpoints
+$breakpoint-tb: 1024px; // max 1024px
+$breakpoint-sp: 750px; // max 750px
+$breakpoint-pc--start: 751px; // min 751
+$breakpoint-pc--end: 1440px; // max 1280
+
+// viewport
+$tb: $breakpoint-tb; // tablet
+$sp: $breakpoint-sp; // sp
+
+// color text
+$cl-body: #595B61;
+$cl-title: #1A1C21;
+$cl-primary: #074494;
+$cl-primary-light: #0A68E2;
+$cl-line: #D8DAE1;
+$cl-link: #074494;
+$cl-gray: #D9D9D9;
+$cl-blue: #E8F9FF;
+$cl-white: #fff;

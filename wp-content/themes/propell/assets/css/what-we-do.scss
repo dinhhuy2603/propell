@@ -1,0 +1,133 @@
+// default settings
+@import "_base/settings";
+@import "_base/mixin";
+
+// CUSTOM STYLES //
+// ======================================= //
+
+.main {
+  height: rem(1000);
+  padding-top: rem(336);
+}
+.section {
+  &-project {
+    padding-bottom: rem(80);
+    @include sp {
+      padding-bottom: rem(24);
+    }
+    .c-learn-more {
+      position: absolute;
+      top: 0;
+      right: rem(20);
+      @include sp {
+        right: rem(16);
+      }
+    }
+    &__slider {
+      margin-top: rem(24);
+      position: relative;
+      .item {
+        width: rem(1146);
+        padding-bottom: rem(233);
+        margin: 0 rem(20);
+        position: relative;
+        @include sp {
+          width: rem(325);
+          padding-bottom: 0;
+          margin: 0 rem(8);
+        }
+        &__img {
+          width: 100%;
+          height: rem(549);
+          @include sp {
+            height: rem(459);
+          }
+        }
+        &__group {
+          background-color: #fff;
+          width: rem(493);
+          padding: rem(40);
+          @include pc {
+            position: absolute;
+            bottom: 0;
+            right: rem(40);
+          }
+          @include sp {
+            padding: rem(40) rem(24);
+            position: relative;
+            margin: rem(-122) auto 0;
+            width: rem(289);
+          }
+          .logo {
+            width: rem(125);
+          }
+          .fmd {
+            background-color: #E8F9FF;
+            display: inline-block;
+            float: right;
+            border-radius: rem(16);
+            padding: 0 rem(16);
+            line-height: rem(32);
+            text-align: center;
+            font-weight: bold;
+            font-size: rem(12);
+            letter-spacing: 0;
+            color: $cl-primary;
+          }
+          dl {
+            margin-top: rem(32);
+            @include sp {
+              margin-top: rem(24);
+            }
+            dd {
+              margin-top: rem(16);
+              font-size: rem(12);
+              letter-spacing: -0.1px;
+              font-weight: bold;
+              color: $cl-primary;
+            }
+          }
+          .text {
+            margin-top: rem(32);
+            @include sp {
+              margin-top: rem(24);
+            }
+          }
+          .btn {
+            margin-top: rem(52);
+            @include sp {
+              margin-top: rem(40);
+            }
+          }
+        }
+      }
+      .slick-list {
+        padding: 0 rem(47) !important;
+      }
+      .slick-arrow {
+        top: auto;
+        margin-top: 0;
+        bottom: rem(153);
+        left: 50%;
+        margin-left: rem(-494);
+        &.slick-next {
+          margin-left: rem(-427);
+        }
+        @include sp {
+          display: none;
+        }
+      }
+    }
+    .slider-counter {
+      position: absolute;
+      bottom: rem(153);
+      left: 50%;
+      margin-left: rem(-458);
+      font-size: rem(16);
+      font-weight: bold;
+      @include sp {
+        display: none;
+      }
+    }
+  }
+}

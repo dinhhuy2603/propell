@@ -1,0 +1,48 @@
+.c-title {
+  @include fontBonaNova;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-size: rem(60);
+  color: #1A1C21;
+  @include sp {
+    font-size: rem(32);
+  }
+  &--xs {
+    font-size: rem(20);
+    @include sp {
+      font-size: rem(18);
+    }
+  }
+  &--sm {
+    font-size: rem(24);
+    @include sp {
+      font-size: rem(22);
+    }
+  }
+  &--md {
+    font-size: rem(32);
+    @include sp {
+      font-size: rem(24);
+    }
+  }
+  &--lg {
+    font-size: rem(60);
+    @include sp {
+      font-size: rem(32);
+    }
+  }
+
+  &-sub {
+    padding-bottom: rem(16);
+    font-size: rem(16);
+    line-height: 1.4;
+    font-weight: bold;
+    border-bottom: 1px solid;
+    color: #D8DAE1;
+    @include sp {
+      padding-bottom: rem(16);
+      font-size: rem(14);
+    }
+  }
+}
