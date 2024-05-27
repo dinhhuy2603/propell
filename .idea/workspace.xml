@@ -5,32 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1483dde-a2aa-4c8c-b1fa-9c178d978ce2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/_base/_mixin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/_base/_mixin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/_base/_settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/_base/_settings.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/component/_button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/component/_button.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/component/_title.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/component/_title.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/js/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/js/top.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/js/top.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/comments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/index2.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/wp-includes/sodium_compat/composer.json" />
+      <option value="$PROJECT_DIR$/wp-content/themes/propell/composer.json" />
+      <option value="$PROJECT_DIR$/wp-content/plugins/advanced-custom-fields-pro-master/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
@@ -39,7 +30,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php@5.6/5.6.40_9/bin/php" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.1">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -48,22 +43,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Applications/MAMP/htdocs/propell/wp-content/themes/propell",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "watcher.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/propell/wp-content/themes/propell&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/wp-content/themes/propell" />
@@ -79,6 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716542822378</updated>
       <workItem from="1716542823775" duration="471000" />
+      <workItem from="1716829109605" duration="9000" />
     </task>
     <servers />
   </component>
