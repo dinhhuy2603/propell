@@ -1,0 +1,115 @@
+
+.c-slider-center {
+  position: relative;
+  .item {
+    width: rem(1146);
+    margin: 0 rem(20);
+    position: relative;
+    @include sp {
+      width: rem(325);
+      margin: 0 rem(8);
+    }
+    &__img {
+      width: 100%;
+      height: rem(549);
+      @include sp {
+        height: rem(459);
+      }
+    }
+    &__group {
+      background-color: #fff;
+      margin-left: auto;
+      margin-right: rem(40);
+      width: rem(493);
+      position: relative;
+      z-index: 1;
+      padding: rem(40);
+      color: $cl-body;
+      @include pc {
+        margin-top: rem(-237);
+      }
+      @include sp {
+        padding: rem(40) rem(24);
+        margin: rem(-122) auto 0;
+        width: rem(289);
+      }
+      .logo {
+        width: rem(125);
+        height: rem(103);
+        img {
+          max-height: 100%;
+        }
+      }
+      .fmd {
+        background-color: #E8F9FF;
+        display: inline-block;
+        float: right;
+        border-radius: rem(16);
+        padding: 0 rem(16);
+        line-height: rem(32);
+        text-align: center;
+        font-weight: bold;
+        font-size: rem(12);
+        letter-spacing: 0;
+        color: $cl-primary;
+      }
+      dl {
+        margin-top: rem(32);
+        @include sp {
+          margin-top: rem(24);
+        }
+        dd {
+          margin-top: rem(16);
+          font-size: rem(12);
+          letter-spacing: -0.1px;
+          font-weight: bold;
+          color: $cl-primary;
+        }
+      }
+      .text {
+        margin-top: rem(32);
+        @include sp {
+          margin-top: rem(24);
+        }
+      }
+      .btn {
+        margin-top: rem(52);
+        @include sp {
+          margin-top: rem(40);
+        }
+      }
+    }
+  }
+  .slick-list {
+    padding: 0 rem(47) !important;
+  }
+  .slick-arrow {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin-top: 0;
+  }
+}
+.slick-control-wrap {
+  position: absolute;
+  top: rem(606);
+  left: 50%;
+  margin-left: rem(-494);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include sp {
+    display: none;
+    position: relative;
+    margin-left: 0;
+    left: auto;
+    top: auto;
+  }
+}
+.slider-counter {
+  margin-inline: rem(8);
+  min-width: rem(28);
+  font-size: rem(16);
+  font-weight: bold;
+  text-align: center;
+}

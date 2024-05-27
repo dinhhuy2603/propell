@@ -1,6 +1,8 @@
 // methods
 function intSliderKeyvisual() {
-  $(".js-keyvisual").slick({
+  var $sliderEl = $(".js-keyvisual");
+
+  $sliderEl.slick({
     infinite: true,
     arrows: false,
     dots: false,
@@ -29,8 +31,8 @@ function intSliderKeyvisual() {
 	}
 
 	function interval() {
-	    if (($('.js-keyvisual .slick-track div[data-slick-index="' + progressBarIndex + '"]').attr("aria-hidden")) === "true") {
-	        progressBarIndex = $('.js-keyvisual .slick-track div[aria-hidden="false"]').data("slickIndex");
+	    if (($sliderEl.find('.slick-track div[data-slick-index="' + progressBarIndex + '"]').attr("aria-hidden")) === "true") {
+	        progressBarIndex = $sliderEl.find('.slick-track div[aria-hidden="false"]').data("slickIndex");
 	        startProgressbar();
 	    } else {
         percentTime += 1 / (time + 5);
@@ -38,7 +40,7 @@ function intSliderKeyvisual() {
             width: percentTime + "%"
         });
         if (percentTime >= 100) {
-          $('.js-keyvisual').slick('slickNext');
+          $sliderEl.slick('slickNext');
           progressBarIndex++;
           if (progressBarIndex > 2) {
               progressBarIndex = 0;
@@ -59,7 +61,7 @@ function intSliderKeyvisual() {
 	$('.progressBarContainer div').click(function () {
 		clearInterval(tick);
 		var goToThisIndex = $(this).find("span").data("slickIndex");
-		$('.js-keyvisual').slick('slickGoTo', goToThisIndex, false);
+		$sliderEl.slick('slickGoTo', goToThisIndex, false);
 		startProgressbar();
 	});
 }
@@ -75,33 +77,6 @@ function intSliderScroll() {
     speed: 10000,
     variableWidth: true,
     cssEase: 'linear',
-  });
-}
-function intSliderCenter() {
-  var $status = $('.slider-counter');
-  var $slickElement = $('.js-slider-center');
-
-  $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-    var i = (currentSlide ? currentSlide : 0) + 1;
-    $status.text(i + '/' + slick.slideCount);
-  });
-
-  $slickElement.slick({
-    dots: false,
-    arrows: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    centerMode: true,
-    centerPadding: '2.9375rem',
-    variableWidth: true,
-    responsive: [{
-      breakpoint: 750,
-      settings: {
-        centerPadding: '1rem',
-      }
-    }]
   });
 }
 function actionBtnFixed() {
@@ -121,5 +96,4 @@ function actionBtnFixed() {
   intSliderScroll()
   intSliderCenter()
   actionBtnFixed()
-  intToggle()
 }(jQuery));

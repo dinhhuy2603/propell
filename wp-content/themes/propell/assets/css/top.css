@@ -1,3 +1,46 @@
+.progressBarContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 6.75rem;
+  width: 100%;
+}
+@media (max-width: 750px) {
+  .progressBarContainer {
+    bottom: 4.8125rem;
+  }
+}
+.progressBarContainer div {
+  width: 25.625rem;
+  height: 0.125rem;
+  margin: 0 0.75rem;
+  border-radius: 0;
+  position: relative;
+}
+@media (max-width: 750px) {
+  .progressBarContainer div {
+    width: 6.75rem;
+    margin: 0 0.5rem;
+  }
+}
+.progressBarContainer div span.progressBar {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: block;
+  position: relative;
+}
+.progressBarContainer div span.progressBar .inProgress {
+  display: block;
+  background-color: #074494;
+  height: 100%;
+  width: 0%;
+}
+
 .header__right {
   color: #fff;
 }
@@ -22,48 +65,6 @@
   .keyvisual {
     height: 100vh;
   }
-}
-.keyvisual .progressBarContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  bottom: 6.75rem;
-  width: 100%;
-}
-@media (max-width: 750px) {
-  .keyvisual .progressBarContainer {
-    bottom: 4.8125rem;
-  }
-}
-.keyvisual .progressBarContainer div {
-  width: 25.625rem;
-  height: 0.125rem;
-  margin: 0 0.75rem;
-  border-radius: 0;
-  position: relative;
-}
-@media (max-width: 750px) {
-  .keyvisual .progressBarContainer div {
-    width: 6.75rem;
-    margin: 0 0.5rem;
-  }
-}
-.keyvisual .progressBarContainer div span.progressBar {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  display: block;
-  position: relative;
-}
-.keyvisual .progressBarContainer div span.progressBar .inProgress {
-  display: block;
-  background-color: #074494;
-  height: 100%;
-  width: 0%;
 }
 .keyvisual-slider__item {
   width: 100vw;
@@ -184,9 +185,6 @@
     background-size: 11.125rem;
   }
 }
-.section-about .c-title-sub {
-  padding-bottom: 0;
-}
 @media (max-width: 750px) {
   .section-about .c-title-sub {
     padding-bottom: 1.5rem;
@@ -224,7 +222,7 @@
   background-size: 2.375rem;
   width: 21.25rem;
   position: absolute;
-  top: 3.0625rem;
+  top: 4.25rem;
   left: 46.875rem;
   padding-left: 4.375rem;
   font-weight: 700;
@@ -649,8 +647,8 @@
 @media (min-width: 751px) {
   .section-propell .row {
     display: grid;
-    grid-template-columns: 35.8125rem auto;
-    gap: 2.5rem;
+    grid-template-columns: 33.3125rem auto;
+    gap: 5rem;
   }
 }
 .section-propell .row .col-left {
@@ -659,35 +657,60 @@
 @media (max-width: 750px) {
   .section-propell .row .col-left {
     padding-top: 0;
-    padding-inline: 2.5rem;
+    padding-inline: 1rem;
     margin-bottom: 2.625rem;
   }
 }
-@media (max-width: 750px) {
-  .section-propell .row dl {
-    margin-top: 1.875rem;
-  }
+.section-propell .row .group {
+  margin: 2.5rem 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-.section-propell .row dl dt {
-  font-family: "Prospec-Light", sans-serif;
-  font-size: 7.5rem;
-  letter-spacing: -0.04em;
-  line-height: 1;
+.section-propell .row .group__item {
+  border-bottom: 1px solid #62719E;
+  width: 50%;
+  padding: 1rem 0 0.875rem;
+  text-align: center;
+}
+.section-propell .row .group__item:nth-child(even) {
+  border-left: 1px solid #62719E;
+}
+.section-propell .row .group__item:nth-child(3), .section-propell .row .group__item:nth-child(4) {
+  border-bottom: none;
+}
+.section-propell .row .group__item img {
+  width: 5rem;
+}
+.section-propell .row .group__item dl {
+  margin-top: 1.125rem;
   color: #fff;
 }
-.section-propell .row dl dd {
-  font-weight: bold;
-}
-@media (min-width: 751px) {
-  .section-propell .row .group {
-    margin: 5.25rem 0 5.375rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 2.5rem;
+@media (max-width: 750px) {
+  .section-propell .row .group__item dl {
+    margin-top: 1.25rem;
   }
-  .section-propell .row .group dl {
-    width: 50%;
+}
+.section-propell .row .group__item dl dt {
+  font-family: "Prospec-Light", sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+@media (max-width: 750px) {
+  .section-propell .row .group__item dl dt {
+    font-size: 3.125rem;
+  }
+}
+.section-propell .row .group__item dl dd {
+  font-family: "Bona Nova", serif;
+  font-size: 1.25rem;
+}
+@media (max-width: 750px) {
+  .section-propell .row .group__item dl dd {
+    font-size: 1.125rem;
   }
 }
 

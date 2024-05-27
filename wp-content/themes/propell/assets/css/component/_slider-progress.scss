@@ -1,0 +1,35 @@
+
+.progressBarContainer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: rem(108);
+  width: 100%;
+  @include sp {
+    bottom: rem(77);
+  }
+  div {
+    width: rem(410);
+    height: rem(2);
+    margin: 0 rem(12);
+    border-radius: 0;
+    position: relative;
+    @include sp {
+      width: rem(108);
+      margin: 0 rem(8);
+    }
+    span.progressBar {
+      width: 100%;
+      height: 100%;
+      background-color: $cl-white;
+      display: block;
+      position: relative;
+      .inProgress {
+        display: block;
+        background-color: $cl-primary;
+        height: 100%;
+        width: 0%;
+      }
+    }
+  }
+}

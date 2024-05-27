@@ -23,6 +23,11 @@
     @content;
   }
 }
+@mixin queryHeightDown($query) {
+  @media ( min-width: $breakpoint-pc--start ) and (max-height: $query) {
+    @content;
+  }
+}
   
 // scale size pc
 @function size-pc($size) {

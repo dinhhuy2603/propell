@@ -1,0 +1,105 @@
+
+.c-toggle{
+  &__head{
+    cursor: pointer;
+    position: relative;
+    border-top: 1px solid $cl-line;
+    .c-ttl{
+      padding: rem(24) rem(66);
+      @include fontBonaNova;
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      font-size: rem(60);
+      line-height: calc(72/60);
+      position: relative;
+      color: $cl-title;
+      @include sp{
+        padding: rem(17) rem(50);
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+      }
+      .c-num{
+        font-size: rem(16);
+        line-height: calc(21.86/16);
+        font-weight: 700;
+        @include fontManrope;
+        letter-spacing: -0.04em;
+        position: absolute;
+        top: rem(25);
+        left: 0;
+        @include sp{
+          top: rem(17);
+        }
+      }
+    }
+    .c-ico{
+      display: block;
+      width: rem(40);
+      height: rem(40);
+      position: absolute;
+      top: rem(41);
+      right: rem(20);
+      @include sp{
+        top: rem(16);
+        right: rem(16);
+      }
+      &:before, &:after{
+        content: '';
+        display: block;
+        width: rem(20);
+        height: rem(3);
+        background: #374957;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:after{
+        transform: translate(-50%, -50%) rotate(-90deg);
+        transition: all .3s ease-in-out;
+      }
+    }
+    &.is-active{
+      .c-ico{
+        &:after{
+          transform: translate(-50%, -50%) rotate(0);
+        }
+      }
+    }
+  }
+  &__main{
+    // display: none;
+    .c-ttl02{
+      text-align: right;
+      position: relative;
+      margin-bottom: rem(40);
+      @include sp{
+        margin-bottom: rem(16);
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: $cl-line;
+        z-index: -1;
+      }
+      span{
+        display: inline-block;
+        background: #fff;
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+        letter-spacing: -0.04em;
+        @include fontBonaNova;
+        font-weight: 400;
+        padding-left: rem(24);
+        @include sp{
+          font-size: rem(24);
+          line-height: calc(28.8/24);
+        }
+      }
+    }
+  }
+}

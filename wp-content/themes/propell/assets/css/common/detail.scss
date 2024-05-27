@@ -1,0 +1,122 @@
+// default settings
+@import "../_base/settings";
+@import "../_base/mixin";
+
+
+.page-detail{
+
+  .main{
+    padding-top: rem(120);
+    @include sp{
+      padding-top: rem(60);
+    }
+  }
+
+  .kv{
+    padding-top: rem(35);
+    @include sp{
+      padding-top: rem(22);
+    }
+    .breadcrumds{
+      ul{
+        li, a{
+          list-style-type: none;
+          display: inline-block;
+          color: $cl-primary-light;
+          font-size: rem(12);
+          line-height: calc(16.4/12);
+          font-weight: 600;
+          letter-spacing: 0.04em;
+        }
+        li{
+          position: relative;
+          &:before{
+            content: '/';
+            display: inline-block;
+            margin: 0 rem(1);
+            @include sp{
+              margin: 0;
+            }
+          }
+          &:first-child{
+            &:before{
+              display: none;
+            }
+          }
+        }
+        a{
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    &__text{
+      display: flex;
+      justify-content: space-between;
+      margin: rem(40) 0 rem(22);
+      @include sp{
+        margin: rem(16) 0 rem(24);
+      }
+      .kv__ttl{
+        flex: 1;
+        h2{
+          font-size: rem(60);
+          line-height: calc(72/60);
+          font-weight: 400;
+          letter-spacing: -0.04em;
+          color: $cl-title;
+          @include fontBonaNova;
+          margin-top: rem(10);
+          @include sp{
+            font-size: rem(32);
+            line-height: calc(38.4/32);
+          }
+        }
+      }
+      .kv__submenu{
+        display: flex;
+        flex-wrap: wrap;
+        width: rem(405);
+        @include sp{
+          display: none;
+        }
+        li{
+          list-style-type: none;
+          width: 50%;
+          margin-bottom: rem(15);
+          a{
+            font-size: rem(16);
+            line-height: calc(21.86/16);
+            letter-spacing: -0.04em;
+            font-weight: 700;
+            color: $cl-body;
+            &:hover{
+              opacity: 0.8;
+            }
+          }
+          &:nth-child(even){
+            padding-left: rem(15);
+          }
+        }
+      }
+    }
+    &__img{
+      width: 100%;
+      height: rem(500);
+      position: relative;
+      margin: 0 auto;
+      @include sp{
+        height: rem(221);
+      }
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

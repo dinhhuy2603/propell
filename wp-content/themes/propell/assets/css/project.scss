@@ -1,0 +1,324 @@
+// default settings
+@import "_base/settings";
+@import "_base/mixin";
+
+// component
+@import "./component/toggle";
+@import "./component/tabs";
+@import "./component/slider_center";
+@import "./component/slider-progress";
+
+// layout
+@import "./layout/project-list";
+@import "./layout/you-may-also-care";
+
+// CUSTOM STYLES //
+// ======================================= //
+
+.page-detail {
+  .kv {
+    .breadcrumds {
+      text-transform: uppercase;
+    }
+    &__text {
+      @include pc {
+        margin-bottom: rem(38);
+        min-height: rem(80);
+      }
+      .kv__ttl {
+        h2 {
+          @include pc {
+            margin-top: 0;
+          }
+        }
+      }
+      .kv__submenu {
+        width: rem(365);
+        align-self: flex-start;
+        li {
+          padding-left: 0 !important;
+          width: 100%;
+        }
+      }
+    }
+    &__img {
+      &--detail {
+        @include pc {
+          height: rem(550);
+        }
+      }
+    }
+    .fmd {
+      background-color: #E8F9FF;
+      align-self: self-start;
+      display: inline-block;
+      border-radius: rem(16);
+      padding: 0 rem(16);
+      margin-left: rem(8);
+      min-width: rem(57);
+      line-height: rem(32);
+      text-align: center;
+      font-weight: bold;
+      font-size: rem(12);
+      letter-spacing: 0;
+      color: $cl-primary;
+      &.active {
+        background-color: $cl-primary-light;
+        color: $cl-white;
+      }
+      @include sp {
+        position: relative;
+        top: rem(10);
+      }
+    }
+    .container {
+      .kv__img {
+        @include sp {
+          margin-inline: rem(-16);
+          width: auto;
+        }
+      }
+    }
+  }
+}
+// style page project
+.page-project {
+  .section {
+    padding: rem(80) 0;
+    @include sp {
+      padding: rem(40) 0;
+    }
+    &__title {
+      text-align: center;
+      color: $cl-title;
+    }
+    &__description {
+      @include fontBonaNova;
+      margin: rem(24) auto 0;
+      font-size: rem(24);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      text-align: center;
+      color: inherit;
+      &.--mw-802 {
+        max-width: rem(802) !important;
+      }
+      @include sp {
+        font-size: rem(20);
+      }
+    }
+  }
+  .l-project-list--detail {
+    @include pc {
+      padding-top: 0;
+      .container {
+        border-top: 1px solid $cl-line;
+        padding-top: rem(80);
+      }
+    }
+    .others {
+      @include pc {
+        margin-top: rem(40);
+      }
+    }
+  }
+  // project top
+  .project-slider {
+    .section__title {
+      margin-bottom: rem(40);
+      color: $cl-body;
+    }
+    .row {
+      .item {
+        width: rem(290);
+        margin-right: rem(80);
+        @include sp {
+          margin-right: rem(24);
+        }
+        .photo {
+          height: rem(230);
+        }
+        .c-title {
+          margin-top: rem(16);
+          font-size: rem(32);
+          color: inherit;
+        }
+        .txt {
+          margin-top: rem(8);
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          white-space: normal;
+          font-size: rem(16);
+        }
+      }
+    }
+    .slick-dots {
+      display: none !important;
+    }
+    .slick-arrow {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin-top: 0;
+    }
+    .slick-progress {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: rem(40);
+      width: 100%;
+      .progress {
+        display: block;
+        flex: 1;
+        height: 2px;
+        overflow: hidden;
+        background-color: #E7EAF1;
+        background-image: linear-gradient(to right, $cl-primary-light, $cl-primary-light);
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        transition: background-size .4s ease;
+      }
+      .controls {
+        width: rem(90);
+        margin-left: rem(8);
+        display: flex;
+      }
+    }
+  }
+  // project detail
+  .project-detail {
+    padding-bottom: rem(160);
+    @include sp {
+      padding-bottom: rem(24);
+    }
+    .content__head {
+      @include pc {
+        display: flex;
+        justify-content: space-between;
+      }
+      &--group {
+        background-color: #fff;
+        width: rem(493);
+        position: relative;
+        z-index: 1;
+        padding: rem(40);
+        color: $cl-body;
+        @include pc {
+          margin-top: rem(-237);
+        }
+        @include sp {
+          padding: rem(24) rem(24);
+          margin: rem(-96) auto 0;
+          width: 100%;
+        }
+        .logo {
+          width: rem(125);
+          height: rem(103);
+          img {
+            max-height: 100%;
+          }
+        }
+        .fmd {
+          background-color: #E8F9FF;
+          display: inline-block;
+          float: right;
+          border-radius: rem(16);
+          padding: 0 rem(16);
+          line-height: rem(32);
+          text-align: center;
+          font-weight: bold;
+          font-size: rem(12);
+          letter-spacing: 0;
+          color: $cl-primary;
+          &.active {
+            background-color: $cl-primary-light;
+            color: $cl-white;
+          }
+        }
+        dl {
+          margin-top: rem(32);
+          @include sp {
+            margin-top: rem(16);
+          }
+          dd {
+            margin-top: rem(16);
+            font-size: rem(12);
+            letter-spacing: -0.1px;
+            font-weight: bold;
+            color: $cl-primary;
+          }
+        }
+        .text {
+          margin-top: rem(32);
+          @include sp {
+            margin-top: rem(16);
+          }
+        }
+        .btn {
+          margin-top: rem(52);
+          @include sp {
+            margin-top: rem(40);
+          }
+        }
+      }
+      &--info {
+        width: rem(706);
+        padding-top: rem(55);
+        display: flex;
+        align-items: flex-start;
+        gap: rem(24);
+        @include sp {
+          padding-block: rem(16);
+          margin-top: rem(16);
+          padding-left: rem(8);
+          flex-wrap: wrap;
+        }
+        dl {
+          padding-left: rem(24);
+          border-left: 1px solid #E7EAF1;
+          flex: auto;
+          @include sp {
+            width: 100%;
+          }
+          dt {
+            margin-bottom: rem(4);
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: rem(16);
+            color: $cl-primary;
+            @include sp {
+              font-size: rem(14);
+            }
+          }
+        }
+      }
+    }
+    .content__editer {
+      padding-block: rem(58) rem(40);
+      line-height: 1.38;
+      @include sp {
+        padding-block: rem(20) rem(22);
+        line-height: 1.36;
+      }
+      .image {
+        margin-block: rem(40);
+        @include sp {
+          margin-block: rem(24);
+        }
+      }
+      .box {
+        background-color: #F0F3FA;
+        margin-top: rem(40);
+        padding: rem(40);
+        @include sp {
+          margin-top: rem(24);
+          padding: rem(24) rem(16);
+        }
+      }
+    }
+  }
+}

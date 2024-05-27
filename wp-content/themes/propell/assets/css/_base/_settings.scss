@@ -10,7 +10,8 @@ $font-family-default: "Manrope", sans-serif;
 $breakpoint-tb: 1024px; // max 1024px
 $breakpoint-sp: 750px; // max 750px
 $breakpoint-pc--start: 751px; // min 751
-$breakpoint-pc--end: 1440px; // max 1280
+$breakpoint-pc--end: 1440px; // max 1440
+$w-inner: 1280; // max 1280
 
 // viewport
 $tb: $breakpoint-tb; // tablet

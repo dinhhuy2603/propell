@@ -1,0 +1,49 @@
+.c-tabs {
+  &__head {
+    margin-bottom: rem(24);
+    overflow: auto;
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+    .item {
+      border-top: 1px solid;
+      padding: rem(24) rem(10);
+      flex: auto;
+      list-style: none;
+      font-size: rem(14);
+      line-height: rem(22);
+      letter-spacing: 0.05em;
+      text-align: center;
+      transition: all ease .3s;
+      &.is-active, &:hover {
+        color: $cl-primary-light;
+      }
+      a {
+        display: block;
+        text-decoration: none;
+        font-weight: 700;
+        color: inherit;
+      }
+    }
+  }
+  &__main {
+    overflow: hidden;
+    position: relative;
+    &--item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+      &.active {
+        position: relative;
+        z-index: 1;
+        opacity: 1;
+        pointer-events: inherit;
+      }
+    }
+  }
+}

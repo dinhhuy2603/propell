@@ -10,6 +10,7 @@
   text-align: center;
   transition: all ease .3s;
   transform: translate3d(0, 0, 0);
+  text-transform: uppercase;
   color: $cl-primary;
   cursor: pointer;
   text-decoration: none;
@@ -30,6 +31,11 @@
     bottom: 0;
   }
   // style
+  &--viewmore {
+    span {
+      background-image: url(../../img/icon-arrow-link_down-blue.png);
+    }
+  }
   &--bg {
     background-color: $cl-primary;
     color: #fff;
@@ -54,6 +60,7 @@
   transition: all ease .3s;
   font-weight: bold;
   text-decoration: none;
+  text-transform: uppercase;
   color: $cl-primary;
   @include pc {
     &:hover {

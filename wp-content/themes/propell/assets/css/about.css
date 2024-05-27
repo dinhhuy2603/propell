@@ -1,0 +1,342 @@
+.page-about .section__accordion {
+  padding-top: 5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion {
+    padding-top: 1.5rem;
+  }
+}
+.page-about .section__accordion .c-toggle__head {
+  cursor: pointer;
+  position: relative;
+  border-top: 1px solid #D8DAE1;
+}
+.page-about .section__accordion .c-toggle__head .c-ttl {
+  padding: 1.5rem 4.125rem;
+  font-family: "Bona Nova", serif;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  font-size: 3.75rem;
+  line-height: 1.2;
+  position: relative;
+  color: #1A1C21;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-toggle__head .c-ttl {
+    padding: 1.0625rem 3.125rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+.page-about .section__accordion .c-toggle__head .c-ttl .c-num {
+  font-size: 1rem;
+  line-height: 1.36625;
+  font-weight: 700;
+  font-family: "Manrope", sans-serif;
+  letter-spacing: -0.04em;
+  position: absolute;
+  top: 1.5625rem;
+  left: 0;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-toggle__head .c-ttl .c-num {
+    top: 1.0625rem;
+  }
+}
+.page-about .section__accordion .c-toggle__head .c-ico {
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: 2.5625rem;
+  right: 1.25rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-toggle__head .c-ico {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+.page-about .section__accordion .c-toggle__head .c-ico:before, .page-about .section__accordion .c-toggle__head .c-ico:after {
+  content: "";
+  display: block;
+  width: 1.25rem;
+  height: 0.1875rem;
+  background: #374957;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.page-about .section__accordion .c-toggle__head .c-ico:after {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transition: all 0.3s ease-in-out;
+}
+.page-about .section__accordion .c-toggle__head.is-active .c-ico:after {
+  transform: translate(-50%, -50%) rotate(0);
+}
+.page-about .section__accordion .c-toggle__main .c-ttl02 {
+  text-align: right;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-toggle__main .c-ttl02 {
+    margin-bottom: 1rem;
+  }
+}
+.page-about .section__accordion .c-toggle__main .c-ttl02:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #D8DAE1;
+  z-index: -1;
+}
+.page-about .section__accordion .c-toggle__main .c-ttl02 span {
+  display: inline-block;
+  background: #fff;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-family: "Bona Nova", serif;
+  font-weight: 400;
+  padding-left: 1.5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-toggle__main .c-ttl02 span {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+}
+.page-about .section__accordion .c-media + .c-media {
+  margin-top: 2.5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-media + .c-media {
+    margin-top: 1.5rem;
+  }
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .c-media.--mt-lg {
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-media.--mt-lg {
+    margin-top: 1rem;
+  }
+}
+.page-about .section__accordion .c-media__ttl {
+  color: #074494;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.36625;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.625rem;
+}
+.page-about .section__accordion .c-media__txt {
+  font-size: 1rem;
+  line-height: 1.36625;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .c-media__txt {
+    font-size: 0.875rem;
+    line-height: 1.3657142857;
+    margin-bottom: 1.5rem;
+  }
+}
+.page-about .section__accordion .company__content {
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+  position: relative;
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .company__content {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .company__content {
+    padding-top: 0.9375rem;
+    padding-bottom: 2.5rem;
+  }
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .company__block.--first {
+    width: 41.875rem;
+  }
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .company__block.--second {
+    width: 33.125rem;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .company__block.--second {
+    margin-top: 1.5rem;
+  }
+}
+.page-about .section__accordion .company__ico {
+  display: block;
+  width: 26rem;
+  height: 26.75rem;
+  background: url("../../assets/img/about/company_ico.png") center no-repeat;
+  background-size: cover;
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .company__ico {
+    position: absolute;
+    right: 0;
+    bottom: 5rem;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .company__ico {
+    width: 11.625rem;
+    height: 11.9375rem;
+    margin-top: -0.625rem;
+  }
+}
+.page-about .section__accordion .statements {
+  padding-bottom: 10rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .statements {
+    padding-bottom: 2rem;
+  }
+}
+.page-about .section__accordion .statements .c-ttl02 {
+  margin-bottom: 1.5625rem;
+}
+.page-about .section__accordion .statements__content {
+  display: flex;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .statements__content {
+    display: block;
+  }
+}
+.page-about .section__accordion .statements__text {
+  flex: 1;
+}
+.page-about .section__accordion .statements__photo {
+  width: 52.0625rem;
+  margin-left: 5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .statements__photo {
+    width: 22.5rem;
+    margin-left: 0;
+  }
+}
+.page-about .section__accordion .awards {
+  padding-bottom: 2.5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards {
+    padding-bottom: 2.25rem;
+  }
+}
+.page-about .section__accordion .awards__items {
+  display: flex;
+  justify-content: center;
+}
+.page-about .section__accordion .awards__item {
+  margin: 0 0.75rem;
+  position: relative;
+  width: 41.1875rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards__item {
+    width: 20.5rem;
+    margin: 0 0.375rem;
+  }
+}
+.page-about .section__accordion .awards__item--photo {
+  position: relative;
+  width: 41.1875rem;
+  height: 31.25rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards__item--photo {
+    width: 20.5rem;
+    height: 15.625rem;
+  }
+}
+.page-about .section__accordion .awards__item--photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.page-about .section__accordion .awards__item--photo .c-ttl {
+  position: absolute;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #fff;
+  font-family: "Bona Nova", serif;
+  left: 2.5rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards__item--photo .c-ttl {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    left: 1.25rem;
+  }
+}
+.page-about .section__accordion .awards__item--photo .c-ttl.--01 {
+  bottom: 2.3125rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards__item--photo .c-ttl.--01 {
+    bottom: 1.25rem;
+  }
+}
+.page-about .section__accordion .awards__item--photo .c-ttl.--02 {
+  top: 2.6875rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards__item--photo .c-ttl.--02 {
+    top: 1.25rem;
+  }
+}
+.page-about .section__accordion .awards__item--txt {
+  font-size: 1rem;
+  line-height: 1.36625;
+  letter-spacing: -0.04em;
+  margin-top: 1.6875rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .awards__item--txt {
+    margin-top: 1.0625rem;
+  }
+}
+.page-about .section__accordion .awards__item--btn {
+  margin-top: 1.0625rem;
+}
+.page-about .section__accordion .structure {
+  padding-bottom: 10rem;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .structure {
+    padding-bottom: 1rem;
+  }
+}
+.page-about .section__accordion .structure__photo {
+  width: 80rem;
+  margin: 0 auto;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .structure__photo {
+    width: 100%;
+  }
+}

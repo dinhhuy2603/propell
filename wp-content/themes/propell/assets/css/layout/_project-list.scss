@@ -1,0 +1,56 @@
+.l-project-list {
+  padding-block: rem(160) rem(160);
+  @include sp {
+    padding-block: rem(40);
+  }
+  .section__description {
+    max-width: inherit !important;
+  }
+  .c-slider-center {
+    margin-top: rem(40);
+    @include sp {
+      margin-top: rem(24);
+      .item__group {
+        margin-top: rem(-140);
+      }
+    }
+  }
+  .others {
+    margin-top: rem(24);
+    .row {
+      @include pc {
+        display: grid;
+        grid-template-columns: rem(400) rem(400) auto;
+        gap: rem(40);
+      }
+    }
+    .item {
+      @include sp {
+        &:not(:last-child) {
+          margin-bottom: rem(40);
+        }
+      }
+      .photo {
+        height: rem(230);
+      }
+      .c-title {
+        margin-top: rem(16);
+        font-size: rem(32);
+      }
+      .txt {
+        margin-top: rem(8);
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        white-space: normal;
+        font-size: rem(16);
+      }
+    }
+  }
+  .btn {
+    margin-top: rem(40);
+    text-align: center;
+  }
+}

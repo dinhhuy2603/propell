@@ -2,132 +2,321 @@
 @import "_base/settings";
 @import "_base/mixin";
 
+// component
+@import "./component/toggle";
+@import "./component/tabs";
+@import "./component/slider_center";
+@import "./component/slider-progress";
+
+// layout
+@import "./layout/project-list";
+@import "./layout/you-may-also-care";
+
 // CUSTOM STYLES //
 // ======================================= //
 
-.main {
-  height: rem(1000);
-  padding-top: rem(336);
-}
-.section {
-  &-project {
-    padding-bottom: rem(80);
-    @include sp {
-      padding-bottom: rem(24);
+.page-detail {
+  .kv {
+    .breadcrumds {
+      text-transform: uppercase;
     }
-    .c-learn-more {
-      position: absolute;
-      top: 0;
-      right: rem(20);
-      @include sp {
-        right: rem(16);
+    &__text {
+      @include pc {
+        margin-bottom: rem(38);
+        min-height: rem(80);
       }
-    }
-    &__slider {
-      margin-top: rem(24);
-      position: relative;
-      .item {
-        width: rem(1146);
-        padding-bottom: rem(233);
-        margin: 0 rem(20);
-        position: relative;
-        @include sp {
-          width: rem(325);
-          padding-bottom: 0;
-          margin: 0 rem(8);
-        }
-        &__img {
-          width: 100%;
-          height: rem(549);
-          @include sp {
-            height: rem(459);
-          }
-        }
-        &__group {
-          background-color: #fff;
-          width: rem(493);
-          padding: rem(40);
+      .kv__ttl {
+        h2 {
           @include pc {
-            position: absolute;
-            bottom: 0;
-            right: rem(40);
-          }
-          @include sp {
-            padding: rem(40) rem(24);
-            position: relative;
-            margin: rem(-122) auto 0;
-            width: rem(289);
-          }
-          .logo {
-            width: rem(125);
-          }
-          .fmd {
-            background-color: #E8F9FF;
-            display: inline-block;
-            float: right;
-            border-radius: rem(16);
-            padding: 0 rem(16);
-            line-height: rem(32);
-            text-align: center;
-            font-weight: bold;
-            font-size: rem(12);
-            letter-spacing: 0;
-            color: $cl-primary;
-          }
-          dl {
-            margin-top: rem(32);
-            @include sp {
-              margin-top: rem(24);
-            }
-            dd {
-              margin-top: rem(16);
-              font-size: rem(12);
-              letter-spacing: -0.1px;
-              font-weight: bold;
-              color: $cl-primary;
-            }
-          }
-          .text {
-            margin-top: rem(32);
-            @include sp {
-              margin-top: rem(24);
-            }
-          }
-          .btn {
-            margin-top: rem(52);
-            @include sp {
-              margin-top: rem(40);
-            }
+            margin-top: 0;
           }
         }
       }
-      .slick-list {
-        padding: 0 rem(47) !important;
-      }
-      .slick-arrow {
-        top: auto;
-        margin-top: 0;
-        bottom: rem(153);
-        left: 50%;
-        margin-left: rem(-494);
-        &.slick-next {
-          margin-left: rem(-427);
-        }
-        @include sp {
-          display: none;
+      .kv__submenu {
+        width: rem(365);
+        align-self: flex-start;
+        li {
+          padding-left: 0 !important;
+          width: 100%;
         }
       }
     }
-    .slider-counter {
-      position: absolute;
-      bottom: rem(153);
-      left: 50%;
-      margin-left: rem(-458);
-      font-size: rem(16);
-      font-weight: bold;
-      @include sp {
-        display: none;
+    .container {
+      .kv__img {
+        @include sp {
+          margin-inline: rem(-16);
+          width: auto;
+        }
       }
     }
   }
+}
+// style page what-we-do
+.page-what-we-do {
+  .section {
+    padding: rem(80) 0;
+    @include sp {
+      padding: rem(40) 0;
+    }
+    // common
+    .group {
+      padding: rem(40) 0;
+      @include sp {
+        padding: rem(24) 0;
+      }
+    }
+    &__title {
+      text-align: center;
+      color: $cl-title;
+    }
+    &__description {
+      @include fontBonaNova;
+      max-width: rem(802);
+      margin: rem(24) auto 0;
+      font-size: rem(24);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      text-align: center;
+      color: inherit;
+      @include sp {
+        font-size: rem(20);
+      }
+    }
+  
+    // what-we-do
+    &-business {
+      color: $cl-body;
+      @include sp {
+        padding-block: rem(24);
+      }
+      &__content {
+        margin-top: rem(40);
+        @include sp {
+          margin-top: rem(16);
+        }
+        .c-toggle {
+          &__head {
+            h2 {
+              transition: all ease .3s;
+              b {
+                transition: all ease .3s;
+                font-weight: 400;
+              }
+            }
+            &.is-active {
+              h2 {
+                padding-bottom: 0;
+                b {
+                  opacity: 0;
+                }
+              }
+            }
+            .c-ico {
+              right: 0;
+              top: 50%;
+              margin-top: rem(-20);
+            }
+            .c-ttl {
+              padding: rem(23) rem(65);
+              .c-num {
+                top: rem(25);
+              }
+            }
+          }
+          &__main {
+            position: relative;
+            padding-bottom: rem(24);
+            margin-top: rem(-28);
+            display: none;
+            @include sp {
+              margin-top: rem(-12);
+            }
+          }
+        }
+        .infomation {
+          width: 100%;
+          position: relative;
+          @include pc {
+            display: grid;
+            grid-template-columns: rem(400) rem(400) auto;
+            gap: rem(40);
+          }
+          &__icon {
+            width: rem(95);
+          }
+          &__title {
+            margin-top: rem(22);
+            font-size: rem(18);
+            letter-spacing: -0.04em;
+          }
+          &__list {
+            margin-top: rem(25);
+            font-size: rem(16);
+            list-style: none;
+            @include sp {
+              margin-top: rem(26);
+            }
+            li {
+              padding-left: rem(24);
+              position: relative;
+              &:before {
+                content: '';
+                position: absolute;
+                width: rem(4);
+                height: rem(4);
+                top: rem(10);
+                left: rem(10);
+                background-color: $cl-body;
+                border-radius: 50%;
+              }
+            }
+          }
+          &__btn {
+            margin-top: rem(80);
+          }
+          .photo01 {
+            margin-top: rem(230);
+            width: rem(189);
+          }
+          .photo02 {
+            @include sp {
+              margin-top: rem(36);
+            }
+          }
+          .photo03 {
+            margin-top: rem(253);
+            margin-left: auto;
+            width: rem(281);
+          }
+        }
+        .c-learn-more {
+          position: relative;
+          top: rem(62);
+          float: right;
+          @include sp {
+            top: rem(44);
+          }
+        }
+      }
+    }
+    &-project {
+      background: url(../img/what-we-do/project_bg.jpg) no-repeat center center;
+      background-size: cover;
+      color: $cl-white;
+      .section__title {
+        color: inherit;
+      }
+      .c-tabs {
+        margin-top: rem(24);
+        &__head {
+          ul {
+            width: rem($w-inner);
+          }
+        }
+      }
+      .c-slider-center {
+        .slick-arrow {
+          background-image: url(../img/icon-arrow-left-white.png);
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+
+    // what-we-do details
+    &-overview {
+      padding-top: rem(160);
+      padding-bottom: rem(80);
+      @include sp {
+        padding-block: rem(16);
+      }
+      &__row {
+        @include pc {
+          @include grid(563, 80);
+          align-items: center;
+        }
+        .info {
+          @include pc {
+            order: 2;
+          }
+          @include sp {
+            margin-bottom: rem(24);
+          }
+          .txt {
+            margin: rem(40) 0;
+            @include sp {
+              margin: rem(32) 0;
+            }
+          }
+          ul {
+            border-top: 1px solid;
+            padding-top: rem(40);
+            list-style: none;
+            position: relative;
+            @include sp {
+              padding-top: rem(32);
+            }
+            li {
+              padding-left: rem(24);
+              position: relative;
+              &:before {
+                content: '';
+                position: absolute;
+                width: rem(4);
+                height: rem(4);
+                top: rem(10);
+                left: rem(10);
+                background-color: $cl-body;
+                border-radius: 50%;
+              }
+            }
+          }
+        }
+        .photo {
+          position: relative;
+        }
+        .progressBarContainer {
+          bottom: rem(30);
+          @include sp {
+            bottom: rem(20);
+          }
+          div {
+            width: rem(155);
+            margin: 0 rem(12);
+            @include sp {
+              width: rem(94);
+            }
+          }
+        }
+      }
+    }
+  }
+  .l-project-list {
+    @include pc {
+      padding-top: rem(80);
+    }
+  }
+}
+
+.m-scroll {
+  position: absolute;
+  top: rem(320);
+  left: 0;
+  width: 100%;
+  display: flex;
+  font-size: rem(85);
+  letter-spacing: -0.034em;
+  font-weight: bold;
+  color: $cl-primary-light;
+  white-space: nowrap;
+  &__inner {
+    display: flex;
+    animation: scrollText 20s infinite linear;
+  }
+}
+@keyframes scrollText {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
 }

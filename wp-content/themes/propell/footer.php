@@ -67,8 +67,9 @@ $assets = get_path_assets();
 <script src="<?php echo $assets ?>/libs/slick.min.js"></script>
 <script src="<?php echo $assets ?>/js/common.js"></script>
 
-<!-- top -->
+<!-- top-->
 <script src="<?php echo $assets ?>/js/top.js"></script>
+<script src="<?php echo $assets ?>/js/what-we-do.js"></script>
 <?php wp_footer(); ?>
 
 </body>
