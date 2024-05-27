@@ -22,36 +22,46 @@
 /** The name of the database for WordPress */
 //define( 'DB_NAME', 'propell' );
 
-define( 'DB_NAME', 'propell-db' );
-
-/** Database username */
-define( 'DB_USER', 'sgroot' );
-
-/** Database password */
-define( 'DB_PASSWORD', '0ZQhLzfu5RM1dC$N' );
-
-/** Database hostname */
-define( 'DB_HOST', 'SG-propell-db-8560-mysql-master.servers.mongodirector.com' );
-
-/** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+//define( 'DB_NAME', 'propell-db' );
+//
+///** Database username */
+//define( 'DB_USER', 'sgroot' );
+//
+///** Database password */
+//define( 'DB_PASSWORD', '0ZQhLzfu5RM1dC$N' );
+//
+///** Database hostname */
+//define( 'DB_HOST', 'SG-propell-db-8560-mysql-master.servers.mongodirector.com' );
+//
+///** Database charset to use in creating database tables. */
+//define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The database collate type. Don't change this if in doubt. */
 //define( 'DB_COLLATE', '' );
-//if (isset($_SERVER['WP_ENV'])) {
-//    define('WP_ENV', $_SERVER['WP_ENV']);
-//} else {
-//    define('WP_ENV', 'local');
-//}
-//
-//$wp_env_config = 'wp-config/wp-' . WP_ENV . '.php';
-//if (file_exists(__DIR__ . '/' . $wp_env_config)) {
-//    require_once($wp_env_config);
-//} else {
-//    // Exit if configuration file does not exist
-//    exit('No configuration found for this host');
-//}
+if (isset($_SERVER['WP_ENV'])) {
+    define('WP_ENV', $_SERVER['WP_ENV']);
+} else {
+    define('WP_ENV', 'local');
+}
 
+$wp_env_config = 'wp-config/wp-' . WP_ENV . '.php';
+if (file_exists(__DIR__ . '/' . $wp_env_config)) {
+    require_once($wp_env_config);
+} else {
+    // Exit if configuration file does not exist
+    exit('No configuration found for this host');
+}
+/**#@+
+ * Authentication unique keys and salts.
+ *
+ * Change these to different unique phrases! You can generate these using
+ * the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
+ *
+ * You can change these at any point in time to invalidate all existing cookies.
+ * This will force all users to have to log in again.
+ *
+ * @since 2.6.0
+ */
 define( 'AUTH_KEY',         '[Om:Nban~x)}V emt12`[QxiCjpgvg17]|,E^1OtDOwIRIiZLfJxC[[Lyxhr]tRZ' );
 define( 'SECURE_AUTH_KEY',  'Ge`)Q9^.hjd?Mie|KesvErG&or?V;VmKpVl&J5!O])qwj<fahAdfwJR$zDcRd06>' );
 define( 'LOGGED_IN_KEY',    'vqry<IJ{CL0o.3ih_W35vmoa1N/u#=$F=dZJxVUcd5L>Pi(HJz~_vQ7PmDQd$J~|' );
