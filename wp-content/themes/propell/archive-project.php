@@ -10,7 +10,7 @@ $current_language = pll_current_language('slug');
 
 <?php
     $args = array(
-        'post_type' => 'service',
+        'post_type' => 'project',
         'post_status' => 'publish',
         'showposts' => 10,
         'orderby' => 'date',
