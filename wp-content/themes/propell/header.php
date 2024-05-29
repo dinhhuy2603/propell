@@ -35,8 +35,7 @@
 
 </head>
 
-<!--<body class="page page-top">-->
-<body class="page page-detail page-contact">
+<body class="<?php echo get_page_class(); ?>">
 
 <header id="header" class="header">
     <div class="container">

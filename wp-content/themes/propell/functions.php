@@ -203,3 +203,16 @@ function get_path_assets()
 //add_filter( 'wp_kses_allowed_html', 'allow_html_in_editor', 10, 2 );
 //
 //remove_filter( 'the_content', 'wpautop' );
+
+
+function get_page_class(){
+	$class = '';
+	if (is_front_page()) {
+		$class = 'page page-top';
+	}
+	if (is_page('contact')) {
+		$class = 'page page-detail page-contact';
+	}
+
+	return $class;
+}

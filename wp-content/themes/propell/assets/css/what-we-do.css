@@ -605,7 +605,12 @@
 }
 @media (max-width: 750px) {
   .page-what-we-do .section-business__content .c-toggle__head {
+<<<<<<< HEAD
+    padding-inline: 0;
+    max-width: 22.375rem;
+=======
     padding-inline: 1rem;
+>>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
   }
 }
 .page-what-we-do .section-business__content .c-toggle__head h2 {

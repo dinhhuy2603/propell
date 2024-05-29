@@ -5,6 +5,8 @@
 // CUSTOM STYLES //
 // ======================================= //
 
+@import "../css/component/form";
+
 .page-contact{
   .kv__text{
     margin: rem(32) 0 rem(46);
@@ -145,14 +147,46 @@
       }
     }
   }
-  &__form{
-    .form-group{
-      border: 1px solid #E7EAF1;
-      padding: rem(16) rem(24) rem(6);
-      position: relative;
-      + .form-group{
-        margin-top: rem(16);
+  .c-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #010637, $alpha: 0.67);
+    z-index: 100;
+    display: none;
+    &.is-active{
+      display: block;
+    }
+    .c-modal__inner{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: rem(540);
+      padding: rem(120) rem(40) rem(60);
+      background: #fff;
+      @include sp{
+        width: rem(358);
+        padding: rem(92) rem(24) rem(24);
       }
+<<<<<<< HEAD
+      .c-modal__close{
+        position: absolute;
+        top: rem(42);
+        right: rem(40);
+        width: rem(56);
+        height: rem(56);
+        background: url("../img/icon_close_modal.png") center no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+        @include sp{
+          width: rem(44);
+          height: rem(44);
+          top: rem(24);
+          right: rem(24);
+=======
       .label{
         display: block;
         @include fontManrope;
@@ -164,19 +198,27 @@
         @include sp{
           font-size: rem(14);
           line-height: calc(19.12/14);
+>>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
         }
       }
-      .input, textarea{
-        border: none;
-        outline: 0;
-        width: 100%;
-        padding: rem(8) 0;
+      .c-modal__ttl{
+        font-size: rem(72);
+        line-height: calc(86.4/72);
         letter-spacing: -0.04em;
-        font-size: rem(18);
-        line-height: calc(24.59/18);
-        @include fontManrope;
         font-weight: 400;
+        @include fontBonaNova;
         color: $cl-body;
+<<<<<<< HEAD
+        margin-bottom: rem(24);
+        text-align: center;
+        @include sp{
+          font-size: rem(60);
+          line-height: calc(72/60);
+          margin-bottom: rem(24);
+        }
+      }
+      .c-modal__txt{
+=======
         @include sp{
           font-size: rem(14);
           line-height: calc(19.12/14);
@@ -207,11 +249,21 @@
         width: 100%;
         padding: rem(8) 0;
         letter-spacing: -0.04em;
+>>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
         font-size: rem(18);
         line-height: calc(24.59/18);
-        @include fontManrope;
+        letter-spacing: -0.04em;
         font-weight: 400;
+        @include fontManrope;
         color: $cl-body;
+<<<<<<< HEAD
+        margin-bottom: rem(24);
+        text-align: center;
+        @include sp{
+          font-size: rem(16);
+          line-height: calc(21.86/16);
+          margin-bottom: rem(16);
+=======
         cursor: pointer;
         position: relative;
         @include sp{
@@ -396,6 +448,7 @@
           background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
           background-size: rem(24);
           letter-spacing: -0.04em;
+>>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
         }
       }
     }
@@ -471,30 +524,5 @@
         }
       }
     }
-  }
-}
-    
-@keyframes fadeInUp {
-  from {
-    transform: translate3d(0, 10px, 0);
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
-@keyframes fadeInDown {
-  from {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    visibility: visible;
-  }
-  to {
-    transform: translate3d(0, 5px, 0);
-    opacity: 0;
-    visibility: hidden;
   }
 }

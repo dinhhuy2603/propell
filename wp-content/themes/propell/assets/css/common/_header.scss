@@ -30,6 +30,7 @@
         padding-top: rem(24);
         margin-top: rem(24);
         color: $cl-line;
+        padding-bottom: rem(40);
       }
       &__btn {
         display: flex;
@@ -56,6 +57,11 @@
         img {
           margin-right: rem(8);
           width: rem(24);
+        }
+        &.active{
+          &:after{
+            transform: rotate(180deg);
+          }
         }
       }
       ul {
@@ -217,6 +223,12 @@
       background: url(../../img/bg_menu_sp.jpg) no-repeat center center / cover;
       padding: rem(24) rem(24) rem(56);
       color: #fff;
+      *{
+        -ms-overflow-style: none;
+      }
+      ::-webkit-scrollbar {
+          display: none;
+      }
     }
     &__wrap {
       display: flex;
@@ -268,8 +280,10 @@
           text-decoration: none;
           display: block;
           &:hover {
-            background-image: url(../../img/icon-arrow-link_right-blue.png);
-            color: $cl-primary;
+            @include pc{
+              background-image: url(../../img/icon-arrow-link_right-blue.png);
+              color: $cl-primary;
+            }
           }
           @include queryHeightDown(780px) {
             background-size: rem(50);
@@ -334,6 +348,9 @@
       margin: 0 auto;
       max-height: 100%;
       overflow: auto;
+      @include sp{
+        padding-bottom: rem(80);
+      }
     }
     .hamburger__close {
       @include sp {

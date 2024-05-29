@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+function intModal(){
+  var modal = $(".c-modal");
+  var btnClose = modal.find(".c-modal__close");
+  btnClose.click(function(){
+    modal.removeClass("is-active");
+=======
 
 function intSelectBox() {
 
@@ -14,16 +21,11 @@ function intSelectBox() {
 
   selectBtn.on("click", function () {
     optionMenu.toggleClass("active");
+>>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
   });
-
-  options.each(function () {
-    $(this).on("click", function () {
-      options.removeClass("is-checked");
-      $(this).addClass("is-checked");
-      let selectedOption = $(this).find(".option-text").text();
-      sBtn_text.text(selectedOption);
-      optionMenu.removeClass("active");
-    });
+  modal.click(function(e){
+    if(e.target !== this) return;
+    modal.removeClass("is-active");
   });
 }
 
