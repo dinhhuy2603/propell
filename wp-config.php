@@ -22,16 +22,14 @@
 /** The name of the database for WordPress */
 //define( 'DB_NAME', 'propell' );
 
-//define( 'DB_NAME', 'propell-db' );
-//
 ///** Database username */
-//define( 'DB_USER', 'sgroot' );
+//define( 'DB_USER', 'root' );
 //
 ///** Database password */
-//define( 'DB_PASSWORD', '0ZQhLzfu5RM1dC$N' );
+//define( 'DB_PASSWORD', '' );
 //
 ///** Database hostname */
-//define( 'DB_HOST', 'SG-propell-db-8560-mysql-master.servers.mongodirector.com' );
+//define( 'DB_HOST', 'localhost' );
 //
 ///** Database charset to use in creating database tables. */
 //define( 'DB_CHARSET', 'utf8mb4' );
