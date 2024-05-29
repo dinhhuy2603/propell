@@ -192,8 +192,38 @@
   // project detail
   .project-detail {
     padding-bottom: rem(160);
+    padding-top: rem(160);
     @include sp {
+      padding-top: rem(40);
       padding-bottom: rem(24);
+    }
+    .c-tabs {
+      margin-top: rem(40);
+      @include sp {
+        margin-top: rem(24);
+      }
+      &__head {
+        margin-bottom: rem(40);
+        @include sp {
+          margin-bottom: 0;
+        }
+        ul{
+          @include sp{
+            width: 100%;
+            justify-content: flex-start;
+            overflow: auto;
+          }
+        }
+        .item{
+          @include sp{
+            border-top-width: rem(2);
+            text-wrap: nowrap;
+            font-size: rem(16);
+            line-height: calc(21.86/16);
+            letter-spacing: -0.04em;
+          }
+        }
+      }
     }
     .content__head {
       @include pc {

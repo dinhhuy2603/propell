@@ -97,6 +97,12 @@
         }
         .c-toggle {
           &__head {
+            max-width: rem(1320);
+            padding-inline: rem(20);
+            margin: 0 auto;
+            @include sp {
+              padding-inline: rem(16);
+            }
             h2 {
               transition: all ease .3s;
               b {

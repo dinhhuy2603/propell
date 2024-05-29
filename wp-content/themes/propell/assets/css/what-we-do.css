@@ -598,6 +598,16 @@
     margin-top: 1rem;
   }
 }
+.page-what-we-do .section-business__content .c-toggle__head {
+  max-width: 82.5rem;
+  padding-inline: 1.25rem;
+  margin: 0 auto;
+}
+@media (max-width: 750px) {
+  .page-what-we-do .section-business__content .c-toggle__head {
+    padding-inline: 1rem;
+  }
+}
 .page-what-we-do .section-business__content .c-toggle__head h2 {
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;

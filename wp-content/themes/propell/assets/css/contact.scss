@@ -16,6 +16,9 @@
 
 .contact{
   padding-bottom: rem(80);
+  @include sp{
+    padding-bottom: rem(40);
+  }
   &__content{
     padding-top: rem(80);
     @include pc{
@@ -158,7 +161,10 @@
         line-height: calc(21.86/16);
         letter-spacing: -0.04em;
         color: $cl-line;
-
+        @include sp{
+          font-size: rem(14);
+          line-height: calc(19.12/14);
+        }
       }
       .input, textarea{
         border: none;
@@ -171,9 +177,27 @@
         @include fontManrope;
         font-weight: 400;
         color: $cl-body;
+        @include sp{
+          font-size: rem(14);
+          line-height: calc(19.12/14);
+        }
       }
       textarea{
         height: rem(98);
+      }
+      label.error{
+        font-family: Manrope;
+        font-size: rem(8);
+        font-weight: 400;
+        line-height: calc(10.93/8);
+        color: #FF4850;
+        letter-spacing: 0.011em;
+        position: absolute;
+        left: rem(24);
+        bottom: rem(3);
+      }
+      input.error, textarea.error{
+        color: #FF4850;
       }
     }
     .select-menu {
@@ -189,6 +213,21 @@
         font-weight: 400;
         color: $cl-body;
         cursor: pointer;
+        position: relative;
+        @include sp{
+          font-size: rem(14);
+          line-height: calc(19.12/14);
+        }
+        .icon{
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: rem(24);
+          height: rem(24);
+          background: url("../img/icon_down.png") center no-repeat;
+          background-size: 100%;
+        }
       }
       .options {
         position: absolute;
@@ -202,6 +241,10 @@
         border: 1px solid #E7EAF1;
         border-top: 0;
         animation: fadeInDown 0.1s both;
+        @include sp{
+          width: rem(358);
+          top: rem(74);
+        }
         .option {
           display: flex;
           cursor: pointer;
@@ -220,6 +263,10 @@
             color: $cl-line;
             position: relative;
             width: 100%;
+            @include sp{
+              font-size: rem(14);
+              line-height: calc(19.12/14);
+            }
             &:after{
               content: '';
               display: block;
@@ -247,6 +294,11 @@
         }
       }
       &.active{
+        .select-btn{
+          .icon{
+            transform: translateY(-50%) rotate(180deg);
+          }
+        }
         .options {
           display: block;
           opacity: 0;
@@ -255,6 +307,76 @@
         }
       }
     }
+    
+    .dropdown-select{
+      background-color: #f0f0f3;
+      width: 500px;
+      position: relative;
+      height: 35px;
+      cursor: pointer;
+      .select-box{
+        display: none !important;
+      }
+      span.selection{
+        display: block;
+        line-height: 35px;
+        padding-left: 10px;
+      }
+      span.right-icon{
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0f57d6;
+        .fa{
+          color: #fff;
+          font-size: 33px;
+          padding-right: 6px;
+          padding-left: 6px;
+        }
+      }
+      ul{
+        list-style: none;
+        margin: 0 0 0 0;
+        padding: 0;
+        &.list-items{
+          visibility: hidden;
+          background-color: #f0f0f3;
+          height: 0;
+          max-height: 300px;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          transition: 0.2s all ease-in-out;  
+          padding-bottom: 2px;
+          margin-bottom: 2px;
+          position: relative;
+          &.open{
+            height: 300px;
+            visibility: visible;
+          }
+          li{
+            height: 45px;
+            line-height: 45px;        
+            background-color: #fff;
+            padding-left: 10px;
+            margin: 0 2px;
+            &.active{
+              position: relative;
+              &:before{
+                content: ' ';
+                width: 5px;
+                height: 100%;
+                position: absolute;
+                background: #0f57d6;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .g-recaptcha{
       display: flex;
       width: 100%;
@@ -274,6 +396,78 @@
           background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
           background-size: rem(24);
           letter-spacing: -0.04em;
+        }
+      }
+    }
+  }
+  .c-modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #010637, $alpha: 0.67);
+    z-index: 100;
+    display: none;
+    &.is-active{
+      display: block;
+    }
+    .c-modal__inner{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: rem(540);
+      padding: rem(120) rem(40) rem(60);
+      background: #fff;
+      @include sp{
+        width: rem(358);
+        padding: rem(92) rem(24) rem(24);
+      }
+      .c-modal__close{
+        position: absolute;
+        top: rem(42);
+        right: rem(40);
+        width: rem(56);
+        height: rem(56);
+        background: url("../img/icon_close_modal.png") center no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+        @include sp{
+          width: rem(44);
+          height: rem(44);
+          top: rem(24);
+          right: rem(24);
+        }
+      }
+      .c-modal__ttl{
+        font-size: rem(72);
+        line-height: calc(86.4/72);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontBonaNova;
+        color: $cl-body;
+        margin-bottom: rem(24);
+        text-align: center;
+        @include sp{
+          font-size: rem(60);
+          line-height: calc(72/60);
+          margin-bottom: rem(24);
+        }
+      }
+      .c-modal__txt{
+        font-size: rem(18);
+        line-height: calc(24.59/18);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontManrope;
+        color: $cl-body;
+        margin-bottom: rem(24);
+        text-align: center;
+        @include sp{
+          font-size: rem(16);
+          line-height: calc(21.86/16);
+          margin-bottom: rem(16);
         }
       }
     }

@@ -37,6 +37,7 @@
         padding-right: rem(35);
         position: relative;
         font-size: rem(16);
+        font-weight: bold;
         user-select: none;
         cursor: pointer;
         @include sp {
@@ -146,6 +147,7 @@
   }
   .hamburger {
     margin-left: rem(40);
+    font-weight: bold;
     cursor: pointer;
     &__menu {
       display: flex;

@@ -767,6 +767,7 @@ textarea {
   padding-right: 2.1875rem;
   position: relative;
   font-size: 1rem;
+  font-weight: bold;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -894,6 +895,7 @@ textarea {
 }
 .header .hamburger {
   margin-left: 2.5rem;
+  font-weight: bold;
   cursor: pointer;
 }
 .header .hamburger__menu {

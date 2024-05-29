@@ -68,8 +68,14 @@ $assets = get_path_assets();
 <script src="<?php echo $assets ?>/js/common.js"></script>
 
 <!-- top-->
-<script src="<?php echo $assets ?>/js/top.js"></script>
-<script src="<?php echo $assets ?>/js/what-we-do.js"></script>
+<!--<script src="--><?php //echo $assets ?><!--/js/top.js"></script>-->
+<!--<script src="--><?php //echo $assets ?><!--/js/what-we-do.js"></script>-->
+
+<!--contact-->
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+<script src="<?php echo $assets ?>/js/contact.js"></script>
+
 <?php wp_footer(); ?>
 
 </body>

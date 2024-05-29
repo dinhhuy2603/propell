@@ -20,12 +20,12 @@ function intSliderProgress() {
     });
 
     $sliderEl.slick({
-      infinite: false,
+      infinite: true,
       arrows: true,
       dots: true,
       autoplay: false,
       speed: 800,
-      slidesToShow: 3,
+      slidesToShow: 1,
       slidesToScroll: 1,
       variableWidth: true,
       prevArrow: $prevBtn,

@@ -25,15 +25,19 @@
     <!-- Style -->
     <link rel="stylesheet" href="<?php echo $assets ?>/css/common/common.css">
     <link rel="stylesheet" href="<?php echo $assets ?>/libs/slick.min.css">
-    <link rel="stylesheet" href="<?php echo $assets ?>/css/top.css">
+<!--    <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/top.css">-->
+    <link rel="stylesheet" href="<?php echo $assets ?>/css/common/detail.css">
+    <link rel="stylesheet" href="<?php echo $assets ?>/css/contact.css">
+
 </head>
 
-<body class="page page-top">
+<!--<body class="page page-top">-->
+<body class="page page-detail page-contact">
 
 <header id="header" class="header">
     <div class="container">
         <div class="header__wrap">
-            <div class="header__logo"><a href="./"><img src="<?php echo $assets ?>/img/logo-white.png" alt="Logo"></a></div>
+            <div class="header__logo"><a href="./"><img src="<?php echo $assets ?>/img/logo.png" alt="Logo"></a></div>
             <div class="header__right">
                 <div class="language only-pc">
                     <div class="language__btn js-toggle"><img src="<?php echo $assets ?>/img/icon-lang-en.png" alt="English">English</div>

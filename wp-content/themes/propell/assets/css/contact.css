@@ -10,6 +10,11 @@
 .contact {
   padding-bottom: 5rem;
 }
+@media (max-width: 750px) {
+  .contact {
+    padding-bottom: 2.5rem;
+  }
+}
 .contact__content {
   padding-top: 5rem;
 }
@@ -169,6 +174,12 @@
   letter-spacing: -0.04em;
   color: #D8DAE1;
 }
+@media (max-width: 750px) {
+  .contact__form .form-group .label {
+    font-size: 0.875rem;
+    line-height: 1.3657142857;
+  }
+}
 .contact__form .form-group .input, .contact__form .form-group textarea {
   border: none;
   outline: 0;
@@ -181,8 +192,28 @@
   font-weight: 400;
   color: #595B61;
 }
+@media (max-width: 750px) {
+  .contact__form .form-group .input, .contact__form .form-group textarea {
+    font-size: 0.875rem;
+    line-height: 1.3657142857;
+  }
+}
 .contact__form .form-group textarea {
   height: 6.125rem;
+}
+.contact__form .form-group label.error {
+  font-family: Manrope;
+  font-size: 0.5rem;
+  font-weight: 400;
+  line-height: 1.36625;
+  color: #FF4850;
+  letter-spacing: 0.011em;
+  position: absolute;
+  left: 1.5rem;
+  bottom: 0.1875rem;
+}
+.contact__form .form-group input.error, .contact__form .form-group textarea.error {
+  color: #FF4850;
 }
 .contact__form .select-menu .select-btn {
   border: none;
@@ -196,6 +227,24 @@
   font-weight: 400;
   color: #595B61;
   cursor: pointer;
+  position: relative;
+}
+@media (max-width: 750px) {
+  .contact__form .select-menu .select-btn {
+    font-size: 0.875rem;
+    line-height: 1.3657142857;
+  }
+}
+.contact__form .select-menu .select-btn .icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  background: url("../img/icon_down.png") center no-repeat;
+  background-size: 100%;
 }
 .contact__form .select-menu .options {
   position: absolute;
@@ -209,6 +258,12 @@
   border-top: 0;
   -webkit-animation: fadeInDown 0.1s both;
           animation: fadeInDown 0.1s both;
+}
+@media (max-width: 750px) {
+  .contact__form .select-menu .options {
+    width: 22.375rem;
+    top: 4.625rem;
+  }
 }
 .contact__form .select-menu .options .option {
   display: -webkit-box;
@@ -232,6 +287,12 @@
   position: relative;
   width: 100%;
 }
+@media (max-width: 750px) {
+  .contact__form .select-menu .options .option .option-text {
+    font-size: 0.875rem;
+    line-height: 1.3657142857;
+  }
+}
 .contact__form .select-menu .options .option .option-text:after {
   content: "";
   display: block;
@@ -254,12 +315,85 @@
   opacity: 1;
   visibility: visible;
 }
+.contact__form .select-menu.active .select-btn .icon {
+  -webkit-transform: translateY(-50%) rotate(180deg);
+          transform: translateY(-50%) rotate(180deg);
+}
 .contact__form .select-menu.active .options {
   display: block;
   opacity: 0;
   z-index: 10;
   -webkit-animation: fadeInUp 0.15s both;
           animation: fadeInUp 0.15s both;
+}
+.contact__form .dropdown-select {
+  background-color: #f0f0f3;
+  width: 500px;
+  position: relative;
+  height: 35px;
+  cursor: pointer;
+}
+.contact__form .dropdown-select .select-box {
+  display: none !important;
+}
+.contact__form .dropdown-select span.selection {
+  display: block;
+  line-height: 35px;
+  padding-left: 10px;
+}
+.contact__form .dropdown-select span.right-icon {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0f57d6;
+}
+.contact__form .dropdown-select span.right-icon .fa {
+  color: #fff;
+  font-size: 33px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+.contact__form .dropdown-select ul {
+  list-style: none;
+  margin: 0 0 0 0;
+  padding: 0;
+}
+.contact__form .dropdown-select ul.list-items {
+  visibility: hidden;
+  background-color: #f0f0f3;
+  height: 0;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-transition: 0.2s all ease-in-out;
+  transition: 0.2s all ease-in-out;
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+  position: relative;
+}
+.contact__form .dropdown-select ul.list-items.open {
+  height: 300px;
+  visibility: visible;
+}
+.contact__form .dropdown-select ul.list-items li {
+  height: 45px;
+  line-height: 45px;
+  background-color: #fff;
+  padding-left: 10px;
+  margin: 0 2px;
+}
+.contact__form .dropdown-select ul.list-items li.active {
+  position: relative;
+}
+.contact__form .dropdown-select ul.list-items li.active:before {
+  content: " ";
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  background: #0f57d6;
+  left: 0;
 }
 .contact__form .g-recaptcha {
   display: -webkit-box;
@@ -286,6 +420,87 @@
   background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
   background-size: 1.5rem;
   letter-spacing: -0.04em;
+}
+.contact .c-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 6, 55, 0.67);
+  z-index: 100;
+  display: none;
+}
+.contact .c-modal.is-active {
+  display: block;
+}
+.contact .c-modal .c-modal__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 33.75rem;
+  padding: 7.5rem 2.5rem 3.75rem;
+  background: #fff;
+}
+@media (max-width: 750px) {
+  .contact .c-modal .c-modal__inner {
+    width: 22.375rem;
+    padding: 5.75rem 1.5rem 1.5rem;
+  }
+}
+.contact .c-modal .c-modal__inner .c-modal__close {
+  position: absolute;
+  top: 2.625rem;
+  right: 2.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: url("../img/icon_close_modal.png") center no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+@media (max-width: 750px) {
+  .contact .c-modal .c-modal__inner .c-modal__close {
+    width: 2.75rem;
+    height: 2.75rem;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+.contact .c-modal .c-modal__inner .c-modal__ttl {
+  font-size: 4.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  font-family: "Bona Nova", serif;
+  color: #595B61;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+@media (max-width: 750px) {
+  .contact .c-modal .c-modal__inner .c-modal__ttl {
+    font-size: 3.75rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+}
+.contact .c-modal .c-modal__inner .c-modal__txt {
+  font-size: 1.125rem;
+  line-height: 1.3661111111;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  font-family: "Manrope", sans-serif;
+  color: #595B61;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+@media (max-width: 750px) {
+  .contact .c-modal .c-modal__inner .c-modal__txt {
+    font-size: 1rem;
+    line-height: 1.36625;
+    margin-bottom: 1rem;
+  }
 }
 
 @-webkit-keyframes fadeInUp {
