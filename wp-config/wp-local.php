@@ -7,7 +7,7 @@ define( 'DB_NAME', 'propell' );
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'root' );
 
 /** Database hostname */
 define( 'DB_HOST', '127.0.0.1' );
