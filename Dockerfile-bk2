@@ -1,0 +1,20 @@
+# Use the official WordPress image as a base
+FROM wordpress:latest
+
+# Set the working directory
+WORKDIR /var/www/html
+
+# Install git and mariadb-client
+RUN apt-get update && apt-get install -y git mariadb-client
+
+# Remove existing files and clone your repository
+RUN rm -rf /var/www/html/* && git clone https://github.com/dinhhuy2603/propell.git .
+
+# Ensure the right permissions
+RUN chown -R www-data:www-data /var/www/html
+
+# Copy the update script into the container
+COPY update.sh /usr/local/bin/update.sh
+
+# Make the update script executable
+RUN chmod +x /usr/local/bin/update.sh

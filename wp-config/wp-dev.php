@@ -1,16 +1,16 @@
 <?php
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'propell-db' );
+define( 'DB_NAME', 'propell-dev' );
 
 /** Database username */
-define( 'DB_USER', 'sgroot' );
+define( 'DB_USER', 'propell-dev' );
 
 /** Database password */
-define( 'DB_PASSWORD', '0ZQhLzfu5RM1dC$N' );
+define( 'DB_PASSWORD', 'propell-dev' );
 
 /** Database hostname */
-define( 'DB_HOST', 'SG-propell-db-8560-mysql-master.servers.mongodirector.com' );
+define( 'DB_HOST', 'db' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );

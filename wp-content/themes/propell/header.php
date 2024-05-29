@@ -25,9 +25,13 @@
     <!-- Style -->
     <link rel="stylesheet" href="<?php echo $assets ?>/css/common/common.css">
     <link rel="stylesheet" href="<?php echo $assets ?>/libs/slick.min.css">
-<!--    <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/top.css">-->
-    <link rel="stylesheet" href="<?php echo $assets ?>/css/common/detail.css">
-    <link rel="stylesheet" href="<?php echo $assets ?>/css/contact.css">
+    <?php if (is_front_page()) : ?>
+        <link rel="stylesheet" href="<?php echo $assets ?>/css/top.css">
+    <?php else: ?>
+        <link rel="stylesheet" href="<?php echo $assets ?>/css/common/detail.css">
+        <link rel="stylesheet" href="<?php echo $assets ?>/css/contact.css">
+    <?php endif; ?>
+
 
 </head>
 
