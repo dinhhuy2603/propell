@@ -1,13 +1,13 @@
 <?php
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'propell' );
+define( 'DB_NAME', 'propell-dev' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'propell-dev' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'propell-dev' );
 
 /** Database hostname */
 define( 'DB_HOST', '127.0.0.1' );
