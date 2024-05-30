@@ -338,7 +338,6 @@ function get_template_directory() {
 	$template     = get_template();
 	$theme_root   = get_theme_root( $template );
 	$template_dir = "$theme_root/$template";
-
 	/**
 	 * Filters the active theme directory path.
 	 *
