@@ -203,3 +203,21 @@ function get_path_assets()
 //add_filter( 'wp_kses_allowed_html', 'allow_html_in_editor', 10, 2 );
 //
 //remove_filter( 'the_content', 'wpautop' );
+function get_current_domain() {
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+        $protocol = "https://";
+    } else {
+        $protocol = "http://";
+    }
+    $domain = $_SERVER['HTTP_HOST'];
+    return $protocol . $domain;
+}
+
+function my_theme_enqueue_assets() {
+    $current_domain = get_current_domain();
+    $template_directory = $current_domain . '/wp-content/themes/' . get_template();
+
+    wp_enqueue_style('main-stylesheet', $template_directory . '/style.css');
+    wp_enqueue_script('custom-script', $template_directory . '/js/custom-script.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'my_theme_enqueue_assets');

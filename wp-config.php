@@ -18,6 +18,9 @@
  * @package WordPress
  */
 
+define('WP_HOME', 'https://7743-14-191-93-159.ngrok-free.app');
+define('WP_SITEURL', 'https://7743-14-191-93-159.ngrok-free.app');
+
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 //define( 'DB_NAME', 'propell' );
