@@ -67,13 +67,15 @@ $assets = get_path_assets();
 <script src="<?php echo $assets ?>/libs/slick.min.js"></script>
 <script src="<?php echo $assets ?>/js/common.js"></script>
 <?php if (is_front_page()) : ?>
-<!-- top-->
-<script src="<?php echo $assets ?>/js/top.js"></script>
-<?php else: ?>
-<script src="<?php echo $assets ?>/js/what-we-do.js"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
-<script src="<?php echo $assets ?>/js/contact.js"></script>
+    <!-- top-->
+    <script src="<?php echo $assets ?>/js/top.js"></script>
+<?php elseif (is_post_type_archive('service') || is_page('contact')): ?>
+    <script src="<?php echo $assets ?>/js/what-we-do.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
+    <script src="<?php echo $assets ?>/js/contact.js"></script>
+<?php elseif (is_post_type_archive('project')): ?>
+    <script src="<?php echo $assets ?>/js/project.js"></script>
 <?php endif; ?>
 <!--contact-->
 

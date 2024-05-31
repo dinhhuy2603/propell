@@ -1,12 +1,13 @@
 .header {
-  padding: rem(40) 0 0;
-  position: absolute;
+  padding: rem(24) 0;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  background: #fff;
   z-index: 10;
   @include sp {
-    padding: rem(8) 0 rem(8);
+    padding: rem(16) 0;
   }
   &__wrap {
     display: flex;
@@ -27,9 +28,10 @@
       position: relative;
       @include sp {
         border-top: 1px solid $cl-gray;
-        padding-top: rem(24);
+        padding-top: rem(20);
         margin-top: rem(24);
         color: $cl-line;
+        padding-bottom: rem(40);
       }
       &__btn {
         display: flex;
@@ -57,6 +59,11 @@
           margin-right: rem(8);
           width: rem(24);
         }
+        &.active{
+          &:after{
+            transform: rotate(180deg);
+          }
+        }
       }
       ul {
         display: none;
@@ -65,9 +72,11 @@
         z-index: 1;
         @include pc {
           width: rem(150);
+          padding: rem(8) rem(16) rem(12);
           position: absolute;
           top: 100%;
-          left: 0;
+          left: rem(-16);
+          background: #fff;
         }
         li {
           display: flex;
@@ -76,8 +85,8 @@
           padding: rem(8) 0 rem(4) 0;
           cursor: pointer;
           @include sp {
-            padding: rem(12) 0;
-            opacity: 0.32;
+            padding: rem(8) 0;
+            // opacity: 0.32;
             color: $cl-line;
           }
           span {
@@ -105,7 +114,6 @@
               background: url(../../img/icon-ticked.png) no-repeat center right;
               background-size: rem(24);
               opacity: 1;
-              color: $cl-white;
             }
           }
         }
@@ -196,8 +204,8 @@
         background-image: url(../../img/icon-close-nav_sp.png);
         top: rem(24);
         right: rem(24);
-        width: rem(44);
-        height: rem(44);
+        width: rem(30);
+        height: rem(30);
       }
     }
   }
@@ -214,9 +222,14 @@
     padding: 0 rem(120);
     color: $cl-body;
     @include sp {
-      background: url(../../img/bg_menu_sp.jpg) no-repeat center center / cover;
+      background: #fff;
       padding: rem(24) rem(24) rem(56);
-      color: #fff;
+      *{
+        -ms-overflow-style: none;
+      }
+      ::-webkit-scrollbar {
+          display: none;
+      }
     }
     &__wrap {
       display: flex;
@@ -232,7 +245,7 @@
     &__logo {
       width: rem(250);
       @include sp {
-        width: rem(108);
+        width: rem(66);
       }
     }
     &__nav {
@@ -244,14 +257,15 @@
       font-size: rem(60);
       line-height: calc(80/60);
       overflow: auto;
+      letter-spacing: -0.04em;
       @include queryHeightDown(780px) {
-        font-size: rem(40);
+        font-size: rem(32);
       }
       @include sp {
-        margin-top: rem(24);
+        margin-top: rem(50);
         width: 100%;
-        font-size: rem(32);
-        line-height: calc(38/32);
+        font-size: rem(24);
+        line-height: calc(28.8/24);
       }
       li {
         margin-bottom: rem(16);
@@ -268,8 +282,10 @@
           text-decoration: none;
           display: block;
           &:hover {
-            background-image: url(../../img/icon-arrow-link_right-blue.png);
-            color: $cl-primary;
+            @include pc{
+              background-image: url(../../img/icon-arrow-link_right-blue.png);
+              color: $cl-primary;
+            }
           }
           @include queryHeightDown(780px) {
             background-size: rem(50);
@@ -324,16 +340,17 @@
     padding-block: rem(136) rem(40);
     color: $cl-body;
     @include sp {
-      background: url(../../img/bg_search_sp.jpg) no-repeat center center;
-      background-size: cover;
+      background: #fff;
       padding: rem(88) rem(16) rem(40);
-      color: $cl-white;
     }
     &__wrap {
       max-width: rem(848);
       margin: 0 auto;
       max-height: 100%;
       overflow: auto;
+      @include sp{
+        padding-bottom: rem(80);
+      }
     }
     .hamburger__close {
       @include sp {
@@ -346,8 +363,11 @@
       background-size: rem(44);
       border-bottom: 1px solid;
       padding: rem(24) rem(60) rem(24) 0;
-      @include sp {
-        background-image: url(../../img/icon-search.png);
+      @include sp{
+        background-size: rem(32);
+        border-bottom: 1px solid $cl-body;
+        margin: 0 rem(8);
+        padding: rem(20) rem(40) rem(19) 0;
       }
       input {
         background: none;
@@ -359,6 +379,7 @@
         @include sp {
           height: rem(44);
           color: inherit;
+          font-size: rem(24);
           &::placeholder {
             color: $cl-body;
           }
@@ -370,8 +391,10 @@
       gap: rem(80);
       margin-top: rem(32);
       @include sp {
-        gap: rem(10);
+        display: block;
         color: $cl-line;
+        font-size: rem(12);
+        margin-inline: rem(8);
       }
       ul {
         list-style: none;
@@ -379,7 +402,7 @@
           width: 50%;
         }
         li {
-          padding: rem(8) 0;
+          padding: rem(8) 0 rem(7);
           letter-spacing: 0;
           &:hover {
             color: $cl-primary;
@@ -391,24 +414,51 @@
       }
     }
     &__article {
+      @include sp{
+        padding-inline: rem(8);
+      }
       .item {
         margin-top: rem(40);
         @include pc {
           @include grid(275, 40);
         }
         @include sp {
-          padding-bottom: rem(40);
+          padding-bottom: rem(24);
           border-bottom: 1px solid;
         }
+        .photo{
+          @include sp{
+            width: rem(342);
+            height: rem(225);
+            position: relative;
+            img{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
         .group {
+          @include pc{
+            border-bottom: 1px solid;
+          }
           h3 {
             margin-bottom: rem(16);
           }
           @include sp {
-            margin-top: rem(16);
+            margin-top: rem(25);
             h3 {
-              margin-bottom: rem(8);
+              margin-bottom: rem(16);
               color: inherit;
+            }
+          }
+          > p{
+            @include sp{
+              font-size: rem(16);
+              line-height: calc(21.86/16);
             }
           }
         }

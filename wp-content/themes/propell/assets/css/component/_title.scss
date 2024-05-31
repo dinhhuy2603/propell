@@ -40,9 +40,9 @@
     font-weight: bold;
     border-bottom: 1px solid;
     color: #D8DAE1;
+    letter-spacing: -0.04em;
     @include sp {
       padding-bottom: rem(16);
-      letter-spacing: 0.04em;
       font-size: rem(14);
     }
   }

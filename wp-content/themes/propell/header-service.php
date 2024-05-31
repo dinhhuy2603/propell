@@ -29,7 +29,7 @@ $langs_array = pll_the_languages( array( 'dropdown' => 1, 'hide_current' => 1, '
     <link rel="stylesheet" href="<?php echo $assets ?>/css/what-we-do.css">
 </head>
 
-<body class="page page-detail page-what-we-do">
+<body class="<?php echo get_page_class(); ?>">
 
 <header id="header" class="header">
     <div class="container">
