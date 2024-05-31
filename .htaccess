@@ -1,5 +1,5 @@
 <IfModule mod_env.c>
-    SetEnv WP_ENV local
+    SetEnv WP_ENV dev
 </IfModule>
 # BEGIN WordPress
 # The directives (lines) between "BEGIN WordPress" and "END WordPress" are
