@@ -20,35 +20,24 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-//define( 'DB_NAME', 'propell' );
+define( 'DB_NAME', 'propell' );
 
-///** Database username */
-//define( 'DB_USER', 'root' );
-//
-///** Database password */
-//define( 'DB_PASSWORD', '' );
-//
-///** Database hostname */
-//define( 'DB_HOST', 'localhost' );
-//
-///** Database charset to use in creating database tables. */
-//define( 'DB_CHARSET', 'utf8mb4' );
+/** Database username */
+define( 'DB_USER', 'root' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'root' );
+
+/** Database hostname */
+define( 'DB_HOST', '127.0.0.1:3306' );
+
+/** Database charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8' );
 
 /** The database collate type. Don't change this if in doubt. */
-//define( 'DB_COLLATE', '' );
-if (isset($_SERVER['WP_ENV'])) {
-    define('WP_ENV', $_SERVER['WP_ENV']);
-} else {
-    define('WP_ENV', 'local');
-}
+define( 'DB_COLLATE', '' );
 
-$wp_env_config = 'wp-config/wp-' . WP_ENV . '.php';
-if (file_exists(__DIR__ . '/' . $wp_env_config)) {
-    require_once($wp_env_config);
-} else {
-    // Exit if configuration file does not exist
-    exit('No configuration found for this host');
-}
+
 /**#@+
  * Authentication unique keys and salts.
  *
@@ -60,14 +49,14 @@ if (file_exists(__DIR__ . '/' . $wp_env_config)) {
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         '[Om:Nban~x)}V emt12`[QxiCjpgvg17]|,E^1OtDOwIRIiZLfJxC[[Lyxhr]tRZ' );
-define( 'SECURE_AUTH_KEY',  'Ge`)Q9^.hjd?Mie|KesvErG&or?V;VmKpVl&J5!O])qwj<fahAdfwJR$zDcRd06>' );
-define( 'LOGGED_IN_KEY',    'vqry<IJ{CL0o.3ih_W35vmoa1N/u#=$F=dZJxVUcd5L>Pi(HJz~_vQ7PmDQd$J~|' );
-define( 'NONCE_KEY',        'WaX~!e)c=>=Ho,?`>>lwzQG@#}JQ>`)GB#j4$rD|5jtAzEc@W/(<nsG{v;5Rs54,' );
-define( 'AUTH_SALT',        'NUB!A5IK1V|:-[_5rW.hp]U^-G)ta]X4{-~&,ic{=K}<?n=eejk/LTe^9RB(-3:i' );
-define( 'SECURE_AUTH_SALT', 'tM/|f-*T!]{eOX)92klTqPBZ)A:FEn$qkL5#:7QEQeL?0wemWAyk,~fk0f-{KIRK' );
-define( 'LOGGED_IN_SALT',   'WQ}d3EysNb?XfQ`$T&@LX;vSQCwbsO[ABVvh?[!FsIPQyY}D1Qa:`G-LW{A&/2=>' );
-define( 'NONCE_SALT',       'O_iRc2T!>Y8Jp9$Ts0b8s[B4/DRb`aackmsfPsDrO_WO[iZe<h2utpW$yKK|m/?R' );
+define( 'AUTH_KEY',         'Ie>DR1xIz+DjIpQx>dI2o$WCR<27_0,Yf{T#SfQmN8WX:K47_{xsHm64OXw5S|M&' );
+define( 'SECURE_AUTH_KEY',  '9u9(N$)C!Zd{D)r=@FANUDR}F}Cn;^44H8sg!xl=nlvd_U{=5ORHe,qyRGg_/E=@' );
+define( 'LOGGED_IN_KEY',    'R&!}Lhy=Wf:?S[i[CusFyJgf5y|Ky%En^{#,g=],w_LqhWFL 6BG z4 (/ESv_|S' );
+define( 'NONCE_KEY',        'u^, n>Vpe[KJ6j,O*7;(&4:8tDd^7k1L(]f1Bv5EF0Ew; aivbitT2W^he1w]1u?' );
+define( 'AUTH_SALT',        '%[5gv|4.W,^/i:UY[jl(+h|#:u)Ls*jKP|l/_W_)Eu,A8rU;hBMjmZJ~]l9<5Jxc' );
+define( 'SECURE_AUTH_SALT', '5UO+58.`{5^I_tX)hH7+SPrSIPx7P&ow5gzDweeuF.@cghKS8QK~#k`{)@mQS_%M' );
+define( 'LOGGED_IN_SALT',   '!CHY.sciBe};[9RN&+<xv]T=YkCbCR-U]fSY[;):/9M.|+G[1SW8a?[OX9j-hiCN' );
+define( 'NONCE_SALT',       'Izd~q9K=_.5y^bVD1BcF~p,Yz3H3w 05#-k.lcjHi:?xgwV4F:(|t>G%?a8Wh9<n' );
 
 /**#@-*/
 
@@ -77,6 +66,7 @@ define( 'NONCE_SALT',       'O_iRc2T!>Y8Jp9$Ts0b8s[B4/DRb`aackmsfPsDrO_WO[iZe<h2
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
+
 $table_prefix = 'wp_';
 
 /**
@@ -91,24 +81,48 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-//define( 'WP_DEBUG', false );
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
+
+define( 'WP_DEBUG', false );
+
 /* Add any custom values between this line and the "stop editing" line. */
+define( 'FS_METHOD', 'direct' );
+/**
+ * The WP_SITEURL and WP_HOME options are configured to access from any hostname or IP address.
+ * If you want to access only from an specific domain, you can modify them. For example:
+ *  define('WP_HOME','http://example.com');
+ *  define('WP_SITEURL','http://example.com');
+ *
+ */
+if ( defined( 'WP_CLI' ) ) {
+    $_SERVER['HTTP_HOST'] = '127.0.0.1';
+}
 
-
-
+define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
+define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
+define( 'WP_AUTO_UPDATE_CORE', 'minor' );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+    define( 'ABSPATH', __DIR__ . '/' );
 }
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
 
-
-// version static
-define('VERSION_STATIC', '1.0.9');
+/**
+ * Disable pingback.ping xmlrpc method to prevent WordPress from participating in DDoS attacks
+ * More info at: https://docs.bitnami.com/general/apps/wordpress/troubleshooting/xmlrpc-and-pingback/
+ */
+if ( !defined( 'WP_CLI' ) ) {
+    // remove x-pingback HTTP header
+    add_filter("wp_headers", function($headers) {
+        unset($headers["X-Pingback"]);
+        return $headers;
+    });
+    // disable pingbacks
+    add_filter( "xmlrpc_methods", function( $methods ) {
+        unset( $methods["pingback.ping"] );
+        return $methods;
+    });
+}
