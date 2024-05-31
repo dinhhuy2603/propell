@@ -101,7 +101,8 @@
             padding-inline: rem(20);
             margin: 0 auto;
             @include sp {
-              padding-inline: rem(16);
+              padding-inline: 0;
+              max-width: rem(358);
             }
             h2 {
               transition: all ease .3s;

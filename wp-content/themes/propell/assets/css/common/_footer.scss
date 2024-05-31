@@ -23,6 +23,10 @@
         }
         li {
           margin-bottom: rem(24);
+          @include sp{
+            font-size: rem(18);
+            letter-spacing: -0.04em;
+          }
           a {
             display: block;
             text-decoration: none;
@@ -42,14 +46,14 @@
         color: $cl-primary;
         @include sp {
           font-size: rem(32);
-          letter-spacing: -0.025em;
+          letter-spacing: -0.04em;
         }
       }
       .subcrice {
         margin: rem(24) 0;
         border-bottom: 1px solid;
         display: grid;
-        grid-template-columns: auto rem(128);
+        grid-template-columns: auto rem(75);
         align-items: center;
         gap: rem(16);
         &__input {
@@ -57,16 +61,17 @@
           height: rem(72);
           outline: none;
           border: none;
+          letter-spacing: -0.04em;
           @include sp {
             font-size: rem(18);
           }
         }
         &__btn {
-          background-image: url(../../img/icon-arrow-link_right-gray.png);
+          background-image: url(../../img/icon-arrow-link_right-blue.png);
           white-space: nowrap;
           letter-spacing: -0.04em;
           font-size: rem(16);
-          color: $cl-body;
+          color: $cl-primary;
         }
       }
       .partner {
@@ -140,7 +145,8 @@
       text-align: right;
       margin-left: auto;
       @include sp {
-        margin-top: rem(20);
+        margin-top: rem(22);
+        text-align: left;
       }
     }
   }

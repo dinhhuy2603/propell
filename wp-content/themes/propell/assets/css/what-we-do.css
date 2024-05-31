@@ -605,7 +605,8 @@
 }
 @media (max-width: 750px) {
   .page-what-we-do .section-business__content .c-toggle__head {
-    padding-inline: 1rem;
+    padding-inline: 0;
+    max-width: 22.375rem;
   }
 }
 .page-what-we-do .section-business__content .c-toggle__head h2 {

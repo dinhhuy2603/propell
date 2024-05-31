@@ -108,3 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+
+
+// version static
+define('VERSION_STATIC', '1.0.9');

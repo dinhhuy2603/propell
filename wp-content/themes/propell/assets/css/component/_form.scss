@@ -1,156 +1,212 @@
-.c-form {
-  max-width: rem(1000);
-  margin: 0 auto;
-  padding-bottom: rem(100);
-  line-height: 1.5;
-  .form-group {
-    margin-bottom: rem(24);
-    .form-caption {
-      margin-bottom: rem(5);
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      user-select: none;
-      cursor: pointer;
-      font-size: rem(12);
-      color: #707F89;
+.c-form{
+  .form-group{
+    border: 1px solid #E7EAF1;
+    padding: rem(16) rem(24) rem(6);
+    position: relative;
+    + .form-group{
+      margin-top: rem(16);
     }
-    .form-controls {
-      .form-control {
-        background-color: transparent;
-        border: 1px solid #3B4043;
-        width: 100%;
-        max-width: rem(340);
-        // border-radius: rem(4);
-        padding: rem(10) rem(15);
-        box-sizing: border-box;
-        line-height: rem(24);
-        &:focus {
-          outline: none;
+    .label{
+      display: block;
+      @include fontManrope;
+      font-size: rem(16);
+      font-weight: 700;
+      line-height: calc(21.86/16);
+      letter-spacing: -0.04em;
+      color: $cl-line;
+      @include sp{
+        font-size: rem(14);
+        line-height: calc(19.12/14);
+      }
+    }
+    .input, textarea{
+      border: none;
+      outline: 0;
+      width: 100%;
+      padding: rem(8) 0;
+      letter-spacing: -0.04em;
+      font-size: rem(18);
+      line-height: calc(24.59/18);
+      @include fontManrope;
+      font-weight: 400;
+      color: $cl-body;
+      @include sp{
+        font-size: rem(14);
+        line-height: calc(19.12/14);
+      }
+    }
+    textarea{
+      height: rem(98);
+    }
+    label.error{
+      font-family: Manrope;
+      font-size: rem(8);
+      font-weight: 400;
+      line-height: calc(10.93/8);
+      color: #FF4850;
+      letter-spacing: 0.011em;
+      position: absolute;
+      left: rem(24);
+      bottom: rem(3);
+    }
+    input.error, textarea.error{
+      color: #FF4850;
+    }
+  }
+  .select-menu {
+    .select-btn {
+      border: none;
+      outline: 0;
+      width: 100%;
+      padding: rem(8) 0;
+      letter-spacing: -0.04em;
+      font-size: rem(18);
+      line-height: calc(24.59/18);
+      @include fontManrope;
+      font-weight: 400;
+      color: $cl-body;
+      cursor: pointer;
+      position: relative;
+      @include sp{
+        font-size: rem(14);
+        line-height: calc(19.12/14);
+      }
+      .icon{
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: rem(24);
+        height: rem(24);
+        background: url("../img/icon_down.png") center no-repeat;
+        background-size: 100%;
+      }
+    }
+    .options {
+      position: absolute;
+      left: rem(-1);
+      right: 0;
+      width: rem(600);
+      padding: 0 rem(23) rem(14);
+      overflow-y: auto;
+      // max-height: 295px;
+      background: #fff;
+      border: 1px solid #E7EAF1;
+      border-top: 0;
+      animation: fadeInDown 0.1s both;
+      @include sp{
+        width: rem(358);
+        top: rem(74);
+      }
+      .option {
+        display: flex;
+        cursor: pointer;
+        padding: rem(12) 0;
+        background: #fff;
+        border-top: 1px solid #E7EAF1;
+        &:first-child{
+          padding-top: rem(20);
         }
-        &:placeholder {
-          color: #CDD6DD;
+        .option-text {
+          @include fontManrope;
+          font-size: rem(16);
+          font-weight: 700;
+          line-height: calc(21.86/16);
+          letter-spacing: -0.04em;
+          color: $cl-line;
+          position: relative;
+          width: 100%;
+          @include sp{
+            font-size: rem(14);
+            line-height: calc(19.12/14);
+          }
+          &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            top: rem(2);
+            right: rem(9);
+            width: rem(6);
+            height: rem(14);
+            border: solid $cl-primary-light;
+            border-width: 0 rem(2) rem(2) 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            visibility: hidden;
+          }
         }
-        &:disabled {
-          color: inherit;
-        }
-        // input number
-        &[type~=number] {
-          appearance: none;
-          &::-webkit-outer-spin-button,
-          &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
+        &:hover, &.is-checked{
+          .option-text{
+            color: $cl-body;
+            &:after{
+              opacity: 1;
+              visibility: visible;
+            }
           }
         }
       }
     }
-  }
-
-  .c-select {
-    cursor: pointer;
-    &:invalid {
-      color: #CDD6DD;
-    }
-    option[value=""][disabled] {
-      display: none;
-    }
-    option {
-      color: black;
-    }
-  }
-  .c-checkbox {
-    label {
-      display: block;
-      position: relative;
-    }
-    input {
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 0;
-      height: initial;
-      width: initial;
-      margin-bottom: 0;
-      cursor: pointer;
-    }
-    span {
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-      user-select: none;
-      &:before {
-        content:'';
-        -webkit-appearance: none;
-        background-color: #fff;
-        border: rem(1) solid #C7CCD1;
-        margin-right: rem(10);
-        border-radius: rem(4);
-        padding: rem(10);
-        display: inline-block;
-        position: relative;
-        vertical-align: middle;
-        cursor: pointer;
+    &.active{
+      .select-btn{
+        .icon{
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+      .options {
+        display: block;
+        opacity: 0;
+        z-index: 10;
+        animation: fadeInUp 0.15s both;
       }
     }
-    input:checked + span:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: rem(4);
-      left: rem(9);
-      width: rem(4);
-      height: rem(10);
-      border: solid #004BB1;
-      border-width: 0 rem(2) rem(2) 0;
-      transform: rotate(45deg);
+  }
+  
+  .g-recaptcha{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .form-captcha{
+    margin-top: rem(12);
+  }
+  .form-btn{
+    text-align: right;
+    margin-top: rem(18);
+    button.c-btn{
+      outline: 0;
+      border: 0;
+      background: 0;
+      span{
+        background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
+        background-size: rem(24);
+        letter-spacing: -0.04em;
+      }
     }
   }
-  .c-radio {
-    margin-right: rem(15);
-    display: flex;
-    align-items: center;
-    input {
-      padding: 0;
-      height: rem(18);
-      width: rem(18);
-      margin-bottom: 0;
-      cursor: pointer;
-      width: rem(20);
-      // display: none;
-    }
-    label {
-      padding-left: rem(5);
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-      user-select: none;
-      // &:before {
-      //   content:'';
-      //   -webkit-appearance: none;
-      //   background-color: #fff;
-      //   border: rem(1) solid #C7CCD1;
-      //   margin-right: rem(10);
-      //   border-radius: 50%;
-      //   padding: rem(10);
-      //   display: inline-block;
-      //   position: relative;
-      //   vertical-align: middle;
-      //   cursor: pointer;
-      // }
-    }
-    // input:checked + label:after {
-    //   content: '';
-    //   display: block;
-    //   position: absolute;
-    //   top: rem(4);
-    //   left: rem(3);
-    //   width: rem(16);
-    //   height: rem(16);
-    //   border-radius: 50%;
-    //   background-color: #CC3447;
-    // }
+}
+
+    
+@keyframes fadeInUp {
+  from {
+    transform: translate3d(0, 10px, 0);
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 5px, 0);
+    opacity: 0;
+    visibility: hidden;
   }
 }

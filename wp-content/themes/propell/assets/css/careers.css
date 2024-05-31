@@ -251,243 +251,353 @@
     visibility: hidden;
   }
 }
-.page-contact .kv__text {
+.page-careers .kv__text {
   margin: 2rem 0 2.875rem;
 }
 @media (max-width: 750px) {
-  .page-contact .kv__text {
+  .page-careers .kv__text {
     margin: 0.875rem 0 1.4375rem;
   }
 }
 
-.contact {
-  padding-bottom: 5rem;
-}
-@media (max-width: 750px) {
-  .contact {
-    padding-bottom: 2.5rem;
-  }
-}
-.contact__content {
+.careers__top {
   padding-top: 5rem;
-}
-@media (min-width: 751px) {
-  .contact__content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
+  padding-bottom: 2.5rem;
 }
 @media (max-width: 750px) {
-  .contact__content {
-    padding-top: 1.5rem;
+  .careers__top {
+    padding-top: 2.8125rem;
+    padding-bottom: 1.375rem;
   }
 }
-@media (min-width: 751px) {
-  .contact__content > div {
-    width: 40rem;
-  }
-}
-@media (min-width: 751px) {
-  .contact__content > div:first-child {
-    border-right: 1px solid #E7EAF1;
-    padding-right: 2.5rem;
-  }
-}
-@media (max-width: 750px) {
-  .contact__content > div:first-child {
-    padding-bottom: 2.5rem;
-    margin-bottom: 2.5rem;
-    border-bottom: 1px solid #E7EAF1;
-  }
-}
-@media (min-width: 751px) {
-  .contact__content > div:last-child {
-    padding-left: 2.5rem;
-  }
-}
-.contact__content .c-ttl {
+.careers__top .c-ttl {
   font-size: 4.5rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
   font-weight: 400;
   font-family: "Bona Nova", serif;
   color: #595B61;
-  padding-bottom: 1.3125rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #E7EAF1;
+  padding-bottom: 1.5rem;
 }
 @media (max-width: 750px) {
-  .contact__content .c-ttl {
+  .careers__top .c-ttl {
     font-size: 2rem;
     line-height: 1.2;
     padding-bottom: 1.4375rem;
     margin-bottom: 2.25rem;
   }
 }
-.contact__content .c-ttl__style {
+.careers__top .c-ttl__style {
   position: relative;
 }
 @media (max-width: 750px) {
-  .contact__content .c-ttl__style {
+  .careers__top .c-ttl__style {
     padding-bottom: 1.25rem;
     margin-bottom: 1.5rem;
   }
 }
-.contact__content .c-ttl__style:before {
+.careers__top .c-ttl__style:before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
-  width: 4.6875rem;
-  height: 4.6875rem;
-  background: url("../img/contact/ico_dot.png") center no-repeat;
+  width: 12.5625rem;
+  height: 12.75rem;
+  background: url("../img/careers/icon_dot.png") center no-repeat;
   background-size: 100%;
 }
-.contact__info .c-address {
-  margin-bottom: 1.5rem;
-}
-.contact__info .c-address dl + dl {
-  margin-top: 1.125rem;
-}
 @media (max-width: 750px) {
-  .contact__info .c-address dl + dl {
-    margin-top: 1.75rem;
+  .careers__top .c-ttl__style:before {
+    top: -1.25rem;
+    width: 4.6875rem;
+    height: 4.75rem;
   }
 }
-.contact__info .c-address dl dt {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.36625;
-  letter-spacing: -0.04em;
-  color: #D8DAE1;
-  font-family: "Manrope", sans-serif;
-  margin-bottom: 0.25rem;
-}
-@media (max-width: 750px) {
-  .contact__info .c-address dl dt {
-    font-size: 0.875rem;
-    line-height: 1.3657142857;
-  }
-}
-.contact__info .c-address dl dd {
+.careers__top .c-txt {
   font-size: 1.125rem;
-  font-weight: 400;
   line-height: 1.3661111111;
   letter-spacing: -0.04em;
+  font-weight: 400;
   font-family: "Manrope", sans-serif;
+  margin-right: 17.5rem;
 }
 @media (max-width: 750px) {
-  .contact__info .c-address dl dd {
+  .careers__top .c-txt {
+    margin-right: 0;
+    font-size: 1rem;
+    line-height: 1.36625;
+  }
+}
+.careers__form {
+  padding-bottom: 5rem;
+}
+@media (max-width: 750px) {
+  .careers__form {
+    padding-bottom: 2.5rem;
+  }
+}
+.careers__form--ttl {
+  font-size: 1rem;
+  line-height: 1.36625;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-family: "Manrope", sans-serif;
+  border-top: 1px solid #D8DAE1;
+  padding-top: 2.5rem;
+  margin-bottom: 1.0625rem;
+}
+@media (max-width: 750px) {
+  .careers__form--ttl {
     font-size: 0.875rem;
-    line-height: 1.3657142857;
+    line-height: 1.365;
+    padding-top: 1.5rem;
   }
 }
-.contact__info .c-map {
-  width: 37.5rem;
-  height: 30.3125rem;
-  margin-bottom: 1.5rem;
+.careers__form .c-form .select-menu .options {
+  width: calc(100% + 0.125rem);
+}
+.careers__more--top .text-scroll {
+  padding: 1.5rem 0 1.375rem;
+  border-top: 1px solid #D8DAE1;
+  border-bottom: 1px solid #D8DAE1;
+  pointer-events: none;
+}
+.careers__more--top .text-scroll .swiper-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.careers__more--top .text-scroll .swiper-text .text {
+  padding-left: 3.375rem;
+  margin-right: 2rem;
+  background-image: url("../img/top/first_icon.png");
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 2.375rem;
+  font-size: 3.75rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.careers__more--main {
+  padding: 10rem 0;
+  background: linear-gradient(89.08deg, #000821 13.48%, #011045 62.2%, #000927 98.41%);
 }
 @media (max-width: 750px) {
-  .contact__info .c-map {
-    width: 22.375rem;
-    height: 22.8125rem;
+  .careers__more--main {
+    padding: 1.5rem 0;
   }
 }
-.contact__info .c-map iframe {
-  width: 100%;
-  height: 100%;
+.careers__more--main .c-ttl {
+  font-size: 3.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Bona Nova", serif;
+  padding-bottom: 1.375rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #D8DAE1;
 }
 @media (max-width: 750px) {
-  .contact__info .c-info__btn {
-    text-align: right;
+  .careers__more--main .c-ttl {
+    font-size: 2rem;
+    line-height: 1.2;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 }
-.contact__info .c-info__btn .c-btn span {
-  background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
-  background-size: 1.5rem;
+.careers__more--main .c-banner {
+  background: #F0F3FA;
+  padding: 5rem;
 }
-.contact .c-modal {
-  position: fixed;
+@media (max-width: 750px) {
+  .careers__more--main .c-banner {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+}
+.careers__more--main .c-banner__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 1.4375rem;
+}
+@media (max-width: 750px) {
+  .careers__more--main .c-banner__top {
+    display: block;
+    position: relative;
+    padding-bottom: 3rem;
+  }
+  .careers__more--main .c-banner__top:before {
+    content: "";
+    position: absolute;
+    left: -0.5rem;
+    right: -0.5rem;
+    bottom: 0;
+    height: 0.5rem;
+    background: #074494;
+  }
+}
+.careers__more--main .c-banner__top .c-ttl02 {
+  display: block;
+  margin-top: 0.25rem;
+  border-bottom: 0.5rem solid #074494;
+  padding-bottom: 1rem;
+}
+@media (max-width: 750px) {
+  .careers__more--main .c-banner__top .c-ttl02 {
+    border-bottom: none;
+    padding-bottom: 0.75rem;
+  }
+}
+.careers__more--main .c-banner__top .c-ttl02 a {
+  display: block;
+  width: 26.875rem;
+  height: 21.875rem;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 750px) {
+  .careers__more--main .c-banner__top .c-ttl02 a {
+    width: 14.375rem;
+    height: 12.1875rem;
+  }
+}
+.careers__more--main .c-banner__top .c-ttl02 a:hover {
+  opacity: 0.8;
+}
+.careers__more--main .c-banner__top .c-ttl02 img {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(1, 6, 55, 0.67);
-  z-index: 100;
-  display: none;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.contact .c-modal.is-active {
-  display: block;
+.careers__more--main .c-banner__top .c-dots {
+  width: 12.5625rem;
+  height: 12.75rem;
+  position: relative;
 }
-.contact .c-modal .c-modal__inner {
+@media (max-width: 750px) {
+  .careers__more--main .c-banner__top .c-dots {
+    width: 4.6875rem;
+    height: 4.75rem;
+    margin-left: -0.625rem;
+  }
+}
+.careers__more--main .c-banner__top .c-dots img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 33.75rem;
-  padding: 7.5rem 2.5rem 3.75rem;
-  background: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.careers__more--main .c-banner__mid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 @media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner {
-    width: 22.375rem;
-    padding: 5.75rem 1.5rem 1.5rem;
+  .careers__more--main .c-banner__mid {
+    display: block;
+    padding-top: 1.5rem;
+    margin-inline: -0.5rem;
   }
 }
-.contact .c-modal .c-modal__inner .c-modal__close {
-  position: absolute;
-  top: 2.625rem;
-  right: 2.5rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  background: url("../img/icon_close_modal.png") center no-repeat;
-  background-size: 100%;
-  cursor: pointer;
-}
-@media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner .c-modal__close {
-    width: 2.75rem;
-    height: 2.75rem;
-    top: 1.5rem;
-    right: 1.5rem;
-  }
-}
-.contact .c-modal .c-modal__inner .c-modal__ttl {
-  font-size: 4.5rem;
-  line-height: 1.2;
-  letter-spacing: -0.04em;
-  font-weight: 400;
-  font-family: "Bona Nova", serif;
-  color: #595B61;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-@media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner .c-modal__ttl {
-    font-size: 3.75rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-}
-.contact .c-modal .c-modal__inner .c-modal__txt {
+.careers__more--main .c-banner__mid .c-txt {
   font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.3661111111;
   letter-spacing: -0.04em;
-  font-weight: 400;
-  font-family: "Manrope", sans-serif;
-  color: #595B61;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.careers__more--main .c-banner__mid .c-banner__btn {
+  width: 10.25rem;
+  margin-left: 1.25rem;
 }
 @media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner .c-modal__txt {
-    font-size: 1rem;
-    line-height: 1.36625;
-    margin-bottom: 1rem;
+  .careers__more--main .c-banner__mid .c-banner__btn {
+    margin-top: 1.625rem;
+    margin-left: auto;
+  }
+}
+.careers__more--main .c-banner__mid .c-banner__btn .c-btn {
+  padding-inline: 0.625rem;
+  width: 100%;
+}
+.careers__more--main .c-banner__btm {
+  width: 43.125rem;
+  margin-top: 3.9375rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #D8DAE1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 750px) {
+  .careers__more--main .c-banner__btm {
+    width: auto;
+    display: block;
+    margin-inline: -1.5rem;
+    margin-top: 2.5rem;
+    padding: 1.5rem 1rem 0;
+  }
+}
+.careers__more--main .c-banner__btm .c-logo {
+  position: relative;
+  width: 13.75rem;
+  height: 3.4375rem;
+  margin-right: 1.5rem;
+}
+.careers__more--main .c-banner__btm .c-logo a {
+  display: block;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.careers__more--main .c-banner__btm .c-logo a:hover {
+  opacity: 0.8;
+}
+.careers__more--main .c-banner__btm .c-logo a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.careers__more--main .c-banner__btm .c-txt02 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.3661111111;
+  letter-spacing: -0.04em;
+}
+@media (max-width: 750px) {
+  .careers__more--main .c-banner__btm .c-txt02 {
+    padding-top: 1.5rem;
   }
 }
