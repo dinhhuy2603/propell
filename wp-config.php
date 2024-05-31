@@ -29,7 +29,7 @@ define( 'DB_USER', 'root' );
 define( 'DB_PASSWORD', 'root' );
 
 /** Database hostname */
-define( 'DB_HOST', '127.0.0.1' );
+define( 'DB_HOST', '3.112.171.154:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -84,8 +84,6 @@ $table_prefix = 'wp_';
 
 define( 'WP_DEBUG', false );
 
-/* Add any custom values between this line and the "stop editing" line. */
-define( 'FS_METHOD', 'direct' );
 /**
  * The WP_SITEURL and WP_HOME options are configured to access from any hostname or IP address.
  * If you want to access only from an specific domain, you can modify them. For example:
@@ -93,9 +91,6 @@ define( 'FS_METHOD', 'direct' );
  *  define('WP_SITEURL','http://example.com');
  *
  */
-if ( defined( 'WP_CLI' ) ) {
-    $_SERVER['HTTP_HOST'] = '127.0.0.1';
-}
 
 define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
 define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
@@ -110,19 +105,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
 
-/**
- * Disable pingback.ping xmlrpc method to prevent WordPress from participating in DDoS attacks
- * More info at: https://docs.bitnami.com/general/apps/wordpress/troubleshooting/xmlrpc-and-pingback/
- */
-if ( !defined( 'WP_CLI' ) ) {
-    // remove x-pingback HTTP header
-    add_filter("wp_headers", function($headers) {
-        unset($headers["X-Pingback"]);
-        return $headers;
-    });
-    // disable pingbacks
-    add_filter( "xmlrpc_methods", function( $methods ) {
-        unset( $methods["pingback.ping"] );
-        return $methods;
-    });
-}
+define('VERSION_STATIC', '1.0.9');
