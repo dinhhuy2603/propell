@@ -91,22 +91,33 @@
     bottom: rem(140);
     left: rem(22);
     font-size: rem(60);
+    line-height: calc(72/60);
     color: inherit;
     @include sp {
-      bottom: rem(102);
+      bottom: rem(74);
       left: rem(16);
       right: rem(16);
+      font-size: rem(42);
+      line-height: calc(50.2/42);
     }
-    span {
+    span{
+      display: block;
+    }
+    .icon_blank{
+      position: absolute;
       display: inline-block;
+      width: rem(80);
+      height: rem(80);
       background-image: url(../img/icon-arrow-link_right-big.png);
       background-repeat: no-repeat;
-      background-position: bottom rem(-6) right;
+      background-position: center;
       background-size: rem(80);
-      padding-right: rem(80);
       @include sp {
-        max-width: rem(313);
+        width: rem(56);
+        height: rem(56);
+        background-size: rem(56);
       }
+
     }
   }
 }
@@ -114,28 +125,29 @@
   &-about {
     padding: rem(80) 0;
     @include sp {
-      padding: rem(24) 0 0;
+      padding: rem(40) 0 0;
       background-image: url(../img/top/first_img.png);
       background-repeat: no-repeat;
-      background-position: bottom right rem(-46);
-      background-size: rem(178);
+      background-position: bottom rem(40) right rem(15);
+      background-size: rem(120);
     }
     .c-title-sub {
       @include sp {
-        padding-bottom: rem(24);
+        padding-bottom: rem(14);
       }
     }
     .c-title{
       line-height: 1.41;
       color: $cl-body;
+      @include sp{
+        font-size: rem(24);
+        line-height: calc(28.8/24);
+      }
       span {
         border-bottom: 1px solid #D8DAE1;
         display: block;
         @include sp {
-          padding: rem(12) 0 rem(20);
-          &:last-child {
-            padding-bottom: rem(10);
-          }
+          padding: rem(16) 0;
         }
       }
       b {
@@ -164,8 +176,8 @@
         width: rem(245);
         background-size: rem(23);
         padding-left: rem(40);
-        top: rem(140);
-        left: rem(129);
+        top: rem(113);
+        left: rem(102);
         font-size: rem(12);
         letter-spacing: -0.01em;
       }
@@ -177,7 +189,7 @@
       background-size: rem(203);
       padding: rem(38) 0;
       @include sp {
-        padding: rem(30) 0 rem(110);
+        padding: rem(20) 0 rem(188);
         background: none;
       }
       .text {
@@ -210,7 +222,15 @@
       }
     }
     @include sp {
-      padding-block: rem(24);
+      padding-block: rem(40);
+      .container {
+        padding: 0;
+      }
+      .c-title {
+        padding-inline: rem(16);
+        font-size: rem(42);
+        line-height: calc(50.4/42);
+      }
     }
     .timeline {
       position: relative;
@@ -227,8 +247,12 @@
         width: rem(4);
         background: url(../img/top/second_line.png) no-repeat left center;
         background-size: 100% 100%;
+        @include sp {
+          display: none;
+        }
       }
       &__item {
+        $root: &;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -241,6 +265,22 @@
           margin-bottom: rem(80);
           min-height: rem(200);
         }
+        @include sp {
+          flex-direction: column;
+          padding-top: rem(270);
+          padding-inline: rem(16);
+          margin-bottom: 0;
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: rem(66);
+            width: rem(56);
+            height: rem(56);
+            background: url(../img/top/second_icon_sp.png) no-repeat left center;
+            background-size: 100%;
+          }
+        }
         &:last-of-type {
           margin-bottom: 0;
         }
@@ -252,7 +292,11 @@
           letter-spacing: -0.04em;
           color: $cl-primary;
           @include sp {
-            display: none;
+            width: 100%;
+            margin-bottom: rem(21);
+            font-size: rem(80);
+            line-height: 1;
+            text-align: left;
           }
         }
         &--group {
@@ -267,7 +311,21 @@
             border-radius: 50%;
             overflow: hidden;
             @include sp {
-              display: none;
+              width: rem(257);
+              height: rem(257);
+              border-radius: initial;
+              overflow: initial;
+              display: flex;
+              align-items: center;
+              position: absolute;
+              top: 0;
+              left: rem(-86);
+              img {
+                width: rem(140);
+                height: rem(140);
+                object-fit: initial;
+                transition: all ease .3s
+              }
             }
           }
           dl {
@@ -284,6 +342,25 @@
                 line-height: calc(30/24);
               }
             }
+            dd{
+              @include sp{
+                font-size: rem(16);
+                line-height: calc(21.86/16);
+              }
+            }
+          }
+        }
+        &.slick-current {
+          .timeline__item--group {
+            .image {
+              @include sp {
+                left: rem(16);
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
           }
         }
       }
@@ -291,14 +368,44 @@
         margin-top: rem(40);
       }
     }
+    .slick-control-wrap {
+      position: absolute;
+      top: rem(370);
+      right: rem(16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      @include pc {
+        display: none;
+      }
+      .slick-arrow {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin-top: 0;
+        &.slick-disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+      .slider-counter {
+        margin-inline: rem(8);
+        min-width: rem(28);
+        font-size: rem(16);
+        font-weight: bold;
+        text-align: center;
+        color: $cl-title;
+      }
+    }
   }
   &-what-we-do {
     padding-bottom: rem(105);
     @include sp {
-      padding-bottom: rem(75);
+      padding-top: rem(40);
+      padding-bottom: rem(80);
     }
     .row {
-      margin-top: rem(24);
       @include pc {
         @include grid(275, 80);
         align-items: center;
@@ -321,27 +428,50 @@
           background: $cl-primary-light;
           opacity: 0;
         }
+        &:after{
+          content: '';
+          position: absolute;
+          top: rem(16);
+          right: 0;
+          width: rem(40);
+          height: rem(40);
+          background-repeat: no-repeat;
+          background-position: top right;
+          background-size: rem(40);
+          @include pc{
+            display: none;
+          }
+          @include sp {
+            background-image: url(../img/icon-arrow-link_right-black.png);
+          }
+
+        }
         @include pc {
           &:first-child {
             padding-top: rem(24);
           }
         }
         @include sp {
-          @include grid(50, 0);
-          padding: rem(16) 0;
+          padding: rem(24) 0 rem(24);
+          display: block;
+          &:last-child {
+            border-bottom: none;
+          }
         }
         &__number {
           font-size: rem(16);
           font-weight: bold;
           color: $cl-title;
+          @include sp{
+            margin-bottom: rem(32);
+          }
         }
         &__group {
-          padding-right: rem(80);
-          background-repeat: no-repeat;
-          background-position: top right;
-          background-size: rem(40);
-          @include sp {
-            padding-right: rem(52);
+          @include pc{
+            padding-right: rem(80);
+            background-repeat: no-repeat;
+            background-position: top right;
+            background-size: rem(80);
           }
           dl {
             dt {
@@ -353,8 +483,9 @@
               line-height: calc(72/60);
               color: $cl-title;
               @include sp {
-                margin-bottom: rem(12);
-                font-size: rem(32);
+                margin-bottom: rem(16);
+                font-size: rem(42);
+                line-height: calc(50.4/42);
               }
             }
           }
@@ -369,15 +500,19 @@
               visibility: hidden;
               transition: all .3s ease-in-out;
             }
+            @include sp{
+              width: rem(343);
+              height: rem(192);
+              position: relative;
+              display: block;
+            }
             img{
-              @include pc{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-              }
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
             }
           }
         }
@@ -418,8 +553,13 @@
       position: absolute;
       top: 0;
       right: rem(20);
+      font-weight: 700;
+      letter-spacing: -0.04em;
       @include sp {
-        right: rem(16);
+        position: static;
+        margin-top: rem(26);
+        font-size: rem(16);
+        line-height: calc(19.2/16);
       }
     }
     &__slider {
@@ -439,7 +579,7 @@
           width: 100%;
           height: rem(549);
           @include sp {
-            height: rem(459);
+            height: rem(140);
           }
         }
         &__group {
@@ -452,13 +592,22 @@
             right: rem(40);
           }
           @include sp {
-            padding: rem(40) rem(24);
+            padding: rem(27) rem(10);
             position: relative;
-            margin: rem(-122) auto 0;
-            width: rem(289);
+            margin: 0 auto 0;
+            width: rem(325);
           }
           .logo {
             width: rem(125);
+            @include sp{
+              width: auto;
+              max-width: rem(200);
+              height: rem(80);
+              img{
+                width: auto;
+                height: 100%;
+              }
+            }
           }
           .fmd {
             background-color: #E8F9FF;
@@ -473,11 +622,15 @@
             letter-spacing: 0;
             color: $cl-primary;
           }
+          .c-title--md{
+            @include sp{
+              font-size: rem(20);
+              line-height: calc(24/20);
+              letter-spacing: -0.04em;
+            }
+          }
           dl {
             margin-top: rem(32);
-            @include sp {
-              margin-top: rem(24);
-            }
             dd {
               margin-top: rem(16);
               font-size: rem(12);
@@ -489,13 +642,13 @@
           .text {
             margin-top: rem(32);
             @include sp {
-              margin-top: rem(24);
+              margin-top: rem(20);
             }
           }
           .btn {
             margin-top: rem(52);
             @include sp {
-              margin-top: rem(40);
+              margin-top: rem(24);
             }
           }
         }
@@ -509,11 +662,19 @@
         bottom: rem(153);
         left: 50%;
         margin-left: rem(-494);
+        @include sp{
+          margin-left: 0;
+          position: static;
+        }
         &.slick-next {
           margin-left: rem(-427);
+          @include sp{
+            margin-left: 0;
+          }
         }
-        @include sp {
-          display: none;
+        &.slick-disabled{
+          opacity: 0.5;
+          pointer-events: none;
         }
       }
     }
@@ -524,13 +685,31 @@
       margin-left: rem(-458);
       font-size: rem(16);
       font-weight: bold;
-      @include sp {
-        display: none;
+      color: $cl-title;
+      @include sp{
+        margin-left: 0;
+        position: static;
+        margin-inline: rem(10);
+      }
+    }
+    .slick-control-wrap{
+      @include sp{
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: rem(20);
+        width: rem(120);
+        margin-left: auto;
+        margin-right: 0;
+        display: flex;
+        position: relative;
+        margin-top: rem(-67);
       }
     }
   }
   &-partner {
     padding: rem(24) 0;
+    @include sp{
+      padding: rem(42) 0 rem(36);
+    }
     .partner__list {
       list-style: none;
       display: flex;
@@ -571,15 +750,16 @@
     padding-bottom: rem(117);
     color: $cl-line;
     @include sp {
-      padding: rem(24) 0 rem(123);
+      padding: rem(40) 0 rem(110);
       .container {
         padding: 0;
       }
     }
     .c-title-sub{
       @include sp{
-        margin-inline: rem(24);
         letter-spacing: -0.04em;
+        font-size: rem(14);
+        line-height: calc(19.12/14);
       }
     }
     .row {
@@ -613,7 +793,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-left: rem(24);
           }
           + .group__item{
             @include sp{
@@ -642,7 +821,7 @@
             @include sp {
               margin-top: rem(10);
               flex: 1;
-              margin-left: rem(24);
+              margin-left: rem(40);
               text-align: left;
             }
             dt {
@@ -675,6 +854,10 @@
   border-top: 1px solid $cl-line;
   border-bottom: 1px solid $cl-line;
   pointer-events: none;
+  @include sp{
+    margin-top: rem(32);
+    padding: rem(34) 0;
+  }
   .swiper-text {
     display: flex;
     .text {
@@ -687,6 +870,9 @@
       font-size: rem(60);
       line-height: calc(72/60);
       white-space: nowrap;
+      @include sp{
+        font-size: rem(42);
+      }
     }
   }
 }

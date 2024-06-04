@@ -1,5 +1,8 @@
 .footer {
   // background-color: $cl-title;
+  @include sp{
+    border-top: 1px solid $cl-line;
+  }
   &__row01 {
     padding: rem(40) 0 rem(24);
     @include pc {
@@ -62,9 +65,7 @@
           outline: none;
           border: none;
           letter-spacing: -0.04em;
-          @include sp {
-            font-size: rem(18);
-          }
+          font-size: rem(18);
         }
         &__btn {
           background-image: url(../../img/icon-arrow-link_right-blue.png);
@@ -112,6 +113,10 @@
         a {
           text-decoration: none;
           color: inherit;
+          @include sp{
+            font-size: rem(16);
+            line-height: calc(21.86/16);
+          }
         }
       }
       &.nav {
@@ -123,7 +128,7 @@
         @include sp {
           display: block;
           li {
-            margin-bottom: rem(23);
+            margin-bottom: rem(40);
             margin-right: 0;
           }
         }
@@ -133,6 +138,9 @@
         li {
           transition: all ease .3s;
           width: rem(24);
+          @include sp{
+            width: rem(40);
+          }
           &:hover {
             opacity: 0.7;
           }
@@ -145,8 +153,10 @@
       text-align: right;
       margin-left: auto;
       @include sp {
-        margin-top: rem(22);
+        margin-top: rem(40);
+        font-size: rem(16);
         text-align: left;
+        letter-spacing: -0.04em;
       }
     }
   }

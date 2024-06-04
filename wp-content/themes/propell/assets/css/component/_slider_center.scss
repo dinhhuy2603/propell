@@ -7,13 +7,15 @@
     position: relative;
     @include sp {
       width: rem(325);
+      height: 100%;
       margin: 0 rem(8);
+      background-color: #fff;
     }
     &__img {
       width: 100%;
       height: rem(549);
       @include sp {
-        height: rem(459);
+        height: rem(140);
       }
     }
     &__group {
@@ -29,13 +31,22 @@
         margin-top: rem(-237);
       }
       @include sp {
-        padding: rem(40) rem(24);
-        margin: rem(-122) auto 0;
-        width: rem(289);
+        padding: rem(24) rem(16);
+        margin: 0 auto 0;
+        width: 100%;
+        // opacity: 0;
       }
       .logo {
         width: rem(125);
         height: rem(103);
+        @include sp{
+          width: max-content;
+          height: rem(80);
+          img{
+            height: 100%;
+            width: auto;
+          }
+        }
         img {
           max-height: 100%;
         }
@@ -58,6 +69,12 @@
         @include sp {
           margin-top: rem(24);
         }
+        dt{
+          @include sp{
+            font-size: rem(20);
+            line-height: calc(24/20);
+          }
+        }
         dd {
           margin-top: rem(16);
           font-size: rem(12);
@@ -75,7 +92,7 @@
       .btn {
         margin-top: rem(52);
         @include sp {
-          margin-top: rem(40);
+          margin-top: rem(24);
         }
       }
     }
@@ -88,6 +105,34 @@
     left: auto;
     top: auto;
     margin-top: 0;
+  }
+  .slider-counter {
+    @include sp{
+      position: absolute;
+      bottom: rem(153);
+      left: 50%;
+      margin-left: rem(-458);
+      font-size: rem(16);
+      font-weight: bold;
+      color: $cl-title;
+      margin-left: 0;
+      position: static;
+      margin-inline: rem(10);
+    }
+  }
+  .slick-control-wrap{
+    @include sp{
+      border-radius: rem(20);
+      width: rem(150);
+      margin-left: auto;
+      margin-right: 0;
+      display: flex;
+      position: relative;
+      padding-right: rem(20);
+      // margin-top: rem(-82);
+      // padding-bottom: rem(40);
+      top: rem(-63);
+    }
   }
 }
 .slick-control-wrap {
@@ -112,4 +157,14 @@
   font-size: rem(16);
   font-weight: bold;
   text-align: center;
+}
+
+.slick-track
+{
+    display: flex !important;
+}
+
+.slick-slide
+{
+    height: inherit !important;
 }

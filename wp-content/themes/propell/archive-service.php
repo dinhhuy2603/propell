@@ -23,6 +23,7 @@ $current_language = pll_current_language('slug');
             ),
         ),
     );
+    var_dump(11111);
     $service_query = new WP_Query($args);
 ?>
 
@@ -185,6 +186,10 @@ $current_language = pll_current_language('slug');
                                                     $thumbnail = get_field('thumbnail', $project->ID);
                                                     $banner = get_field('banner', $project->ID);
                                                     $short_description = get_field('short_description', $project->ID);
+
+                                                    $departments = wp_get_post_terms(get_the_ID(), 'department');
+                                                    $department = $departments[0];
+                                                    $department_code = get_field('code', $department);
                                                 ?>
                                                 <div class="item__img">
                                                     <picture>
@@ -194,7 +199,7 @@ $current_language = pll_current_language('slug');
                                                 </div>
                                                 <div class="item__group">
                                                     <p class="fmd">FMD</p>
-                                                    <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
+                                                    <p class="logo"><img src="<?php echo $thumbnail ?>" alt="<?php echo get_the_title($project) ?>"></p>
                                                     <dl>
                                                         <dt class="c-title c-title--md"><?php echo get_the_title($project->ID) ?></dt>
                                                         <?php
@@ -209,7 +214,7 @@ $current_language = pll_current_language('slug');
                                                         <?php endif; ?>
                                                     </dl>
                                                     <p class="text"><?php echo $short_description ?></p>
-                                                    <a href="#" class="btn c-btn"><span>VIEW DETAILS</span></a>
+                                                    <a href="<?php echo get_permalink($project->ID);?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
                                                 </div>
                                             </div>
                                         <?php endforeach;
@@ -217,7 +222,7 @@ $current_language = pll_current_language('slug');
                                         wp_reset_postdata();
                                     else :
                                         echo '<p>No featured projects found.</p>';
-                                     endif;
+                                    endif;
                                     ?>
                                 </div>
                             </div>

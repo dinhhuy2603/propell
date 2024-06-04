@@ -10,9 +10,6 @@
     margin-top: rem(40);
     @include sp {
       margin-top: rem(24);
-      .item__group {
-        margin-top: rem(-140);
-      }
     }
   }
   .others {
@@ -25,17 +22,40 @@
       }
     }
     .item {
+      display: block;
+      color: inherit;
+      position: relative;
+      @include pc {
+        &:hover {
+          .photo, .c-title {
+            opacity: 0.7;
+          }
+        }
+      }
       @include sp {
         &:not(:last-child) {
           margin-bottom: rem(40);
         }
       }
       .photo {
-        height: rem(230);
+        height: rem(225);
+        transition: all ease .3s;
+        @include sp{
+          height: rem(192);
+        }
+        a {
+          display: block;
+          height: 100%;
+        }
       }
       .c-title {
         margin-top: rem(16);
         font-size: rem(32);
+        transition: all ease .3s;
+        @include sp{
+          font-size: rem(24);
+          line-height: calc(28.8/24);
+        }
       }
       .txt {
         margin-top: rem(8);

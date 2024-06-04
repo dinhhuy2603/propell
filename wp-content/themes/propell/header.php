@@ -19,21 +19,24 @@
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
-
+    <?php wp_head(); ?>
     <link rel="apple-touch-icon" href="/icon.png">
     <link rel="icon" href="/icon.png">
     <!-- Style -->
-    <link rel="stylesheet" href="<?php echo $assets ?>/css/common/common.css">
-    <link rel="stylesheet" href="<?php echo $assets ?>/libs/slick.min.css">
-    <?php if (is_front_page()) : ?>
-        <link rel="stylesheet" href="<?php echo $assets ?>/css/top.css">
-    <?php elseif (is_post_type_archive('service') || is_page('contact')): ?>
-        <link rel="stylesheet" href="<?php echo $assets ?>/css/common/detail.css">
-        <link rel="stylesheet" href="<?php echo $assets ?>/css/contact.css">
-    <?php elseif (is_post_type_archive('project')): ?>
-        <link rel="stylesheet" href="<?php echo $assets ?>/css/common/detail.css">
-        <link rel="stylesheet" href="<?php echo $assets ?>/css/project.css">
-    <?php endif; ?>
+<!--    <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/common/common.css">-->
+<!--    <link rel="stylesheet" href="--><?php //echo $assets ?><!--/libs/slick.min.css">-->
+<!--    --><?php //if (is_front_page()) : ?>
+<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/top.css">-->
+<!--    --><?php //elseif (is_post_type_archive('service') || is_page('contact')): ?>
+<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/common/detail.css">-->
+<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/contact.css">-->
+<!--    --><?php //elseif ( is_post_type_archive('project')
+//        || is_post_type_archive('project-category')
+//        || is_singular('project-category')
+//    ): ?>
+<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/common/detail.css">-->
+<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/project.css">-->
+<!--    --><?php //endif; ?>
 
 
 </head>

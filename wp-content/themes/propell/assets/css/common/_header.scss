@@ -16,7 +16,7 @@
   &__logo {
     width: rem(120);
     @include sp {
-      width: rem(66);
+      width: rem(84);
     }
   }
   &__right {
@@ -202,8 +202,8 @@
       }
       @include sp {
         background-image: url(../../img/icon-close-nav_sp.png);
-        top: rem(24);
-        right: rem(24);
+        top: rem(29);
+        right: rem(16);
         width: rem(30);
         height: rem(30);
       }
@@ -223,13 +223,13 @@
     color: $cl-body;
     @include sp {
       background: #fff;
-      padding: rem(24) rem(24) rem(56);
-      *{
-        -ms-overflow-style: none;
-      }
-      ::-webkit-scrollbar {
-          display: none;
-      }
+      padding: rem(16) rem(16) rem(56);
+    }
+    *{
+      -ms-overflow-style: none;
+    }
+    ::-webkit-scrollbar {
+        display: none;
     }
     &__wrap {
       display: flex;
@@ -245,7 +245,7 @@
     &__logo {
       width: rem(250);
       @include sp {
-        width: rem(66);
+        width: rem(84);
       }
     }
     &__nav {
@@ -262,7 +262,7 @@
         font-size: rem(32);
       }
       @include sp {
-        margin-top: rem(50);
+        margin-top: rem(40);
         width: 100%;
         font-size: rem(24);
         line-height: calc(28.8/24);
@@ -307,7 +307,7 @@
         color: $cl-line;
       }
       @include sp {
-        padding-top: rem(24);
+        padding-top: 0;
         color: $cl-line;
       }
       @include queryHeightDown(780px) {
@@ -343,6 +343,12 @@
       background: #fff;
       padding: rem(88) rem(16) rem(40);
     }
+    *{
+      -ms-overflow-style: none;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
     &__wrap {
       max-width: rem(848);
       margin: 0 auto;
@@ -352,10 +358,15 @@
         padding-bottom: rem(80);
       }
     }
-    .hamburger__close {
+    &__logo {
+      position: absolute;
+      top: rem(40);
+      left: rem(80);
+      width: rem(120);
       @include sp {
+        left: rem(16);
         top: rem(16);
-        right: rem(16);
+        width: rem(84);
       }
     }
     &__input {
@@ -366,8 +377,8 @@
       @include sp{
         background-size: rem(32);
         border-bottom: 1px solid $cl-body;
-        margin: 0 rem(8);
         padding: rem(20) rem(40) rem(19) 0;
+        margin-top: rem(12);
       }
       input {
         background: none;
@@ -394,7 +405,7 @@
         display: block;
         color: $cl-line;
         font-size: rem(12);
-        margin-inline: rem(8);
+        margin-top: rem(18);
       }
       ul {
         list-style: none;
@@ -414,9 +425,6 @@
       }
     }
     &__article {
-      @include sp{
-        padding-inline: rem(8);
-      }
       .item {
         margin-top: rem(40);
         @include pc {
@@ -425,6 +433,7 @@
         @include sp {
           padding-bottom: rem(24);
           border-bottom: 1px solid;
+          margin-top: rem(24);
         }
         .photo{
           @include sp{
@@ -453,6 +462,8 @@
             h3 {
               margin-bottom: rem(16);
               color: inherit;
+              font-size: rem(24);
+              line-height: calc(28.8/24);
             }
           }
           > p{

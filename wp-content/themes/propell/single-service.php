@@ -6,6 +6,8 @@ $assets = get_path_assets();
 
 $current_year = get_the_date('Y');
 $current_language = pll_current_language('slug');
+$page = get_query_var('paged') ? get_query_var('paged') : 1;
+
 ?>
 
 <?php if (have_posts()) : ?>
@@ -89,17 +91,22 @@ $current_language = pll_current_language('slug');
                             <div class="item">
                                 <?php
                                     $thumbnail = get_field('thumbnail', $project->ID);
-                                    $banner = get_field('banner', $project->ID);
+                                    $imagePC = get_field('image_pc', $project->ID);
+                                    $imageSP = get_field('image_sp', $project->ID);
                                     $short_description = get_field('short_description', $project->ID);
+                                    $category = get_field('category', $project->ID);
+                                    $departments = wp_get_post_terms($category->ID, 'department');
+                                    $department = $departments[0];
+                                    $department_code = get_field('code', $department);
                                 ?>
                                 <div class="item__img">
                                     <picture>
-                                        <source media="(max-width: 750px)" srcset="<?php echo $banner ?>">
-                                        <img class="img-fit" src="<?php echo $banner ?>" alt="Marina Bay Sands Singapore">
+                                        <source media="(max-width: 750px)" srcset="<?php echo $imageSP ?>">
+                                        <img class="img-fit" src="<?php echo $imagePC ?>" alt="Marina Bay Sands Singapore">
                                     </picture>
                                 </div>
                                 <div class="item__group">
-                                    <p class="fmd">FMD</p>
+                                    <p class="fmd"><?php echo $department_code ?></p>
                                     <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
                                     <dl>
                                         <dt class="c-title c-title--md"><?php echo get_the_title($project->ID) ?></dt>
@@ -125,69 +132,77 @@ $current_language = pll_current_language('slug');
                     ?>
                 </div>
             </div>
-            <div class="others container">
-                <div class="row">
-                    <div class="item">
-                        <div class="photo"><img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/others_img01.jpg" alt="Project name"></div>
-                        <h3 class="c-title c-title--md">Project name 1</h3>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum vitae dictumst sit vitae, mi imperdiet sit. Lectus eleifend aliquam nibh mauris, pretium. Lectus magnis lorem massa urna felis porta.</p>
-                    </div>
-                    <div class="item">
-                        <div class="photo"><img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/others_img02.jpg" alt="Project name"></div>
-                        <h3 class="c-title c-title--md">Project name 2</h3>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum vitae dictumst sit vitae, mi imperdiet sit. Lectus eleifend aliquam nibh mauris, pretium. Lectus magnis lorem massa urna felis porta.</p>
-                    </div>
-                    <div class="item">
-                        <div class="photo"><img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/others_img03.jpg" alt="Project name"></div>
-                        <h3 class="c-title c-title--md">Project name 3</h3>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum vitae dictumst sit vitae, mi imperdiet sit. Lectus eleifend aliquam nibh mauris, pretium. Lectus magnis lorem massa urna felis porta.</p>
-                    </div>
-                    <div class="item">
-                        <div class="photo"><img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/others_img04.jpg" alt="Project name"></div>
-                        <h3 class="c-title c-title--md">Project name 4</h3>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum vitae dictumst sit vitae, mi imperdiet sit. Lectus eleifend aliquam nibh mauris, pretium. Lectus magnis lorem massa urna felis porta.</p>
-                    </div>
-                    <div class="item">
-                        <div class="photo"><img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/others_img05.jpg" alt="Project name"></div>
-                        <h3 class="c-title c-title--md">Project name 5</h3>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum vitae dictumst sit vitae, mi imperdiet sit. Lectus eleifend aliquam nibh mauris, pretium. Lectus magnis lorem massa urna felis porta.</p>
-                    </div>
-                    <div class="item">
-                        <div class="photo"><img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/others_img06.jpg" alt="Project name"></div>
-                        <h3 class="c-title c-title--md">Project name 6</h3>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bibendum vitae dictumst sit vitae, mi imperdiet sit. Lectus eleifend aliquam nibh mauris, pretium. Lectus magnis lorem massa urna felis porta.</p>
+            <?php
+                $args = array(
+                    'post_type' => 'project',
+                    'posts_per_page' => 6,
+                    'paged' => $page,
+                    'meta_query' => array(
+                        array(
+                            'key' => 'related_services',
+                            'value' => get_the_ID(),
+                            'compare' => 'LIKE'
+                        )
+                    )
+                );
+                $projects_query = new WP_Query($args);
+            ?>
+
+            <?php if ($projects_query->have_posts()): ?>
+                <div class="others container">
+                    <div class="row" id="project-list">
+                        <?php while ($projects_query->have_posts()): $projects_query->the_post(); ?>
+                            <div class="item">
+                                <?php
+                                    $imagePC = get_field('image_pc');
+                                ?>
+                                <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
+                                <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
+                                <p class="txt"><?php echo get_field('short_description'); ?></p>
+                            </div>
+                        <?php endwhile;
+                        wp_reset_postdata();
+                        ?>
                     </div>
                 </div>
-                <div class="btn">
-                    <a href="#" class="c-btn c-btn--viewmore"><span>View more</span></a>
-                </div>
+            <?php endif; ?>
+            <div class="btn">
+                <a href="javascript:void(0)" data-service-id="<?php echo get_the_ID(); ?>" id="btn-load-more" class="c-btn c-btn--viewmore"><span>View more</span></a>
             </div>
         </div>
-        <div id="also-care" class="l-you-may-also-care">
-            <div class="container">
-                <p class="c-title-sub">YOU MAY ALSO CARE</p>
-                <div class="row">
-                    <a class="item" href="#">
-                        <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
-                        <dl>
-                            <dt class="c-title c-title--md">Facilities Management Department (FMD)</dt>
-                            <dd>Contract Department</dd>
-                        </dl>
-                        <p class="date only-sp">12 JUN</p>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </a>
-                    <a class="item" href="#">
-                        <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img02.jpg" alt="">
-                        <dl>
-                            <dt class="c-title c-title--md">Project Management Department (PMD)</dt>
-                            <dd>Contract Department</dd>
-                        </dl>
-                        <p class="date only-sp">12 JUN</p>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </a>
+        <?php
+            $departments = get_terms(array(
+                'taxonomy' => 'department',
+                'hide_empty' => false,
+                'orderby' => 'name',
+                'order' => 'ASC'
+            ));
+        ?>
+        <?php if (!empty($departments) && !is_wp_error($departments)) : ?>
+            <div id="also-care" class="l-you-may-also-care">
+                <div class="container">
+                    <p class="c-title-sub">YOU MAY ALSO CARE</p>
+                    <div class="row">
+                        <?php foreach ($departments as $department) :?>
+                            <a class="item" href="#">
+                                <?php $department_code = get_field('code', $department); ?>
+                                    <?php if ($department_code == "FMD") : ?>
+                                        <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
+                                    <?php else : ?>
+                                        <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img02.jpg" alt="">
+                                    <?php endif; ?>
+                                <dl>
+                                    <dt class="c-title c-title--md"><?php echo $department->name ?></dt>
+                                    <dd>Contract Department</dd>
+                                </dl>
+                                <p class="date only-sp"><?php echo date('d M') ?></p>
+                                <p class="txt"><?php echo $department->description; ?></p>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
     </main>
 <?php endif; ?>
 
@@ -239,15 +254,18 @@ $current_language = pll_current_language('slug');
         </div>
     </div>
 </footer>
+<!---->
 
-<!-- libs -->
-<script src="<?php echo $assets ?>/libs/modernizr.min.js"></script>
-<script src="<?php echo $assets ?>/libs/jquery-3.6.0.js"></script>
-<script src="<?php echo $assets ?>/libs/slick.min.js"></script>
-<script src="<?php echo $assets ?>/js/common.js"></script>
+<!--<script src="--><?php //echo $assets ?><!--/libs/modernizr.min.js"></script>-->
+<!--<script src="--><?php //echo $assets ?><!--/libs/jquery-3.6.0.js"></script>-->
+<!--<script src="--><?php //echo $assets ?><!--/libs/slick.min.js"></script>-->
+<!--<script src="--><?php //echo $assets ?><!--/js/common.js"></script>-->
+<!---->
 
-<!-- top -->
-<script src="<?php echo $assets ?>/js/what-we-do.js"></script>
-</body>
-
-</html>
+<!--<script src="--><?php //echo $assets ?><!--/js/what-we-do.js"></script>-->
+<!--</body>-->
+<!---->
+<!--</html>-->
+<?php
+get_sidebar();
+get_footer();

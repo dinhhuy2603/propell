@@ -10,7 +10,7 @@
   .kv__text{
     margin: rem(32) 0 rem(46);
     @include sp{
-      margin: rem(14) 0 rem(23);
+      margin: rem(14) 0 rem(38);
     }
   }
 }
@@ -20,20 +20,20 @@
     padding-top: rem(80);
     padding-bottom: rem(40);
     @include sp{
-      padding-top: rem(45);
+      padding-top: rem(54);
       padding-bottom: rem(22);
     }
     .c-ttl{
-      font-size: rem(72);
-      line-height: calc(86.4/72);
+      font-size: rem(60);
+      line-height: calc(72/60);
       letter-spacing: -0.04em;
       font-weight: 400;
       @include fontBonaNova;
       color: $cl-body;
       padding-bottom: rem(24);
       @include sp{
-        font-size: rem(32);
-        line-height: calc(38.4/32);
+        font-size: rem(42);
+        line-height: calc(50.4/42);
         padding-bottom: rem(23);
         margin-bottom: rem(36);
       }
@@ -41,7 +41,7 @@
         position: relative;
         @include sp{
           padding-bottom: rem(20);
-          margin-bottom: rem(24);
+          margin-bottom: rem(17);
         }
         &:before{
           content: '';
@@ -53,7 +53,7 @@
           background: url("../img/careers/icon_dot.png") center no-repeat;
           background-size: 100%;
           @include sp{
-            top: rem(-20);
+            top: rem(-14);
             width: rem(75);
             height: rem(76);
           }
@@ -68,7 +68,7 @@
       @include fontManrope;
       margin-right: rem(280);
       @include sp{
-        margin-right: 0;
+        margin-right: rem(10);
         font-size: rem(16);
         line-height: calc(21.86/16);
       }
@@ -89,8 +89,8 @@
       padding-top: rem(40);
       margin-bottom: rem(17);
       @include sp{
-        font-size: rem(14);
-        line-height: calc(19.11/14);
+        font-size: rem(16);
+        line-height: calc(21.86/16);
         padding-top: rem(24);
       }
     }

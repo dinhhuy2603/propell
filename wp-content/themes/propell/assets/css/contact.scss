@@ -11,7 +11,7 @@
   .kv__text{
     margin: rem(32) 0 rem(46);
     @include sp{
-      margin: rem(14) 0 rem(23);
+      margin: rem(14) 0 rem(38);
     }
   }
 }
@@ -28,7 +28,7 @@
       justify-content: space-between;
     }
     @include sp{
-      padding-top: rem(24);
+      padding-top: rem(40);
     }
     > div{
       @include pc{
@@ -41,7 +41,7 @@
         }
         @include sp{
           padding-bottom: rem(40);
-          margin-bottom: rem(40);
+          margin-bottom: rem(60);
           border-bottom: 1px solid #E7EAF1;
         }
       }
@@ -62,15 +62,15 @@
       margin-bottom: rem(24);
       border-bottom: 1px solid #E7EAF1;
       @include sp{
-        font-size: rem(32);
-        line-height: calc(38.4/32);
-        padding-bottom: rem(23);
-        margin-bottom: rem(36);
+        font-size: rem(24);
+        line-height: calc(28.8/24);
+        padding-bottom: rem(24);
+        margin-bottom: rem(24);
       }
       &__style{
         position: relative;
         @include sp{
-          padding-bottom: rem(20);
+          padding-bottom: rem(48);
           margin-bottom: rem(24);
         }
         &:before{
@@ -82,6 +82,9 @@
           height: rem(75);
           background: url("../img/contact/ico_dot.png") center no-repeat;
           background-size: 100%;
+          @include sp{
+            top: rem(-24);
+          }
         }
       }
     }
@@ -93,7 +96,7 @@
         + dl{
           margin-top: rem(18);
           @include sp{
-            margin-top: rem(28);
+            margin-top: rem(24);
           }
         }
         dt{
@@ -127,7 +130,7 @@
       height: rem(485);
       margin-bottom: rem(24);
       @include sp{
-        width: rem(358);
+        width: rem(343);
         height: rem(365);
       }
       iframe{
@@ -136,9 +139,6 @@
       }
     }
     .c-info__btn{
-      @include sp{
-        text-align: right;
-      }
       .c-btn{
         span{
           background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
@@ -168,7 +168,7 @@
       padding: rem(120) rem(40) rem(60);
       background: #fff;
       @include sp{
-        width: rem(358);
+        width: rem(343);
         padding: rem(92) rem(24) rem(24);
       }
       .c-modal__close{
@@ -197,8 +197,8 @@
         margin-bottom: rem(24);
         text-align: center;
         @include sp{
-          font-size: rem(60);
-          line-height: calc(72/60);
+          font-size: rem(42);
+          line-height: calc(50.4/42);
           margin-bottom: rem(24);
         }
       }

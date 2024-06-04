@@ -1,3 +1,5 @@
+const { use } = require("vue/types/umd.js");
+
 var common = {
   hamburgerMenu: function() {
     var menuEl = $(".menu-toggle");
@@ -17,13 +19,19 @@ var common = {
     // search
     $('.js-search').click(function() {
       if ($("body").hasClass("nav--open")) {
-        closeMenu($(this), searchEl)
+        $("body").addClass("nav--close").removeClass("nav--open");
+        searchEl.slideUp(300);
+        $(this).removeClass("is-active");
       } else {
-        openMenu($(this), searchEl)
+        $("body").addClass("nav--open").removeClass("nav--close");
+        searchEl.slideDown(300);
+        $(this).addClass("is-active");
       }
     })
     $(".js-search--close").click(function () {
-      closeMenu($('.js-search'), searchEl)
+      $("body").addClass("nav--close").removeClass("nav--open");
+      searchEl.slideUp(300);
+      $('.js-search').removeClass("is-active");
     });
 
 
@@ -39,16 +47,19 @@ var common = {
     }
   },
   anchorLink: function() {
-    $('a[href^="#"]').not('[href="#"]').not('[href*="#tab"]').not('[href*="#modal"]').click(function(e) {
+    $('a[href^="#"]').not('[href="#"]').not('[href*="#tab"]').not('[href*="#modal"]').not('a.js-anchor-detail').click(function(e) {
       var id = $(this).attr('href')
       if (id.split('')[0] === '#' && id != '#') {
           var offsetTop = 0
-          // event.preventDefault();
-        if ($('.header').length > 0 && $(window).width() >= 1024) {
-          offsetTop =  $('.header').height()
+          event.preventDefault();
+        if ($('.header').length > 0) {
+          if ($(window).width() < 750) {
+            offsetTop =  $('.header').outerHeight() + $('.kv__submenu').outerHeight();
+          } else{
+            offsetTop =  $('.header').outerHeight()
+          }
         }
-        // $('body, html').animate({ scrollTop: $(id).offset().top - offsetTop })
-        $('body, html').animate({ scrollTop: $(id).offset().top + 10 })
+        $('body, html').animate({ scrollTop: $(id).offset().top - offsetTop })
       } 
     })
     //anchor link different page
@@ -106,7 +117,7 @@ function intSliderCenter(autoplay = true) {
   $slickElement.after(htmlAdd);
   $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
     var i = (currentSlide ? currentSlide : 0) + 1;
-    $(".slider-counter").text(i + '/' + slick.slideCount);
+    $slickElement.siblings(".slick-control-wrap").find(".slider-counter").text(i + '/' + slick.slideCount);
   });
 
   $slickElement.slick({
@@ -117,7 +128,7 @@ function intSliderCenter(autoplay = true) {
     slidesToScroll: 1,
     pauseOnFocus: true,
     pauseOnHover: true,
-    autoplay: autoplay,
+    autoplay: false,
     centerMode: true,
     centerPadding: '2.9375rem',
     variableWidth: true,
@@ -265,6 +276,8 @@ function intValidation(){
     }
   });
 }
+
+
 
 // call function
 (function ($) {
