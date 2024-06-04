@@ -209,6 +209,7 @@ function propell_scripts() {
     if (is_post_type_archive('service') || is_singular('service')) {
         wp_enqueue_style('propell-service-style', get_template_directory_uri() . '/assets/css/what-we-do.css', [], 'all');
         wp_enqueue_style('propell-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-service-js', get_template_directory_uri() . '/assets/js/what-we-do.js', [], _S_VERSION, true);
         }
     // Enqueue project archive specific styles and scripts
