@@ -1,6 +1,6 @@
-<IfModule mod_env.c>
-    SetEnv WP_ENV local
-</IfModule>
+#<IfModule mod_env.c>
+#    SetEnv WP_ENV dev
+#</IfModule>
 # BEGIN WordPress
 # The directives (lines) between "BEGIN WordPress" and "END WordPress" are
 # dynamically generated, and should only be modified via WordPress filters.
