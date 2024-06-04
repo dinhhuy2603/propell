@@ -285,14 +285,18 @@ $current_language = pll_current_language('slug');
     </div>
 </footer>
 
-<!-- libs -->
-<script src="<?php echo $assets ?>/libs/modernizr.min.js"></script>
-<script src="<?php echo $assets ?>/libs/jquery-3.6.0.js"></script>
-<script src="<?php echo $assets ?>/libs/slick.min.js"></script>
-<script src="<?php echo $assets ?>/js/common.js"></script>
+    <!---->
 
-<!-- top -->
-<script src="<?php echo $assets ?>/js/what-we-do.js"></script>
-</body>
+    <!--<script src="--><?php //echo $assets ?><!--/libs/modernizr.min.js"></script>-->
+    <!--<script src="--><?php //echo $assets ?><!--/libs/jquery-3.6.0.js"></script>-->
+    <!--<script src="--><?php //echo $assets ?><!--/libs/slick.min.js"></script>-->
+    <!--<script src="--><?php //echo $assets ?><!--/js/common.js"></script>-->
+    <!---->
 
-</html>
+    <!--<script src="--><?php //echo $assets ?><!--/js/what-we-do.js"></script>-->
+    <!--</body>-->
+    <!---->
+    <!--</html>-->
+<?php
+get_sidebar();
+get_footer();
