@@ -1,7 +1,7 @@
 <?php
 
 
-get_header('service');
+get_header();
 $assets = get_path_assets();
 
 $current_year = get_the_date('Y');
@@ -23,7 +23,6 @@ $current_language = pll_current_language('slug');
             ),
         ),
     );
-    var_dump(11111);
     $service_query = new WP_Query($args);
 ?>
 
