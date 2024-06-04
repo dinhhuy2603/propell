@@ -285,8 +285,11 @@ function get_page_class(){
     if (is_page('about')) {
         $class = 'page page-detail page-about';
     }
-    if (is_post_type_archive('service') || is_singular('service')) {
+    if (is_post_type_archive('service')) {
         $class = 'page page-detail page-what-we-do';
+    }
+    if (is_singular('service')) {
+        $class = 'page page-detail page-what-we-do page-service-details';
     }
     if (is_post_type_archive('project')
         || is_singular('project')
