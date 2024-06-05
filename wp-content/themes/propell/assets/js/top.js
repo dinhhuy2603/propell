@@ -79,6 +79,44 @@ function intSliderScroll() {
     cssEase: 'linear',
   });
 }
+
+// slider Our Journey So Far sp
+function intSliderJourney() {
+  var $slickElement = $('.js-slider-journey');
+  var htmlAdd = `<div class="slick-control-wrap">
+  <button class="prev-btn-journey slick-arrow slick-prev"></button>
+  <div class="slider-counter"></div>
+  <button class="next-btn-journey slick-arrow slick-next"></button></div>`;
+
+  $slickElement.after(htmlAdd);
+  $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+    var i = (currentSlide ? currentSlide : 0) + 1;
+    $slickElement.siblings(".slick-control-wrap").find(".slider-counter").text(i + '/' + slick.slideCount);
+  });
+
+  $slickElement.slick({
+    dots: false,
+    arrows: true,
+    infinite: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnFocus: true,
+    pauseOnHover: true,
+    autoplay: false,
+    // centerMode: true,
+    // centerPadding: '1rem',
+    prevArrow: '.prev-btn-journey',
+    nextArrow: '.next-btn-journey',
+    responsive: [{
+      breakpoint: 9999,
+      settings: "unslick"
+    },{
+      breakpoint: 750,
+      settings: "getslick",
+    }]
+  });
+}
+
 function actionBtnFixed() {
   $(window).bind('scroll', function () {
     var target = $(".section-project").offset().top;
@@ -94,6 +132,11 @@ function actionBtnFixed() {
 (function ($) {
   intSliderKeyvisual()
   intSliderScroll()
+  intSliderJourney()
   intSliderCenter()
   actionBtnFixed()
 }(jQuery));
+
+$(window).on('resize load orientationchange', function(){
+  $(".js-slider-journey").slick("resize");
+});

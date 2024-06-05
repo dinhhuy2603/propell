@@ -1,0 +1,560 @@
+// default settings
+@import "_base/settings";
+@import "_base/mixin";
+
+// CUSTOM STYLES //
+// ======================================= //
+
+.page-propellian{
+  .kv__text{
+    .kv__submenu{
+      width: rem(332);
+      li{
+        &:nth-child(even){
+          padding-left: rem(50);
+        }
+      }
+    }
+  }
+  .propellian{
+    padding-top: rem(80);
+    @include sp{
+      padding-top: rem(24);
+    }
+    .c-toggle{
+      + .c-toggle{
+        margin-top: rem(24);
+      }
+      &__head{
+        cursor: pointer;
+        position: relative;
+        border-top: 1px solid $cl-line;
+        .c-ttl{
+          padding: rem(24) rem(66);
+          @include fontBonaNova;
+          letter-spacing: -0.04em;
+          font-weight: 400;
+          font-size: rem(60);
+          line-height: calc(72/60);
+          position: relative;
+          color: $cl-title;
+          @include sp{
+            padding: rem(17) rem(50);
+            font-size: rem(32);
+            line-height: calc(38.4/32);
+          }
+          .c-num{
+            font-size: rem(16);
+            line-height: calc(21.86/16);
+            font-weight: 700;
+            @include fontManrope;
+            letter-spacing: -0.04em;
+            position: absolute;
+            top: rem(25);
+            left: 0;
+            @include sp{
+              top: rem(17);
+            }
+          }
+        }
+        .c-ico{
+          display: block;
+          width: rem(40);
+          height: rem(40);
+          position: absolute;
+          top: rem(41);
+          right: rem(20);
+          @include sp{
+            top: rem(16);
+            right: rem(16);
+          }
+          &:before, &:after{
+            content: '';
+            display: block;
+            width: rem(20);
+            height: rem(3);
+            background: #374957;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          &:after{
+            transform: translate(-50%, -50%) rotate(-90deg);
+            transition: all .3s ease-in-out;
+          }
+        }
+        &.is-active{
+          .c-ico{
+            &:after{
+              transform: translate(-50%, -50%) rotate(0);
+            }
+          }
+        }
+      }
+      &__main{
+        display: none;
+      }
+    }
+    .c-media{
+      + .c-media{
+        margin-top: rem(80);
+        @include sp{
+          margin-top: rem(40);
+        }
+      }
+      &__ttl{
+        @include fontBonaNova;
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        color: $cl-body;
+        border-bottom: 1px solid $cl-line;
+        padding-bottom: rem(32);
+        margin-bottom: rem(32);
+        @include sp{
+          padding-bottom: rem(16);
+          margin-bottom: rem(16);
+        }
+      }
+      &__list{
+        font-size: rem(16);
+        line-height: calc(21.86/16);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontManrope;
+        @include sp{
+          font-size: rem(14);
+          line-height: calc(19.18/14);
+        }
+        dt{
+          margin-bottom: rem(32);
+          @include sp{
+            margin-bottom: rem(16);
+          }
+        }
+        dd{
+          position: relative;
+          display: flex;
+          align-items: center;
+          margin-left: rem(24);
+          &:before{
+            content: '';
+            width: rem(24);
+            height: rem(24);
+            background: url("../img/propellian/icon_dot.png") center no-repeat;
+            background-size: contain;
+            display: inline-block;
+            margin-right: rem(24);
+          }
+          span{
+            flex: 1;
+          }
+          + dd{
+            margin-top: rem(24);
+          }
+        }
+      }
+      &__txt{
+        font-size: rem(16);
+        line-height: calc(21.86/16);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontManrope;
+        @include sp{
+          font-size: rem(14);
+          line-height: calc(19.18/14);
+        }
+        p {
+          + p{
+            margin-top: rem(20);
+            @include sp{
+              margin-top: rem(16);
+            }
+          }
+        }
+      }
+    }
+    .philosophy{
+      padding-top: rem(24);
+      padding-bottom: rem(80);
+      @include sp{
+        padding-bottom: rem(24);
+        padding-bottom: rem(24);
+      }
+      &__content{
+        display: flex;
+        @include sp{
+          display: block;
+        }
+        + .philosophy__content{
+          margin-top: rem(80);
+          @include sp{
+            margin-top: rem(40);
+          }
+        }
+        &.--revert{
+          .philosophy__photo{
+            @include pc{
+              width: rem(600);
+              margin-right: 0;
+              margin-left: rem(80);
+            }
+            @include sp{
+              margin-bottom: 0;
+              margin-top: rem(40);
+            }
+          }
+        }
+      }
+      &__photo{
+        @include pc{
+          width: rem(540);
+          margin-right: rem(80);
+        }
+        @include sp{
+          margin-bottom: rem(40);
+        }
+      }
+      &__text{
+        flex: 1;
+      }
+    }
+    .people{
+      padding-top: rem(24);
+      padding-bottom: rem(80);
+      &__content{
+        display: flex;
+        @include sp{
+          display: block;
+        }
+      }
+      &__photo{
+      @include pc{
+          width: rem(600);
+          margin-right: rem(80);
+        }
+        @include sp{
+          margin-bottom: rem(40);
+        }
+      }
+      &__text{
+        flex: 1;
+      }
+    }
+    .csr{
+      padding-top: rem(24);
+      padding-bottom: rem(80);
+      @include sp{
+        padding-bottom: rem(24);
+      }
+      &__txt{
+        font-size: rem(16);
+        line-height: calc(21.86/16);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontManrope;
+        padding-bottom: rem(77);
+        @include sp{
+          font-size: rem(14);
+          line-height: calc(19.18/14);
+          padding-bottom: rem(40);
+        }
+        p{
+          + p{
+            margin-top: rem(24);
+            @include sp{
+              margin-top: rem(16);
+            }
+          }
+        }
+      }
+      &__items{
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 0 rem(-40);
+        @include sp{
+          display: block;
+        }
+      }
+      &__item{
+        width: calc(100% / 3);
+        padding: 0 rem(40);
+        @include sp{
+          width: 100%;
+        }
+        &:nth-child(n + 4){
+          @include pc{
+            margin-top: rem(80);
+          }
+        }
+        &:nth-child(n + 2){
+          @include sp{
+            margin-top: rem(40);
+          }
+        }
+        &--photo{
+          @include sp{
+            width: rem(358);
+            height: rem(230);
+            margin: 0 auto;
+            position: relative;
+          }
+          img{
+            @include sp{
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        &--ttl{
+          font-size: rem(32);
+          line-height: calc(38.4/32);
+          letter-spacing: -0.04em;
+          font-weight: 400;
+          @include fontBonaNova;
+          color: $cl-body;
+          margin-top: rem(16);
+          @include sp{
+            font-size: rem(24);
+            line-height: calc(28.8/24);
+          }
+        }
+      }
+    }
+    .event{
+      padding-top: rem(24);
+      padding-bottom: rem(134);
+      position: relative;
+      @include sp{
+        padding-bottom: rem(8);
+      }
+      &__item{
+        &--photo{
+          width: rem(1280);
+          height: rem(548);
+          position: relative;
+          border: 1px solid $cl-line;
+          margin-bottom: rem(24);
+          @include sp{
+            width: rem(358);
+            height: rem(153);
+            margin-bottom: rem(16);
+          }
+          img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &--content{
+          display: flex;
+          @include sp{
+            display: block;
+          }
+          .c-ttl{
+            font-size: rem(60);
+            line-height: calc(72/60);
+            letter-spacing: -0.04em;
+            font-weight: 400;
+            @include fontBonaNova;
+            color: $cl-title;
+            @include pc{
+              width: rem(650);
+              margin-right: rem(80);
+            }
+            @include sp{
+              font-size: rem(24);
+              line-height: calc(28.8/24);
+              margin-bottom: rem(24);
+            }
+          }
+          .c-text{
+            flex: 1;
+            &__mid{
+              display: flex;
+              justify-content: space-between;
+              margin-top: rem(44);
+              @include sp{
+                display: block;
+                margin-top: rem(14);
+              }
+            }
+          }
+        }
+      }
+      &__btm{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: rem(-56);
+        @include sp{
+          margin-top: rem(24);
+          justify-content: space-between;
+        }
+        .c-text__more{
+          .c-btn{
+            padding-inline: 0;
+            span{
+              padding-left: rem(6);
+              border-left: rem(2) solid $cl-line;
+              letter-spacing: 0;
+              @include sp{
+                padding-right: rem(42);
+                padding-left: rem(65);
+              }
+            }
+            &::after{
+              display: none;
+            }
+          }
+        }
+        .slick-control-wrap{
+          width: rem(90);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: 700;
+          margin-right: rem(8);
+          @include sp{
+            width: rem(108);
+          }
+          .slick-arrow{
+            position: static;
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-propellian-events{
+  .kv{
+    &__text{
+      margin: rem(32) 0 rem(46);
+      @include sp{
+        margin: rem(14) 0 rem(23);
+      }
+    }
+    &__img{
+      max-width: rem(1280);
+      margin: 0 auto;
+    }
+  }
+  .events-highlight{
+    padding-bottom: rem(80);
+    @include sp{
+      padding-bottom: rem(40);
+    }
+    &__ttl{
+      text-align: center;
+      font-size: rem(60);
+      line-height: calc(72/60);
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      @include fontBonaNova;
+      color: $cl-title;
+      padding-top: rem(80);
+      @include sp{
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+        padding-top: rem(40);
+      }
+    }
+    &__txt{
+      text-align: center;
+      font-size: rem(24);
+      line-height: calc(28.8/24);
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      @include fontBonaNova;
+      color: $cl-body;
+      padding: rem(24) 0 rem(80);
+      @include sp{
+        font-size: rem(20);
+        line-height: calc(24/20);
+        padding-bottom: rem(24);
+      }
+    }
+    &__items{
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 0 rem(-40);
+      @include sp{
+        display: block;
+      }
+    }
+    &__item{
+      width: calc(100% / 3);
+      padding: 0 rem(40);
+      @include sp{
+        width: 100%;
+      }
+      &:nth-child(n + 4){
+        @include pc{
+          margin-top: rem(80);
+        }
+      }
+      &:nth-child(n + 2){
+        @include sp{
+          margin-top: rem(40);
+        }
+      }
+      &--photo{
+        @include sp{
+          width: rem(358);
+          height: rem(230);
+          margin: 0 auto;
+          position: relative;
+        }
+        img{
+          @include sp{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      &--ttl{
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontBonaNova;
+        color: $cl-body;
+        margin-top: rem(16);
+        @include sp{
+          font-size: rem(24);
+          line-height: calc(28.8/24);
+        }
+      }
+    }
+    &__btn{
+      text-align: center;
+      padding-top: rem(80);
+      @include sp{
+        padding-top: rem(40);
+      }
+      .btn{
+        span{
+          background: url("../img/icon-arrow-link_right-down-blue.png") center right no-repeat;
+          background-size: rem(24);
+        }
+      }
+    }
+  }
+}

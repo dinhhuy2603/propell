@@ -61,22 +61,9 @@ $assets = get_path_assets();
     </div>
 </footer>
 
-<!-- libs -->
-<script src="<?php echo $assets ?>/libs/modernizr.min.js"></script>
-<script src="<?php echo $assets ?>/libs/jquery-3.6.0.js"></script>
-<script src="<?php echo $assets ?>/libs/slick.min.js"></script>
-<script src="<?php echo $assets ?>/js/common.js"></script>
-<?php if (is_front_page()) : ?>
-<!-- top-->
-<script src="<?php echo $assets ?>/js/top.js"></script>
-<?php else: ?>
-<script src="<?php echo $assets ?>/js/what-we-do.js"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js"></script>
-<script src="<?php echo $assets ?>/js/contact.js"></script>
-<?php endif; ?>
-<!--contact-->
-
+<script>
+    var ajax_url = '<?php echo admin_url( 'admin-ajax.php' ); ?>';
+</script>
 
 <?php wp_footer(); ?>
 

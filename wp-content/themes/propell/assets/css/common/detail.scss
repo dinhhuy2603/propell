@@ -8,20 +8,20 @@
   .main{
     padding-top: rem(120);
     @include sp{
-      padding-top: rem(60);
+      padding-top: rem(88);
     }
   }
 
   .kv{
-    padding-top: rem(35);
+    padding-top: rem(24);
     @include sp{
-      padding-top: rem(22);
+      padding-top: 0;
     }
     .breadcrumds{
       ul{
         li, a{
           list-style-type: none;
-          display: inline-block;
+          display: inline;
           color: $cl-primary-light;
           font-size: rem(12);
           line-height: calc(16.4/12);
@@ -55,6 +55,12 @@
       display: flex;
       justify-content: space-between;
       margin: rem(40) 0 rem(22);
+      *{
+        -ms-overflow-style: none;
+      }
+      ::-webkit-scrollbar {
+          display: none;
+      }
       @include sp{
         margin: rem(16) 0 rem(24);
       }
@@ -79,24 +85,84 @@
         flex-wrap: wrap;
         width: rem(405);
         @include sp{
-          display: none;
+          flex-wrap: nowrap;
+          position: fixed;
+          top: rem(88);
+          left: 0;
+          right: 0;
+          padding: rem(14) rem(16);
+          background: #fff;
+          overflow-y: auto;
+          width: 100% !important;
+          border-top: 1px solid $cl-line;
+          border-bottom: 1px solid $cl-line;
+          z-index: 9;
+          transform: translateY(-105%);
+          transition: transform .15s ease-in-out;
+        }
+        &.is-show{
+          @include sp{
+            transform: translateY(0);
+          }
         }
         li{
           list-style-type: none;
           width: 50%;
           margin-bottom: rem(15);
+          @include sp{
+            width: auto;
+            padding: 0 rem(8);
+            margin-bottom: 0;
+          }
           a{
             font-size: rem(16);
             line-height: calc(21.86/16);
             letter-spacing: -0.04em;
             font-weight: 700;
             color: $cl-body;
+            position: relative;
+            @include sp{
+              white-space: nowrap;
+              font-size: rem(12);
+              line-height: calc(16.4/12);
+              letter-spacing: -0.01em;
+            }
+            &:before{
+              @include sp{
+                content: '';
+                position: absolute;
+                bottom: rem(-15);
+                left: rem(-8);
+                right: rem(-8);
+                height: rem(2);
+                background: $cl-primary-light;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                z-index: 1;
+              }
+            }
             &:hover{
-              opacity: 0.8;
+              @include pc{
+                color: $cl-primary-light;
+              }
+            }
+            &.is-active{
+              @include sp{
+                color: $cl-primary-light;
+              }
+              &:before{
+                @include sp{
+                  opacity: 1;
+                  visibility: visible;
+                }
+              }
             }
           }
           &:nth-child(even){
-            padding-left: rem(15);
+            @include pc{
+              padding-left: rem(15);
+            }
           }
         }
       }
@@ -107,7 +173,7 @@
       position: relative;
       margin: 0 auto;
       @include sp{
-        height: rem(221);
+        height: rem(210);
       }
       img{
         position: absolute;

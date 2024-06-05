@@ -11,7 +11,7 @@
   .kv__text{
     margin: rem(32) 0 rem(46);
     @include sp{
-      margin: rem(14) 0 rem(23);
+      margin: rem(14) 0 rem(38);
     }
   }
 }
@@ -28,7 +28,7 @@
       justify-content: space-between;
     }
     @include sp{
-      padding-top: rem(24);
+      padding-top: rem(40);
     }
     > div{
       @include pc{
@@ -41,7 +41,7 @@
         }
         @include sp{
           padding-bottom: rem(40);
-          margin-bottom: rem(40);
+          margin-bottom: rem(60);
           border-bottom: 1px solid #E7EAF1;
         }
       }
@@ -62,15 +62,15 @@
       margin-bottom: rem(24);
       border-bottom: 1px solid #E7EAF1;
       @include sp{
-        font-size: rem(32);
-        line-height: calc(38.4/32);
-        padding-bottom: rem(23);
-        margin-bottom: rem(36);
+        font-size: rem(24);
+        line-height: calc(28.8/24);
+        padding-bottom: rem(24);
+        margin-bottom: rem(24);
       }
       &__style{
         position: relative;
         @include sp{
-          padding-bottom: rem(20);
+          padding-bottom: rem(48);
           margin-bottom: rem(24);
         }
         &:before{
@@ -82,6 +82,9 @@
           height: rem(75);
           background: url("../img/contact/ico_dot.png") center no-repeat;
           background-size: 100%;
+          @include sp{
+            top: rem(-24);
+          }
         }
       }
     }
@@ -93,7 +96,7 @@
         + dl{
           margin-top: rem(18);
           @include sp{
-            margin-top: rem(28);
+            margin-top: rem(24);
           }
         }
         dt{
@@ -127,7 +130,7 @@
       height: rem(485);
       margin-bottom: rem(24);
       @include sp{
-        width: rem(358);
+        width: rem(343);
         height: rem(365);
       }
       iframe{
@@ -136,9 +139,6 @@
       }
     }
     .c-info__btn{
-      @include sp{
-        text-align: right;
-      }
       .c-btn{
         span{
           background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
@@ -168,313 +168,7 @@
       padding: rem(120) rem(40) rem(60);
       background: #fff;
       @include sp{
-        width: rem(358);
-        padding: rem(92) rem(24) rem(24);
-      }
-<<<<<<< HEAD
-      .c-modal__close{
-        position: absolute;
-        top: rem(42);
-        right: rem(40);
-        width: rem(56);
-        height: rem(56);
-        background: url("../img/icon_close_modal.png") center no-repeat;
-        background-size: 100%;
-        cursor: pointer;
-        @include sp{
-          width: rem(44);
-          height: rem(44);
-          top: rem(24);
-          right: rem(24);
-=======
-      .label{
-        display: block;
-        @include fontManrope;
-        font-size: rem(16);
-        font-weight: 700;
-        line-height: calc(21.86/16);
-        letter-spacing: -0.04em;
-        color: $cl-line;
-        @include sp{
-          font-size: rem(14);
-          line-height: calc(19.12/14);
->>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
-        }
-      }
-      .c-modal__ttl{
-        font-size: rem(72);
-        line-height: calc(86.4/72);
-        letter-spacing: -0.04em;
-        font-weight: 400;
-        @include fontBonaNova;
-        color: $cl-body;
-<<<<<<< HEAD
-        margin-bottom: rem(24);
-        text-align: center;
-        @include sp{
-          font-size: rem(60);
-          line-height: calc(72/60);
-          margin-bottom: rem(24);
-        }
-      }
-      .c-modal__txt{
-=======
-        @include sp{
-          font-size: rem(14);
-          line-height: calc(19.12/14);
-        }
-      }
-      textarea{
-        height: rem(98);
-      }
-      label.error{
-        font-family: Manrope;
-        font-size: rem(8);
-        font-weight: 400;
-        line-height: calc(10.93/8);
-        color: #FF4850;
-        letter-spacing: 0.011em;
-        position: absolute;
-        left: rem(24);
-        bottom: rem(3);
-      }
-      input.error, textarea.error{
-        color: #FF4850;
-      }
-    }
-    .select-menu {
-      .select-btn {
-        border: none;
-        outline: 0;
-        width: 100%;
-        padding: rem(8) 0;
-        letter-spacing: -0.04em;
->>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
-        font-size: rem(18);
-        line-height: calc(24.59/18);
-        letter-spacing: -0.04em;
-        font-weight: 400;
-        @include fontManrope;
-        color: $cl-body;
-<<<<<<< HEAD
-        margin-bottom: rem(24);
-        text-align: center;
-        @include sp{
-          font-size: rem(16);
-          line-height: calc(21.86/16);
-          margin-bottom: rem(16);
-=======
-        cursor: pointer;
-        position: relative;
-        @include sp{
-          font-size: rem(14);
-          line-height: calc(19.12/14);
-        }
-        .icon{
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: rem(24);
-          height: rem(24);
-          background: url("../img/icon_down.png") center no-repeat;
-          background-size: 100%;
-        }
-      }
-      .options {
-        position: absolute;
-        left: rem(-1);
-        right: 0;
-        width: rem(600);
-        padding: 0 rem(23) rem(14);
-        overflow-y: auto;
-        // max-height: 295px;
-        background: #fff;
-        border: 1px solid #E7EAF1;
-        border-top: 0;
-        animation: fadeInDown 0.1s both;
-        @include sp{
-          width: rem(358);
-          top: rem(74);
-        }
-        .option {
-          display: flex;
-          cursor: pointer;
-          padding: rem(12) 0;
-          background: #fff;
-          border-top: 1px solid #E7EAF1;
-          &:first-child{
-            padding-top: rem(20);
-          }
-          .option-text {
-            @include fontManrope;
-            font-size: rem(16);
-            font-weight: 700;
-            line-height: calc(21.86/16);
-            letter-spacing: -0.04em;
-            color: $cl-line;
-            position: relative;
-            width: 100%;
-            @include sp{
-              font-size: rem(14);
-              line-height: calc(19.12/14);
-            }
-            &:after{
-              content: '';
-              display: block;
-              position: absolute;
-              top: rem(2);
-              right: rem(9);
-              width: rem(6);
-              height: rem(14);
-              border: solid $cl-primary-light;
-              border-width: 0 rem(2) rem(2) 0;
-              transform: rotate(45deg);
-              opacity: 0;
-              visibility: hidden;
-            }
-          }
-          &:hover, &.is-checked{
-            .option-text{
-              color: $cl-body;
-              &:after{
-                opacity: 1;
-                visibility: visible;
-              }
-            }
-          }
-        }
-      }
-      &.active{
-        .select-btn{
-          .icon{
-            transform: translateY(-50%) rotate(180deg);
-          }
-        }
-        .options {
-          display: block;
-          opacity: 0;
-          z-index: 10;
-          animation: fadeInUp 0.15s both;
-        }
-      }
-    }
-    
-    .dropdown-select{
-      background-color: #f0f0f3;
-      width: 500px;
-      position: relative;
-      height: 35px;
-      cursor: pointer;
-      .select-box{
-        display: none !important;
-      }
-      span.selection{
-        display: block;
-        line-height: 35px;
-        padding-left: 10px;
-      }
-      span.right-icon{
-        position: absolute;
-        overflow: hidden;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #0f57d6;
-        .fa{
-          color: #fff;
-          font-size: 33px;
-          padding-right: 6px;
-          padding-left: 6px;
-        }
-      }
-      ul{
-        list-style: none;
-        margin: 0 0 0 0;
-        padding: 0;
-        &.list-items{
-          visibility: hidden;
-          background-color: #f0f0f3;
-          height: 0;
-          max-height: 300px;
-          overflow-x: hidden;
-          overflow-y: scroll;
-          transition: 0.2s all ease-in-out;  
-          padding-bottom: 2px;
-          margin-bottom: 2px;
-          position: relative;
-          &.open{
-            height: 300px;
-            visibility: visible;
-          }
-          li{
-            height: 45px;
-            line-height: 45px;        
-            background-color: #fff;
-            padding-left: 10px;
-            margin: 0 2px;
-            &.active{
-              position: relative;
-              &:before{
-                content: ' ';
-                width: 5px;
-                height: 100%;
-                position: absolute;
-                background: #0f57d6;
-                left: 0;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .g-recaptcha{
-      display: flex;
-      width: 100%;
-      justify-content: flex-end;
-    }
-    .form-captcha{
-      margin-top: rem(12);
-    }
-    .form-btn{
-      text-align: right;
-      margin-top: rem(18);
-      button.c-btn{
-        outline: 0;
-        border: 0;
-        background: 0;
-        span{
-          background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
-          background-size: rem(24);
-          letter-spacing: -0.04em;
->>>>>>> 76fea0a04c99a28ea68f7341ca35d134731e220c
-        }
-      }
-    }
-  }
-  .c-modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba($color: #010637, $alpha: 0.67);
-    z-index: 100;
-    display: none;
-    &.is-active{
-      display: block;
-    }
-    .c-modal__inner{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: rem(540);
-      padding: rem(120) rem(40) rem(60);
-      background: #fff;
-      @include sp{
-        width: rem(358);
+        width: rem(343);
         padding: rem(92) rem(24) rem(24);
       }
       .c-modal__close{
@@ -503,8 +197,8 @@
         margin-bottom: rem(24);
         text-align: center;
         @include sp{
-          font-size: rem(60);
-          line-height: calc(72/60);
+          font-size: rem(42);
+          line-height: calc(50.4/42);
           margin-bottom: rem(24);
         }
       }
