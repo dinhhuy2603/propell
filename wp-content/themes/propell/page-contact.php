@@ -46,7 +46,7 @@ get_header();
             </div>
           </div>
           <div class="contact__form">
-            <h2 class="c-ttl c-ttl__style">Make An <br>Appointment</h2>
+            <h2 class="c-ttl c-ttl__style">Make An <br class="only-pc">Appointment</h2>
             <form class="c-form contact-form" action="">
               <div class="form-group">
                 <label class="label" for="name">YOUR NAME (*)</label>

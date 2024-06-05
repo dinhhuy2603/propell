@@ -439,3 +439,53 @@ function custom_project_permalink($post_link, $post) {
     return $post_link;
 }
 add_filter('post_type_link', 'custom_project_permalink', 10, 2);
+
+
+
+/**
+ * Add iFrame to allowed wp_kses_post tags
+ *
+ * @param string $tags Allowed tags, attributes, and/or entities.
+ * @param string $context Context to judge allowed tags by. Allowed values are 'post',
+ *
+ * @return mixed
+ */
+function custom_wpkses_post_tags( $tags, $context ) {
+    if ( 'post' === $context ) {
+        $tags['iframe'] = array(
+            'src'             => true,
+            'height'          => true,
+            'width'           => true,
+            'frameborder'     => true,
+            'allowfullscreen' => true,
+            'style' => true,
+            'marginwidth' => true,
+            'marginheight' => true,
+            'vspace' => true,
+            'hspace' => true,
+            'allowtransparency' => true,
+            'scrolling' => true,
+        );
+    }
+    return $tags;
+}
+add_filter( 'wp_kses_allowed_html', 'custom_wpkses_post_tags', 10, 2 );
+
+
+
+add_action('admin_head', 'remove_content_editor');
+/**
+ * Remove the content editor from pages as all content is handled through Panels
+ */
+function remove_content_editor()
+{
+    $currentPageID = get_the_ID();
+    $contactEn = get_page_by_path('contact');
+
+    if(
+        $contactEn->ID == $currentPageID
+    )
+    {
+        remove_post_type_support('page', 'editor');
+    }
+}
