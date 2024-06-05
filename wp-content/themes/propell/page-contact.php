@@ -1,12 +1,17 @@
 <?php
 get_header();
+$fields = get_fields();
+// echo '<pre>';
+// var_dump($fields);
+$block_left = $fields['block_left'] ?? [];
+$block_right = $fields['block_right'] ?? [];
 ?>
 <main id="main" class="main">
     <div class="kv">
       <div class="container">
         <div class="breadcrumds">
           <ul>
-            <li><a href="./">HOME</a></li>
+            <li><a href="/">HOME</a></li>
             <li>CONTACT US</li>
           </ul>
         </div>
@@ -18,8 +23,8 @@ get_header();
       </div>
       <div class="kv__img">
         <picture>
-          <source media="(max-width: 750px)" srcset="/assets/img/contact/kv_img_sp.jpg">
-          <img src="/assets/img/contact/kv_img.jpg" alt="">
+          <source media="(max-width: 750px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/contact/kv_img_sp.jpg">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/contact/kv_img.jpg" alt="">
         </picture>
       </div>
     </div>
@@ -27,37 +32,39 @@ get_header();
       <div class="container">
         <div class="contact__content">
           <div class="contact__info">
-            <h2 class="c-ttl">Our Contact</h2>
+            <h2 class="c-ttl"><?php echo $block_left['left_title'] ?? ''; ?></h2>
             <div class="c-address">
               <dl>
-                <dt>PROPELL INTERGRATED PTE LTD</dt>
-                <dd>15 Bukit Batok Street 22#06-00  - Propell BuildingSingapore 659586</dd>
+                <dt><?php echo $block_left['left_address_name'] ?? ''; ?></dt>
+                <dd><?php echo $block_left['left_address_detail'] ?? ''; ?></dd>
               </dl>
               <dl>
-                <dt>TEL</dt>
-                <dd>(+65) 6282 2822</dd>
+                <dt><?php echo $block_left['left_tel_label'] ?? ''; ?></dt>
+                <dd><?php echo $block_left['left_tel'] ?? ''; ?></dd>
               </dl>
             </div>
+            <?php if(!empty($block_left['left_iframe_map'])) {?>
             <div class="c-map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7206665654408!2d103.74862797567911!3d1.344013761593104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10040455176e58f3%3A0x7187f2986f246256!2sPropell%20Integrated%20PTE%20LTD!5e0!3m2!1svi!2s!4v1716389261244!5m2!1svi!2s"></iframe>
+              <?php echo $block_left['left_iframe_map']; ?>
             </div>
+            <?php }?>
             <div class="c-info__btn">
-              <a href="#" class="btn c-btn" target="_blank"><span>VIEW BIG MAP</span></a>
+              <a href="#" class="btn c-btn" target="_blank"><span><?php echo $block_left['left_label_button'] ?? ''; ?></span></a>
             </div>
           </div>
           <div class="contact__form">
-            <h2 class="c-ttl c-ttl__style">Make An <br class="only-pc">Appointment</h2>
+            <h2 class="c-ttl c-ttl__style"><?php echo $block_right['right_title'] ?? ''; ?></h2>
             <form class="c-form contact-form" action="">
               <div class="form-group">
-                <label class="label" for="name">YOUR NAME (*)</label>
-                <input name="name" type="text" class="input" placeholder="Enter your name here...">
+                <label class="label" for="name"><?php echo $block_right['right_name'] ?? ''; ?>(*)</label>
+                <input name="name" type="text" class="input" placeholder="<?php echo $block_right['right_name_placeholder'] ?? ''; ?>">
               </div>
               <div class="form-group">
-                <label class="label" for="email">YOUR EMAIL (*)</label>
-                <input name="email" type="text" class="input" placeholder="sample@gmail.com / sample@hotmail.com...">
+                <label class="label" for="email"><?php echo $block_right['right_email'] ?? ''; ?>(*)</label>
+                <input name="email" type="text" class="input" placeholder="<?php echo $block_right['right_email_placeholder'] ?? ''; ?>">
               </div>
               <div class="form-group">
-                <label class="label">SUBJECT (*)</label>
+                <label class="label"><?php echo $block_right['right_subject'] ?? ''; ?>(*)</label>
                 <div class="select-menu">
                   <div class="select-btn">
                     <span class="sBtn-text">Select Subject</span>
@@ -80,14 +87,14 @@ get_header();
                 </div>
               </div>
               <div class="form-group">
-                <label class="label" for="message">MESSAGE (*)</label>
-                <textarea name="message" placeholder="Enter your text here"></textarea>
+                <label class="label" for="message"><?php echo $block_right['right_message'] ?? ''; ?>(*)</label>
+                <textarea name="message" placeholder="<?php echo $block_right['right_message_placeholder'] ?? ''; ?>"></textarea>
               </div>
               <div class="form-captcha">
                 <div class="g-recaptcha" data-sitekey="6LcGH-YpAAAAAEn55zXx2AQ0RpAsH_yA_1xulcbX"></div>
               </div>
               <div class="form-btn">
-                <button class="btn c-btn" type="submit"><span>SEND EMAIL</span></button>
+                <button class="btn c-btn" type="submit"><span><?php echo $block_right['right_submit'] ?? ''; ?></span></button>
               </div>
             </form>
           </div>
