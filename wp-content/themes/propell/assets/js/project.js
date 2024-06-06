@@ -69,10 +69,17 @@ function intSliderProjectDetailTab() {
       pauseOnFocus: true,
       pauseOnHover: true,
       autoplay: false,
-      centerMode: false,
-      variableWidth: false,
+      centerMode: true,
+      centerPadding: '2.9375rem',
+      variableWidth: true,
       prevArrow: $prevBtn,
       nextArrow: $nextBtn,
+      responsive: [{
+        breakpoint: 750,
+        settings: {
+          centerPadding: '1rem',
+        }
+      }]
     });
   })
 }
@@ -82,5 +89,4 @@ function intSliderProjectDetailTab() {
     intSliderProjectDetailTab();
   }
   intSliderProgress();
-  intTabs()
 }(jQuery));

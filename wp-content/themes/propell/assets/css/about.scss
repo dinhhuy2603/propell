@@ -6,11 +6,6 @@
 // ======================================= //
 
 .page-about {
-  .kv__text{
-    @include sp{
-      margin: rem(14) 0 rem(38);
-    }
-  }
   .section__accordion{
     padding-top: rem(80);
     @include sp{
@@ -615,6 +610,7 @@
     }
     .team{
       padding-top: rem(40);
+      padding-bottom: rem(80);
       @include sp{
         padding-bottom: rem(40);
       }
@@ -902,12 +898,6 @@
 }
 
 .page-awards{
-  .kv__text{
-    margin: rem(30) 0 rem(46);
-    @include sp{
-      margin: rem(14) 0 rem(38);
-    }
-  }
   .awards-detail{
     padding-top: rem(120);
     padding-bottom: rem(80);

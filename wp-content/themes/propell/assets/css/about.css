@@ -1,8 +1,3 @@
-@media (max-width: 750px) {
-  .page-about .kv__text {
-    margin: 0.875rem 0 2.375rem;
-  }
-}
 .page-about .section__accordion {
   padding-top: 5rem;
 }
@@ -676,6 +671,7 @@
 }
 .page-about .section__accordion .team {
   padding-top: 2.5rem;
+  padding-bottom: 5rem;
 }
 @media (max-width: 750px) {
   .page-about .section__accordion .team {
@@ -982,14 +978,6 @@
   }
 }
 
-.page-awards .kv__text {
-  margin: 1.875rem 0 2.875rem;
-}
-@media (max-width: 750px) {
-  .page-awards .kv__text {
-    margin: 0.875rem 0 2.375rem;
-  }
-}
 .page-awards .awards-detail {
   padding-top: 7.5rem;
   padding-bottom: 5rem;

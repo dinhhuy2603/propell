@@ -161,10 +161,9 @@ $current_language = pll_current_language('slug');
                             ?>
                             <?php while ($service_query->have_posts()) : $service_query->the_post(); ?>
                             <?php
-//                            $name = get_post_meta(get_the_ID(), 'service_name', true);
-                            $banner = get_post_meta(get_the_ID(), 'banner', true);
+                                $banner = get_post_meta(get_the_ID(), 'banner', true);
                             ?>
-                            <a href="#" class="item">
+                            <a href="<?php echo esc_url(get_permalink(get_the_ID())) ?>" class="item">
                                 <p class="item__number">/0<?php echo $counter ?>/</p>
                                 <div class="item__group">
                                     <dl>
@@ -203,27 +202,25 @@ $current_language = pll_current_language('slug');
             </div>
             <div class="section-project__slider">
                 <div class="js-slider-center">
-                    <?php if ($project_query->have_posts()) :
-                        $counter = 1
-                        ?>
+                    <?php if ($project_query->have_posts()) : ?>
                         <?php while ($project_query->have_posts()) : $project_query->the_post();
-                        $name = get_post_meta(get_the_ID(), 'project_name', true);
-                        $thumbnail = get_post_meta(get_the_ID(), 'thumbnail', true);
-                        $banner = get_post_meta(get_the_ID(), 'banner', true);
-                        $short_description = get_post_meta(get_the_ID(), 'short_description', true);
+                        $thumbnail = get_field( 'thumbnail', );
+                        $imagePC = get_field('image_pc');
+                        $imageSP = get_field('image_sp');
+                        $short_description = get_field('short_description');
                         ?>
                         <div class="item">
                             <div class="item__img">
                                 <picture>
-                                    <source media="(max-width: 750px)" srcset="<?php echo wp_get_attachment_url($banner) ?>">
-                                    <img class="img-fit" src="<?php echo wp_get_attachment_url($banner) ?>" alt="Jewel Changi Airport">
+                                    <source media="(max-width: 750px)" srcset="<?php echo $imageSP ?>">
+                                    <img class="img-fit" src="<?php echo $imagePC ?>" alt="Jewel Changi Airport">
                                 </picture>
                             </div>
                             <div class="item__group">
                                 <p class="fmd">FMD</p>
-                                <p class="logo"><img src="<?php echo wp_get_attachment_url($thumbnail) ?>" alt="Jewel"></p>
+                                <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
                                 <dl>
-                                    <dt class="c-title c-title--md"><?php echo $name ?></dt>
+                                    <dt class="c-title c-title--md"><?php echo the_title() ?></dt>
                                     <?php
                                     $related_services = get_field('related_services');
                                     if ($related_services): ?>
@@ -236,10 +233,10 @@ $current_language = pll_current_language('slug');
                                     <?php endif; ?>
                                 </dl>
                                 <p class="text"><?php echo $short_description ?></p>
-                                <a href="#" class="btn c-btn"><span>VIEW DETAILS</span></a>
+                                <a href="<?php echo esc_url(get_permalink(get_the_ID())); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
                             </div>
                         </div>
-                        <?php $counter++; endwhile; ?>
+                        <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
                 <div class="slider-counter"></div>

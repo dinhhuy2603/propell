@@ -1,5 +1,3 @@
-const { use } = require("vue/types/umd.js");
-
 var common = {
   hamburgerMenu: function() {
     var menuEl = $(".menu-toggle");

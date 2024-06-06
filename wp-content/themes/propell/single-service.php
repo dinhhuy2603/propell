@@ -1,7 +1,7 @@
 <?php
 
 
-get_header('service');
+get_header();
 $assets = get_path_assets();
 
 $current_year = get_the_date('Y');
@@ -17,7 +17,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
         exit;
     }
     ?>
-    <main id="main" class="main">
+    <main id="main" class="main" xmlns="http://www.w3.org/1999/html">
         <div class="kv">
             <div class="container">
                 <div class="breadcrumds">
@@ -78,7 +78,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
         </div>
         <div id="ous-projects" class="l-project-list">
             <div class="container">
-                <h2 class="section__title c-title">Integrated Facilities Management</h2>
+                <h2 class="section__title c-title">Featured Projects</h2>
                 <p class="section__description">Our interior design services helped bring our clients’ visions to life by transforming their spaces. See how our experts transformed these interiors.</p>
             </div>
             <div class="c-slider-center">
@@ -157,7 +157,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     $imagePC = get_field('image_pc');
                                 ?>
                                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
-                                <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
+                                <a href="<?php get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
                                 <p class="txt"><?php echo get_field('short_description'); ?></p>
                             </div>
                         <?php endwhile;

@@ -251,28 +251,19 @@
     visibility: hidden;
   }
 }
-.page-contact .kv__text {
-  margin: 2rem 0 2.875rem;
-}
-@media (max-width: 750px) {
-  .page-contact .kv__text {
-    margin: 0.875rem 0 2.375rem;
-  }
-}
-
-.contact {
+.page-contact .contact {
   padding-bottom: 5rem;
 }
 @media (max-width: 750px) {
-  .contact {
+  .page-contact .contact {
     padding-bottom: 2.5rem;
   }
 }
-.contact__content {
+.page-contact .contact__content {
   padding-top: 5rem;
 }
 @media (min-width: 751px) {
-  .contact__content {
+  .page-contact .contact__content {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -282,34 +273,34 @@
   }
 }
 @media (max-width: 750px) {
-  .contact__content {
+  .page-contact .contact__content {
     padding-top: 2.5rem;
   }
 }
 @media (min-width: 751px) {
-  .contact__content > div {
+  .page-contact .contact__content > div {
     width: 40rem;
   }
 }
 @media (min-width: 751px) {
-  .contact__content > div:first-child {
+  .page-contact .contact__content > div:first-child {
     border-right: 1px solid #E7EAF1;
     padding-right: 2.5rem;
   }
 }
 @media (max-width: 750px) {
-  .contact__content > div:first-child {
+  .page-contact .contact__content > div:first-child {
     padding-bottom: 2.5rem;
     margin-bottom: 3.75rem;
     border-bottom: 1px solid #E7EAF1;
   }
 }
 @media (min-width: 751px) {
-  .contact__content > div:last-child {
+  .page-contact .contact__content > div:last-child {
     padding-left: 2.5rem;
   }
 }
-.contact__content .c-ttl {
+.page-contact .contact__content .c-ttl {
   font-size: 4.5rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -321,23 +312,23 @@
   border-bottom: 1px solid #E7EAF1;
 }
 @media (max-width: 750px) {
-  .contact__content .c-ttl {
+  .page-contact .contact__content .c-ttl {
     font-size: 1.5rem;
     line-height: 1.2;
     padding-bottom: 1.5rem;
     margin-bottom: 1.5rem;
   }
 }
-.contact__content .c-ttl__style {
+.page-contact .contact__content .c-ttl__style {
   position: relative;
 }
 @media (max-width: 750px) {
-  .contact__content .c-ttl__style {
+  .page-contact .contact__content .c-ttl__style {
     padding-bottom: 3rem;
     margin-bottom: 1.5rem;
   }
 }
-.contact__content .c-ttl__style:before {
+.page-contact .contact__content .c-ttl__style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -348,22 +339,22 @@
   background-size: 100%;
 }
 @media (max-width: 750px) {
-  .contact__content .c-ttl__style:before {
+  .page-contact .contact__content .c-ttl__style:before {
     top: -1.5rem;
   }
 }
-.contact__info .c-address {
+.page-contact .contact__info .c-address {
   margin-bottom: 1.5rem;
 }
-.contact__info .c-address dl + dl {
+.page-contact .contact__info .c-address dl + dl {
   margin-top: 1.125rem;
 }
 @media (max-width: 750px) {
-  .contact__info .c-address dl + dl {
+  .page-contact .contact__info .c-address dl + dl {
     margin-top: 1.5rem;
   }
 }
-.contact__info .c-address dl dt {
+.page-contact .contact__info .c-address dl dt {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.36625;
@@ -373,12 +364,12 @@
   margin-bottom: 0.25rem;
 }
 @media (max-width: 750px) {
-  .contact__info .c-address dl dt {
+  .page-contact .contact__info .c-address dl dt {
     font-size: 0.875rem;
     line-height: 1.3657142857;
   }
 }
-.contact__info .c-address dl dd {
+.page-contact .contact__info .c-address dl dd {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.3661111111;
@@ -386,31 +377,31 @@
   font-family: "Manrope", sans-serif;
 }
 @media (max-width: 750px) {
-  .contact__info .c-address dl dd {
+  .page-contact .contact__info .c-address dl dd {
     font-size: 0.875rem;
     line-height: 1.3657142857;
   }
 }
-.contact__info .c-map {
+.page-contact .contact__info .c-map {
   width: 37.5rem;
   height: 30.3125rem;
   margin-bottom: 1.5rem;
 }
 @media (max-width: 750px) {
-  .contact__info .c-map {
+  .page-contact .contact__info .c-map {
     width: 21.4375rem;
     height: 22.8125rem;
   }
 }
-.contact__info .c-map iframe {
+.page-contact .contact__info .c-map iframe {
   width: 100%;
   height: 100%;
 }
-.contact__info .c-info__btn .c-btn span {
+.page-contact .contact__info .c-info__btn .c-btn span {
   background: url("../img/icon-arrow-link_right-down-blue.png") no-repeat center right;
   background-size: 1.5rem;
 }
-.contact .c-modal {
+.page-contact .contact .c-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -420,10 +411,10 @@
   z-index: 100;
   display: none;
 }
-.contact .c-modal.is-active {
+.page-contact .contact .c-modal.is-active {
   display: block;
 }
-.contact .c-modal .c-modal__inner {
+.page-contact .contact .c-modal .c-modal__inner {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -434,12 +425,12 @@
   background: #fff;
 }
 @media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner {
+  .page-contact .contact .c-modal .c-modal__inner {
     width: 21.4375rem;
     padding: 5.75rem 1.5rem 1.5rem;
   }
 }
-.contact .c-modal .c-modal__inner .c-modal__close {
+.page-contact .contact .c-modal .c-modal__inner .c-modal__close {
   position: absolute;
   top: 2.625rem;
   right: 2.5rem;
@@ -450,14 +441,14 @@
   cursor: pointer;
 }
 @media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner .c-modal__close {
+  .page-contact .contact .c-modal .c-modal__inner .c-modal__close {
     width: 2.75rem;
     height: 2.75rem;
     top: 1.5rem;
     right: 1.5rem;
   }
 }
-.contact .c-modal .c-modal__inner .c-modal__ttl {
+.page-contact .contact .c-modal .c-modal__inner .c-modal__ttl {
   font-size: 4.5rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -468,13 +459,13 @@
   text-align: center;
 }
 @media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner .c-modal__ttl {
+  .page-contact .contact .c-modal .c-modal__inner .c-modal__ttl {
     font-size: 2.625rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
   }
 }
-.contact .c-modal .c-modal__inner .c-modal__txt {
+.page-contact .contact .c-modal .c-modal__inner .c-modal__txt {
   font-size: 1.125rem;
   line-height: 1.3661111111;
   letter-spacing: -0.04em;
@@ -485,7 +476,7 @@
   text-align: center;
 }
 @media (max-width: 750px) {
-  .contact .c-modal .c-modal__inner .c-modal__txt {
+  .page-contact .contact .c-modal .c-modal__inner .c-modal__txt {
     font-size: 1rem;
     line-height: 1.36625;
     margin-bottom: 1rem;

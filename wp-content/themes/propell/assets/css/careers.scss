@@ -7,276 +7,203 @@
 @import "../css/component/form";
 
 .page-careers{
-  .kv__text{
-    margin: rem(32) 0 rem(46);
-    @include sp{
-      margin: rem(14) 0 rem(38);
-    }
-  }
-}
-
-.careers{
-  &__top{
-    padding-top: rem(80);
-    padding-bottom: rem(40);
-    @include sp{
-      padding-top: rem(54);
-      padding-bottom: rem(22);
-    }
-    .c-ttl{
-      font-size: rem(60);
-      line-height: calc(72/60);
-      letter-spacing: -0.04em;
-      font-weight: 400;
-      @include fontBonaNova;
-      color: $cl-body;
-      padding-bottom: rem(24);
-      @include sp{
-        font-size: rem(42);
-        line-height: calc(50.4/42);
-        padding-bottom: rem(23);
-        margin-bottom: rem(36);
-      }
-      &__style{
-        position: relative;
-        @include sp{
-          padding-bottom: rem(20);
-          margin-bottom: rem(17);
-        }
-        &:before{
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: rem(201);
-          height: rem(204);
-          background: url("../img/careers/icon_dot.png") center no-repeat;
-          background-size: 100%;
-          @include sp{
-            top: rem(-14);
-            width: rem(75);
-            height: rem(76);
-          }
-        }
-      }
-    } 
-    .c-txt{
-      font-size: rem(18);
-      line-height: calc(24.59/18);
-      letter-spacing: -0.04em;
-      font-weight: 400;
-      @include fontManrope;
-      margin-right: rem(280);
-      @include sp{
-        margin-right: rem(10);
-        font-size: rem(16);
-        line-height: calc(21.86/16);
-      }
-    }
-  }
-  &__form{
-    padding-bottom: rem(80);
-    @include sp{
+  .careers{
+    &__top{
+      padding-top: rem(80);
       padding-bottom: rem(40);
-    }
-    &--ttl{
-      font-size: rem(16);
-      line-height: calc(21.86/16);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      @include fontManrope;
-      border-top: 1px solid $cl-line;
-      padding-top: rem(40);
-      margin-bottom: rem(17);
       @include sp{
-        font-size: rem(16);
-        line-height: calc(21.86/16);
-        padding-top: rem(24);
-      }
-    }
-    .c-form{
-      .select-menu{
-        .options{
-          width: calc(100% + rem(2));
-        }
-      }
-    }
-  }
-  &__more{
-    &--top{
-      .text-scroll {
-        padding: rem(24) 0 rem(22);
-        border-top: 1px solid $cl-line;
-        border-bottom: 1px solid $cl-line;
-        pointer-events: none;
-        .swiper-text {
-          display: flex;
-          .text {
-            padding-left: rem(54);
-            margin-right: rem(32);
-            background-image: url("../img/top/first_icon.png");
-            background-repeat: no-repeat;
-            background-position: center left;
-            background-size: rem(38);
-            font-size: rem(60);
-            line-height: calc(72/60);
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-    &--main{
-      padding: rem(160) 0;
-      background: linear-gradient(89.08deg, #000821 13.48%, #011045 62.2%, #000927 98.41%);
-      @include sp{
-        padding: rem(24) 0;
+        padding-top: rem(54);
+        padding-bottom: rem(22);
       }
       .c-ttl{
         font-size: rem(60);
         line-height: calc(72/60);
         letter-spacing: -0.04em;
         font-weight: 400;
-        color: #fff;
         @include fontBonaNova;
-        padding-bottom: rem(22);
-        margin-bottom: rem(40);
-        border-bottom: 1px solid $cl-line;
+        color: $cl-body;
+        padding-bottom: rem(24);
         @include sp{
-          font-size: rem(32);
-          line-height: calc(38.4/32);
-          padding-bottom: rem(24);
-          margin-bottom: rem(40);
-        }
-      }
-      .c-banner{
-        background: #F0F3FA;
-        padding: rem(80);
-        @include sp{
-          padding: rem(24) rem(24) rem(16);
-        }
-        &__top{
-          display: flex;
-          justify-content: space-between;
+          font-size: rem(42);
+          line-height: calc(50.4/42);
           padding-bottom: rem(23);
+          margin-bottom: rem(36);
+        }
+        &__style{
+          position: relative;
           @include sp{
-            display: block;
-            position: relative;
-            padding-bottom: rem(48);
-            &:before{
-              content: '';
-              position: absolute;
-              left: rem(-8);
-              right: rem(-8);
-              bottom: 0;
-              height: rem(8);
-              background: $cl-link;
-            }
+            padding-bottom: rem(20);
+            margin-bottom: rem(17);
           }
-          .c-ttl02{
-            display: block;
-            margin-top: rem(4);
-            border-bottom: rem(8) solid $cl-link;
-            padding-bottom: rem(16);
-            @include sp{
-              border-bottom: none;
-              padding-bottom: rem(12);
-            }
-            a{
-              display: block;
-              width: rem(430);
-              height: rem(350);
-              position: relative;
-              transition: all .3s ease-in-out;
-              @include sp{
-                width: rem(230);
-                height: rem(195);
-              }
-              &:hover{
-                opacity: 0.8;
-              }
-            }
-            img{
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-          .c-dots{
+          &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
             width: rem(201);
             height: rem(204);
-            position: relative;
+            background: url("../img/careers/icon_dot.png") center no-repeat;
+            background-size: 100%;
             @include sp{
+              top: rem(-14);
               width: rem(75);
               height: rem(76);
-              margin-left: rem(-10);
-            }
-            img{
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
             }
           }
         }
-        &__mid{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          @include sp{
-            display: block;
-            padding-top: rem(24);
-            margin-inline: rem(-8);
-          }
-          .c-txt{
-            font-size: rem(18);
-            font-weight: 400;
-            line-height: calc(24.59/18);
-            letter-spacing: -0.04em;
-            flex: 1;
-          }
-          .c-banner__btn{
-            width: rem(164);
-            margin-left: rem(20);
-            @include sp{
-              margin-top: rem(26);
-              margin-left: auto;
-            }
-            .c-btn{
-              padding-inline: rem(10);
-              width: 100%;
-            }
-          }
+      } 
+      .c-txt{
+        font-size: rem(18);
+        line-height: calc(24.59/18);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontManrope;
+        margin-right: rem(280);
+        @include sp{
+          margin-right: rem(10);
+          font-size: rem(16);
+          line-height: calc(21.86/16);
         }
-        &__btm{
-          width: rem(690);
-          margin-top: rem(63);
+      }
+    }
+    &__form{
+      padding-bottom: rem(80);
+      @include sp{
+        padding-bottom: rem(40);
+      }
+      &--ttl{
+        font-size: rem(16);
+        line-height: calc(21.86/16);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        @include fontManrope;
+        border-top: 1px solid $cl-line;
+        padding-top: rem(40);
+        margin-bottom: rem(17);
+        @include sp{
+          font-size: rem(16);
+          line-height: calc(21.86/16);
           padding-top: rem(24);
-          border-top: 1px solid $cl-line;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          @include sp{
-            width: auto;
-            display: block;
-            margin-inline: rem(-24);
-            margin-top: rem(40);
-            padding: rem(24) rem(16) 0;
+        }
+      }
+      .c-form{
+        .select-menu{
+          .options{
+            width: calc(100% + rem(2));
           }
-          .c-logo{
-            position: relative;
-            width: rem(220);
-            height: rem(55);
-            margin-right: rem(24);
-            a{
+        }
+      }
+    }
+    &__more{
+      &--top{
+        .text-scroll {
+          padding: rem(24) 0 rem(22);
+          border-top: 1px solid $cl-line;
+          border-bottom: 1px solid $cl-line;
+          pointer-events: none;
+          .swiper-text {
+            display: flex;
+            .text {
+              padding-left: rem(54);
+              margin-right: rem(32);
+              background-image: url("../img/top/first_icon.png");
+              background-repeat: no-repeat;
+              background-position: center left;
+              background-size: rem(38);
+              font-size: rem(60);
+              line-height: calc(72/60);
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+      &--main{
+        padding: rem(160) 0;
+        background: linear-gradient(89.08deg, #000821 13.48%, #011045 62.2%, #000927 98.41%);
+        @include sp{
+          padding: rem(24) 0;
+        }
+        .c-ttl{
+          font-size: rem(60);
+          line-height: calc(72/60);
+          letter-spacing: -0.04em;
+          font-weight: 400;
+          color: #fff;
+          @include fontBonaNova;
+          padding-bottom: rem(22);
+          margin-bottom: rem(40);
+          border-bottom: 1px solid $cl-line;
+          @include sp{
+            font-size: rem(32);
+            line-height: calc(38.4/32);
+            padding-bottom: rem(24);
+            margin-bottom: rem(40);
+          }
+        }
+        .c-banner{
+          background: #F0F3FA;
+          padding: rem(80);
+          @include sp{
+            padding: rem(24) rem(24) rem(16);
+          }
+          &__top{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: rem(23);
+            @include sp{
               display: block;
-              transition: all .3s ease-in-out;
-              &:hover{
-                opacity: 0.8;
+              position: relative;
+              padding-bottom: rem(48);
+              &:before{
+                content: '';
+                position: absolute;
+                left: rem(-8);
+                right: rem(-8);
+                bottom: 0;
+                height: rem(8);
+                background: $cl-link;
+              }
+            }
+            .c-ttl02{
+              display: block;
+              margin-top: rem(4);
+              border-bottom: rem(8) solid $cl-link;
+              padding-bottom: rem(16);
+              @include sp{
+                border-bottom: none;
+                padding-bottom: rem(12);
+              }
+              a{
+                display: block;
+                width: rem(430);
+                height: rem(350);
+                position: relative;
+                transition: all .3s ease-in-out;
+                @include sp{
+                  width: rem(230);
+                  height: rem(195);
+                }
+                &:hover{
+                  opacity: 0.8;
+                }
+              }
+              img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .c-dots{
+              width: rem(201);
+              height: rem(204);
+              position: relative;
+              @include sp{
+                width: rem(75);
+                height: rem(76);
+                margin-left: rem(-10);
               }
               img{
                 position: absolute;
@@ -288,14 +215,80 @@
               }
             }
           }
-          .c-txt02{
-            flex: 1;
-            font-size: rem(18);
-            font-weight: 400;
-            line-height: calc(24.59/18);
-            letter-spacing: -0.04em;
+          &__mid{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             @include sp{
+              display: block;
               padding-top: rem(24);
+              margin-inline: rem(-8);
+            }
+            .c-txt{
+              font-size: rem(18);
+              font-weight: 400;
+              line-height: calc(24.59/18);
+              letter-spacing: -0.04em;
+              flex: 1;
+            }
+            .c-banner__btn{
+              width: rem(164);
+              margin-left: rem(20);
+              @include sp{
+                margin-top: rem(26);
+                margin-left: auto;
+              }
+              .c-btn{
+                padding-inline: rem(10);
+                width: 100%;
+              }
+            }
+          }
+          &__btm{
+            width: rem(690);
+            margin-top: rem(63);
+            padding-top: rem(24);
+            border-top: 1px solid $cl-line;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include sp{
+              width: auto;
+              display: block;
+              margin-inline: rem(-24);
+              margin-top: rem(40);
+              padding: rem(24) rem(16) 0;
+            }
+            .c-logo{
+              position: relative;
+              width: rem(220);
+              height: rem(55);
+              margin-right: rem(24);
+              a{
+                display: block;
+                transition: all .3s ease-in-out;
+                &:hover{
+                  opacity: 0.8;
+                }
+                img{
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+            }
+            .c-txt02{
+              flex: 1;
+              font-size: rem(18);
+              font-weight: 400;
+              line-height: calc(24.59/18);
+              letter-spacing: -0.04em;
+              @include sp{
+                padding-top: rem(24);
+              }
             }
           }
         }
