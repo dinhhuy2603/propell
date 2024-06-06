@@ -5,6 +5,17 @@ $fields = get_fields();
 // var_dump($fields);
 $block_left = $fields['block_left'] ?? [];
 $block_right = $fields['block_right'] ?? [];
+$block_alert = $fields['block_alert'] ?? [];
+
+$subject_values = [];
+$subjects = $block_right['right_subject_values'] ?? '';
+if($subjects != '') {
+  $lines = explode("\n", $subjects);
+  foreach ($lines as $line) {
+      list($emails, $value) = explode(' => ', $line);
+      $subject_values[$emails] = $value;
+  }
+}
 ?>
 <main id="main" class="main">
     <div class="kv">
@@ -65,26 +76,21 @@ $block_right = $fields['block_right'] ?? [];
               </div>
               <div class="form-group">
                 <label class="label"><?php echo $block_right['right_subject'] ?? ''; ?>(*)</label>
+                <?php if(!empty($subject_values)) {?>
                 <div class="select-menu">
                   <div class="select-btn">
                     <span class="sBtn-text">Select Subject</span>
                     <span class="icon"></span>
                   </div>
                   <ul class="options">
-                    <li class="option">
-                      <span class="option-text">HR Career</span>
-                    </li>
-                    <li class="option">
-                      <span class="option-text">FMD Quote</span>
-                    </li>
-                    <li class="option">
-                      <span class="option-text">PMD Quote</span>
-                    </li>
-                    <li class="option">
-                      <span class="option-text">Other</span>
-                    </li>
+                    <?php foreach($subject_values as $sub => $val){?>
+                      <li class="option" data-val="<?php echo $sub; ?>">
+                        <span class="option-text"><?php echo $val;?></span>
+                      </li>
+                    <?php }?>
                   </ul>
                 </div>
+                <?php }?>
               </div>
               <div class="form-group">
                 <label class="label" for="message"><?php echo $block_right['right_message'] ?? ''; ?>(*)</label>
@@ -102,8 +108,8 @@ $block_right = $fields['block_right'] ?? [];
       </div>
       <div class="c-modal is-active">
         <div class="c-modal__inner">
-          <h2 class="c-modal__ttl">Success</h2>
-          <p class="c-modal__txt">Your appointment successfully created. We will get back soon. Thank you.</p>
+          <h2 class="c-modal__ttl"><?php echo $block_alert['alert_title'] ?? '';?></h2>
+          <p class="c-modal__txt"><?php echo $block_alert['alert_message'] ?? '';?></p>
           <div class="c-modal__close"></div>
         </div>
       </div>
