@@ -211,6 +211,7 @@ function propell_scripts() {
         wp_enqueue_style('propell-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-service-js', get_template_directory_uri() . '/assets/js/what-we-do.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
     }
     // Enqueue project archive specific styles and scripts
     if (is_post_type_archive('project') || is_post_type_archive('project-category')
@@ -218,9 +219,14 @@ function propell_scripts() {
         wp_enqueue_style('propell-project-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-project-style', get_template_directory_uri() . '/assets/css/project.css', [], 'all');
         wp_enqueue_script('propell-project-js', get_template_directory_uri() . '/assets/js/project.js', [], _S_VERSION, true);
+
     }
     if (is_post_type_archive('project-category')) {
         wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
+    }
+    if (is_singular('project-category')) {
+        wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
+
     }
 }
 add_action('wp_enqueue_scripts', 'propell_scripts');
@@ -318,18 +324,28 @@ add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');
 
 function load_more_projects() {
     $page = intval($_POST['page']);
-    $service_id = intval($_POST['service_id']);
+    $serviceId = intval($_POST['service_id']);
+    $categoryId = intval($_POST['category_id']);
+    $metaQuery = array();
+    if ($serviceId > 0) {
+        $metaQuery[] = array(
+            'key' => 'related_services',
+            'value' =>  $serviceId ,
+            'compare' => 'LIKE'
+        );
+    }
+    if ($categoryId > 0) {
+        $metaQuery[] = array(
+            'key' => 'category',
+            'value' => $categoryId,
+            'compare' => 'LIKE'
+        );
+    }
     $args = array(
         'post_type' => 'project',
         'posts_per_page' => 6,
         'paged' => $page,
-        'meta_query' => array(
-            array(
-                'key' => 'related_services',
-                'value' => '"' . $service_id . '"',
-                'compare' => 'LIKE'
-            )
-        )
+        "meta_query" => $metaQuery
     );
     $projects_query = new WP_Query($args);
     ob_start();

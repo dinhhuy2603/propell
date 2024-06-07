@@ -104,7 +104,6 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         )
                     )
                 );
-
                 $projects_query = new WP_Query($args);
             ?>
                 <?php if ($projects_query->have_posts()): ?>
