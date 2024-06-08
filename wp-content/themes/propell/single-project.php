@@ -71,9 +71,9 @@ $current_language = pll_current_language('slug');
                         </div>
                     </div>
                     <?php the_content() ?>
-                    <div class="btn u-txt-center">
-                        <a href="#" class="c-btn"><span>CONTACT US</span></a>
-                    </div>
+<!--                    <div class="btn u-txt-center">-->
+<!--                        <a href="#" class="c-btn"><span>CONTACT US</span></a>-->
+<!--                    </div>-->
                 </div>
             </div>
             <?php
