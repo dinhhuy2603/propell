@@ -133,7 +133,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
             <div class="container">
                 <p class="c-title-sub">YOU MAY ALSO CARE</p>
                 <div class="row">
-                    <a class="item" href="#">
+                    <a class="item" href="javascript:void(0)">
                         <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img02.jpg" alt="">
                         <dl>
                             <dt class="c-title c-title--md">Project Management Department (PMD)</dt>
@@ -142,7 +142,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         <p class="date only-sp">12 JUN</p>
                         <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </a>
-                    <a class="item" href="#">
+                    <a class="item" href="javascript:void(0)">
                         <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
                         <dl>
                             <dt class="c-title c-title--md">Facilities Management Department (FMD)</dt>

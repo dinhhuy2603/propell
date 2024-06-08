@@ -56,6 +56,9 @@ $current_language = pll_current_language('slug');
             <?php endif; ?>
             <?php $block_statement = get_field('block_statement'); ?>
             <?php if($block_statement) : ?>
+                <?php
+                $template = get_page_template();
+                ?>
             <div class="c-toggle" id="statements">
                 <div class="container">
                     <div class="c-toggle__head js-toggle__head">

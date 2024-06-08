@@ -47,7 +47,9 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
             <div class="container">
                 <div class="section-overview__row">
                     <div class="info">
-                        <?php echo the_content() ?>
+                        <?php $content = get_the_content() ?>
+                        <h2 class="c-title">Overview</h2>
+                        <p class="txt"><?php echo $content ?></p>
                         <?php echo get_field('information') ?>
                     </div>
                     <?php
@@ -106,7 +108,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     </picture>
                                 </div>
                                 <div class="item__group">
-                                    <p class="fmd"><?php echo $department_code ?></p>
+                                    <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
                                     <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
                                     <dl>
                                         <dt class="c-title c-title--md"><?php echo get_the_title($project->ID) ?></dt>
@@ -122,7 +124,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                         <?php endif; ?>
                                     </dl>
                                     <p class="text"><?php echo $short_description ?></p>
-                                    <a href="#" class="btn c-btn"><span>VIEW DETAILS</span></a>
+                                    <a href="<?php echo get_permalink($project); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
                                 </div>
                             </div>
                         <?php endforeach;
@@ -184,7 +186,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                     <p class="c-title-sub">YOU MAY ALSO CARE</p>
                     <div class="row">
                         <?php foreach ($departments as $department) :?>
-                            <a class="item" href="#">
+                            <a class="item" href="categories/">
                                 <?php $department_code = get_field('code', $department); ?>
                                     <?php if ($department_code == "FMD") : ?>
                                         <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">

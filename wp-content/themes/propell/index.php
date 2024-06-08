@@ -50,7 +50,7 @@ $current_language = pll_current_language('slug');
             <?php
             $content_top = get_field('content_top');
             if ($content_top) {
-                echo $content_top;
+                echo remove_br_tags($content_top);
             }
             ?>
 
@@ -76,7 +76,7 @@ $current_language = pll_current_language('slug');
         <div class="section-our-journey">
             <div class="container">
                 <h2 class="c-title">Our Journey So Far</h2>
-                <div class="timeline only-pc">
+                <div class="timeline js-slider-journey">
                     <?php if ($timeline_query->have_posts()) : ?>
                         <?php while ($timeline_query->have_posts()) : $timeline_query->the_post(); ?>
                             <?php
@@ -104,33 +104,7 @@ $current_language = pll_current_language('slug');
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
-                <div class="timeline only-sp">
-                    <?php if ($timeline_query->have_posts()) : ?>
-                        <?php while ($timeline_query->have_posts()) : $timeline_query->the_post(); ?>
-                            <?php
-                            $year = get_post_meta(get_the_ID(), 'year', true);
-
-                            $title = get_post_meta(get_the_ID(), 'title', true);
-                            $content = get_post_meta(get_the_ID(), 'content', true);
-                            $avatar = get_post_meta(get_the_ID(), 'avatar', true);
-                            ?>
-
-                            <div class="timeline__item">
-                                <p class="timeline__item--year"><?php echo $year ?></p>
-                                <div class="timeline__item--group">
-                                    <p class="image"><img src="<?php echo wp_get_attachment_url($avatar) ?>" class="img-fit" alt=""></p>
-                                    <dl>
-                                        <dt><?php echo $title ?></dt>
-                                        <dd><?php echo $content ?></dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <a href="/about-us/" class="c-learn-more only-sp">MORE ABOUT US</a>
-                </div>
             </div>
-            <div class="photo u-mt-sm only-sp"><img src="<?php echo $assets ?>/img/top/about_img_sp.jpg" alt=""></div>
         </div>
 
         <?php
@@ -162,13 +136,15 @@ $current_language = pll_current_language('slug');
                             <?php while ($service_query->have_posts()) : $service_query->the_post(); ?>
                             <?php
                                 $banner = get_post_meta(get_the_ID(), 'banner', true);
+                                $content = get_the_content();
+
                             ?>
                             <a href="<?php echo esc_url(get_permalink(get_the_ID())) ?>" class="item">
                                 <p class="item__number">/0<?php echo $counter ?>/</p>
                                 <div class="item__group">
                                     <dl>
                                         <dt><?php the_title() ?></dt>
-                                        <dd><?php the_content() ?></dd>
+                                        <dd><?php echo custom_shorten_content($content, 30) ?></dd>
                                     </dl>
                                 </div>
                             </a>
@@ -182,7 +158,7 @@ $current_language = pll_current_language('slug');
         $args = array(
             'post_type' => 'project',
             'post_status' => 'publish',
-            'showposts' => 3,
+            'showposts' => 6,
             'orderby' => 'date',
             'order' => 'DESC',
             'tax_query'      => array(
@@ -198,16 +174,20 @@ $current_language = pll_current_language('slug');
         <div class="section-project">
             <div class="container">
                 <p class="c-title-sub">OUR PROJECTS</p>
-                <a href="/project/" class="c-learn-more">SEE OUR ENTIRE PORTFOLIO</a>
+                <a href="https://www1.bca.gov.sg/bca-directory/company/Details/199903182D" target="_blank" class="c-learn-more">SEE OUR ENTIRE PORTFOLIO</a>
             </div>
             <div class="section-project__slider">
                 <div class="js-slider-center">
                     <?php if ($project_query->have_posts()) : ?>
                         <?php while ($project_query->have_posts()) : $project_query->the_post();
-                        $thumbnail = get_field( 'thumbnail', );
-                        $imagePC = get_field('image_pc');
-                        $imageSP = get_field('image_sp');
-                        $short_description = get_field('short_description');
+                            $thumbnail = get_field( 'thumbnail', );
+                            $imagePC = get_field('image_pc');
+                            $imageSP = get_field('image_sp');
+                            $short_description = get_field('short_description');
+                            $category = get_field('category', the_ID());
+                            $departments = wp_get_post_terms($category->ID, 'department');
+                            $department = $departments[0];
+                            $department_code = get_field('code', $department);
                         ?>
                         <div class="item">
                             <div class="item__img">
@@ -217,7 +197,7 @@ $current_language = pll_current_language('slug');
                                 </picture>
                             </div>
                             <div class="item__group">
-                                <p class="fmd">FMD</p>
+                                <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
                                 <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
                                 <dl>
                                     <dt class="c-title c-title--md"><?php echo the_title() ?></dt>

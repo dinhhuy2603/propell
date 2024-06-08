@@ -67,7 +67,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     </picture>
                                 </div>
                                 <div class="item__group">
-                                    <p class="fmd"><?php echo $department_code ?></p>
+                                    <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
                                     <p class="logo"><img src="<?php echo $thumbnail ?>" alt="<?php echo get_the_title($project) ?>"></p>
                                     <dl>
                                         <dt class="c-title c-title--md"><?php echo get_the_title($project) ?></dt>
@@ -128,31 +128,39 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                 <a href="javascript:void(0)" data-category-id="<?php echo get_the_ID(); ?>" id="btn-load-more" class="c-btn c-btn--viewmore"><span>View more</span></a>
             </div>
         </div>
-        <div class="l-you-may-also-care">
-            <div class="container">
-                <p class="c-title-sub">YOU MAY ALSO CARE</p>
-                <div class="row">
-                    <a class="item" href="#">
-                        <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img02.jpg" alt="">
-                        <dl>
-                            <dt class="c-title c-title--md">Project Management Department (PMD)</dt>
-                            <dd>Contract Department</dd>
-                        </dl>
-                        <p class="date only-sp">12 JUN</p>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </a>
-                    <a class="item" href="#">
-                        <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
-                        <dl>
-                            <dt class="c-title c-title--md">Facilities Management Department (FMD)</dt>
-                            <dd>Contract Department</dd>
-                        </dl>
-                        <p class="date only-sp">12 JUN</p>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </a>
+        <?php
+        $departments = get_terms(array(
+            'taxonomy' => 'department',
+            'hide_empty' => false,
+            'orderby' => 'name',
+            'order' => 'ASC'
+        ));
+        ?>
+        <?php if (!empty($departments) && !is_wp_error($departments)) : ?>
+            <div id="also-care" class="l-you-may-also-care">
+                <div class="container">
+                    <p class="c-title-sub">YOU MAY ALSO CARE</p>
+                    <div class="row">
+                        <?php foreach ($departments as $department) :?>
+                            <a class="item" href="categories/">
+                                <?php $department_code = get_field('code', $department); ?>
+                                <?php if ($department_code == "FMD") : ?>
+                                    <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
+                                <?php else : ?>
+                                    <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img02.jpg" alt="">
+                                <?php endif; ?>
+                                <dl>
+                                    <dt class="c-title c-title--md"><?php echo $department->name ?></dt>
+                                    <dd>Contract Department</dd>
+                                </dl>
+                                <p class="date only-sp"><?php echo date('d M') ?></p>
+                                <p class="txt"><?php echo $department->description; ?></p>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif; ?>
     </main>
     <?php endwhile; else : ?>
     <?php

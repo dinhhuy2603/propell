@@ -188,10 +188,9 @@ function propell_scripts() {
     if (is_front_page()) {
         wp_enqueue_style('propell-top-style', get_template_directory_uri() . '/assets/css/top.css', [], 'all');
         wp_enqueue_script('propell-top-js', get_template_directory_uri() . '/assets/js/top.js', [], _S_VERSION, true);
-        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
 
     }
-    if (is_page('about')) {
+    if (is_page_template('page-about.php')) {
         wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
         wp_enqueue_script('propell-about-js', get_template_directory_uri() . '/assets/js/about.js', [], _S_VERSION, true);
@@ -291,7 +290,7 @@ function get_page_class(){
     if (is_page('contact')) {
         $class = 'page page-detail page-contact';
     }
-    if (is_page('about')) {
+    if (is_page_template('page-about.php')) {
         $class = 'page page-detail page-about';
     }
     if (is_post_type_archive('service')) {
@@ -580,3 +579,31 @@ function custom_project_permalink($post_link, $post) {
 }
 add_filter('post_type_link', 'custom_project_permalink', 10, 2);
 
+
+function remove_br_tags($content) {
+    // Remove <br> and </br> tags from the content
+    $content = str_replace(array('<br>', '</br>', '<br />'), '', $content);
+    return $content;
+}
+
+function custom_shorten_content($content, $word_limit = 20) {
+    $words = explode(' ', $content);
+
+    if (count($words) > $word_limit) {
+        $shortened_content = implode(' ', array_slice($words, 0, $word_limit));
+        $shortened_content .= ' ...';
+
+    } else {
+        $shortened_content = $content;
+    }
+
+    return $shortened_content;
+}
+
+function register_custom_strings() {
+    if (function_exists('pll_register_string')) {
+        pll_register_string('About Page', 'about', 'URLs');
+        pll_register_string('About Page VI', 'about-vi', 'URLs');
+    }
+}
+add_action('init', 'register_custom_strings');
