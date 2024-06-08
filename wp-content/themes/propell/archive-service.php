@@ -185,8 +185,8 @@ $current_language = pll_current_language('slug');
                                                     $thumbnail = get_field('thumbnail', $project->ID);
                                                     $banner = get_field('banner', $project->ID);
                                                     $short_description = get_field('short_description', $project->ID);
-
-                                                    $departments = wp_get_post_terms(get_the_ID(), 'department');
+                                                    $category = get_field('category', $project->ID);
+                                                    $departments = wp_get_post_terms($category->ID, 'department');
                                                     $department = $departments[0];
                                                     $department_code = get_field('code', $department);
                                                 ?>
@@ -197,7 +197,7 @@ $current_language = pll_current_language('slug');
                                                     </picture>
                                                 </div>
                                                 <div class="item__group">
-                                                    <p class="fmd">FMD</p>
+                                                    <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
                                                     <p class="logo"><img src="<?php echo $thumbnail ?>" alt="<?php echo get_the_title($project) ?>"></p>
                                                     <dl>
                                                         <dt class="c-title c-title--md"><?php echo get_the_title($project->ID) ?></dt>
