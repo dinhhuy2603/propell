@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Page About
+Template Name: Page Propellian
 */
 
 get_header();

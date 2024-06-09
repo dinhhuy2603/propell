@@ -92,12 +92,10 @@ $current_language = pll_current_language('slug');
                                 <div class="timeline__item--group">
                                     <?php if (has_post_thumbnail( get_the_ID() ) ): ?>
                                         <?php
-                                        $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
-                                        $image_id = get_post_thumbnail_id(get_the_ID());
+                                            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                         ?>
-                                        <p class="image"><img src="<?php echo $image[0]; ?> ?>" class="img-fit" alt="<?php echo get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>"></p>
+                                        <p class="image"><img src="<?php echo $thumbnail; ?> ?>" class="img-fit" alt="<?php echo $title ?>"></p>
                                     <?php endif; ?>
-                                    <!--                                    --><?php //echo get_post_field('post_content', get_the_ID()) ?>
                                     <?php html_entity_decode(the_content()); ?>
                                 </div>
                             </div>
@@ -155,21 +153,21 @@ $current_language = pll_current_language('slug');
             </div>
         </div>
         <?php
-        $args = array(
-            'post_type' => 'project',
-            'post_status' => 'publish',
-            'showposts' => 6,
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'language',
-                    'field'    => 'slug',
-                    'terms'    => $current_language,
+            $args = array(
+                'post_type' => 'project',
+                'post_status' => 'publish',
+                'showposts' => 6,
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => 'language',
+                        'field'    => 'slug',
+                        'terms'    => $current_language,
+                    ),
                 ),
-            ),
-        );
-        $project_query = new WP_Query($args);
+            );
+            $project_query = new WP_Query($args);
         ?>
         <div class="section-project">
             <div class="container">
@@ -184,10 +182,11 @@ $current_language = pll_current_language('slug');
                             $imagePC = get_field('image_pc');
                             $imageSP = get_field('image_sp');
                             $short_description = get_field('short_description');
-                            $category = get_field('category', the_ID());
+                            $category = get_field('category', get_the_ID());
                             $departments = wp_get_post_terms($category->ID, 'department');
                             $department = $departments[0];
                             $department_code = get_field('code', $department);
+                            $url = get_permalink(get_the_ID());
                         ?>
                         <div class="item">
                             <div class="item__img">
@@ -213,7 +212,7 @@ $current_language = pll_current_language('slug');
                                     <?php endif; ?>
                                 </dl>
                                 <p class="text"><?php echo $short_description ?></p>
-                                <a href="<?php echo esc_url(get_permalink(get_the_ID())); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
+                                <a href="<?php echo esc_url($url); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
                             </div>
                         </div>
                         <?php endwhile; ?>

@@ -195,6 +195,12 @@ function propell_scripts() {
         wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
         wp_enqueue_script('propell-about-js', get_template_directory_uri() . '/assets/js/about.js', [], _S_VERSION, true);
     }
+    if (is_page_template('page-award.php')) {
+        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('viewbox-style', get_template_directory_uri() . '/assets/libs/viewbox.css', [], 'all');
+        wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
+        wp_enqueue_script('propell-viewbox-js', get_template_directory_uri() . '/assets/libs/jquery.viewbox.min.js', [], _S_VERSION, true);
+    }
     if (is_page('contact')) {
         wp_enqueue_style('propell-contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], 'all');
 
@@ -287,11 +293,14 @@ function get_page_class(){
     if (is_front_page()) {
         $class = 'page page-top';
     }
-    if (is_page('contact')) {
+    if (is_page_template('page-contact.php')) {
         $class = 'page page-detail page-contact';
     }
     if (is_page_template('page-about.php')) {
         $class = 'page page-detail page-about';
+    }
+    if (is_page_template('page-award.php')) {
+        $class = 'page page-detail page-awards';
     }
     if (is_post_type_archive('service')) {
         $class = 'page page-detail page-what-we-do';
@@ -607,3 +616,22 @@ function register_custom_strings() {
     }
 }
 add_action('init', 'register_custom_strings');
+
+function get_page_url($name) {
+    $current_language = pll_current_language();
+
+    if ($current_language == 'en') {
+        $page_slug = pll_translate_string($name, $current_language);
+    } elseif ($current_language == 'vi') {
+        $page_slug = pll_translate_string($name.'-vi', $current_language);
+    }
+    elseif ($current_language == 'ja') {
+        $page_slug = pll_translate_string($name.'-ja', $current_language);
+    }
+    elseif ($current_language == 'zh') {
+        $page_slug = pll_translate_string($name.'-zh', $current_language);
+    }
+
+    $link  = home_url('/' . $current_language . '/' . $page_slug);
+    return $link;
+}
