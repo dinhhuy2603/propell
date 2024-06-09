@@ -201,16 +201,23 @@ function propell_scripts() {
         wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
         wp_enqueue_script('propell-viewbox-js', get_template_directory_uri() . '/assets/libs/jquery.viewbox.min.js', [], _S_VERSION, true);
     }
-    if (is_page('contact')) {
+    if (is_page_template('page-contact.php')) {
+        $ajax_url = admin_url( 'admin-ajax.php' );
         wp_enqueue_style('common-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], 'all');
 
         wp_enqueue_script('propell-recaptcha-js', 'https://www.google.com/recaptcha/api.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-cloudflare-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-contact-js', get_template_directory_uri() . '/assets/js/contact.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-be-contact-js', get_template_directory_uri() . '/assets/backend/js/contact.js', [], _S_VERSION, true);
+        wp_localize_script('propell-be-contact-js', 'ajax_url', [$ajax_url]);
+    }
+    if (is_page_template('page-careers.php')) {
+        wp_enqueue_style('common-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('propell-careers-style', get_template_directory_uri() . '/assets/css/careers.css', [], 'all');
 
-
-
+        wp_enqueue_script('propell-cloudflare-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-careers-js', get_template_directory_uri() . '/assets/js/careers.js', [], _S_VERSION, true);
     }
     if (is_post_type_archive('service') || is_singular('service')) {
         wp_enqueue_style('propell-service-style', get_template_directory_uri() . '/assets/css/what-we-do.css', [], 'all');
@@ -279,6 +286,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load library custom
+ */
+require_once 'function/contact.php';
+
 function get_path_assets()
 {
     return get_template_directory_uri() . '/assets';
@@ -299,6 +311,9 @@ function get_page_class(){
     }
     if (is_page_template('page-about.php')) {
         $class = 'page page-detail page-about';
+    }
+    if (is_page_template('page-careers.php')) {
+        $class = 'page page-detail page-careers';
     }
     if (is_page_template('page-award.php')) {
         $class = 'page page-detail page-awards';
@@ -652,9 +667,11 @@ function remove_content_editor()
 {
     $currentPageID = get_the_ID();
     $contactEn = get_page_by_path('contact');
+    $careersEn = get_page_by_path('careers');
 
     if(
         $contactEn->ID == $currentPageID
+        || $careersEn->ID == $currentPageID
     )
     {
         remove_post_type_support('page', 'editor');

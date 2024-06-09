@@ -1,8 +1,14 @@
 <?php
+/*
+Template Name: Page Contact
+*/
+
 get_header();
+$assets = get_path_assets();
+
+$current_language = pll_current_language('slug');
+$template_id = get_the_ID();
 $fields = get_fields();
-// echo '<pre>';
-// var_dump($fields);
 $block_left = $fields['block_left'] ?? [];
 $block_right = $fields['block_right'] ?? [];
 $block_alert = $fields['block_alert'] ?? [];
@@ -34,8 +40,8 @@ if($subjects != '') {
       </div>
       <div class="kv__img">
         <picture>
-          <source media="(max-width: 750px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/contact/kv_img_sp.jpg">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/contact/kv_img.jpg" alt="">
+          <source media="(max-width: 750px)" srcset="<?php echo $assets; ?>/img/contact/kv_img_sp.jpg">
+          <img src="<?php echo $assets; ?>/img/contact/kv_img.jpg" alt="">
         </picture>
       </div>
     </div>
@@ -68,45 +74,51 @@ if($subjects != '') {
             <form class="c-form contact-form" action="">
               <div class="form-group">
                 <label class="label" for="name"><?php echo $block_right['right_name'] ?? ''; ?>(*)</label>
-                <input name="name" type="text" class="input" placeholder="<?php echo $block_right['right_name_placeholder'] ?? ''; ?>">
+                <input name="name" id="input_name" type="text" class="input" placeholder="<?php echo $block_right['right_name_placeholder'] ?? ''; ?>">
+                <input type="hidden" id="name_required" value="<?php echo $block_right['right_name_required'] ?? ''; ?>" />
+                <input type="hidden" id="name_minlength" value="<?php echo $block_right['right_name_minlength'] ?? ''; ?>" />
               </div>
               <div class="form-group">
                 <label class="label" for="email"><?php echo $block_right['right_email'] ?? ''; ?>(*)</label>
-                <input name="email" type="text" class="input" placeholder="<?php echo $block_right['right_email_placeholder'] ?? ''; ?>">
+                <input name="email" id="input_email" type="text" class="input" placeholder="<?php echo $block_right['right_email_placeholder'] ?? ''; ?>">
+                <input type="hidden" id="email_required" value="<?php echo $block_right['right_email_required'] ?? ''; ?>" />
+                <input type="hidden" id="email_format" value="<?php echo $block_right['right_email_format'] ?? ''; ?>" />
               </div>
               <div class="form-group">
                 <label class="label"><?php echo $block_right['right_subject'] ?? ''; ?>(*)</label>
                 <?php if(!empty($subject_values)) {?>
-                <div class="select-menu">
-                  <div class="select-btn">
-                    <span class="sBtn-text">Select Subject</span>
-                    <span class="icon"></span>
+                  <div class="select-menu">
+                    <div class="select-btn">
+                      <span class="sBtn-text">Select Subject</span>
+                      <span class="icon"></span>
+                    </div>
+                    <ul class="options">
+                      <?php foreach($subject_values as $sub => $val){?>
+                        <li class="option" data-val="<?php echo $sub; ?>">
+                          <span class="option-text"><?php echo $val;?></span>
+                        </li>
+                      <?php }?>
+                    </ul>
                   </div>
-                  <ul class="options">
-                    <?php foreach($subject_values as $sub => $val){?>
-                      <li class="option" data-val="<?php echo $sub; ?>">
-                        <span class="option-text"><?php echo $val;?></span>
-                      </li>
-                    <?php }?>
-                  </ul>
-                </div>
                 <?php }?>
               </div>
               <div class="form-group">
                 <label class="label" for="message"><?php echo $block_right['right_message'] ?? ''; ?>(*)</label>
-                <textarea name="message" placeholder="<?php echo $block_right['right_message_placeholder'] ?? ''; ?>"></textarea>
+                <textarea name="message" id="input_message" placeholder="<?php echo $block_right['right_message_placeholder'] ?? ''; ?>"></textarea>
+                <input type="hidden" id="message_required" value="<?php echo $block_right['right_message_required'] ?? ''; ?>" />
+                <input type="hidden" id="message_minlength" value="<?php echo $block_right['right_message_minlength'] ?? ''; ?>" />
               </div>
               <div class="form-captcha">
                 <div class="g-recaptcha" data-sitekey="6LcGH-YpAAAAAEn55zXx2AQ0RpAsH_yA_1xulcbX"></div>
               </div>
-              <div class="form-btn">
+              <div class="form-btn" id="btn-submit" data-id="<?php echo $template_id; ?>">
                 <button class="btn c-btn" type="submit"><span><?php echo $block_right['right_submit'] ?? ''; ?></span></button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class="c-modal is-active">
+      <div class="c-modal">
         <div class="c-modal__inner">
           <h2 class="c-modal__ttl"><?php echo $block_alert['alert_title'] ?? '';?></h2>
           <p class="c-modal__txt"><?php echo $block_alert['alert_message'] ?? '';?></p>
