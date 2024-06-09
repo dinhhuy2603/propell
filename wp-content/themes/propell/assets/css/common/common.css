@@ -1295,10 +1295,8 @@ body.nav--open {
   overflow: hidden;
 }
 
-@media (max-width: 750px) {
-  .footer {
-    border-top: 1px solid #D8DAE1;
-  }
+.footer {
+  border-top: 1px solid #D8DAE1;
 }
 .footer__row01 {
   padding: 2.5rem 0 1.5rem;

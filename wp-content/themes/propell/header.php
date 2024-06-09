@@ -1,6 +1,21 @@
 <?php
     $assets = get_path_assets();
-    $langs_array = pll_the_languages( array( 'dropdown' => 1, 'hide_current' => 1, 'raw' => 1 ) );
+    $current_home_url = pll_home_url();
+//    $current_language = pll_current_language();
+//
+//    if ($current_language == 'en') {
+//        $about_slug = pll_translate_string('about', $current_language);
+//    } elseif ($current_language == 'vi') {
+//        $about_slug = pll_translate_string('about-vi', $current_language);
+//    }
+//    elseif ($current_language == 'ja') {
+//        $about_slug = pll_translate_string('about-ja', $current_language);
+//    }
+//    elseif ($current_language == 'zh') {
+//        $about_slug = pll_translate_string('about-zh', $current_language);
+//    }
+//
+//    $about_page_url = home_url('/' . $current_language . '/' . $about_slug);
 
 ?>
 
@@ -22,26 +37,8 @@
     <?php wp_head(); ?>
     <link rel="apple-touch-icon" href="/icon.png">
     <link rel="icon" href="/icon.png">
-    <!-- Style -->
-<!--    <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/common/common.css">-->
-<!--    <link rel="stylesheet" href="--><?php //echo $assets ?><!--/libs/slick.min.css">-->
-<!--    --><?php //if (is_front_page()) : ?>
-<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/top.css">-->
-<!--    --><?php //elseif (is_post_type_archive('service') || is_page('contact')): ?>
-<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/common/detail.css">-->
-<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/contact.css">-->
-<!--    --><?php //elseif ( is_post_type_archive('project')
-//        || is_post_type_archive('project-category')
-//        || is_singular('project-category')
-//    ): ?>
-<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/common/detail.css">-->
-<!--        <link rel="stylesheet" href="--><?php //echo $assets ?><!--/css/project.css">-->
-<!--    --><?php //endif; ?>
-
-
 </head>
 
-<!--<body class="page page-top">-->
 <body class="<?php echo get_page_class(); ?>">
 
 <header id="header" class="header">
@@ -72,8 +69,8 @@
                         </div>
                         <ul class="menu-toggle__nav">
                             <li><a href="/">Home</a></li>
-                            <li><a href="/about-us/">About us</a></li>
-                            <li><a href="#">What we do</a></li>
+                            <li><a href="<?php echo get_page_link('about') ?>">About us</a></li>
+                            <li><a href="<?php echo esc_url($current_home_url.'services') ?>">What we do</a></li>
                             <li><a href="/project/">Project</a></li>
                             <li><a href="/propellian/">Propellian</a></li>
                             <li><a href="/careers/">Careers</a></li>

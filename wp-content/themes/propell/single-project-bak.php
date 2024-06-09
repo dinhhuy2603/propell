@@ -12,6 +12,8 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
 
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
+
+
     <main id="main" class="main">
         <div class="kv">
             <div class="container">
@@ -28,7 +30,10 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         <h2><?php the_title(); ?></h2>
                     </div>
                 </div>
-                <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
+                <?php
+                    $category = get_field('category');
+                    $featured_img_url = get_the_post_thumbnail_url($category->ID, 'full');
+                ?>
                 <div class="kv__img">
                     <img src="<?php echo $featured_img_url ?>" alt="">
                 </div>
@@ -105,7 +110,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         );
 
                         $projects_query = new WP_Query($args);
-                        ?>
+                    ?>
                         <?php if ($projects_query->have_posts()): ?>
                             <div class="others container">
                                 <div class="row" id="project-list">
@@ -133,7 +138,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
             <div class="container">
                 <p class="c-title-sub">YOU MAY ALSO CARE</p>
                 <div class="row">
-                    <a class="item" href="javascript:void(0)">
+                    <a class="item" href="#">
                         <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img02.jpg" alt="">
                         <dl>
                             <dt class="c-title c-title--md">Project Management Department (PMD)</dt>
@@ -142,7 +147,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         <p class="date only-sp">12 JUN</p>
                         <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </a>
-                    <a class="item" href="javascript:void(0)">
+                    <a class="item" href="#">
                         <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
                         <dl>
                             <dt class="c-title c-title--md">Facilities Management Department (FMD)</dt>
@@ -156,17 +161,11 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
         </div>
     </main>
     <?php endwhile; else : ?>
+    <?php
+        wp_redirect('/404');
+        exit;
+    ?>
 <?php endif; ?>
-<?php //else: ?>
-<!--    --><?php
-//    // Return 404 error
-//    global $wp_query;
-//    $wp_query->set_404();
-//    status_header(404);
-//    get_template_part('404');
-//    exit();
-//    ?>
-<?php //endif; ?>
 <?php
 get_sidebar();
 get_footer();

@@ -50,7 +50,7 @@ $current_language = pll_current_language('slug');
             <?php
             $content_top = get_field('content_top');
             if ($content_top) {
-                echo $content_top;
+                echo remove_br_tags($content_top);
             }
             ?>
 
@@ -76,7 +76,7 @@ $current_language = pll_current_language('slug');
         <div class="section-our-journey">
             <div class="container">
                 <h2 class="c-title">Our Journey So Far</h2>
-                <div class="timeline only-pc">
+                <div class="timeline js-slider-journey">
                     <?php if ($timeline_query->have_posts()) : ?>
                         <?php while ($timeline_query->have_posts()) : $timeline_query->the_post(); ?>
                             <?php
@@ -92,45 +92,17 @@ $current_language = pll_current_language('slug');
                                 <div class="timeline__item--group">
                                     <?php if (has_post_thumbnail( get_the_ID() ) ): ?>
                                         <?php
-                                        $image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'single-post-thumbnail' );
-                                        $image_id = get_post_thumbnail_id(get_the_ID());
+                                            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                         ?>
-                                        <p class="image"><img src="<?php echo $image[0]; ?> ?>" class="img-fit" alt="<?php echo get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>"></p>
+                                        <p class="image"><img src="<?php echo $thumbnail; ?> ?>" class="img-fit" alt="<?php echo $title ?>"></p>
                                     <?php endif; ?>
-                                    <!--                                    --><?php //echo get_post_field('post_content', get_the_ID()) ?>
                                     <?php html_entity_decode(the_content()); ?>
                                 </div>
                             </div>
                         <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
-                <div class="timeline only-sp">
-                    <?php if ($timeline_query->have_posts()) : ?>
-                        <?php while ($timeline_query->have_posts()) : $timeline_query->the_post(); ?>
-                            <?php
-                            $year = get_post_meta(get_the_ID(), 'year', true);
-
-                            $title = get_post_meta(get_the_ID(), 'title', true);
-                            $content = get_post_meta(get_the_ID(), 'content', true);
-                            $avatar = get_post_meta(get_the_ID(), 'avatar', true);
-                            ?>
-
-                            <div class="timeline__item">
-                                <p class="timeline__item--year"><?php echo $year ?></p>
-                                <div class="timeline__item--group">
-                                    <p class="image"><img src="<?php echo wp_get_attachment_url($avatar) ?>" class="img-fit" alt=""></p>
-                                    <dl>
-                                        <dt><?php echo $title ?></dt>
-                                        <dd><?php echo $content ?></dd>
-                                    </dl>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    <?php endif; ?>
-                    <a href="/about-us/" class="c-learn-more only-sp">MORE ABOUT US</a>
-                </div>
             </div>
-            <div class="photo u-mt-sm only-sp"><img src="<?php echo $assets ?>/img/top/about_img_sp.jpg" alt=""></div>
         </div>
 
         <?php
@@ -161,15 +133,16 @@ $current_language = pll_current_language('slug');
                             ?>
                             <?php while ($service_query->have_posts()) : $service_query->the_post(); ?>
                             <?php
-//                            $name = get_post_meta(get_the_ID(), 'service_name', true);
-                            $banner = get_post_meta(get_the_ID(), 'banner', true);
+                                $banner = get_post_meta(get_the_ID(), 'banner', true);
+                                $content = get_the_content();
+
                             ?>
-                            <a href="#" class="item">
+                            <a href="<?php echo esc_url(get_permalink(get_the_ID())) ?>" class="item">
                                 <p class="item__number">/0<?php echo $counter ?>/</p>
                                 <div class="item__group">
                                     <dl>
                                         <dt><?php the_title() ?></dt>
-                                        <dd><?php the_content() ?></dd>
+                                        <dd><?php echo custom_shorten_content($content, 30) ?></dd>
                                     </dl>
                                 </div>
                             </a>
@@ -180,50 +153,53 @@ $current_language = pll_current_language('slug');
             </div>
         </div>
         <?php
-        $args = array(
-            'post_type' => 'project',
-            'post_status' => 'publish',
-            'showposts' => 3,
-            'orderby' => 'date',
-            'order' => 'DESC',
-            'tax_query'      => array(
-                array(
-                    'taxonomy' => 'language',
-                    'field'    => 'slug',
-                    'terms'    => $current_language,
+            $args = array(
+                'post_type' => 'project',
+                'post_status' => 'publish',
+                'showposts' => 6,
+                'orderby' => 'date',
+                'order' => 'DESC',
+                'tax_query'      => array(
+                    array(
+                        'taxonomy' => 'language',
+                        'field'    => 'slug',
+                        'terms'    => $current_language,
+                    ),
                 ),
-            ),
-        );
-        $project_query = new WP_Query($args);
+            );
+            $project_query = new WP_Query($args);
         ?>
         <div class="section-project">
             <div class="container">
                 <p class="c-title-sub">OUR PROJECTS</p>
-                <a href="/project/" class="c-learn-more">SEE OUR ENTIRE PORTFOLIO</a>
+                <a href="https://www1.bca.gov.sg/bca-directory/company/Details/199903182D" target="_blank" class="c-learn-more">SEE OUR ENTIRE PORTFOLIO</a>
             </div>
             <div class="section-project__slider">
                 <div class="js-slider-center">
-                    <?php if ($project_query->have_posts()) :
-                        $counter = 1
-                        ?>
+                    <?php if ($project_query->have_posts()) : ?>
                         <?php while ($project_query->have_posts()) : $project_query->the_post();
-                        $name = get_post_meta(get_the_ID(), 'project_name', true);
-                        $thumbnail = get_post_meta(get_the_ID(), 'thumbnail', true);
-                        $banner = get_post_meta(get_the_ID(), 'banner', true);
-                        $short_description = get_post_meta(get_the_ID(), 'short_description', true);
+                            $thumbnail = get_field( 'thumbnail', );
+                            $imagePC = get_field('image_pc');
+                            $imageSP = get_field('image_sp');
+                            $short_description = get_field('short_description');
+                            $category = get_field('category', get_the_ID());
+                            $departments = wp_get_post_terms($category->ID, 'department');
+                            $department = $departments[0];
+                            $department_code = get_field('code', $department);
+                            $url = get_permalink(get_the_ID());
                         ?>
                         <div class="item">
                             <div class="item__img">
                                 <picture>
-                                    <source media="(max-width: 750px)" srcset="<?php echo wp_get_attachment_url($banner) ?>">
-                                    <img class="img-fit" src="<?php echo wp_get_attachment_url($banner) ?>" alt="Jewel Changi Airport">
+                                    <source media="(max-width: 750px)" srcset="<?php echo $imageSP ?>">
+                                    <img class="img-fit" src="<?php echo $imagePC ?>" alt="Jewel Changi Airport">
                                 </picture>
                             </div>
                             <div class="item__group">
-                                <p class="fmd">FMD</p>
-                                <p class="logo"><img src="<?php echo wp_get_attachment_url($thumbnail) ?>" alt="Jewel"></p>
+                                <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
+                                <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
                                 <dl>
-                                    <dt class="c-title c-title--md"><?php echo $name ?></dt>
+                                    <dt class="c-title c-title--md"><?php echo the_title() ?></dt>
                                     <?php
                                     $related_services = get_field('related_services');
                                     if ($related_services): ?>
@@ -236,10 +212,10 @@ $current_language = pll_current_language('slug');
                                     <?php endif; ?>
                                 </dl>
                                 <p class="text"><?php echo $short_description ?></p>
-                                <a href="#" class="btn c-btn"><span>VIEW DETAILS</span></a>
+                                <a href="<?php echo esc_url($url); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
                             </div>
                         </div>
-                        <?php $counter++; endwhile; ?>
+                        <?php endwhile; ?>
                     <?php endif; ?>
                 </div>
                 <div class="slider-counter"></div>

@@ -1,8 +1,5 @@
 .footer {
-  // background-color: $cl-title;
-  @include sp{
-    border-top: 1px solid $cl-line;
-  }
+  border-top: 1px solid $cl-line;
   &__row01 {
     padding: rem(40) 0 rem(24);
     @include pc {

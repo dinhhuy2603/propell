@@ -1,8 +1,8 @@
 function intAnchorLinkDetail() {
   $(".js-anchor-detail").click(function(e) {
     var id = $(this).attr("href");
-    $(".js-anchor-detail").removeClass("is-active");
-    $(this).addClass("is-active");
+    $(".js-anchor-detail").closest("li").removeClass("is-active");
+    $(this).closest("li").addClass("is-active");
 
     if (id.split("")[0] === "#" && id != "#") {
       var offsetTop = 0;

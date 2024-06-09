@@ -251,26 +251,17 @@
     visibility: hidden;
   }
 }
-.page-careers .kv__text {
-  margin: 2rem 0 2.875rem;
-}
-@media (max-width: 750px) {
-  .page-careers .kv__text {
-    margin: 0.875rem 0 2.375rem;
-  }
-}
-
-.careers__top {
+.page-careers .careers__top {
   padding-top: 5rem;
   padding-bottom: 2.5rem;
 }
 @media (max-width: 750px) {
-  .careers__top {
+  .page-careers .careers__top {
     padding-top: 3.375rem;
     padding-bottom: 1.375rem;
   }
 }
-.careers__top .c-ttl {
+.page-careers .careers__top .c-ttl {
   font-size: 3.75rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -280,23 +271,23 @@
   padding-bottom: 1.5rem;
 }
 @media (max-width: 750px) {
-  .careers__top .c-ttl {
+  .page-careers .careers__top .c-ttl {
     font-size: 2.625rem;
     line-height: 1.2;
     padding-bottom: 1.4375rem;
     margin-bottom: 2.25rem;
   }
 }
-.careers__top .c-ttl__style {
+.page-careers .careers__top .c-ttl__style {
   position: relative;
 }
 @media (max-width: 750px) {
-  .careers__top .c-ttl__style {
+  .page-careers .careers__top .c-ttl__style {
     padding-bottom: 1.25rem;
     margin-bottom: 1.0625rem;
   }
 }
-.careers__top .c-ttl__style:before {
+.page-careers .careers__top .c-ttl__style:before {
   content: "";
   position: absolute;
   top: 0;
@@ -307,13 +298,13 @@
   background-size: 100%;
 }
 @media (max-width: 750px) {
-  .careers__top .c-ttl__style:before {
+  .page-careers .careers__top .c-ttl__style:before {
     top: -0.875rem;
     width: 4.6875rem;
     height: 4.75rem;
   }
 }
-.careers__top .c-txt {
+.page-careers .careers__top .c-txt {
   font-size: 1.125rem;
   line-height: 1.3661111111;
   letter-spacing: -0.04em;
@@ -322,21 +313,21 @@
   margin-right: 17.5rem;
 }
 @media (max-width: 750px) {
-  .careers__top .c-txt {
+  .page-careers .careers__top .c-txt {
     margin-right: 0.625rem;
     font-size: 1rem;
     line-height: 1.36625;
   }
 }
-.careers__form {
+.page-careers .careers__form {
   padding-bottom: 5rem;
 }
 @media (max-width: 750px) {
-  .careers__form {
+  .page-careers .careers__form {
     padding-bottom: 2.5rem;
   }
 }
-.careers__form--ttl {
+.page-careers .careers__form--ttl {
   font-size: 1rem;
   line-height: 1.36625;
   font-weight: 700;
@@ -347,27 +338,27 @@
   margin-bottom: 1.0625rem;
 }
 @media (max-width: 750px) {
-  .careers__form--ttl {
+  .page-careers .careers__form--ttl {
     font-size: 1rem;
     line-height: 1.36625;
     padding-top: 1.5rem;
   }
 }
-.careers__form .c-form .select-menu .options {
+.page-careers .careers__form .c-form .select-menu .options {
   width: calc(100% + 0.125rem);
 }
-.careers__more--top .text-scroll {
+.page-careers .careers__more--top .text-scroll {
   padding: 1.5rem 0 1.375rem;
   border-top: 1px solid #D8DAE1;
   border-bottom: 1px solid #D8DAE1;
   pointer-events: none;
 }
-.careers__more--top .text-scroll .swiper-text {
+.page-careers .careers__more--top .text-scroll .swiper-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.careers__more--top .text-scroll .swiper-text .text {
+.page-careers .careers__more--top .text-scroll .swiper-text .text {
   padding-left: 3.375rem;
   margin-right: 2rem;
   background-image: url("../img/top/first_icon.png");
@@ -378,16 +369,16 @@
   line-height: 1.2;
   white-space: nowrap;
 }
-.careers__more--main {
+.page-careers .careers__more--main {
   padding: 10rem 0;
   background: linear-gradient(89.08deg, #000821 13.48%, #011045 62.2%, #000927 98.41%);
 }
 @media (max-width: 750px) {
-  .careers__more--main {
+  .page-careers .careers__more--main {
     padding: 1.5rem 0;
   }
 }
-.careers__more--main .c-ttl {
+.page-careers .careers__more--main .c-ttl {
   font-size: 3.75rem;
   line-height: 1.2;
   letter-spacing: -0.04em;
@@ -399,23 +390,23 @@
   border-bottom: 1px solid #D8DAE1;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-ttl {
+  .page-careers .careers__more--main .c-ttl {
     font-size: 2rem;
     line-height: 1.2;
     padding-bottom: 1.5rem;
     margin-bottom: 2.5rem;
   }
 }
-.careers__more--main .c-banner {
+.page-careers .careers__more--main .c-banner {
   background: #F0F3FA;
   padding: 5rem;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner {
+  .page-careers .careers__more--main .c-banner {
     padding: 1.5rem 1.5rem 1rem;
   }
 }
-.careers__more--main .c-banner__top {
+.page-careers .careers__more--main .c-banner__top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -425,12 +416,12 @@
   padding-bottom: 1.4375rem;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__top {
+  .page-careers .careers__more--main .c-banner__top {
     display: block;
     position: relative;
     padding-bottom: 3rem;
   }
-  .careers__more--main .c-banner__top:before {
+  .page-careers .careers__more--main .c-banner__top:before {
     content: "";
     position: absolute;
     left: -0.5rem;
@@ -440,19 +431,19 @@
     background: #074494;
   }
 }
-.careers__more--main .c-banner__top .c-ttl02 {
+.page-careers .careers__more--main .c-banner__top .c-ttl02 {
   display: block;
   margin-top: 0.25rem;
   border-bottom: 0.5rem solid #074494;
   padding-bottom: 1rem;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__top .c-ttl02 {
+  .page-careers .careers__more--main .c-banner__top .c-ttl02 {
     border-bottom: none;
     padding-bottom: 0.75rem;
   }
 }
-.careers__more--main .c-banner__top .c-ttl02 a {
+.page-careers .careers__more--main .c-banner__top .c-ttl02 a {
   display: block;
   width: 26.875rem;
   height: 21.875rem;
@@ -461,15 +452,15 @@
   transition: all 0.3s ease-in-out;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__top .c-ttl02 a {
+  .page-careers .careers__more--main .c-banner__top .c-ttl02 a {
     width: 14.375rem;
     height: 12.1875rem;
   }
 }
-.careers__more--main .c-banner__top .c-ttl02 a:hover {
+.page-careers .careers__more--main .c-banner__top .c-ttl02 a:hover {
   opacity: 0.8;
 }
-.careers__more--main .c-banner__top .c-ttl02 img {
+.page-careers .careers__more--main .c-banner__top .c-ttl02 img {
   position: absolute;
   top: 0;
   left: 0;
@@ -478,19 +469,19 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.careers__more--main .c-banner__top .c-dots {
+.page-careers .careers__more--main .c-banner__top .c-dots {
   width: 12.5625rem;
   height: 12.75rem;
   position: relative;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__top .c-dots {
+  .page-careers .careers__more--main .c-banner__top .c-dots {
     width: 4.6875rem;
     height: 4.75rem;
     margin-left: -0.625rem;
   }
 }
-.careers__more--main .c-banner__top .c-dots img {
+.page-careers .careers__more--main .c-banner__top .c-dots img {
   position: absolute;
   top: 0;
   left: 0;
@@ -499,7 +490,7 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.careers__more--main .c-banner__mid {
+.page-careers .careers__more--main .c-banner__mid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -511,13 +502,13 @@
           align-items: center;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__mid {
+  .page-careers .careers__more--main .c-banner__mid {
     display: block;
     padding-top: 1.5rem;
     margin-inline: -0.5rem;
   }
 }
-.careers__more--main .c-banner__mid .c-txt {
+.page-careers .careers__more--main .c-banner__mid .c-txt {
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.3661111111;
@@ -526,21 +517,21 @@
       -ms-flex: 1;
           flex: 1;
 }
-.careers__more--main .c-banner__mid .c-banner__btn {
+.page-careers .careers__more--main .c-banner__mid .c-banner__btn {
   width: 10.25rem;
   margin-left: 1.25rem;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__mid .c-banner__btn {
+  .page-careers .careers__more--main .c-banner__mid .c-banner__btn {
     margin-top: 1.625rem;
     margin-left: auto;
   }
 }
-.careers__more--main .c-banner__mid .c-banner__btn .c-btn {
+.page-careers .careers__more--main .c-banner__mid .c-banner__btn .c-btn {
   padding-inline: 0.625rem;
   width: 100%;
 }
-.careers__more--main .c-banner__btm {
+.page-careers .careers__more--main .c-banner__btm {
   width: 43.125rem;
   margin-top: 3.9375rem;
   padding-top: 1.5rem;
@@ -556,7 +547,7 @@
           align-items: center;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__btm {
+  .page-careers .careers__more--main .c-banner__btm {
     width: auto;
     display: block;
     margin-inline: -1.5rem;
@@ -564,21 +555,21 @@
     padding: 1.5rem 1rem 0;
   }
 }
-.careers__more--main .c-banner__btm .c-logo {
+.page-careers .careers__more--main .c-banner__btm .c-logo {
   position: relative;
   width: 13.75rem;
   height: 3.4375rem;
   margin-right: 1.5rem;
 }
-.careers__more--main .c-banner__btm .c-logo a {
+.page-careers .careers__more--main .c-banner__btm .c-logo a {
   display: block;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
-.careers__more--main .c-banner__btm .c-logo a:hover {
+.page-careers .careers__more--main .c-banner__btm .c-logo a:hover {
   opacity: 0.8;
 }
-.careers__more--main .c-banner__btm .c-logo a img {
+.page-careers .careers__more--main .c-banner__btm .c-logo a img {
   position: absolute;
   top: 0;
   left: 0;
@@ -587,7 +578,7 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.careers__more--main .c-banner__btm .c-txt02 {
+.page-careers .careers__more--main .c-banner__btm .c-txt02 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -597,7 +588,7 @@
   letter-spacing: -0.04em;
 }
 @media (max-width: 750px) {
-  .careers__more--main .c-banner__btm .c-txt02 {
+  .page-careers .careers__more--main .c-banner__btm .c-txt02 {
     padding-top: 1.5rem;
   }
 }

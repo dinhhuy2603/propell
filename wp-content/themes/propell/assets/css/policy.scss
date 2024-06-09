@@ -1,0 +1,145 @@
+// default settings
+@import "_base/settings";
+@import "_base/mixin";
+
+// CUSTOM STYLES //
+// ======================================= //
+
+.page-policy{
+  .policy{
+    padding: rem(80) 0;
+    @include sp{
+      padding: rem(40) 0;
+    }
+    a{
+      color: inherit;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+    &__table{
+      padding-bottom: rem(40);
+      margin-bottom: rem(40);
+      border-bottom: 1px solid $cl-line;
+      display: flex;
+      justify-content: space-between;
+      @include sp{
+        padding-bottom: rem(24);
+        margin-bottom: rem(24);
+      }
+      &--content{
+        flex: 1;
+      }
+      &--ttl{
+        font-size: rem(60);
+        line-height: calc(72/60);
+        letter-spacing: -0.04em;
+        color: $cl-body;  
+        font-weight: 400;
+        @include fontBonaNova;
+        margin-bottom: rem(24);
+        position: relative;
+        padding-right: rem(250);
+        @include sp{
+          font-size: rem(42);
+          line-height: calc(50.4/42);
+          padding-right: rem(100);
+        }
+      }
+      &--ico{
+        display: block;
+        width: rem(201);
+        height: rem(204);
+        position: relative;
+        @include sp{
+          margin-top: rem(10);
+          width: rem(75);
+          height: rem(76);
+        }
+        &:before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url("../../assets/img/policy/icon_dot.png") center no-repeat;
+          background-size: contain;
+        }
+      }
+    }
+    .c-list{
+      li{
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        color: $cl-body;  
+      }
+      &__num{
+        font-size: rem(18);
+        line-height: calc(24.59/18);
+        padding-left: rem(24);
+        padding-right: rem(250);
+        @include sp{
+          padding-right: 0;
+          font-size: rem(18);
+          line-height: calc(24.59/18);
+        }
+      }
+      &__dot{
+        li{
+          font-size: rem(16);
+          line-height: calc(21.86/16);
+          list-style-type: none;
+          padding-left: rem(24);
+          position: relative;
+          &:before{
+            content: '';
+            position: absolute;
+            left: rem(10);
+            top: rem(10);
+            width: rem(4);
+            height: rem(4);
+            border-radius: 50%;
+            background: $cl-body;
+            margin-right: rem(20);
+          }
+        }
+      }
+    }
+    &__media{
+      + .policy__media{
+        margin-top: rem(41);
+        @include sp{
+          margin-top: rem(26);
+        }
+      }
+      &--ttl{
+        font-weight: 400;
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+        @include fontBonaNova;
+        letter-spacing: -0.04em;
+        color: $cl-body;
+        margin-bottom: rem(32);
+        @include sp{
+          font-size: rem(24);
+          line-height: calc(28.8/24);
+          margin-bottom: rem(38);
+        }
+      }
+      &--content{
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        font-size: rem(16);
+        line-height: calc(21.86/16);
+        @include fontManrope;
+        color: $cl-body;
+        @include sp{
+          font-size: rem(16);
+          line-height: calc(21.86/16);
+          padding-right: rem(2);
+        }
+      }
+    }
+  }
+}

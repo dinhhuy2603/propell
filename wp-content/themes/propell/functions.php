@@ -188,13 +188,18 @@ function propell_scripts() {
     if (is_front_page()) {
         wp_enqueue_style('propell-top-style', get_template_directory_uri() . '/assets/css/top.css', [], 'all');
         wp_enqueue_script('propell-top-js', get_template_directory_uri() . '/assets/js/top.js', [], _S_VERSION, true);
-        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
 
     }
-    if (is_page('about')) {
+    if (is_page_template('page-about.php')) {
         wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
         wp_enqueue_script('propell-about-js', get_template_directory_uri() . '/assets/js/about.js', [], _S_VERSION, true);
+    }
+    if (is_page_template('page-award.php')) {
+        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('viewbox-style', get_template_directory_uri() . '/assets/libs/viewbox.css', [], 'all');
+        wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
+        wp_enqueue_script('propell-viewbox-js', get_template_directory_uri() . '/assets/libs/jquery.viewbox.min.js', [], _S_VERSION, true);
     }
     if (is_page('contact')) {
         wp_enqueue_style('common-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
@@ -212,13 +217,22 @@ function propell_scripts() {
         wp_enqueue_style('propell-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-service-js', get_template_directory_uri() . '/assets/js/what-we-do.js', [], _S_VERSION, true);
-        }
+        wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
+    }
     // Enqueue project archive specific styles and scripts
     if (is_post_type_archive('project') || is_post_type_archive('project-category')
         || is_singular('project-category') || is_singular('project')) {
         wp_enqueue_style('propell-project-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-project-style', get_template_directory_uri() . '/assets/css/project.css', [], 'all');
         wp_enqueue_script('propell-project-js', get_template_directory_uri() . '/assets/js/project.js', [], _S_VERSION, true);
+
+    }
+    if (is_post_type_archive('project-category')) {
+        wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
+    }
+    if (is_singular('project-category')) {
+        wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
+
     }
 }
 add_action('wp_enqueue_scripts', 'propell_scripts');
@@ -280,11 +294,14 @@ function get_page_class(){
     if (is_front_page()) {
         $class = 'page page-top';
     }
-    if (is_page('contact')) {
+    if (is_page_template('page-contact.php')) {
         $class = 'page page-detail page-contact';
     }
-    if (is_page('about')) {
+    if (is_page_template('page-about.php')) {
         $class = 'page page-detail page-about';
+    }
+    if (is_page_template('page-award.php')) {
+        $class = 'page page-detail page-awards';
     }
     if (is_post_type_archive('service')) {
         $class = 'page page-detail page-what-we-do';
@@ -292,12 +309,22 @@ function get_page_class(){
     if (is_singular('service')) {
         $class = 'page page-detail page-what-we-do page-service-details';
     }
-    if (is_post_type_archive('project')
-        || is_singular('project')
-        || is_post_type_archive('project-category')
-        || is_singular('project-category')) {
+    if (is_singular('project')) {
+        $class = 'page page-detail page-project page-project-detail';
+    }
+    if (is_singular('project-category')) {
+        $class = 'page page-detail page-project page-project-list';
+    }
+    if (is_post_type_archive('project-category')) {
         $class = 'page page-detail page-project';
     }
+
+//    if (is_post_type_archive('project')
+//        || is_singular('project')
+//        || is_post_type_archive('project-category')
+//        || is_singular('project-category')) {
+//        $class = 'page page-detail page-project';
+//    }
     return $class;
 }
 
@@ -306,18 +333,28 @@ add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');
 
 function load_more_projects() {
     $page = intval($_POST['page']);
-    $service_id = intval($_POST['service_id']);
+    $serviceId = intval($_POST['service_id']);
+    $categoryId = intval($_POST['category_id']);
+    $metaQuery = array();
+    if ($serviceId > 0) {
+        $metaQuery[] = array(
+            'key' => 'related_services',
+            'value' =>  $serviceId ,
+            'compare' => 'LIKE'
+        );
+    }
+    if ($categoryId > 0) {
+        $metaQuery[] = array(
+            'key' => 'category',
+            'value' => $categoryId,
+            'compare' => 'LIKE'
+        );
+    }
     $args = array(
         'post_type' => 'project',
         'posts_per_page' => 6,
         'paged' => $page,
-        'meta_query' => array(
-            array(
-                'key' => 'related_services',
-                'value' => '"' . $service_id . '"',
-                'compare' => 'LIKE'
-            )
-        )
+        "meta_query" => $metaQuery
     );
     $projects_query = new WP_Query($args);
     ob_start();
@@ -412,32 +449,165 @@ function load_more_projects() {
 //}
 //add_action('wp_enqueue_scripts', 'enqueue_loadmore_script');
 
+//function custom_project_permalink($post_link, $post) {
+//    if ($post->post_type == 'project') {
+//        $terms = wp_get_post_terms($post->ID, 'project-category');
+//        if ($terms && !is_wp_error($terms)) {
+//            $category_slug = $terms[0]->slug;
+//        } else {
+//            $category_slug = 'uncategorized';
+//        }
+//
+//        $departments = wp_get_post_terms($post->ID, 'department');
+//        if ($departments && !is_wp_error($departments)) {
+//            $department_slug = $departments[0]->slug;
+//        } else {
+//            $department_slug = 'general';
+//        }
+//
+//        // Assuming you are using Polylang or WPML for language handling
+//        if (function_exists('pll_current_language')) {
+//            $lang = pll_current_language();
+//        } else {
+//            $lang = 'en'; // Default language if no multilingual plugin is used
+//        }
+//
+//        $post_link = home_url('/' . $lang . '/' . $department_slug . '/' . $category_slug . '/' . $post->post_name . '/');
+//    }
+//    return $post_link;
+//}
+//add_filter('post_type_link', 'custom_project_permalink', 10, 2);
+
+
+//function custom_project_rewrite_rules() {
+//    add_rewrite_rule(
+//        '^([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$',
+//        'index.php?post_type=project&name=$4',
+//        'top'
+//    );
+//}
+//add_action('init', 'custom_project_rewrite_rules');
+//function custom_project_permalink($post_link, $post) {
+//    if ($post->post_type == 'project') {
+//        // Get the project category (custom post type)
+//        $project_category = get_field('category', $post->ID);
+//        if ($project_category) {
+//            $project_category = get_post($project_category->ID);
+//            $category_slug = $project_category->post_name;
+//
+//            // Get the department (taxonomy of project_category)
+//            $departments = wp_get_post_terms($project_category->ID, 'department');
+//            if ($departments && !is_wp_error($departments)) {
+//                $department_slug = $departments[0]->slug;
+//            } else {
+//                $department_slug = 'general';
+//            }
+//
+//            // Assuming you are using Polylang or WPML for language handling
+//            if (function_exists('pll_current_language')) {
+//                $lang = pll_current_language();
+//            } else {
+//                $lang = ''; // Default language if no multilingual plugin is used
+//            }
+//
+//            $post_link = home_url('/' . $lang . '/' . $department_slug . '/' . $category_slug . '/' . $post->post_name . '/');
+//        }
+//    }
+//    return $post_link;
+//}
+//add_filter('post_type_link', 'custom_project_permalink', 10, 2);
+//
+//function flush_rewrite_rules_on_activation() {
+//    custom_project_rewrite_rules();
+//    flush_rewrite_rules();
+//}
+//register_activation_hook(__FILE__, 'flush_rewrite_rules_on_activation');
+
+// Add custom rewrite rules
+// Add custom rewrite rules
+function custom_project_rewrite_rules() {
+    add_rewrite_rule(
+        '^([a-z]{2})/([^/]+)/([^/]+)/([^/]+)/?$',
+        'index.php?lang=$matches[1]&department=$matches[2]&category=$matches[3]&project=$matches[4]',
+        'top'
+    );
+}
+add_action('init', 'custom_project_rewrite_rules');
+
+// Add custom query vars
+function add_custom_query_vars($vars) {
+    $vars[] = 'lang';
+    $vars[] = 'department';
+    $vars[] = 'category';
+    $vars[] = 'project';
+    return $vars;
+}
+add_filter('query_vars', 'add_custom_query_vars');
+
+// Parse custom request
+function custom_parse_request($query) {
+    if (!empty($query->query_vars['project']) && !empty($query->query_vars['category']) && !empty($query->query_vars['department'])) {
+        $query->set('post_type', 'project');
+    }
+}
+add_action('pre_get_posts', 'custom_parse_request');
+
+// Flush rewrite rules on activation
+function flush_rewrite_rules_on_activation() {
+    custom_project_rewrite_rules();
+    flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'flush_rewrite_rules_on_activation');
+
+// Modify the project permalink structure
 function custom_project_permalink($post_link, $post) {
     if ($post->post_type == 'project') {
-        $terms = wp_get_post_terms($post->ID, 'project-category');
-        if ($terms && !is_wp_error($terms)) {
-            $category_slug = $terms[0]->slug;
-        } else {
-            $category_slug = 'uncategorized';
-        }
+        // Get the project category (custom post type)
+        $project_category = get_field('category', $post->ID);
+        if ($project_category) {
+            $project_category = get_post($project_category->ID);
+            $category_slug = $project_category->post_name;
 
-        $departments = wp_get_post_terms($post->ID, 'department');
-        if ($departments && !is_wp_error($departments)) {
-            $department_slug = $departments[0]->slug;
-        } else {
-            $department_slug = 'general';
-        }
+            // Get the department (taxonomy of project_category)
+            $departments = wp_get_post_terms($project_category->ID, 'department');
+            if ($departments && !is_wp_error($departments)) {
+                $department_slug = $departments[0]->slug;
+            } else {
+                $department_slug = 'general';
+            }
+            // Assuming you are using Polylang or WPML for language handling
+            if (function_exists('pll_current_language')) {
+                $lang = pll_current_language();
+            } else {
+                $lang = 'en'; // Default language if no multilingual plugin is used
+            }
 
-        // Assuming you are using Polylang or WPML for language handling
-        if (function_exists('pll_current_language')) {
-            $lang = pll_current_language();
-        } else {
-            $lang = 'en'; // Default language if no multilingual plugin is used
+            $post_link = home_url('/' . $lang . '/' . $department_slug . '/' . $category_slug . '/' . $post->post_name . '/');
         }
-
-        $post_link = home_url('/' . $lang . '/' . $department_slug . '/' . $category_slug . '/' . $post->post_name . '/');
     }
     return $post_link;
+}
+add_filter('post_type_link', 'custom_project_permalink', 10, 2);
+
+
+function remove_br_tags($content) {
+    // Remove <br> and </br> tags from the content
+    $content = str_replace(array('<br>', '</br>', '<br />'), '', $content);
+    return $content;
+}
+
+function custom_shorten_content($content, $word_limit = 20) {
+    $words = explode(' ', $content);
+
+    if (count($words) > $word_limit) {
+        $shortened_content = implode(' ', array_slice($words, 0, $word_limit));
+        $shortened_content .= ' ...';
+
+    } else {
+        $shortened_content = $content;
+    }
+
+    return $shortened_content;
 }
 add_filter('post_type_link', 'custom_project_permalink', 10, 2);
 
@@ -489,4 +659,31 @@ function remove_content_editor()
     {
         remove_post_type_support('page', 'editor');
     }
+}
+
+function register_custom_strings() {
+    if (function_exists('pll_register_string')) {
+        pll_register_string('About Page', 'about', 'URLs');
+        pll_register_string('About Page VI', 'about-vi', 'URLs');
+    }
+}
+add_action('init', 'register_custom_strings');
+
+function get_page_url($name) {
+    $current_language = pll_current_language();
+
+    if ($current_language == 'en') {
+        $page_slug = pll_translate_string($name, $current_language);
+    } elseif ($current_language == 'vi') {
+        $page_slug = pll_translate_string($name.'-vi', $current_language);
+    }
+    elseif ($current_language == 'ja') {
+        $page_slug = pll_translate_string($name.'-ja', $current_language);
+    }
+    elseif ($current_language == 'zh') {
+        $page_slug = pll_translate_string($name.'-zh', $current_language);
+    }
+
+    $link  = home_url('/' . $current_language . '/' . $page_slug);
+    return $link;
 }

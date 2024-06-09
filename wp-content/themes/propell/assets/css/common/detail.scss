@@ -54,7 +54,8 @@
     &__text{
       display: flex;
       justify-content: space-between;
-      margin: rem(40) 0 rem(22);
+      align-items: center;
+      margin: rem(40) 0 rem(40);
       *{
         -ms-overflow-style: none;
       }
@@ -62,7 +63,7 @@
           display: none;
       }
       @include sp{
-        margin: rem(16) 0 rem(24);
+        margin: rem(24) 0 rem(40);
       }
       .kv__ttl{
         flex: 1;
@@ -73,10 +74,11 @@
           letter-spacing: -0.04em;
           color: $cl-title;
           @include fontBonaNova;
-          margin-top: rem(10);
+          padding: rem(4) 0;
           @include sp{
             font-size: rem(32);
             line-height: calc(38.4/32);
+            padding: 0;
           }
         }
       }
@@ -90,7 +92,7 @@
           top: rem(88);
           left: 0;
           right: 0;
-          padding: rem(14) rem(16);
+          padding: rem(14) rem(16) 0;
           background: #fff;
           overflow-y: auto;
           width: 100% !important;
@@ -107,12 +109,28 @@
         }
         li{
           list-style-type: none;
-          width: 50%;
+          width: 100%;
           margin-bottom: rem(15);
+          position: relative;
           @include sp{
-            width: auto;
-            padding: 0 rem(8);
+            padding: 0 rem(8) rem(14);
             margin-bottom: 0;
+            text-align: center;
+          }
+          &:before{
+            @include sp{
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: rem(2);
+              background: $cl-primary-light;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s;
+              z-index: 1;
+            }
           }
           a{
             font-size: rem(16);
@@ -127,41 +145,47 @@
               line-height: calc(16.4/12);
               letter-spacing: -0.01em;
             }
-            &:before{
-              @include sp{
-                content: '';
-                position: absolute;
-                bottom: rem(-15);
-                left: rem(-8);
-                right: rem(-8);
-                height: rem(2);
-                background: $cl-primary-light;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-                z-index: 1;
-              }
-            }
             &:hover{
               @include pc{
                 color: $cl-primary-light;
               }
             }
-            &.is-active{
+          }
+          &.is-active{
+            a{
               @include sp{
                 color: $cl-primary-light;
               }
-              &:before{
-                @include sp{
-                  opacity: 1;
-                  visibility: visible;
-                }
+            }
+            &:before{
+              @include sp{
+                opacity: 1;
+                visibility: visible;
               }
             }
           }
-          &:nth-child(even){
+        }
+        &.--02{
+          li{
             @include pc{
-              padding-left: rem(15);
+              width: 50%;
+            }
+            &:nth-child(even){
+              @include pc{
+                padding-left: rem(15);
+              }
+            }
+            &:last-child, &:nth-last-child(2){
+              margin-bottom: 0;
+            }
+          }
+        }
+        &.--ellipsis{
+          li{
+            @include sp{
+              width: 50%;
+              text-overflow: ellipsis;
+              overflow: hidden;
             }
           }
         }
@@ -174,6 +198,18 @@
       margin: 0 auto;
       @include sp{
         height: rem(210);
+      }
+      &.--half{
+        @include pc{
+          width: rem(1280);
+          margin-left: auto;
+          margin-right: auto;
+        }
+        @include sp{
+          width: rem(343);
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
       img{
         position: absolute;

@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1483dde-a2aa-4c8c-b1fa-9c178d978ce2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Dockerfile-bk2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-backup.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/update.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/js/load-more.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile-backup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-config/wp-dev.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config/wp-dev.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-config/wp-local.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config/wp-local.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/single-project-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/single-project-category.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "huy",
     "last_opened_file_path": "/Applications/MAMP/htdocs/propell",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
