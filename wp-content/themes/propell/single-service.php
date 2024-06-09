@@ -159,7 +159,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     $imagePC = get_field('image_pc');
                                 ?>
                                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
-                                <a href="<?php get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
+                                <a href="<?php echo get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
                                 <p class="txt"><?php echo get_field('short_description'); ?></p>
                             </div>
                         <?php endwhile;
