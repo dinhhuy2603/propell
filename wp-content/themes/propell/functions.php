@@ -180,7 +180,6 @@ function propell_scripts() {
     wp_enqueue_script('propell-common-js', get_template_directory_uri() . '/assets/js/common.js', [], _S_VERSION, true);
 
     wp_enqueue_style('propell-slick-style', get_template_directory_uri() . '/assets/libs/slick.min.css');
-
     // Enqueue styles
     wp_enqueue_style('propell-style', get_template_directory_uri() . '/assets/css/common/common.css');
 
@@ -200,6 +199,12 @@ function propell_scripts() {
         wp_enqueue_style('viewbox-style', get_template_directory_uri() . '/assets/libs/viewbox.css', [], 'all');
         wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
         wp_enqueue_script('propell-viewbox-js', get_template_directory_uri() . '/assets/libs/jquery.viewbox.min.js', [], _S_VERSION, true);
+    }
+    if (is_page_template('page-propellian.php')) {
+        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('propell-propellian-style', get_template_directory_uri() . '/assets/css/propellian.css', [], 'all');
+        wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-propellian-js', get_template_directory_uri() . '/assets/js/propellian.js', [], _S_VERSION, true);
     }
     if (is_page('contact')) {
         wp_enqueue_style('propell-contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], 'all');
@@ -302,6 +307,9 @@ function get_page_class(){
     if (is_page_template('page-award.php')) {
         $class = 'page page-detail page-awards';
     }
+    if (is_page_template('page-propellian.php')) {
+        $class = 'page page-detail page-propellian';
+    }
     if (is_post_type_archive('service')) {
         $class = 'page page-detail page-what-we-do';
     }
@@ -318,12 +326,6 @@ function get_page_class(){
         $class = 'page page-detail page-project';
     }
 
-//    if (is_post_type_archive('project')
-//        || is_singular('project')
-//        || is_post_type_archive('project-category')
-//        || is_singular('project-category')) {
-//        $class = 'page page-detail page-project';
-//    }
     return $class;
 }
 

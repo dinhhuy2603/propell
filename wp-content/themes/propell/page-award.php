@@ -42,8 +42,8 @@ $current_language = pll_current_language('slug');
                         'post_type' => 'award',
                         'post_status' => 'publish',
                         'showposts' => -1,
-                        'orderby' => 'title',
-                        'order' => 'ASC',
+                        'orderby' => 'publish_date',
+                        'order' => 'DESC',
                         'tax_query'      => array(
                             array(
                                 'taxonomy' => 'language',

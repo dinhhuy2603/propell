@@ -29,7 +29,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                     </div>
                 </div>
                 <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
-                <div class="kv__img">
+                <div class="kv__img --half">
                     <img src="<?php echo $featured_img_url ?>" alt="">
                 </div>
             </div>
