@@ -206,15 +206,26 @@ function propell_scripts() {
         wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-propellian-js', get_template_directory_uri() . '/assets/js/propellian.js', [], _S_VERSION, true);
     }
+    if (is_page_template('page-event.php')) {
+        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('propell-propellian-style', get_template_directory_uri() . '/assets/css/propellian.css', [], 'all');
+        wp_enqueue_script('propell-propellian-js', get_template_directory_uri() . '/assets/js/propellian.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
+
+    }
+    if (is_page_template('page-policy.php')) {
+        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('policy-style', get_template_directory_uri() . '/assets/css/policy.css', [], 'all');
+    }
+    if (is_page_template('page-term.php')) {
+        wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('terms-style', get_template_directory_uri() . '/assets/css/terms.css', [], 'all');
+    }
     if (is_page('contact')) {
         wp_enqueue_style('propell-contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], 'all');
-
         wp_enqueue_script('propell-recaptcha-js', 'https://www.google.com/recaptcha/api.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-cloudflare-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-contact-js', get_template_directory_uri() . '/assets/js/contact.js', [], _S_VERSION, true);
-
-
-
     }
     if (is_post_type_archive('service') || is_singular('service')) {
         wp_enqueue_style('propell-service-style', get_template_directory_uri() . '/assets/css/what-we-do.css', [], 'all');
@@ -236,7 +247,6 @@ function propell_scripts() {
     }
     if (is_singular('project-category')) {
         wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
-
     }
 }
 add_action('wp_enqueue_scripts', 'propell_scripts');
@@ -310,6 +320,15 @@ function get_page_class(){
     if (is_page_template('page-propellian.php')) {
         $class = 'page page-detail page-propellian';
     }
+    if (is_page_template('page-event.php')) {
+        $class = 'page page-detail page-propellian-events';
+    }
+    if (is_page_template('page-policy.php')) {
+        $class = 'page page-detail page-policy';
+    }
+    if (is_page_template('page-term.php')) {
+        $class = 'page page-detail page-terms';
+    }
     if (is_post_type_archive('service')) {
         $class = 'page page-detail page-what-we-do';
     }
@@ -369,6 +388,51 @@ function load_more_projects() {
                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
                 <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
                 <p class="txt"><?php echo get_field('short_description'); ?></p>
+            </div>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+    else:
+        echo 'no-more-posts';
+    endif;
+    $content = ob_get_clean();
+    echo $content;
+    exit;
+}
+
+add_action('wp_ajax_load_more_events', 'load_more_events');
+add_action('wp_ajax_nopriv_load_more_events', 'load_more_events');
+function load_more_events() {
+    $current_language = pll_current_language('slug');
+    $page = intval($_POST['page']);
+    $args = array(
+        'post_type' => 'event',
+        'post_status' => 'publish',
+        'posts_per_page' => 9,
+        'paged' => $page,
+        'orderby' => 'publish_date',
+        'order' => 'DESC',
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'language',
+                'field'    => 'slug',
+                'terms'    => $current_language,
+            ),
+        ),
+    );
+    $event_query = new WP_Query($args);
+    ob_start();
+    if ($event_query->have_posts()):
+        while ($event_query->have_posts()): $event_query->the_post();
+            ?>
+            <div class="events-highlight__item">
+                <?php
+                    $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                ?>
+                <div class="events-highlight__item--photo">
+                    <img src="<?php echo $thumbnail ?>" alt="">
+                </div>
+                <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
             </div>
         <?php
         endwhile;
