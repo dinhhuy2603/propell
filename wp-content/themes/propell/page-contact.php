@@ -8,6 +8,7 @@ $assets = get_path_assets();
 
 $current_language = pll_current_language('slug');
 $template_id = get_the_ID();
+$title = get_the_title();
 $fields = get_fields();
 $block_left = $fields['block_left'] ?? [];
 $block_right = $fields['block_right'] ?? [];
@@ -29,12 +30,12 @@ if($subjects != '') {
         <div class="breadcrumds">
           <ul>
             <li><a href="/">HOME</a></li>
-            <li>CONTACT US</li>
+            <li><?php echo $title; ?></li>
           </ul>
         </div>
         <div class="kv__text">
           <div class="kv__ttl">
-            <h2>Contact Us</h2>
+            <h2><?php echo $title; ?></h2>
           </div>
         </div>
       </div>

@@ -496,6 +496,46 @@
                 "toolbar": "full",
                 "media_upload": 1,
                 "delay": 0
+            },
+            {
+                "key": "field_66686d63d1276",
+                "label": "Running Text",
+                "name": "running_text",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Let's Work Together\r\nLet's Work Together\r\nLet's Work Together",
+                "maxlength": "",
+                "rows": "",
+                "placeholder": "",
+                "new_lines": ""
+            },
+            {
+                "key": "field_666872567f702",
+                "label": "See More Jobs",
+                "name": "see_more_jobs",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "<h2 class=\"c-ttl\">See More Jobs<\/h2>\r\n            <div class=\"c-banner\">\r\n              <div class=\"c-banner__top\">\r\n                <div class=\"c-ttl02\">\r\n                  <a href=\"#\">\r\n                    <img src=\"<?php echo $assets; ?>\/img\/careers\/careers_logo.png\" alt=\"\">\r\n                  <\/a>\r\n                <\/div>\r\n                <div class=\"c-dots\">\r\n                  <img src=\"<?php echo $assets; ?>\/img\/careers\/icon_dot.png\" alt=\"\">\r\n                <\/div>\r\n              <\/div>\r\n              <div class=\"c-banner__mid\">\r\n                <div class=\"c-txt\">For Propell Career opportunitites via MyCareersFuture portal, please click on the icon above<\/div>\r\n                <div class=\"c-banner__btn\">\r\n                  <a href=\"#\" class=\"btn c-btn\"><span>VISIT US ON<\/span><\/a>\r\n                <\/div>\r\n              <\/div>\r\n              <div class=\"c-banner__btm\">\r\n                <div class=\"c-logo\">\r\n                  <a href=\"#\">\r\n                    <img src=\"<?php echo $assets; ?>\/img\/careers\/careers_logo02.png\" alt=\"\">\r\n                  <\/a>\r\n                <\/div>\r\n                <div class=\"c-txt02\">For Propell Career oppoytunitites via JobStreet portal, please click on the icon above<\/div>\r\n              <\/div>\r\n            <\/div>",
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
             }
         ],
         "location": [

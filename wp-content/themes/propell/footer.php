@@ -66,7 +66,17 @@ $assets = get_path_assets();
 </script>
 
 <?php wp_footer(); ?>
-
+<?php if (is_page_template('page-award.php')) :?>
+    <script>
+        $(function(){
+            $('.thumbnail').viewbox({
+                setTitle: true,
+                margin: 30,
+                openDuration: 200,
+            });
+        });
+    </script>
+<?php endif; ?>
 </body>
 
 </html>

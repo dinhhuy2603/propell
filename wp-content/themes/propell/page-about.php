@@ -64,23 +64,6 @@ $current_language = pll_current_language('slug');
                         </div>
                         <div class="c-toggle__main">
                             <?php echo $block_statement['content'] ?>
-    <!--                        <div class="statements">-->
-    <!--                            <div class="statements__content">-->
-    <!--                                <div class="statements__text">-->
-    <!--                                    <div class="c-media">-->
-    <!--                                        <h4 class="c-media__ttl">OUR MISSION</h4>-->
-    <!--                                        <div class="c-media__txt">To Win Business, Meet Client's Needs And Exceed Their Expectations Through Propell's Solution,Modern Management, Productivity, Quality, Planning, Efficiency, Technical Expertise And Team Commitment</div>-->
-    <!--                                    </div>-->
-    <!--                                    <div class="c-media">-->
-    <!--                                        <h4 class="c-media__ttl">OUR VISION</h4>-->
-    <!--                                        <div class="c-media__txt">To Excel As A Leading Integrated Specialist As Core Business By Providing Innovative Management & Quality Services. To Venture & Diversify Into Other Market Development Or Opportunity.</div>-->
-    <!--                                    </div>-->
-    <!--                                </div>-->
-    <!--                                <div class="statements__photo">-->
-    <!--                                    <img src="--><?php //echo $assets ?><!--/img/about/statements_img.jpg" alt="">-->
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
                         </div>
                     </div>
                 </div>

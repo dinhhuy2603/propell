@@ -16,11 +16,12 @@ $current_language = pll_current_language('slug');
                     <ul>
                         <li><a href="<?php echo home_url();?>">HOME</a></li>
                         <li><a href="<?php echo get_page_url('about');?>">ABOUT US</a></li>
+                        <li><a href="">OUR AWARDS</a></li>
                     </ul>
                 </div>
                 <div class="kv__text">
                     <div class="kv__ttl">
-                        <h2>Our Awards and Achievements</h2>
+                        <h2><?php echo the_title(); ?></h2>
                     </div>
                 </div>
             </div>
@@ -32,18 +33,14 @@ $current_language = pll_current_language('slug');
         </div>
         <div class="awards-detail">
             <div class="container">
-<!--                <h2 class="awards-detail__ttl">Propell’s Awards and Achievements</h2>-->
-<!--                <div class="awards-detail__txt">-->
-<!--                    Propell Singapore is proud to be recognized for our dedication to excellence and innovation. We have received numerous accolades, including the Singapore Business Excellence Award, the Singapore Service Excellence Award, and the Green Innovation Award. These honors underscore our commitment to quality, customer satisfaction, and sustainable business practices.-->
-<!--                </div>-->
                 <?php the_content(); ?>
                 <?php
                     $args = array(
                         'post_type' => 'award',
                         'post_status' => 'publish',
                         'showposts' => -1,
-                        'orderby' => 'title',
-                        'order' => 'ASC',
+                        'orderby' => 'publish_date',
+                        'order' => 'DESC',
                         'tax_query'      => array(
                             array(
                                 'taxonomy' => 'language',

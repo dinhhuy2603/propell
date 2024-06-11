@@ -1,21 +1,6 @@
 <?php
     $assets = get_path_assets();
     $current_home_url = pll_home_url();
-//    $current_language = pll_current_language();
-//
-//    if ($current_language == 'en') {
-//        $about_slug = pll_translate_string('about', $current_language);
-//    } elseif ($current_language == 'vi') {
-//        $about_slug = pll_translate_string('about-vi', $current_language);
-//    }
-//    elseif ($current_language == 'ja') {
-//        $about_slug = pll_translate_string('about-ja', $current_language);
-//    }
-//    elseif ($current_language == 'zh') {
-//        $about_slug = pll_translate_string('about-zh', $current_language);
-//    }
-//
-//    $about_page_url = home_url('/' . $current_language . '/' . $about_slug);
 
 ?>
 
@@ -69,10 +54,10 @@
                         </div>
                         <ul class="menu-toggle__nav">
                             <li><a href="/">Home</a></li>
-                            <li><a href="<?php echo get_page_link('about') ?>">About us</a></li>
+                            <li><a href="<?php echo get_page_url('about') ?>">About us</a></li>
                             <li><a href="<?php echo esc_url($current_home_url.'services') ?>">What we do</a></li>
-                            <li><a href="/project/">Project</a></li>
-                            <li><a href="/propellian/">Propellian</a></li>
+                            <li><a href="<?php echo esc_url($current_home_url.'categories') ?>">Project</a></li>
+                            <li><a href="<?php echo get_page_url('propellian') ?>">Propellian</a></li>
                             <li><a href="/careers/">Careers</a></li>
                             <li><a href="/contact-us/">Contact us</a></li>
                         </ul>
