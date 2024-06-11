@@ -739,11 +739,23 @@ function remove_content_editor()
 {
     $currentPageID = get_the_ID();
     $contactEn = get_page_by_path('contact');
+    $contactVi = get_page_by_path('contact-vi');
+    $contactJa = get_page_by_path('contact-ja');
+    $contactZh = get_page_by_path('contact-zh');
     $careersEn = get_page_by_path('careers');
+    $careersVi = get_page_by_path('careers-vi');
+    $careersJa = get_page_by_path('careers-ja');
+    $careersZh = get_page_by_path('careers-zh');
 
     if(
         $contactEn->ID == $currentPageID
+        || $contactVi->ID == $currentPageID
+        || $contactJa->ID == $currentPageID
+        || $contactZh->ID == $currentPageID
         || $careersEn->ID == $currentPageID
+        || $careersVi->ID == $currentPageID
+        || $careersJa->ID == $currentPageID
+        || $careersZh->ID == $currentPageID
     )
     {
         remove_post_type_support('page', 'editor');
