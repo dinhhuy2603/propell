@@ -221,11 +221,25 @@ function propell_scripts() {
         wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('terms-style', get_template_directory_uri() . '/assets/css/terms.css', [], 'all');
     }
-    if (is_page('contact')) {
+    if (is_page_template('page-contact.php')) {
+        $ajax_url = admin_url( 'admin-ajax.php' );
+        wp_enqueue_style('common-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-contact-style', get_template_directory_uri() . '/assets/css/contact.css', [], 'all');
         wp_enqueue_script('propell-recaptcha-js', 'https://www.google.com/recaptcha/api.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-cloudflare-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-contact-js', get_template_directory_uri() . '/assets/js/contact.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-be-contact-js', get_template_directory_uri() . '/assets/backend/js/contact.js', [], _S_VERSION, true);
+        wp_localize_script('propell-be-contact-js', 'ajax_url', [$ajax_url]);
+    }
+    if (is_page_template('page-careers.php')) {
+        $ajax_url = admin_url( 'admin-ajax.php' );
+        wp_enqueue_style('common-detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
+        wp_enqueue_style('propell-careers-style', get_template_directory_uri() . '/assets/css/careers.css', [], 'all');
+
+        wp_enqueue_script('propell-cloudflare-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-careers-js', get_template_directory_uri() . '/assets/js/careers.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-be-careers-js', get_template_directory_uri() . '/assets/backend/js/careers.js', [], _S_VERSION, true);
+        wp_localize_script('propell-be-careers-js', 'ajax_url', [$ajax_url]);
     }
     if (is_post_type_archive('service') || is_singular('service')) {
         wp_enqueue_style('propell-service-style', get_template_directory_uri() . '/assets/css/what-we-do.css', [], 'all');
@@ -297,6 +311,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Load library custom
+ */
+require_once 'function/contact.php';
+
 function get_path_assets()
 {
     return get_template_directory_uri() . '/assets';
@@ -317,6 +336,9 @@ function get_page_class(){
     }
     if (is_page_template('page-about.php')) {
         $class = 'page page-detail page-about';
+    }
+    if (is_page_template('page-careers.php')) {
+        $class = 'page page-detail page-careers';
     }
     if (is_page_template('page-award.php')) {
         $class = 'page page-detail page-awards';
@@ -680,6 +702,71 @@ function custom_shorten_content($content, $word_limit = 20) {
     }
 
     return $shortened_content;
+}
+add_filter('post_type_link', 'custom_project_permalink', 10, 2);
+
+
+
+/**
+ * Add iFrame to allowed wp_kses_post tags
+ *
+ * @param string $tags Allowed tags, attributes, and/or entities.
+ * @param string $context Context to judge allowed tags by. Allowed values are 'post',
+ *
+ * @return mixed
+ */
+function custom_wpkses_post_tags( $tags, $context ) {
+    if ( 'post' === $context ) {
+        $tags['iframe'] = array(
+            'src'             => true,
+            'height'          => true,
+            'width'           => true,
+            'frameborder'     => true,
+            'allowfullscreen' => true,
+            'style' => true,
+            'marginwidth' => true,
+            'marginheight' => true,
+            'vspace' => true,
+            'hspace' => true,
+            'allowtransparency' => true,
+            'scrolling' => true,
+        );
+    }
+    return $tags;
+}
+add_filter( 'wp_kses_allowed_html', 'custom_wpkses_post_tags', 10, 2 );
+
+
+
+add_action('admin_head', 'remove_content_editor');
+/**
+ * Remove the content editor from pages as all content is handled through Panels
+ */
+function remove_content_editor()
+{
+    $currentPageID = get_the_ID();
+    $contactEn = get_page_by_path('contact');
+    $contactVi = get_page_by_path('contact-vi');
+    $contactJa = get_page_by_path('contact-ja');
+    $contactZh = get_page_by_path('contact-zh');
+    $careersEn = get_page_by_path('careers');
+    $careersVi = get_page_by_path('careers-vi');
+    $careersJa = get_page_by_path('careers-ja');
+    $careersZh = get_page_by_path('careers-zh');
+
+    if(
+        $contactEn->ID == $currentPageID
+        || $contactVi->ID == $currentPageID
+        || $contactJa->ID == $currentPageID
+        || $contactZh->ID == $currentPageID
+        || $careersEn->ID == $currentPageID
+        || $careersVi->ID == $currentPageID
+        || $careersJa->ID == $currentPageID
+        || $careersZh->ID == $currentPageID
+    )
+    {
+        remove_post_type_support('page', 'editor');
+    }
 }
 
 function register_custom_strings() {

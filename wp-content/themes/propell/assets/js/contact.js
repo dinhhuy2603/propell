@@ -14,5 +14,5 @@ function intModal(){
 (function ($) {
   intSelectBox();
   intModal();
-  intValidation();
+  //intValidation();
 }(jQuery));
