@@ -248,6 +248,10 @@ function propell_scripts() {
     if (is_singular('project-category')) {
         wp_enqueue_script('propell-loadmore-js', get_template_directory_uri() . '/js/load-more.js', [], _S_VERSION, true);
     }
+    if(is_404()) {
+        wp_enqueue_style('propell-404-style', get_template_directory_uri() . '/assets/css/404.css', [], 'all');
+
+    }
 }
 add_action('wp_enqueue_scripts', 'propell_scripts');
 
@@ -343,6 +347,9 @@ function get_page_class(){
     }
     if (is_post_type_archive('project-category')) {
         $class = 'page page-detail page-project';
+    }
+    if (is_404()) {
+        $class = 'page page-detail page-404';
     }
 
     return $class;
@@ -701,3 +708,70 @@ function get_page_url($name) {
     $link  = home_url('/' . $current_language . '/' . $page_slug);
     return $link;
 }
+
+// Handle the AJAX request for live search
+function live_search_ajax_handler() {
+    $search_term = isset($_GET['s']) ? sanitize_text_field($_GET['s']) : '';
+
+    if (!empty($search_term)) {
+        $args = array(
+            'post_type' => array('page', 'award', 'event', 'project-category','service', 'project'), // Search both posts and pages
+            'post_status' => 'publish',
+            's' => $search_term,
+            'posts_per_page' => 5, // Limit the number of results
+            'fields' => 'ids', // Return only post IDs
+        );
+
+        $search_query = new WP_Query($args);
+
+        ob_start();
+        if ($search_query->have_posts()):
+            while ($search_query->have_posts()): $search_query->the_post();
+                ?>
+<!--                <div class="events-highlight__item">-->
+                    <?php
+                        $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                        if ($thumbnail == "") {
+                            $thumbnail = get_path_assets().'/img/logo.png"';
+                        }
+                    ?>
+<!--                    <div class="events-highlight__item--photo">-->
+<!--                        <img src="--><?php //echo $thumbnail ?><!--" alt="">-->
+<!--                    </div>-->
+<!--                    <h3 class="events-highlight__item--ttl">--><?php //echo the_title(); ?><!--</h3>-->
+<!--                </div>-->
+                <div class="item">
+                    <div class="photo"><img src="<?php echo $thumbnail ?>" alt="<?php echo the_title() ?>"></div>
+                    <div class="group">
+                        <h3 class="c-title"><?php echo the_title() ?></h3>
+<!--                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+                    </div>
+                </div>
+            <?php
+            endwhile;
+            wp_reset_postdata();
+        else:
+            echo '';
+        endif;
+        $content = ob_get_clean();
+        echo $content;
+
+//        if ($search_query->have_posts()) {
+//            echo '<ul>';
+//            while ($search_query->have_posts()) {
+//                $search_query->the_post();
+//                echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+//            }
+//            echo '</ul>';
+//        } else {
+//            echo '<p>No results found.</p>';
+//        }
+
+        wp_reset_postdata();
+    }
+
+    die(); // Terminate immediately and return a proper response
+}
+add_action('wp_ajax_live_search', 'live_search_ajax_handler');
+add_action('wp_ajax_nopriv_live_search', 'live_search_ajax_handler');
+

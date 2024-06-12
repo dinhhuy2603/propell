@@ -5,8 +5,7 @@ Template Name: Custom Index Page
 
 get_header();
 $assets = get_path_assets();
-
-$current_year = get_the_date('Y');
+$current_home_url = pll_home_url();
 $current_language = pll_current_language('slug');
 ?>
 
@@ -172,7 +171,7 @@ $current_language = pll_current_language('slug');
         <div class="section-project">
             <div class="container">
                 <p class="c-title-sub">OUR PROJECTS</p>
-                <a href="https://www1.bca.gov.sg/bca-directory/company/Details/199903182D" target="_blank" class="c-learn-more">SEE OUR ENTIRE PORTFOLIO</a>
+                <a href="<?php echo esc_url($current_home_url.'categories') ?>" class="c-learn-more">SEE OUR ENTIRE PORTFOLIO</a>
             </div>
             <div class="section-project__slider">
                 <div class="js-slider-center">

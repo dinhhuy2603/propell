@@ -16,7 +16,7 @@ $current_language = pll_current_language('slug');
                 <div class="breadcrumds">
                     <ul>
                         <li><a href="<?php echo home_url();?>">HOME</a></li>
-                        <li><a href="">PERSONAL DATA PROTECTION POLICY</a></li>
+                        <li><a href="">TERMS OF USE</a></li>
                     </ul>
                 </div>
                 <div class="kv__text">

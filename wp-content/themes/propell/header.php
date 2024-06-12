@@ -9,7 +9,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Index</title>
+    <title><?php echo the_title() ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
@@ -80,27 +80,29 @@
                     <div class="hamburger__close js-search--close"></div>
                     <div class="search-toggle__wrap">
                         <div class="search-toggle__input">
-                            <input type="text" name="search" class="c-title" placeholder="Search">
+                            <form id="live-search-form" action="" method="get">
+                                <input type="text" id="live-search-input" name="search" class="c-title" placeholder="Search">
+                            </form>
                         </div>
-                        <div class="search-toggle__menu">
-                            <ul>
-                                <li><a href="#">ABOUT US</a></li>
-                                <li><a href="#">OUR STATEMENTS</a></li>
-                                <li><a href="#">OUR REGISTRATIONS</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">OUR ACHIEVEMENTS</a></li>
-                                <li><a href="#">OUR GROUP STRUCTIONS</a></li>
-                                <li><a href="#">OUR BUSINESS</a></li>
-                                <li><a href="#">OUR PROJECTS</a></li>
-                            </ul>
-                            <ul class="only-pc">
-                                <li><a href="#">OVERVIEW</a></li>
-                                <li><a href="#">OUR PROJECTS</a></li>
-                                <li><a href="#">OTHERS</a></li>
-                            </ul>
-                        </div>
-                        <div class="search-toggle__article">
+<!--                        <div class="search-toggle__menu">-->
+<!--                            <ul>-->
+<!--                                <li><a href="#">ABOUT US</a></li>-->
+<!--                                <li><a href="#">OUR STATEMENTS</a></li>-->
+<!--                                <li><a href="#">OUR REGISTRATIONS</a></li>-->
+<!--                            </ul>-->
+<!--                            <ul>-->
+<!--                                <li><a href="#">OUR ACHIEVEMENTS</a></li>-->
+<!--                                <li><a href="#">OUR GROUP STRUCTIONS</a></li>-->
+<!--                                <li><a href="#">OUR BUSINESS</a></li>-->
+<!--                                <li><a href="#">OUR PROJECTS</a></li>-->
+<!--                            </ul>-->
+<!--                            <ul class="only-pc">-->
+<!--                                <li><a href="#">OVERVIEW</a></li>-->
+<!--                                <li><a href="#">OUR PROJECTS</a></li>-->
+<!--                                <li><a href="#">OTHERS</a></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+                        <div class="search-toggle__article" id="live-search-results">
                             <div class="item">
                                 <div class="photo"><img src="<?php echo $assets ?>/img/top/news_img01.jpg" alt="Electrical Engineering"></div>
                                 <div class="group">

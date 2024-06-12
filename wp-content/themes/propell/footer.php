@@ -77,6 +77,29 @@ $assets = get_path_assets();
         });
     </script>
 <?php endif; ?>
+<script>
+    jQuery(document).ready(function($) {
+        $('#live-search-input').on('keyup', function() {
+            var searchTerm = $(this).val();
+
+            if (searchTerm.length > 2) { // Only search if more than 2 characters
+                $.ajax({
+                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
+                    type: 'GET',
+                    data: {
+                        action: 'live_search',
+                        s: searchTerm
+                    },
+                    success: function(response) {
+                        $('#live-search-results').html(response);
+                    }
+                });
+            } else {
+                $('#live-search-results').empty(); // Clear results if less than 3 characters
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
