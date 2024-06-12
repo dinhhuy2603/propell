@@ -473,37 +473,27 @@ function load_more_events() {
     echo $content;
     exit;
 }
+function filter_featured_projects($args, $field, $post_id) {
+    // Check if we are editing a 'project_category' post type
+    if (get_post_type($post_id) !== 'project-category') {
+        return $args;
+    }
 
-//function update_related_projects_field($value, $post_id, $field) {
-//    // Verify the post type is 'project_category'
-//    if (get_post_type($post_id) !== 'project_category') {
-//        return $value;
-//    }
-//
-//    // Get the related projects based on the category
-//    $related_projects = get_posts(array(
-//        'post_type' => 'project',
-//        'posts_per_page' => -1,
-//        'meta_query' => array(
-//            array(
-//                'key' => 'category',
-//                'value' => '"' . $post_id . '"',
-//                'compare' => 'LIKE'
-//            )
-//        )
-//    ));
-//
-//    // Collect the IDs of the related projects
-//    $related_project_ids = array();
-//    foreach ($related_projects as $project) {
-//        $related_project_ids[] = $project->ID;
-//    }
-//
-//    return $related_project_ids;
-//}
-//
-//// Hook into ACF to populate the field dynamically
-//add_filter('acf/load_value/name=featured_projects', 'update_related_projects_field', 10, 3);
+    // Adjust the query to fetch projects related to the current project_category
+    $args['meta_query'] = array(
+        array(
+            'key' => 'category', // Adjust this key if necessary
+            'value' => $post_id,
+            'compare' => 'LIKE'
+        )
+    );
+
+    return $args;
+}
+
+// Hook into ACF to modify the relationship field query
+add_filter('acf/fields/relationship/query/name=featured_projects', 'filter_featured_projects', 10, 3);
+
 
 //function dynamically_load_related_projects($value, $post_id, $field) {
 //    // Ensure this is a Project Category post type
@@ -815,18 +805,12 @@ function live_search_ajax_handler() {
         if ($search_query->have_posts()):
             while ($search_query->have_posts()): $search_query->the_post();
                 ?>
-<!--                <div class="events-highlight__item">-->
                     <?php
                         $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                         if ($thumbnail == "") {
                             $thumbnail = get_path_assets().'/img/logo.png"';
                         }
                     ?>
-<!--                    <div class="events-highlight__item--photo">-->
-<!--                        <img src="--><?php //echo $thumbnail ?><!--" alt="">-->
-<!--                    </div>-->
-<!--                    <h3 class="events-highlight__item--ttl">--><?php //echo the_title(); ?><!--</h3>-->
-<!--                </div>-->
                 <div class="item">
                     <div class="photo"><img src="<?php echo $thumbnail ?>" alt="<?php echo the_title() ?>"></div>
                     <div class="group">
@@ -842,23 +826,45 @@ function live_search_ajax_handler() {
         endif;
         $content = ob_get_clean();
         echo $content;
-
-//        if ($search_query->have_posts()) {
-//            echo '<ul>';
-//            while ($search_query->have_posts()) {
-//                $search_query->the_post();
-//                echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-//            }
-//            echo '</ul>';
-//        } else {
-//            echo '<p>No results found.</p>';
-//        }
-
         wp_reset_postdata();
     }
-
-    die(); // Terminate immediately and return a proper response
+    die();
 }
 add_action('wp_ajax_live_search', 'live_search_ajax_handler');
 add_action('wp_ajax_nopriv_live_search', 'live_search_ajax_handler');
+function customize_department_metabox() {
+    // Remove the default metabox
+    remove_meta_box('departmentdiv', 'project-category', 'side');
+
+    // Add custom metabox with radio buttons
+    add_meta_box('departmentdiv', __('Department'), 'custom_department_metabox', 'project-category', 'side', 'default');
+}
+add_action('admin_menu', 'customize_department_metabox');
+
+function custom_department_metabox($post) {
+    // Get the taxonomy and terms
+    $taxonomy = 'department';
+    $terms = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ));
+
+    // Get the current post terms
+    $current_terms = wp_get_object_terms($post->ID, $taxonomy, array('fields' => 'ids'));
+    ?>
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+        <div id="<?php echo $taxonomy; ?>-all">
+            <ul id="<?php echo $taxonomy; ?>checklist" class="list:<?php echo $taxonomy; ?> categorychecklist form-no-clear">
+                <?php foreach ($terms as $term) : ?>
+                    <li id="<?php echo $taxonomy; ?>-<?php echo $term->term_id; ?>">
+                        <label class="selectit">
+                            <input type="radio" name="tax_input[<?php echo $taxonomy; ?>][]" id="in-<?php echo $taxonomy . '-' . $term->term_id; ?>" value="<?php echo $term->term_id; ?>" <?php checked(in_array($term->term_id, $current_terms)); ?> /> <?php echo $term->name; ?>
+                        </label>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <?php
+}
 
