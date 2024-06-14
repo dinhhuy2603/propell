@@ -745,14 +745,14 @@ function remove_content_editor()
     $careersZh = get_page_by_path('careers-zh');
 
     if(
-        $contactEn->ID == $currentPageID
-        || $contactVi->ID == $currentPageID
-        || $contactJa->ID == $currentPageID
-        || $contactZh->ID == $currentPageID
-        || $careersEn->ID == $currentPageID
-        || $careersVi->ID == $currentPageID
-        || $careersJa->ID == $currentPageID
-        || $careersZh->ID == $currentPageID
+        ($contactEn && $contactEn->ID == $currentPageID)
+        || ($contactVi && $contactVi->ID == $currentPageID)
+        || ($contactJa && $contactJa->ID == $currentPageID)
+        || ($contactZh && $contactZh->ID == $currentPageID)
+        || ($careersEn && $careersEn->ID == $currentPageID)
+        || ($careersVi && $careersVi->ID == $currentPageID)
+        || ($careersJa && $careersJa->ID == $currentPageID)
+        || ($careersZh && $careersZh->ID == $currentPageID)
     )
     {
         remove_post_type_support('page', 'editor');

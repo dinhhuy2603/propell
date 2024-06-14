@@ -67,7 +67,7 @@ if($subjects != '') {
             </div>
             <?php }?>
             <div class="c-info__btn">
-              <a href="#" class="btn c-btn" target="_blank"><span><?php echo $block_left['left_label_button'] ?? ''; ?></span></a>
+              <a href="<?php echo $block_left['left_view_map'] ?? '#'; ?>" class="btn c-btn" target="_blank"><span><?php echo $block_left['left_label_button'] ?? ''; ?></span></a>
             </div>
           </div>
           <div class="contact__form">
