@@ -30,7 +30,7 @@ $assets = get_path_assets();
                 <h2 class="c-title">There's Nothing <br/>We Can't Achieve Together</h2>
                 <div class="subcrice">
                     <input class="subcrice__input" type="text" name="mail" placeholder="Your email...">
-                    <a href="#" class="subcrice__btn c-learn-more">LEARN MORE</a>
+                    <a href="<?php echo get_page_url("contact")?>" class="subcrice__btn c-learn-more">SEND</a>
                 </div>
                 <ul class="partner only-pc">
                     <li><img src="<?php echo $assets ?>/img/footer-logo01.png" alt=""></li>

@@ -14,7 +14,7 @@ $current_language = pll_current_language('slug');
             <div class="container">
                 <div class="breadcrumds">
                     <ul>
-                        <li><a href="./">HOME</a></li>
+                        <li><a href="<?php echo pll_home_url() ?>">HOME</a></li>
                         <li>ABOUT US</li>
                     </ul>
                 </div>
@@ -22,13 +22,13 @@ $current_language = pll_current_language('slug');
                     <div class="kv__ttl">
                         <h2>Coming Together Is A Beginning</h2>
                     </div>
-                    <div class="kv__submenu">
+                    <div class="kv__submenu --02">
                         <li><a href="#company" class="js-anchor-detail">OUR COMPANY</a></li>
-                        <li><a href="#achievements" class="js-anchor-detail">OUR ACHIEVEMENTS</a></li>
                         <li><a href="#statements" class="js-anchor-detail">OUR STATEMENTS</a></li>
-                        <li><a href="#structions" class="js-anchor-detail">OUR GROUP STRUCTIONS</a></li>
                         <li><a href="#registrations" class="js-anchor-detail">OUR REGISTRATIONS</a></li>
-                        <li><a href="#registrations" class="js-anchor-detail">OUR TEAM</a></li>
+                        <li><a href="#awards" class="js-anchor-detail">OUR ACHIEVEMENTS</a></li>
+                        <li><a href="#structions" class="js-anchor-detail">OUR GROUP STRUCTIONS</a></li>
+                        <li><a href="#teams" class="js-anchor-detail">OUR TEAM</a></li>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ $current_language = pll_current_language('slug');
             <?php endif; ?>
             <?php $block_registration = get_field('block_registration'); ?>
             <?php if($block_registration) : ?>
-            <div class="c-toggle" id="registration">
+            <div class="c-toggle" id="registrations">
                 <div class="container">
                     <div class="c-toggle__head js-toggle__head">
                         <h2 class="c-ttl"><span class="c-num"><?php echo '/0'.$block_registration['position'].'/'?></span><?php echo $block_registration['title'] ?></h2>
@@ -108,7 +108,7 @@ $current_language = pll_current_language('slug');
             <?php endif; ?>
             <?php $block_structure = get_field('block_structure'); ?>
             <?php if($block_structure) : ?>
-            <div class="c-toggle" id="structure">
+            <div class="c-toggle" id="structions">
                 <div class="container">
                     <div class="c-toggle__head js-toggle__head">
                         <h2 class="c-ttl"><span class="c-num"><?php echo '/0'.$block_structure['position'].'/'?></span><?php echo $block_structure['title'] ?></h2>
@@ -122,7 +122,7 @@ $current_language = pll_current_language('slug');
             <?php endif; ?>
             <?php $block_team = get_field('block_team'); ?>
             <?php if($block_team) : ?>
-            <div class="c-toggle" id="team">
+            <div class="c-toggle" id="teams">
                 <div class="container">
                     <div class="c-toggle__head js-toggle__head">
                         <h2 class="c-ttl"><span class="c-num"><?php echo '/0'.$block_team['position'].'/'?></span><?php echo $block_team['title'] ?></h2>

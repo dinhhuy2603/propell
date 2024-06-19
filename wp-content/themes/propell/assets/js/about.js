@@ -28,7 +28,6 @@ function intSlider() {
 
 // call functions
 (function ($) {
-  intToggle()
   intSlider();
   intToggleAbout();
 }(jQuery));

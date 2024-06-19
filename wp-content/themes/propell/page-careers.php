@@ -29,7 +29,7 @@ if($subjects != '') {
       <div class="container">
         <div class="breadcrumds">
           <ul>
-            <li><a href="./">HOME</a></li>
+            <li><a href="<?php echo pll_home_url() ?>">HOME</a></li>
             <li><?php echo $title; ?></li>
           </ul>
         </div>

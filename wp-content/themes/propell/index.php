@@ -80,10 +80,8 @@ $current_language = pll_current_language('slug');
                         <?php while ($timeline_query->have_posts()) : $timeline_query->the_post(); ?>
                             <?php
                             $year = get_post_meta(get_the_ID(), 'year', true);
-
                             $title = get_post_meta(get_the_ID(), 'title', true);
                             $content = get_post_meta(get_the_ID(), 'content', true);
-                            $avatar = get_post_meta(get_the_ID(), 'avatar', true);
                             ?>
 
                             <div class="timeline__item">
@@ -125,7 +123,7 @@ $current_language = pll_current_language('slug');
             <div class="container">
                 <p class="c-title-sub">What We Do?</p>
                 <div class="row">
-                    <div class="col-left only-pc"><img src="<?php echo $assets ?>/img/top/third_img.jpg" alt=""></div>
+                    <div class="col-left"></div>
                     <div class="col-right">
                         <?php if ($service_query->have_posts()) :
                             $counter = 1
@@ -134,6 +132,7 @@ $current_language = pll_current_language('slug');
                             <?php
                                 $banner = get_post_meta(get_the_ID(), 'banner', true);
                                 $content = get_the_content();
+                                $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
 
                             ?>
                             <a href="<?php echo esc_url(get_permalink(get_the_ID())) ?>" class="item">
@@ -143,6 +142,11 @@ $current_language = pll_current_language('slug');
                                         <dt><?php the_title() ?></dt>
                                         <dd><?php echo custom_shorten_content($content, 30) ?></dd>
                                     </dl>
+                                    <?php if ($thumbnail): ?>
+                                        <div class="photo u-mt-xs">
+                                            <img src="<?php echo $thumbnail?>" alt="<?php echo the_title() ?>">
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </a>
                             <?php $counter++; endwhile; ?>

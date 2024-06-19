@@ -715,6 +715,8 @@ textarea {
   width: 100%;
   background: #fff;
   z-index: 10;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
 }
 @media (max-width: 750px) {
   .header {
@@ -731,6 +733,8 @@ textarea {
 }
 .header__logo {
   width: 7.5rem;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
 }
 @media (max-width: 750px) {
   .header__logo {
@@ -1288,6 +1292,15 @@ textarea {
   .header .search-toggle__article .item .group > p {
     font-size: 1rem;
     line-height: 1.36625;
+  }
+}
+@media (min-width: 751px) {
+  .header.is-down {
+    border-bottom: 1px solid #D8DAE1;
+    padding: 0.625rem 0;
+  }
+  .header.is-down .header__logo {
+    width: 5.5rem;
   }
 }
 

@@ -6,6 +6,7 @@
   width: 100%;
   background: #fff;
   z-index: 10;
+  transition: width .2s ease-in-out;
   @include sp {
     padding: rem(16) 0;
   }
@@ -15,6 +16,7 @@
   }
   &__logo {
     width: rem(120);
+    transition: width .2s ease-in-out;
     @include sp {
       width: rem(84);
     }
@@ -473,6 +475,15 @@
             }
           }
         }
+      }
+    }
+  }
+  &.is-down{
+    @include pc{
+      border-bottom: 1px solid $cl-line;
+      padding: rem(10) 0;
+      .header__logo{
+        width: rem(88);
       }
     }
   }

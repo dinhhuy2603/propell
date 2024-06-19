@@ -58,8 +58,8 @@
                             <li><a href="<?php echo esc_url($current_home_url.'services') ?>">What we do</a></li>
                             <li><a href="<?php echo esc_url($current_home_url.'categories') ?>">Project</a></li>
                             <li><a href="<?php echo get_page_url('propellian') ?>">Propellian</a></li>
-                            <li><a href="/careers/">Careers</a></li>
-                            <li><a href="/contact-us/">Contact us</a></li>
+                            <li><a href="<?php echo get_page_url('careers') ?>">Careers</a></li>
+                            <li><a href="<?php echo get_page_url('contact') ?>">Contact us</a></li>
                         </ul>
                         <ul class="menu-toggle__social">
                             <li><a href="#" target="_blank">FACE BOOK</a></li>
@@ -77,6 +77,11 @@
                     </div>
                 </div>
                 <div class="search-toggle">
+                    <div class="search-toggle__logo">
+                        <picture>
+                            <img src="<?php echo $assets ?>/img/logo-nav.png" alt="PROPELL">
+                        </picture>
+                    </div>
                     <div class="hamburger__close js-search--close"></div>
                     <div class="search-toggle__wrap">
                         <div class="search-toggle__input">
@@ -103,20 +108,20 @@
 <!--                            </ul>-->
 <!--                        </div>-->
                         <div class="search-toggle__article" id="live-search-results">
-                            <div class="item">
-                                <div class="photo"><img src="<?php echo $assets ?>/img/top/news_img01.jpg" alt="Electrical Engineering"></div>
-                                <div class="group">
-                                    <h3 class="c-title">Electrical Engineering</h3>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="photo"><img src="<?php echo $assets ?>/img/top/news_img02.jpg" alt="Extra Low Voltage "></div>
-                                <div class="group">
-                                    <h3 class="c-title">Extra Low Voltage</h3>
-                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                </div>
-                            </div>
+<!--                            <div class="item">-->
+<!--                                <div class="photo"><img src="--><?php //echo $assets ?><!--/img/top/news_img01.jpg" alt="Electrical Engineering"></div>-->
+<!--                                <div class="group">-->
+<!--                                    <h3 class="c-title">Electrical Engineering</h3>-->
+<!--                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="item">-->
+<!--                                <div class="photo"><img src="--><?php //echo $assets ?><!--/img/top/news_img02.jpg" alt="Extra Low Voltage "></div>-->
+<!--                                <div class="group">-->
+<!--                                    <h3 class="c-title">Extra Low Voltage</h3>-->
+<!--                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>

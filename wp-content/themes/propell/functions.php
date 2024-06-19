@@ -792,7 +792,7 @@ function live_search_ajax_handler() {
 
     if (!empty($search_term)) {
         $args = array(
-            'post_type' => array('page', 'award', 'event', 'project-category','service', 'project'), // Search both posts and pages
+            'post_type' => array('page', 'project-category','service', 'project'), // Search both posts and pages
             'post_status' => 'publish',
             's' => $search_term,
             'posts_per_page' => 5, // Limit the number of results

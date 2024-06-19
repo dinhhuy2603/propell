@@ -11,7 +11,7 @@ function intAnchorLinkDetail() {
         if ($(window).width() < 750) {
           offsetTop = $(".header").outerHeight() + $(".kv__submenu").outerHeight();
         } else {
-          offsetTop = $(".header").outerHeight();
+          offsetTop = $(".header").outerHeight() - 50;
         }
       }
       $("body, html").animate({ scrollTop: $(id).offset().top - offsetTop + 2});

@@ -275,9 +275,19 @@ function intValidation(){
   });
 }
 
-
+function intHeaderFixed(){
+  var header = $(".header");
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 220){
+      header.addClass("is-down");
+    } else {
+      header.removeClass("is-down");
+    }
+  });
+}
 
 // call function
 (function ($) {
-  intToggleLanguage()
+  intHeaderFixed();
+  intToggleLanguage();
 }(jQuery));

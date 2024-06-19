@@ -14,7 +14,7 @@ $current_language = pll_current_language('slug');
             <div class="container">
                 <div class="breadcrumds">
                     <ul>
-                        <li><a href="<?php echo home_url();?>">HOME</a></li>
+                        <li><a href="<?php echo pll_home_url();?>">HOME</a></li>
                         <li><a href="<?php echo get_page_url('about');?>">ABOUT US</a></li>
                         <li><a href="">OUR AWARDS</a></li>
                     </ul>
