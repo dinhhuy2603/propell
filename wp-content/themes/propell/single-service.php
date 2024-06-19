@@ -195,7 +195,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     <?php endif; ?>
                                 <dl>
                                     <dt class="c-title c-title--md"><?php echo $department->name ?></dt>
-                                    <dd>Contract Department</dd>
+<!--                                    <dd>Contract Department</dd>-->
                                 </dl>
                                 <p class="date only-sp"><?php echo date('d M') ?></p>
                                 <p class="txt"><?php echo $department->description; ?></p>
