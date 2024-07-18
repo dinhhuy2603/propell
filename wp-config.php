@@ -92,9 +92,9 @@ define( 'WP_DEBUG', false );
  *
  */
 
-define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
-define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
-define( 'WP_AUTO_UPDATE_CORE', 'minor' );
+//define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
+//define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/' );
+//define( 'WP_AUTO_UPDATE_CORE', 'minor' );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
