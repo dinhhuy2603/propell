@@ -10,7 +10,6 @@
       <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-zh.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-jp.png" beforeDir="false" />
@@ -57,7 +56,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;huy&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/propell&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,

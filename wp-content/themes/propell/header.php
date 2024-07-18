@@ -1,6 +1,6 @@
 <?php
-    $assets = get_path_assets();
-    $current_home_url = pll_home_url();
+$assets = get_path_assets();
+$current_home_url = pll_home_url();
 
 ?>
 
@@ -31,12 +31,24 @@
         <div class="header__wrap">
             <div class="header__logo"><a href="./"><img src="<?php echo $assets ?>/img/logo.png" alt="Logo"></a></div>
             <div class="header__right">
+                <!--                <div class="language only-pc">-->
+                <!--                    <div class="language__btn js-toggle"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English">English</div>-->
+                <!--                    <ul class="language__list">-->
+                <!--                        <li class="active"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English"><span>English</span></li>-->
+                <!--                        <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-jp.png" alt="Japanese"><span>Japanese</span></li>-->
+                <!--                        <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-vn.png" alt="Vietnamese"><span>Vietnamese</span></li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
                 <div class="language only-pc">
-                    <div class="language__btn js-toggle"><img src="<?php echo $assets ?>/img/icon-lang-en.png" alt="English">English</div>
+                    <div class="language__btn js-toggle"><img src="<?php echo $assets ?>/img/icon-lang-<?php echo pll_current_language('slug'); ?>.png" alt="<?php echo pll_current_language('name'); ?>"><?php echo pll_current_language('name'); ?></div>
                     <ul class="language__list">
-                        <li class="active"><img src="<?php echo $assets ?>/img/icon-lang-en.png" alt="English"><span>English</span></li>
-                        <li><img src="<?php echo $assets ?>/img/icon-lang-jp.png" alt="Japanese"><span>Japanese</span></li>
-                        <li><img src="<?php echo $assets ?>/img/icon-lang-vn.png" alt="Vietnamese"><span>Vietnamese</span></li>
+                        <?php
+                        $languages = pll_the_languages(array('raw' => 1));
+                        foreach ($languages as $lang) {
+                            $active_class = ($lang['slug'] == pll_current_language('slug')) ? 'active' : '';
+                            echo '<li class="' . $active_class . '"><a href="' . esc_url($lang['url']) . '"><img src="' . $assets . '/img/icon-lang-' . $lang['slug'] . '.png" alt="' . $lang['name'] . '"><span>' . $lang['name'] . '</span></a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
                 <div class="search js-search"><img src="<?php echo $assets ?>/img/icon-search-gray.png" alt="search"></div>
@@ -67,12 +79,12 @@
                             <li><a href="#" target="_blank">LINKEDIN</a></li>
                         </ul>
                         <div class="language only-sp">
-<!--                            <div class="language__btn js-toggle"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English">English</div>-->
-<!--                            <ul class="language__list">-->
-<!--                                <li class="active"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English"><span>English</span></li>-->
-<!--                                <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-jp.png" alt="Japanese"><span>Japanese</span></li>-->
-<!--                                <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-vn.png" alt="Vietnamese"><span>Vietnamese</span></li>-->
-<!--                            </ul>-->
+                            <!--                            <div class="language__btn js-toggle"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English">English</div>-->
+                            <!--                            <ul class="language__list">-->
+                            <!--                                <li class="active"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English"><span>English</span></li>-->
+                            <!--                                <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-jp.png" alt="Japanese"><span>Japanese</span></li>-->
+                            <!--                                <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-vn.png" alt="Vietnamese"><span>Vietnamese</span></li>-->
+                            <!--                            </ul>-->
                             <div class="language__btn js-toggle"><img src="<?php echo $assets ?>/img/icon-lang-<?php echo pll_current_language('slug'); ?>.png" alt="<?php echo pll_current_language('name'); ?>"><?php echo pll_current_language('name'); ?></div>
                             <ul class="language__list">
                                 <?php
@@ -99,39 +111,39 @@
                                 <input type="text" id="live-search-input" name="search" class="c-title" placeholder="Search">
                             </form>
                         </div>
-<!--                        <div class="search-toggle__menu">-->
-<!--                            <ul>-->
-<!--                                <li><a href="#">ABOUT US</a></li>-->
-<!--                                <li><a href="#">OUR STATEMENTS</a></li>-->
-<!--                                <li><a href="#">OUR REGISTRATIONS</a></li>-->
-<!--                            </ul>-->
-<!--                            <ul>-->
-<!--                                <li><a href="#">OUR ACHIEVEMENTS</a></li>-->
-<!--                                <li><a href="#">OUR GROUP STRUCTIONS</a></li>-->
-<!--                                <li><a href="#">OUR BUSINESS</a></li>-->
-<!--                                <li><a href="#">OUR PROJECTS</a></li>-->
-<!--                            </ul>-->
-<!--                            <ul class="only-pc">-->
-<!--                                <li><a href="#">OVERVIEW</a></li>-->
-<!--                                <li><a href="#">OUR PROJECTS</a></li>-->
-<!--                                <li><a href="#">OTHERS</a></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
+                        <!--                        <div class="search-toggle__menu">-->
+                        <!--                            <ul>-->
+                        <!--                                <li><a href="#">ABOUT US</a></li>-->
+                        <!--                                <li><a href="#">OUR STATEMENTS</a></li>-->
+                        <!--                                <li><a href="#">OUR REGISTRATIONS</a></li>-->
+                        <!--                            </ul>-->
+                        <!--                            <ul>-->
+                        <!--                                <li><a href="#">OUR ACHIEVEMENTS</a></li>-->
+                        <!--                                <li><a href="#">OUR GROUP STRUCTIONS</a></li>-->
+                        <!--                                <li><a href="#">OUR BUSINESS</a></li>-->
+                        <!--                                <li><a href="#">OUR PROJECTS</a></li>-->
+                        <!--                            </ul>-->
+                        <!--                            <ul class="only-pc">-->
+                        <!--                                <li><a href="#">OVERVIEW</a></li>-->
+                        <!--                                <li><a href="#">OUR PROJECTS</a></li>-->
+                        <!--                                <li><a href="#">OTHERS</a></li>-->
+                        <!--                            </ul>-->
+                        <!--                        </div>-->
                         <div class="search-toggle__article" id="live-search-results">
-<!--                            <div class="item">-->
-<!--                                <div class="photo"><img src="--><?php //echo $assets ?><!--/img/top/news_img01.jpg" alt="Electrical Engineering"></div>-->
-<!--                                <div class="group">-->
-<!--                                    <h3 class="c-title">Electrical Engineering</h3>-->
-<!--                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="item">-->
-<!--                                <div class="photo"><img src="--><?php //echo $assets ?><!--/img/top/news_img02.jpg" alt="Extra Low Voltage "></div>-->
-<!--                                <div class="group">-->
-<!--                                    <h3 class="c-title">Extra Low Voltage</h3>-->
-<!--                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="item">-->
+                            <!--                                <div class="photo"><img src="--><?php //echo $assets ?><!--/img/top/news_img01.jpg" alt="Electrical Engineering"></div>-->
+                            <!--                                <div class="group">-->
+                            <!--                                    <h3 class="c-title">Electrical Engineering</h3>-->
+                            <!--                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="item">-->
+                            <!--                                <div class="photo"><img src="--><?php //echo $assets ?><!--/img/top/news_img02.jpg" alt="Extra Low Voltage "></div>-->
+                            <!--                                <div class="group">-->
+                            <!--                                    <h3 class="c-title">Extra Low Voltage</h3>-->
+                            <!--                                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                         </div>
                     </div>
                 </div>

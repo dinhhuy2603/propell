@@ -811,8 +811,8 @@ textarea {
 }
 @media (min-width: 751px) {
   .header__right .language ul {
-    width: 9.375rem;
-    padding: 0.5rem 1rem 0.75rem;
+    width: 10.3125rem;
+    padding: 0.5rem 0 0.75rem 1rem;
     position: absolute;
     top: 100%;
     left: -1rem;
