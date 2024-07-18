@@ -73,8 +73,8 @@
         padding: rem(5) 0;
         z-index: 1;
         @include pc {
-          width: rem(165);
-          padding: rem(8) 0 rem(12) rem(16);
+          width: rem(150);
+          padding: rem(8) rem(16) rem(12);
           position: absolute;
           top: 100%;
           left: rem(-16);
