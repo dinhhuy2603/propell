@@ -48,3 +48,7 @@ wp-config.php
 # uncomment the next line
 #/wp-content/themes
 /.idea
+.idea/workspace.xml
+/.idea
+.htaccess
+wp-config.php
