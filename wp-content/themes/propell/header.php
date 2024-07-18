@@ -67,11 +67,21 @@
                             <li><a href="#" target="_blank">LINKEDIN</a></li>
                         </ul>
                         <div class="language only-sp">
-                            <div class="language__btn js-toggle"><img src="<?php echo $assets ?>/img/icon-lang-en.png" alt="English">English</div>
+<!--                            <div class="language__btn js-toggle"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English">English</div>-->
+<!--                            <ul class="language__list">-->
+<!--                                <li class="active"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English"><span>English</span></li>-->
+<!--                                <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-jp.png" alt="Japanese"><span>Japanese</span></li>-->
+<!--                                <li><img src="--><?php //echo $assets ?><!--/img/icon-lang-vn.png" alt="Vietnamese"><span>Vietnamese</span></li>-->
+<!--                            </ul>-->
+                            <div class="language__btn js-toggle"><img src="<?php echo $assets ?>/img/icon-lang-<?php echo pll_current_language('slug'); ?>.png" alt="<?php echo pll_current_language('name'); ?>"><?php echo pll_current_language('name'); ?></div>
                             <ul class="language__list">
-                                <li class="active"><img src="<?php echo $assets ?>/img/icon-lang-en.png" alt="English"><span>English</span></li>
-                                <li><img src="<?php echo $assets ?>/img/icon-lang-jp.png" alt="Japanese"><span>Japanese</span></li>
-                                <li><img src="<?php echo $assets ?>/img/icon-lang-vn.png" alt="Vietnamese"><span>Vietnamese</span></li>
+                                <?php
+                                $languages = pll_the_languages(array('raw' => 1));
+                                foreach ($languages as $lang) {
+                                    $active_class = ($lang['slug'] == pll_current_language('slug')) ? 'active' : '';
+                                    echo '<li class="' . $active_class . '"><a href="' . esc_url($lang['url']) . '"><img src="' . $assets . '/img/icon-lang-' . $lang['slug'] . '.png" alt="' . $lang['name'] . '"><span>' . $lang['name'] . '</span></a></li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
