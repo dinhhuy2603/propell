@@ -26,6 +26,7 @@ $current_language = pll_current_language('slug');
                         <li><a href="#company" class="js-anchor-detail">OUR COMPANY</a></li>
                         <li><a href="#statements" class="js-anchor-detail">OUR STATEMENTS</a></li>
                         <li><a href="#registrations" class="js-anchor-detail">OUR REGISTRATIONS</a></li>
+                        <li><a href="#certificates" class="js-anchor-detail">OUR CERTIFICATES</a></li>
                         <li><a href="#awards" class="js-anchor-detail">OUR ACHIEVEMENTS</a></li>
                         <li><a href="#structions" class="js-anchor-detail">OUR GROUP STRUCTIONS</a></li>
                         <li><a href="#teams" class="js-anchor-detail">OUR TEAM</a></li>
@@ -81,6 +82,54 @@ $current_language = pll_current_language('slug');
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
+            <?php $block_certificate = get_field('block_certificate'); ?>
+            <?php if($block_certificate) : ?>
+                <div class="c-toggle" id="certificates">
+                    <div class="container">
+                        <div class="c-toggle__head js-toggle__head">
+                            <h2 class="c-ttl"><span class="c-num"><?php echo '/0'.$block_certificate['position'].'/'?></span><?php echo $block_certificate['title'] ?></h2>
+                            <span class="c-ico"></span>
+                        </div>
+                        <?php
+                        $args = array(
+                            'post_type' => 'certificate',
+                            'post_status' => 'publish',
+                            'showposts' => 5,
+                            'orderby' => 'publish_date',
+                            'order' => 'DESC',
+                            'tax_query'      => array(
+                                array(
+                                    'taxonomy' => 'language',
+                                    'field'    => 'slug',
+                                    'terms'    => $current_language,
+                                ),
+                            ),
+                        );
+                        $certificate_query = new WP_Query($args);
+                        ?>
+                        <div class="c-toggle__main">
+                            <?php if ($certificate_query->have_posts()) : ?>
+                                <div class="certificates">
+                                    <div class="certificates__items">
+                                        <?php while ($certificate_query->have_posts()) : $certificate_query->the_post(); ?>
+                                            <?php
+                                                $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                                            ?>
+                                            <a href="javascript:void(0)" class="certificates__item">
+                                                <div class="certificates__photo">
+                                                    <img src="<?php echo $thumbnail ?>" alt="">
+                                                </div>
+                                                <div class="certificates__ttl"><?php echo the_title() ?></div>
+                                            </a>
+                                        <?php endwhile; ?>
+                                        <?php wp_reset_postdata(); ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
             <?php endif; ?>
             <?php $block_award = get_field('block_award'); ?>
             <?php if($block_award) : ?>

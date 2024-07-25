@@ -4,96 +4,9 @@
 
 // CUSTOM STYLES //
 // ======================================= //
-@import "../css/component/form";
 
 .page-careers{
   .careers{
-    &__top{
-      padding-top: rem(80);
-      padding-bottom: rem(40);
-      @include sp{
-        padding-top: rem(54);
-        padding-bottom: rem(22);
-      }
-      .c-ttl{
-        font-size: rem(60);
-        line-height: calc(72/60);
-        letter-spacing: -0.04em;
-        font-weight: 400;
-        @include fontBonaNova;
-        color: $cl-body;
-        padding-bottom: rem(24);
-        @include sp{
-          font-size: rem(42);
-          line-height: calc(50.4/42);
-          padding-bottom: rem(23);
-          margin-bottom: rem(36);
-        }
-        &__style{
-          position: relative;
-          @include sp{
-            padding-bottom: rem(20);
-            margin-bottom: rem(17);
-          }
-          &:before{
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: rem(201);
-            height: rem(204);
-            background: url("../img/careers/icon_dot.png") center no-repeat;
-            background-size: 100%;
-            @include sp{
-              top: rem(-14);
-              width: rem(75);
-              height: rem(76);
-            }
-          }
-        }
-      } 
-      .c-txt{
-        font-size: rem(18);
-        line-height: calc(24.59/18);
-        letter-spacing: -0.04em;
-        font-weight: 400;
-        @include fontManrope;
-        margin-right: rem(280);
-        @include sp{
-          margin-right: rem(10);
-          font-size: rem(16);
-          line-height: calc(21.86/16);
-        }
-      }
-    }
-    &__form{
-      padding-bottom: rem(80);
-      @include sp{
-        padding-bottom: rem(40);
-      }
-      &--ttl{
-        font-size: rem(16);
-        line-height: calc(21.86/16);
-        font-weight: 700;
-        letter-spacing: -0.04em;
-        @include fontManrope;
-        border-top: 1px solid $cl-line;
-        padding-top: rem(40);
-        margin-bottom: rem(17);
-        @include sp{
-          font-size: rem(16);
-          line-height: calc(21.86/16);
-          padding-top: rem(24);
-        }
-      }
-      .c-form{
-        .select-menu{
-          .options{
-            width: calc(100% + rem(2));
-          }
-        }
-      }
-    }
     &__more{
       &--top{
         .text-scroll {
@@ -119,7 +32,6 @@
       }
       &--main{
         padding: rem(160) 0;
-        background: linear-gradient(89.08deg, #000821 13.48%, #011045 62.2%, #000927 98.41%);
         @include sp{
           padding: rem(24) 0;
         }
@@ -128,7 +40,7 @@
           line-height: calc(72/60);
           letter-spacing: -0.04em;
           font-weight: 400;
-          color: #fff;
+          color: $cl-body;
           @include fontBonaNova;
           padding-bottom: rem(22);
           margin-bottom: rem(40);
@@ -293,7 +205,8 @@
           }
         }
       }
-    }.c-modal{
+    }
+    .c-modal{
       position: fixed;
       top: 0;
       left: 0;

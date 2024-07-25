@@ -404,6 +404,83 @@
         }
       }
     }
+    #certificates{
+      .c-toggle__main{
+        @include sp{
+          overflow: auto;
+        }
+      }
+      .container{
+        @include sp{
+          padding-right: 0;
+        }
+      }
+      .c-toggle__head{
+        @include sp{
+          margin-right: rem(16);
+        }
+      }
+    }
+    .certificates{
+      padding-bottom: rem(80);
+      &__items{
+        display: flex;
+        @include pc{
+          margin: 0 rem(-20);
+          flex-wrap: wrap;
+        }
+        @include sp{
+          width: 100%;
+          overflow-x: auto;
+          padding-right: rem(16);
+        }
+      }
+      &__item{
+        width: rem(400);
+        color: inherit;
+        @include pc{
+          margin: 0 rem(20);
+        }
+        @include sp{
+          width: rem(290);
+        }
+        &:nth-child(n + 4){
+          @include pc{
+            margin-top: rem(40);
+          }
+        }
+        &:nth-child(n + 2){
+          @include sp{
+            margin-left: rem(24);
+          }
+        }
+        
+      }
+      &__photo{
+        width: rem(400);
+        height: rem(578);
+        position: relative;
+        @include sp{
+          width: rem(290);
+          height: rem(418);
+        }
+        img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &__ttl{
+        text-align: center;
+        font-size: rem(18);
+        line-height: calc(21.6/18);
+        @include fontBonaNova;
+        padding-top: rem(16);
+      }
+    }
     .awards{
       padding-bottom: rem(80);
       &__photo{
