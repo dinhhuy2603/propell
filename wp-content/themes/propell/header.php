@@ -65,7 +65,7 @@
                             </picture>
                         </div>
                         <ul class="menu-toggle__nav">
-                            <li><a href="/">Home</a></li>
+                            <li><a href="<?php echo $current_home_url ?>"">Home</a></li>
                             <li><a href="<?php echo get_page_url('about') ?>">About us</a></li>
                             <li><a href="<?php echo esc_url($current_home_url.'services') ?>">What we do</a></li>
                             <li><a href="<?php echo esc_url($current_home_url.'categories') ?>">Project</a></li>

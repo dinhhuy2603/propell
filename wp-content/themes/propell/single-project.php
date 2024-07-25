@@ -30,7 +30,7 @@ $current_language = pll_current_language('slug');
                     <div class="breadcrumds">
                         <ul>
                             <li><a href="./">HOME</a></li>
-                            <li><a href="/project/">Project</a></li>
+<!--                            <li><a href="/project/">Project</a></li>-->
                             <?php if ($department_code) : ?>
                                 <li><a href="<?php echo $post_type_archive_link ?>"><?php echo $department_code ?></a></li>
                             <?php endif; ?>

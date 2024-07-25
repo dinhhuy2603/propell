@@ -13,13 +13,28 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
     <main id="main" class="main">
+        <?php
+            $category = get_field('category');
+            $categoryID = get_the_ID() ?? null;
+            $departments = wp_get_post_terms($categoryID, 'department');
+            $department = $departments[0] ?? null;
+            $department_code = get_field('code', $department);
+            $post_type_archive_link = get_post_type_archive_link('project-category');
+
+            // If Polylang is active and the current language is not the default language, modify the archive link
+            if ($current_language && $current_language !== pll_default_language()) {
+                $post_type_archive_link = apply_filters('wpml_permalink', $post_type_archive_link, $current_language);
+            }
+
+        ?>
         <div class="kv">
             <div class="container">
                 <div class="breadcrumds">
                     <ul>
                         <li><a href="./">HOME</a></li>
-                        <li><a href="/project/">Project</a></li>
-                        <li><a href="/project/">FMD</a></li>
+                        <?php if ($department_code) : ?>
+                            <li><a href="<?php echo $post_type_archive_link ?>"><?php echo $department_code ?></a></li>
+                        <?php endif; ?>
                         <li><?php the_title(); ?></li>
                     </ul>
                 </div>
