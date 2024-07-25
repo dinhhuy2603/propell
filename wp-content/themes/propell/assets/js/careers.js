@@ -27,7 +27,7 @@ function intSliderTextScroll() {
 // call functions
 (function ($) {
   intModal();
-  intSelectBox();
+  // intSelectBox();
   // intValidation();
   intSliderTextScroll();
 }(jQuery));

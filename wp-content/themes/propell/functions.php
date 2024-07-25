@@ -739,20 +739,20 @@ function remove_content_editor()
     $contactVi = get_page_by_path('contact-vi');
     $contactJa = get_page_by_path('contact-ja');
     $contactZh = get_page_by_path('contact-zh');
-    $careersEn = get_page_by_path('careers');
-    $careersVi = get_page_by_path('careers-vi');
-    $careersJa = get_page_by_path('careers-ja');
-    $careersZh = get_page_by_path('careers-zh');
+//    $careersEn = get_page_by_path('careers');
+//    $careersVi = get_page_by_path('careers-vi');
+//    $careersJa = get_page_by_path('careers-ja');
+//    $careersZh = get_page_by_path('careers-zh');
 
     if(
         ($contactEn && $contactEn->ID == $currentPageID)
         || ($contactVi && $contactVi->ID == $currentPageID)
         || ($contactJa && $contactJa->ID == $currentPageID)
         || ($contactZh && $contactZh->ID == $currentPageID)
-        || ($careersEn && $careersEn->ID == $currentPageID)
-        || ($careersVi && $careersVi->ID == $currentPageID)
-        || ($careersJa && $careersJa->ID == $currentPageID)
-        || ($careersZh && $careersZh->ID == $currentPageID)
+//        || ($careersEn && $careersEn->ID == $currentPageID)
+//        || ($careersVi && $careersVi->ID == $currentPageID)
+//        || ($careersJa && $careersJa->ID == $currentPageID)
+//        || ($careersZh && $careersZh->ID == $currentPageID)
     )
     {
         remove_post_type_support('page', 'editor');

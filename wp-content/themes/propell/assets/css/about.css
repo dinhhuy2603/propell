@@ -447,6 +447,94 @@
     width: 28.2051282051%;
   }
 }
+@media (max-width: 750px) {
+  .page-about .section__accordion #certificates .c-toggle__main {
+    overflow: auto;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion #certificates .container {
+    padding-right: 0;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion #certificates .c-toggle__head {
+    margin-right: 1rem;
+  }
+}
+.page-about .section__accordion .certificates {
+  padding-bottom: 5rem;
+}
+.page-about .section__accordion .certificates__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .certificates__items {
+    margin: 0 -1.25rem;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .certificates__items {
+    width: 100%;
+    overflow-x: auto;
+    padding-right: 1rem;
+  }
+}
+.page-about .section__accordion .certificates__item {
+  width: 25rem;
+  color: inherit;
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .certificates__item {
+    margin: 0 1.25rem;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .certificates__item {
+    width: 18.125rem;
+  }
+}
+@media (min-width: 751px) {
+  .page-about .section__accordion .certificates__item:nth-child(n+4) {
+    margin-top: 2.5rem;
+  }
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .certificates__item:nth-child(n+2) {
+    margin-left: 1.5rem;
+  }
+}
+.page-about .section__accordion .certificates__photo {
+  width: 25rem;
+  height: 36.125rem;
+  position: relative;
+}
+@media (max-width: 750px) {
+  .page-about .section__accordion .certificates__photo {
+    width: 18.125rem;
+    height: 26.125rem;
+  }
+}
+.page-about .section__accordion .certificates__photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.page-about .section__accordion .certificates__ttl {
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-family: "Bona Nova", serif;
+  padding-top: 1rem;
+}
 .page-about .section__accordion .awards {
   padding-bottom: 5rem;
 }
