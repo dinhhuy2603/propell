@@ -115,7 +115,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     $imagePC = get_field('image_pc');
                                 ?>
                                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
-                                <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
+                                <a href="<?php echo get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
                                 <p class="txt"><?php echo get_field('short_description'); ?></p>
                             </div>
                             <?php endwhile;
@@ -142,7 +142,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                     <p class="c-title-sub">YOU MAY ALSO CARE</p>
                     <div class="row">
                         <?php foreach ($departments as $department) :?>
-                            <a class="item" href="categories/">
+                            <a class="item" href="#">
                                 <?php $department_code = get_field('code', $department); ?>
                                 <?php if ($department_code == "FMD") : ?>
                                     <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">
