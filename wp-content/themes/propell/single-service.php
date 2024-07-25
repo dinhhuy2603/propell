@@ -186,7 +186,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                     <p class="c-title-sub">YOU MAY ALSO CARE</p>
                     <div class="row">
                         <?php foreach ($departments as $department) :?>
-                            <a class="item" href="categories/">
+                            <a class="item" href="#">
                                 <?php $department_code = get_field('code', $department); ?>
                                     <?php if ($department_code == "FMD") : ?>
                                         <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">

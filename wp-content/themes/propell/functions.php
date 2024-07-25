@@ -361,6 +361,9 @@ function get_page_class(){
     if (is_singular('service')) {
         $class = 'page page-detail page-what-we-do page-service-details';
     }
+    if (is_post_type_archive('project')) {
+        $class = 'page page-detail page-project';
+    }
     if (is_singular('project')) {
         $class = 'page page-detail page-project page-project-detail';
     }
@@ -415,7 +418,7 @@ function load_more_projects() {
                 $imagePC = get_field('image_pc');
                 ?>
                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
-                <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
+                <a href="<?php echo get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
                 <p class="txt"><?php echo get_field('short_description'); ?></p>
             </div>
         <?php

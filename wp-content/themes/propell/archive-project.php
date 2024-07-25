@@ -32,7 +32,7 @@ $departments = get_terms(array(
                 <?php if (!empty($departments) && !is_wp_error($departments)) : ?>
                     <ul class="kv__submenu">
                         <?php foreach ($departments as $department) { ?>
-                            <li><a href="#<?php echo $department->code ?>"><?php echo strtoupper($department->name) ?></a></li>
+                            <li><a href="#"><?php echo strtoupper($department->name) ?></a></li>
                         <?php } ?>
                     </ul>
                 <?php endif; ?>
