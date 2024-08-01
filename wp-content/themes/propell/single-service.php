@@ -52,13 +52,13 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         <p class="txt"><?php echo $content ?></p>
                         <?php echo get_field('information') ?>
                     </div>
+
                     <?php
                         $images = get_post_meta(get_the_ID(), 'images', true);
-                        if ($images) {
-                            $image_ids_array = explode(',', $images);
-                        }
+                        $image_ids_array = $images ? explode(',', $images) : [];
                     ?>
-                    <?php if (count($image_ids_array) > 0) : ?>
+
+                    <?php if (!empty($image_ids_array)) : ?>
                         <div class="photo">
                             <div class="js-slider-fade">
                                 <?php foreach ($image_ids_array as $image) : ?>

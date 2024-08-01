@@ -181,15 +181,27 @@ $current_language = pll_current_language('slug');
                 <div class="js-slider-center">
                     <?php if ($project_query->have_posts()) : ?>
                         <?php while ($project_query->have_posts()) : $project_query->the_post();
+                            $project_id = get_the_ID();
                             $thumbnail = get_field( 'thumbnail', );
                             $imagePC = get_field('image_pc');
                             $imageSP = get_field('image_sp');
                             $short_description = get_field('short_description');
-                            $category = get_field('category', get_the_ID());
+                            $category = get_field('category', $project_id);
                             $departments = wp_get_post_terms($category->ID, 'department');
                             $department = $departments[0];
                             $department_code = get_field('code', $department);
-                            $url = get_permalink(get_the_ID());
+                            $url = get_permalink($project_id);
+
+                            // Ensure related_services is retrieved correctly
+                            $related_services = get_field('related_services');
+                            $service_titles = [];
+
+                            if ($related_services) {
+                                foreach ($related_services as $post) {
+                                    $service_titles[] = get_the_title($post->ID);
+                                }
+                                $unique_service_titles = array_unique($service_titles);
+                            }
                         ?>
                         <div class="item">
                             <div class="item__img">
@@ -202,23 +214,27 @@ $current_language = pll_current_language('slug');
                                 <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
                                 <p class="logo"><img src="<?php echo $thumbnail ?>" alt="Jewel"></p>
                                 <dl>
-                                    <dt class="c-title c-title--md"><?php echo the_title() ?></dt>
-                                    <?php
-                                    $related_services = get_field('related_services');
-                                    if ($related_services): ?>
-                                        <?php foreach ($related_services as $post): // Loop through related projects
-                                            $service_titles[] = get_the_title($post->ID);
-                                            ?>
-                                        <?php endforeach; ?>
-                                        <?php $unique_service_titles = array_unique($service_titles); ?>
-                                        <dd><?php echo implode(' / ', $unique_service_titles) ?></dd>
+                                    <dt class="c-title c-title--md"><?php echo esc_html(get_the_title($project_id)); ?></dt>
+                                    <?php if (!empty($unique_service_titles)) : ?>
+                                        <dd><?php echo esc_html(implode(' / ', $unique_service_titles)); ?></dd>
                                     <?php endif; ?>
+<!--                                    --><?php
+//                                    $related_services = get_field('related_services');
+//                                    if ($related_services): ?>
+<!--                                        --><?php //foreach ($related_services as $post): // Loop through related projects
+//                                            $service_titles[] = get_the_title($post->ID);
+//                                            ?>
+<!--                                        --><?php //endforeach; ?>
+<!--                                        --><?php //$unique_service_titles = array_unique($service_titles); ?>
+<!--                                        <dd>--><?php //echo implode(' / ', $unique_service_titles) ?><!--</dd>-->
+<!--                                    --><?php //endif; ?>
                                 </dl>
                                 <p class="text"><?php echo $short_description ?></p>
                                 <a href="<?php echo esc_url($url); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
                             </div>
                         </div>
                         <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     <?php endif; ?>
                 </div>
                 <div class="slider-counter"></div>
