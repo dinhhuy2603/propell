@@ -270,14 +270,6 @@ function propell_scripts() {
 add_action('wp_enqueue_scripts', 'propell_scripts');
 
 function add_theme_scripts() {
-//    wp_enqueue_style( 'propell_top_style', get_template_directory_uri() . '/assets/css/top.css', false, 'all');
-//
-//    wp_enqueue_style( 'slider', get_template_directory_uri() . '/css/slider.css', array(), '1.1', 'all' );
-
-//    wp_enqueue_script( 'script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), 1.1, true );
-//    $ajax_url = admin_url( 'admin-ajax.php' );
-//    wp_localize_script('propell-common-js', 'ajax_url', [$ajax_url]);
-
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
@@ -497,120 +489,6 @@ function filter_featured_projects($args, $field, $post_id) {
 // Hook into ACF to modify the relationship field query
 add_filter('acf/fields/relationship/query/name=featured_projects', 'filter_featured_projects', 10, 3);
 
-
-//function dynamically_load_related_projects($value, $post_id, $field) {
-//    // Ensure this is a Project Category post type
-//    if (get_post_type($post_id) !== 'project_category') {
-//        error_log('Not a project_category post type');
-//        return $value;
-//    }
-//    error_log('dynamically_load_related_projects function triggered');
-//    // Get all projects with the current category
-//    $related_projects = get_posts(array(
-//        'post_type' => 'project',
-//        'posts_per_page' => -1,
-//        'meta_query' => array(
-//            array(
-//                'key' => 'category', // Field name in the Project post type
-//                'value' => $post_id,
-//                'compare' => '='
-//            )
-//        )
-//    ));
-//
-//    // Collect the IDs of the related projects
-//    $related_project_ids = array();
-//    foreach ($related_projects as $project) {
-//        $related_project_ids[] = $project->ID;
-//    }
-//    error_log('Related project IDs: ' . print_r($related_project_ids, true));
-//
-//    return $related_project_ids;
-//}
-//
-//// Hook into ACF to dynamically load the related projects
-//add_filter('acf/load_value/name=featured_projects', 'dynamically_load_related_projects', 10, 3);
-//function enqueue_loadmore_script() {
-//    wp_enqueue_script('loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array('jquery'), null, true);
-//    wp_localize_script('loadmore', 'ajaxurl', admin_url('admin-ajax.php'));
-//}
-//add_action('wp_enqueue_scripts', 'enqueue_loadmore_script');
-
-//function custom_project_permalink($post_link, $post) {
-//    if ($post->post_type == 'project') {
-//        $terms = wp_get_post_terms($post->ID, 'project-category');
-//        if ($terms && !is_wp_error($terms)) {
-//            $category_slug = $terms[0]->slug;
-//        } else {
-//            $category_slug = 'uncategorized';
-//        }
-//
-//        $departments = wp_get_post_terms($post->ID, 'department');
-//        if ($departments && !is_wp_error($departments)) {
-//            $department_slug = $departments[0]->slug;
-//        } else {
-//            $department_slug = 'general';
-//        }
-//
-//        // Assuming you are using Polylang or WPML for language handling
-//        if (function_exists('pll_current_language')) {
-//            $lang = pll_current_language();
-//        } else {
-//            $lang = 'en'; // Default language if no multilingual plugin is used
-//        }
-//
-//        $post_link = home_url('/' . $lang . '/' . $department_slug . '/' . $category_slug . '/' . $post->post_name . '/');
-//    }
-//    return $post_link;
-//}
-//add_filter('post_type_link', 'custom_project_permalink', 10, 2);
-
-
-//function custom_project_rewrite_rules() {
-//    add_rewrite_rule(
-//        '^([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$',
-//        'index.php?post_type=project&name=$4',
-//        'top'
-//    );
-//}
-//add_action('init', 'custom_project_rewrite_rules');
-//function custom_project_permalink($post_link, $post) {
-//    if ($post->post_type == 'project') {
-//        // Get the project category (custom post type)
-//        $project_category = get_field('category', $post->ID);
-//        if ($project_category) {
-//            $project_category = get_post($project_category->ID);
-//            $category_slug = $project_category->post_name;
-//
-//            // Get the department (taxonomy of project_category)
-//            $departments = wp_get_post_terms($project_category->ID, 'department');
-//            if ($departments && !is_wp_error($departments)) {
-//                $department_slug = $departments[0]->slug;
-//            } else {
-//                $department_slug = 'general';
-//            }
-//
-//            // Assuming you are using Polylang or WPML for language handling
-//            if (function_exists('pll_current_language')) {
-//                $lang = pll_current_language();
-//            } else {
-//                $lang = ''; // Default language if no multilingual plugin is used
-//            }
-//
-//            $post_link = home_url('/' . $lang . '/' . $department_slug . '/' . $category_slug . '/' . $post->post_name . '/');
-//        }
-//    }
-//    return $post_link;
-//}
-//add_filter('post_type_link', 'custom_project_permalink', 10, 2);
-//
-//function flush_rewrite_rules_on_activation() {
-//    custom_project_rewrite_rules();
-//    flush_rewrite_rules();
-//}
-//register_activation_hook(__FILE__, 'flush_rewrite_rules_on_activation');
-
-// Add custom rewrite rules
 // Add custom rewrite rules
 function custom_project_rewrite_rules() {
     add_rewrite_rule(

@@ -119,7 +119,7 @@ $block_csr = get_field('block_csr');
                                                 <button class="next-btn slick-arrow slick-next"></button>
                                             </div>
                                             <div class="c-text__more">
-                                                <a href="" class="btn c-btn"><span>ALL EVENTS</span></a>
+                                                <a href="<?php echo get_page_url('event') ?>" class="btn c-btn"><span>ALL EVENTS</span></a>
                                             </div>
                                         </div>
                                     <?php endif; ?>
