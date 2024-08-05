@@ -339,7 +339,7 @@ function get_page_class(){
         $class = 'page page-detail page-propellian';
     }
     if (is_page_template('page-event.php')) {
-        $class = 'page page-detail page-propellian-events';
+        $class = 'page page-detail page-events-detail';
     }
     if (is_page_template('page-policy.php')) {
         $class = 'page page-detail page-policy';
@@ -432,7 +432,7 @@ function load_more_events() {
     $args = array(
         'post_type' => 'event',
         'post_status' => 'publish',
-        'posts_per_page' => 9,
+        'posts_per_page' => 10,
         'paged' => $page,
         'orderby' => 'publish_date',
         'order' => 'DESC',
@@ -449,14 +449,14 @@ function load_more_events() {
     if ($event_query->have_posts()):
         while ($event_query->have_posts()): $event_query->the_post();
             ?>
-            <div class="events-highlight__item">
+            <div class="event-detail-highlight__item">
                 <?php
                     $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                 ?>
-                <div class="events-highlight__item--photo">
+                <div class="event-detail-highlight__item--photo">
                     <img src="<?php echo $thumbnail ?>" alt="">
                 </div>
-                <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
+                <h3 class="event-detail-highlight__item--ttl"><?php echo the_title(); ?></h3>
             </div>
         <?php
         endwhile;

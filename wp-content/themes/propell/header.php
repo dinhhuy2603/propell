@@ -29,7 +29,7 @@
 <header id="header" class="header">
     <div class="container">
         <div class="header__wrap">
-            <div class="header__logo"><a href="./"><img src="<?php echo $assets ?>/img/logo.png" alt="Logo"></a></div>
+            <div class="header__logo"><a href="<?php echo $current_home_url ?>"><img src="<?php echo $assets ?>/img/logo.png" alt="Logo"></a></div>
             <div class="header__right">
 <!--                <div class="language only-pc">-->
 <!--                    <div class="language__btn js-toggle"><img src="--><?php //echo $assets ?><!--/img/icon-lang-en.png" alt="English">English</div>-->
@@ -68,7 +68,7 @@
                             <li><a href="<?php echo $current_home_url ?>"">Home</a></li>
                             <li><a href="<?php echo get_page_url('about') ?>">About us</a></li>
                             <li><a href="<?php echo esc_url($current_home_url.'services') ?>">What we do</a></li>
-                            <li><a href="<?php echo esc_url($current_home_url.'categories') ?>">Project</a></li>
+                            <li><a href="<?php echo esc_url($current_home_url.'categories') ?>">Projects</a></li>
                             <li><a href="<?php echo get_page_url('propellian') ?>">Propellian</a></li>
                             <li><a href="<?php echo get_page_url('careers') ?>">Careers</a></li>
                             <li><a href="<?php echo get_page_url('contact') ?>">Contact us</a></li>

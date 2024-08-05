@@ -308,21 +308,21 @@
           }
         }
         &--photo{
+          width: rem(373);
+          height: rem(230);
+          position: relative;
+          margin: 0 auto;
           @include sp{
             width: rem(343);
             height: rem(192);
-            margin: 0 auto;
-            position: relative;
           }
           img{
-            @include sp{
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
         &--ttl{
@@ -514,6 +514,116 @@
       &--photo{
         width: 100%;
         height: rem(225);
+        position: relative;
+        @include sp{
+          width: rem(343);
+          height: rem(192);
+          margin: 0 auto;
+          position: relative;
+        }
+        img{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &--ttl{
+        font-size: rem(32);
+        line-height: calc(38.4/32);
+        letter-spacing: -0.04em;
+        font-weight: 400;
+        @include fontBonaNova;
+        color: $cl-body;
+        margin-top: rem(16);
+        @include sp{
+          font-size: rem(24);
+          line-height: calc(28.8/24);
+        }
+      }
+    }
+    &__btn{
+      text-align: center;
+      padding-top: rem(80);
+      @include sp{
+        padding-top: rem(40);
+      }
+      .btn{
+        span{
+          background: url("../img/icon-arrow-link_right-down-blue.png") center right no-repeat;
+          background-size: rem(24);
+        }
+      }
+    }
+  }
+}
+
+.page-events-detail{
+  .event-detail-highlight{
+    padding-bottom: rem(80);
+    @include sp{
+      padding-bottom: rem(40);
+    }
+    &__ttl{
+      text-align: center;
+      font-size: rem(60);
+      line-height: calc(72/60);
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      @include fontBonaNova;
+      color: $cl-title;
+      padding-top: rem(80);
+      @include sp{
+        font-size: rem(24);
+        line-height: calc(28.8/24);
+        padding-top: rem(40);
+      }
+    }
+    &__txt{
+      text-align: center;
+      font-size: rem(24);
+      line-height: calc(28.8/24);
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      @include fontBonaNova;
+      color: $cl-body;
+      padding: rem(24) 0 rem(80);
+      @include sp{
+        font-size: rem(20);
+        line-height: calc(24/20);
+        padding-bottom: rem(40);
+      }
+    }
+    &__items{
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 0 rem(-32);
+      @include sp{
+        display: block;
+      }
+    }
+    &__item{
+      width: calc(100% / 2);
+      padding: 0 rem(32);
+      @include sp{
+        width: 100%;
+      }
+      &:nth-child(n + 3){
+        @include pc{
+          margin-top: rem(80);
+        }
+      }
+      &:nth-child(n + 2){
+        @include sp{
+          margin-top: rem(40);
+        }
+      }
+      &--photo{
+        width: 100%;
+        height: rem(370);
         position: relative;
         @include sp{
           width: rem(343);

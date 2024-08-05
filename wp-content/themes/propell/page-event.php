@@ -35,14 +35,14 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                     </picture>
                 </div>
             </div>
-            <div class="events-highlight">
+            <div class="event-detail-highlight">
                 <div class="container">
                     <?php the_content(); ?>
                     <?php
                         $args = array(
                             'post_type' => 'event',
                             'post_status' => 'publish',
-                            'posts_per_page' => 9,
+                            'posts_per_page' => 10,
                             'paged' => $page,
                             'orderby' => 'publish_date',
                             'order' => 'DESC',
@@ -57,21 +57,21 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         $event_query = new WP_Query($args);
                     ?>
                     <?php if ($event_query->have_posts()) : ?>
-                        <div class="events-highlight__items" id="event-list">
+                        <div class="event-detail-highlight__items" id="event-list">
                             <?php while ($event_query->have_posts()) : $event_query->the_post(); ?>
                                 <?php
                                     $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                 ?>
-                                <div class="events-highlight__item">
-                                    <div class="events-highlight__item--photo">
+                                <div class="event-detail-highlight__item">
+                                    <div class="event-detail-highlight__item--photo">
                                         <img src="<?php echo $thumbnail ?>" alt="">
                                     </div>
-                                    <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
+                                    <h3 class="event-detail-highlight__item--ttl"><?php echo the_title(); ?></h3>
                                 </div>
                             <?php endwhile; ?>
                         </div>
                     <?php endif; ?>
-                    <div class="events-highlight__btn">
+                    <div class="event-detail-highlight__btn">
                         <a href="javascript:void(0)" id="btn-load-more-event" class="btn c-btn"><span>View more</span></a>
                     </div>
                 </div>
