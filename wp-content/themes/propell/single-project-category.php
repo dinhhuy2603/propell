@@ -72,7 +72,8 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                 $imagePC = get_field('image_pc', $project->ID);
                                 $imageSP = get_field('image_sp', $project->ID);
                                 $short_description = get_field('short_description', $project->ID);
-
+                                $related_services = get_field('related_services', $project->ID);
+                                $service_titles = [];
                             ?>
                             <div class="item">
                                 <div class="item__img">
@@ -87,7 +88,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     <dl>
                                         <dt class="c-title c-title--md"><?php echo get_the_title($project) ?></dt>
                                         <?php
-                                        $related_services = get_field('related_services', $project->ID);
+
                                         if ($related_services): ?>
                                             <?php foreach ($related_services as $post): // Loop through related projects
                                                 $service_titles[] = get_the_title($post->ID);
@@ -98,7 +99,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                         <?php endif; ?>
                                     </dl>
                                     <p class="text"><?php echo $short_description ?></p>
-                                    <a href="<?php echo get_permalink($project); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
+<!--                                    <a href="--><?php //echo get_permalink($project); ?><!--" class="btn c-btn"><span>VIEW DETAILS</span></a>-->
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -130,7 +131,9 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     $imagePC = get_field('image_pc');
                                 ?>
                                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
-                                <a href="<?php echo get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
+<!--                                <a href="--><?php //echo get_the_permalink(get_the_ID()) ?><!--">-->
+                                    <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
+<!--                                </a>-->
                                 <p class="txt"><?php echo get_field('short_description'); ?></p>
                             </div>
                             <?php endwhile;

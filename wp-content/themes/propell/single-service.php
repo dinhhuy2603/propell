@@ -124,7 +124,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                         <?php endif; ?>
                                     </dl>
                                     <p class="text"><?php echo $short_description ?></p>
-                                    <a href="<?php echo get_permalink($project); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
+<!--                                    <a href="--><?php //echo get_permalink($project); ?><!--" class="btn c-btn"><span>VIEW DETAILS</span></a>-->
                                 </div>
                             </div>
                         <?php endforeach;
@@ -159,7 +159,9 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     $imagePC = get_field('image_pc');
                                 ?>
                                 <div class="photo"><img class="img-fit" src="<?php echo $imagePC ?>" alt="<?php echo the_title() ?>"></div>
-                                <a href="<?php echo get_the_permalink(get_the_ID()) ?>"><h3 class="c-title c-title--md"><?php echo the_title() ?></h3></a>
+<!--                                <a href="--><?php //echo get_the_permalink(get_the_ID()) ?><!--">-->
+                                    <h3 class="c-title c-title--md"><?php echo the_title() ?></h3>
+<!--                                </a>-->
                                 <p class="txt"><?php echo get_field('short_description'); ?></p>
                             </div>
                         <?php endwhile;
