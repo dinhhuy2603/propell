@@ -207,7 +207,7 @@ $current_language = pll_current_language('slug');
                             <div class="item__img">
                                 <picture>
                                     <source media="(max-width: 750px)" srcset="<?php echo $imageSP ?>">
-                                    <img class="img-fit" src="<?php echo $imagePC ?>" alt="Jewel Changi Airport">
+                                    <img class="img-fit" src="<?php echo $imagePC ?>" alt="">
                                 </picture>
                             </div>
                             <div class="item__group">
@@ -230,7 +230,7 @@ $current_language = pll_current_language('slug');
 <!--                                    --><?php //endif; ?>
                                 </dl>
                                 <p class="text"><?php echo $short_description ?></p>
-                                <a href="<?php echo esc_url($url); ?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
+<!--                                <a href="--><?php //echo esc_url($url); ?><!--" class="btn c-btn"><span>VIEW DETAILS</span></a>-->
                             </div>
                         </div>
                         <?php endwhile; ?>
@@ -253,12 +253,12 @@ $current_language = pll_current_language('slug');
         <div class="section-partner">
             <div class="container">
                 <ul class="partner__list">
-                    <li><img src="<?php echo $assets ?>/img/top/partner_img01.png" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/partner_img02.png" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/partner_img03.png" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/partner_img04.png" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/partner_img05.png" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/partner_img06.png" alt=""></li>
+                    <li><img src="<?php echo $assets ?>/img/top/1_partner.jpg" alt=""></li>
+                    <li><img src="<?php echo $assets ?>/img/top/2_partner.jpg" alt=""></li>
+                    <li><img src="<?php echo $assets ?>/img/top/3_partner.jpg" alt=""></li>
+                    <li><img src="<?php echo $assets ?>/img/top/4_partner.jpg" alt=""></li>
+                    <li><img src="<?php echo $assets ?>/img/top/5_partner.png" alt=""></li>
+                    <li><img src="<?php echo $assets ?>/img/top/6_partner.png" alt=""></li>
                 </ul>
             </div>
         </div>

@@ -182,6 +182,7 @@ $current_language = pll_current_language('slug');
                                             setup_postdata($project); ?>
                                             <div class="item">
                                                 <?php
+                                                    $project_id = $project->ID;
                                                     $thumbnail = get_field('thumbnail', $project->ID);
                                                     $banner = get_field('banner', $project->ID);
                                                     $short_description = get_field('short_description', $project->ID);
@@ -189,6 +190,8 @@ $current_language = pll_current_language('slug');
                                                     $departments = wp_get_post_terms($category->ID, 'department');
                                                     $department = $departments[0];
                                                     $department_code = get_field('code', $department);
+                                                    $related_services = get_field('related_services', $project->ID);
+                                                    $service_titles = [];
                                                 ?>
                                                 <div class="item__img">
                                                     <picture>
@@ -198,13 +201,12 @@ $current_language = pll_current_language('slug');
                                                 </div>
                                                 <div class="item__group">
                                                     <p class="fmd <?php echo ($department_code === 'PMD')  ? 'active' : ""; ?>"><?php echo $department_code ?></p>
-                                                    <p class="logo"><img src="<?php echo $thumbnail ?>" alt="<?php echo get_the_title($project) ?>"></p>
+                                                    <p class="logo"><img src="<?php echo $thumbnail ?>" alt="<?php echo get_the_title($project->ID) ?>"></p>
                                                     <dl>
                                                         <dt class="c-title c-title--md"><?php echo get_the_title($project->ID) ?></dt>
                                                         <?php
-                                                        $related_services = get_field('related_services', $project->ID);
                                                         if ($related_services): ?>
-                                                            <?php foreach ($related_services as $post): // Loop through related projects
+                                                            <?php foreach ($related_services as $post):
                                                                 $service_titles[] = get_the_title($post->ID);
                                                                 ?>
                                                             <?php endforeach; ?>
@@ -213,7 +215,7 @@ $current_language = pll_current_language('slug');
                                                         <?php endif; ?>
                                                     </dl>
                                                     <p class="text"><?php echo $short_description ?></p>
-                                                    <a href="<?php echo get_permalink($project->ID);?>" class="btn c-btn"><span>VIEW DETAILS</span></a>
+<!--                                                    <a href="--><?php //echo get_permalink($project->ID);?><!--" class="btn c-btn"><span>VIEW DETAILS</span></a>-->
                                                 </div>
                                             </div>
                                         <?php endforeach;
