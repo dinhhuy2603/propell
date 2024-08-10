@@ -206,7 +206,7 @@ function propell_scripts() {
         wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
         wp_enqueue_script('propell-propellian-js', get_template_directory_uri() . '/assets/js/propellian.js', [], _S_VERSION, true);
     }
-    if (is_page_template('page-event.php')) {
+    if (is_page_template('page-event.php') || is_singular('event')) {
         wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-propellian-style', get_template_directory_uri() . '/assets/css/propellian.css', [], 'all');
         wp_enqueue_script('propell-propellian-js', get_template_directory_uri() . '/assets/js/propellian.js', [], _S_VERSION, true);
@@ -339,6 +339,9 @@ function get_page_class(){
         $class = 'page page-detail page-propellian';
     }
     if (is_page_template('page-event.php')) {
+        $class = 'page page-detail page-propellian-events';
+    }
+    if (is_singular('event')) {
         $class = 'page page-detail page-events-detail';
     }
     if (is_page_template('page-policy.php')) {
