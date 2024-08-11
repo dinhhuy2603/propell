@@ -435,7 +435,7 @@ function load_more_events() {
     $args = array(
         'post_type' => 'event',
         'post_status' => 'publish',
-        'posts_per_page' => 10,
+        'posts_per_page' => 9,
         'paged' => $page,
         'orderby' => 'publish_date',
         'order' => 'DESC',
@@ -452,14 +452,16 @@ function load_more_events() {
     if ($event_query->have_posts()):
         while ($event_query->have_posts()): $event_query->the_post();
             ?>
-            <div class="event-detail-highlight__item">
+            <div class="events-highlight__item">
                 <?php
                     $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                 ?>
-                <div class="event-detail-highlight__item--photo">
+                <div class="events-highlight__item--photo">
                     <img src="<?php echo $thumbnail ?>" alt="">
                 </div>
-                <h3 class="event-detail-highlight__item--ttl"><?php echo the_title(); ?></h3>
+                <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                    <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
+                </a>
             </div>
         <?php
         endwhile;
@@ -471,6 +473,57 @@ function load_more_events() {
     echo $content;
     exit;
 }
+
+add_action('wp_ajax_load_more_other_events', 'load_more_other_events');
+add_action('wp_ajax_nopriv_load_more_other_events', 'load_more_other_events');
+function load_more_other_events() {
+    $current_language = pll_current_language('slug');
+    $page = intval($_POST['page']);
+    $current_post_id = intval($_POST['event_id']);
+    $args = array(
+        'post_type'      => 'event',
+        'posts_per_page' => 3,
+        'paged' => $page,
+        'post__not_in'   => array($current_post_id),
+        'orderby'        => 'publish_date',
+        'order'          => 'DESC',
+        'post_status'    => 'publish',
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'language',
+                'field'    => 'slug',
+                'terms'    => $current_language,
+            ),
+        ),
+    );
+    $event_query = new WP_Query($args);
+
+    ob_start();
+    if ($event_query->have_posts()):
+        while ($event_query->have_posts()): $event_query->the_post();
+            ?>
+            <div class="event-detail-other__item"">
+                <?php
+                $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                ?>
+                <div class="event-detail-other__item--photo">
+                    <img src="<?php echo $thumbnail ?>" alt="">
+                </div>
+                <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                    <h3 class="event-detail-other__item--ttl"><?php echo the_title(); ?></h3>
+                </a>
+            </div>
+        <?php
+        endwhile;
+        wp_reset_postdata();
+    else:
+        echo 'no-more-posts';
+    endif;
+    $content = ob_get_clean();
+    echo $content;
+    exit;
+}
+
 function filter_featured_projects($args, $field, $post_id) {
     // Check if we are editing a 'project_category' post type
     if (get_post_type($post_id) !== 'project-category') {
