@@ -70,4 +70,38 @@ jQuery(document).ready(function($) {
             });
         }
     });
+
+    var $loadMoreOtherEvent = $('#btn-load-more-other-event');
+    var $otherEventContainer = $('#other-event-list');
+    var eventId = $loadMoreOtherEvent.data('event-id');
+    $loadMoreOtherEvent.on('click', function() {
+        if (!loading) {
+            loading = true;
+            var data = {
+                action: 'load_more_other_events',
+                event_id: eventId,
+                page: page,
+            };
+            $.ajax({
+                url: ajax_url,
+                data: data,
+                type: 'POST',
+                success: function(response) {
+                    if (response !== 'no-more-posts') {
+                        $otherEventContainer.append(response); // Append new posts
+                        page++; // Increment page number for the next request
+                        // $loadmoreEvent.text('Load More');
+                        loading = false;
+                    } else {
+                        $loadMoreOtherEvent.hide(); // If no more posts, hide the button
+                    }
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    console.error('AJAX error: ' + textStatus, errorThrown);
+                    // $loadmoreEvent.text('Load More');
+                    loading = false;
+                }
+            });
+        }
+    });
 });

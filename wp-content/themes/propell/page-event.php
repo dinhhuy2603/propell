@@ -66,7 +66,9 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     <div class="events-highlight__item--photo">
                                         <img src="<?php echo $thumbnail ?>" alt="">
                                     </div>
-                                    <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
+                                    <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                                        <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
+                                    </a>
                                 </div>
                             <?php endwhile; ?>
                         </div>

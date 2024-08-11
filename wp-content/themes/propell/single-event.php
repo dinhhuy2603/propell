@@ -2,6 +2,8 @@
 get_header();
 $assets = get_path_assets();
 $current_language = pll_current_language('slug');
+$page = get_query_var('paged') ? get_query_var('paged') : 1;
+
 ?>
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
@@ -53,39 +55,6 @@ $current_language = pll_current_language('slug');
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
-
-<!--                    <div class="event-detail-highlight__items">-->
-<!--                        <div class="event-detail-highlight__item">-->
-<!--                            <div class="event-detail-highlight__item--photo">-->
-<!--                                <img src="--><?php //echo $assets ?><!--/img/propellian/csr_img01.jpg" alt="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="event-detail-highlight__item">-->
-<!--                            <div class="event-detail-highlight__item--photo">-->
-<!--                                <img src="--><?php //echo $assets ?><!--/img/propellian/csr_img02.jpg" alt="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="event-detail-highlight__item">-->
-<!--                            <div class="event-detail-highlight__item--photo">-->
-<!--                                <img src="--><?php //echo $assets ?><!--/img/propellian/csr_img04.jpg" alt="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="event-detail-highlight__item">-->
-<!--                            <div class="event-detail-highlight__item--photo">-->
-<!--                                <img src="--><?php //echo $assets ?><!--/img/propellian/csr_img05.jpg" alt="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="event-detail-highlight__item">-->
-<!--                            <div class="event-detail-highlight__item--photo">-->
-<!--                                <img src="--><?php //echo $assets ?><!--/img/propellian/csr_img07.jpg" alt="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="event-detail-highlight__item">-->
-<!--                            <div class="event-detail-highlight__item--photo">-->
-<!--                                <img src="--><?php //echo $assets ?><!--/img/propellian/csr_img08.jpg" alt="">-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
                 </div>
             </div>
             <?php
@@ -93,17 +62,25 @@ $current_language = pll_current_language('slug');
                 $args = array(
                     'post_type'      => 'event',
                     'posts_per_page' => 3,
+                    'paged' => $page,
                     'post__not_in'   => array($current_post_id),
-                    'orderby'        => 'date',
+                    'orderby'        => 'publish_date',
                     'order'          => 'DESC',
                     'post_status'    => 'publish',
+                    'tax_query'      => array(
+                        array(
+                            'taxonomy' => 'language',
+                            'field'    => 'slug',
+                            'terms'    => $current_language,
+                        ),
+                    ),
                 );
                 $newest_events = new WP_Query($args);
             ?>
             <div class="event-detail-other">
                 <div class="container">
                     <h2 class="event-detail-other__ttl">Other Events</h2>
-                    <div class="event-detail-other__items">
+                    <div class="event-detail-other__items" id="other-event-list">
                         <?php if ($newest_events->have_posts()) : ?>
                             <?php while ($newest_events->have_posts()) : $newest_events->the_post(); ?>
                                 <div class="event-detail-other__item">
@@ -112,7 +89,9 @@ $current_language = pll_current_language('slug');
                                             <?php the_post_thumbnail('full'); ?>
                                         <?php endif; ?>
                                     </div>
-                                    <h3 class="event-detail-other__item--ttl"><?php the_title(); ?></h3>
+                                    <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                                        <h3 class="event-detail-other__item--ttl"><?php echo the_title(); ?></h3>
+                                    </a>
                                 </div>
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>
@@ -121,7 +100,7 @@ $current_language = pll_current_language('slug');
                         <?php endif; ?>
                     </div>
                     <div class="event-detail-other__btn">
-                        <a href="javascript:void(0)" class="btn c-btn"><span>VIEW MORE</span></a>
+                        <a href="javascript:void(0)" data-event-id="<?php echo get_the_ID(); ?>" id="btn-load-more-other-event" class="btn c-btn"><span>VIEW MORE</span></a>
                     </div>
                 </div>
             </div>

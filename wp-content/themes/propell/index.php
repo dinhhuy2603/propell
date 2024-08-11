@@ -240,28 +240,45 @@ $current_language = pll_current_language('slug');
                 <div class="slider-counter"></div>
             </div>
         </div>
-        <div class="text-scroll">
-            <div class="swiper-text js-swiper">
-                <div class="item">
-                    <p class="text c-title">Unlocking divotential Through Partnership</p>
-                </div>
-                <div class="item">
-                    <p class="text c-title">Unlocking divotential Through Partnership</p>
+<!--        <div class="text-scroll">-->
+<!--            <div class="swiper-text js-swiper">-->
+<!--                <div class="item">-->
+<!--                    <p class="text c-title">Unlocking divotential Through Partnership</p>-->
+<!--                </div>-->
+<!--                <div class="item">-->
+<!--                    <p class="text c-title">Unlocking divotential Through Partnership</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <?php
+            $images = get_post_meta(get_the_ID(), 'partner_logos', true);
+            $image_ids_array = $images ? explode(',', $images) : [];
+            sort($image_ids_array);
+        ?>
+
+        <?php if (!empty($image_ids_array)) : ?>
+            <div class="section-partner">
+                <div class="container">
+                    <ul class="partner__list">
+                        <?php foreach ($image_ids_array as $image) : ?>
+                            <li><img src="<?php echo wp_get_attachment_url($image) ?>" alt=""></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="section-partner">
-            <div class="container">
-                <ul class="partner__list">
-                    <li><img src="<?php echo $assets ?>/img/top/1_partner.jpg" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/2_partner.jpg" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/3_partner.jpg" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/4_partner.jpg" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/5_partner.png" alt=""></li>
-                    <li><img src="<?php echo $assets ?>/img/top/6_partner.png" alt=""></li>
-                </ul>
-            </div>
-        </div>
+        <?php endif; ?>
+<!--        <div class="section-partner">-->
+<!--            <div class="container">-->
+<!--                <ul class="partner__list">-->
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/top/1_partner.jpg" alt=""></li>-->
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/top/2_partner.jpg" alt=""></li>-->
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/top/3_partner.jpg" alt=""></li>-->
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/top/4_partner.jpg" alt=""></li>-->
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/top/5_partner.png" alt=""></li>-->
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/top/6_partner.png" alt=""></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="section-propell">
             <div class="container">
                 <div class="row">
