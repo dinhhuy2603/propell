@@ -63,9 +63,11 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                                     $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                 ?>
                                 <div class="events-highlight__item">
-                                    <div class="events-highlight__item--photo">
-                                        <img src="<?php echo $thumbnail ?>" alt="">
-                                    </div>
+                                    <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                                        <div class="events-highlight__item--photo">
+                                            <img src="<?php echo $thumbnail ?>" alt="">
+                                        </div>
+                                    </a>
                                     <a href="<?php echo get_the_permalink(get_the_ID())?>">
                                         <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
                                     </a>

@@ -456,9 +456,11 @@ function load_more_events() {
                 <?php
                     $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                 ?>
-                <div class="events-highlight__item--photo">
-                    <img src="<?php echo $thumbnail ?>" alt="">
-                </div>
+                <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                    <div class="events-highlight__item--photo">
+                        <img src="<?php echo $thumbnail ?>" alt="">
+                    </div>
+                </a>
                 <a href="<?php echo get_the_permalink(get_the_ID())?>">
                     <h3 class="events-highlight__item--ttl"><?php echo the_title(); ?></h3>
                 </a>
@@ -506,9 +508,11 @@ function load_more_other_events() {
                 <?php
                 $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                 ?>
-                <div class="event-detail-other__item--photo">
-                    <img src="<?php echo $thumbnail ?>" alt="">
-                </div>
+                <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                    <div class="event-detail-other__item--photo">
+                        <img src="<?php echo $thumbnail ?>" alt="">
+                    </div>
+                </a>
                 <a href="<?php echo get_the_permalink(get_the_ID())?>">
                     <h3 class="event-detail-other__item--ttl"><?php echo the_title(); ?></h3>
                 </a>
