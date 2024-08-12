@@ -100,15 +100,20 @@ $block_csr = get_field('block_csr');
                                                     <?php
                                                         $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'full');
                                                     ?>
-                                                    <div class="event__item--photo">
-                                                        <img src="<?php echo $thumbnail ?>" alt="">
-                                                    </div>
+                                                    <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                                                        <div class="event__item--photo">
+                                                            <img src="<?php echo $thumbnail ?>" alt="">
+                                                        </div>
+                                                    </a>
                                                     <div class="event__item--content">
-                                                        <h3 class="c-ttl"><?php echo the_title()?></h3>
+                                                        <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                                                            <h3 class="c-ttl"><?php echo the_title()?></h3>
+                                                        </a>
                                                         <div class="c-text">
                                                             <div class="c-txt"><?php echo the_content(); ?></div>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                             <?php endwhile; ?>
                                         </div>
