@@ -84,11 +84,13 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                         <?php if ($newest_events->have_posts()) : ?>
                             <?php while ($newest_events->have_posts()) : $newest_events->the_post(); ?>
                                 <div class="event-detail-other__item">
-                                    <div class="event-detail-other__item--photo">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <?php the_post_thumbnail('full'); ?>
-                                        <?php endif; ?>
-                                    </div>
+                                    <a href="<?php echo get_the_permalink(get_the_ID())?>">
+                                        <div class="event-detail-other__item--photo">
+                                            <?php if (has_post_thumbnail()) : ?>
+                                                <?php the_post_thumbnail('full'); ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    </a>
                                     <a href="<?php echo get_the_permalink(get_the_ID())?>">
                                         <h3 class="event-detail-other__item--ttl"><?php echo the_title(); ?></h3>
                                     </a>
