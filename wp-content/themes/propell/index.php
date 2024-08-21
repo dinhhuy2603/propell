@@ -37,10 +37,10 @@ $current_language = pll_current_language('slug');
                     <h1 class="keyvisual-title c-title"><span>There’s Nothing<br/>We Can’t Achieve Together</span></h1>
                     <a href="#about" class="scroll">SCROLL</a>
                     <ul class="only-pc">
-                        <li><a href="#">PROJECT</a></li>
-                        <li><a href="#">ABOUT US</a></li>
-                        <li><a href="#">CAREERS</a></li>
-                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="<?php echo esc_url($current_home_url.'categories') ?>">PROJECT</a></li>
+                        <li><a href="<?php echo get_page_url('about') ?>">ABOUT US</a></li>
+                        <li><a href="<?php echo get_page_url('careers') ?>">CAREERS</a></li>
+                        <li><a href="<?php echo get_page_url('contact') ?>">CONTACT US</a></li>
                     </ul>
                 </div>
             </div>
