@@ -193,6 +193,7 @@ function propell_scripts() {
         wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
         wp_enqueue_style('propell-about-style', get_template_directory_uri() . '/assets/css/about.css', [], 'all');
         wp_enqueue_script('propell-about-js', get_template_directory_uri() . '/assets/js/about.js', [], _S_VERSION, true);
+        wp_enqueue_script('propell-detail-js', get_template_directory_uri() . '/assets/js/detail.js', [], _S_VERSION, true);
     }
     if (is_page_template('page-award.php')) {
         wp_enqueue_style('detail-style', get_template_directory_uri() . '/assets/css/common/detail.css', [], 'all');
