@@ -299,7 +299,7 @@ $current_language = pll_current_language('slug');
                 </div>
             </div>
         </div>
-        <div id="btn-fixed" class="btn-fixed"><a href="/contact-us/"><img src="<?php echo $assets ?>/img/btn-fixed.png" alt="Contact Us"></a></div>
+        <div id="btn-fixed" class="btn-fixed"><a href="<?php echo get_page_url('contact') ?>"><img src="<?php echo $assets ?>/img/btn-fixed.png" alt="Contact Us"></a></div>
     </main>
 
 <?php
