@@ -59,7 +59,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
             <?php if ($featured_projects) : ?>
                 <div class="container">
                     <h2 class="section__title c-title">Featured Projects</h2>
-                    <p class="section__description">Our interior design services helped bring our clients’ visions to life by transforming their spaces. See how our experts transformed these interiors.</p>
+                    <p class="section__description">Propell Integrated provides a unified facilities management (FM) solution through a wide range of services designed to help clients oversee their properties.</p>
                 </div>
                 <div class="c-slider-center">
                     <div class="js-slider-center">
