@@ -33,7 +33,7 @@ $assets = get_path_assets();
                     <a href="<?php echo get_page_url("contact")?>" class="subcrice__btn c-learn-more">SEND</a>
                 </div>
                 <ul class="partner only-pc">
-                    <li><img src="<?php echo $assets ?>/img/footer-logo01.png" alt=""></li>
+<!--                    <li><img src="--><?php //echo $assets ?><!--/img/footer-logo01.png" alt=""></li>-->
                     <li><img src="<?php echo $assets ?>/img/footer-logo02.png" alt=""></li>
                     <li><img src="<?php echo $assets ?>/img/footer-logo03.png" alt=""></li>
                     <li><img src="<?php echo $assets ?>/img/footer-logo04.png" alt=""></li>
