@@ -5,7 +5,7 @@ get_header();
 $assets = get_path_assets();
 
 $current_language = pll_current_language('slug');
-
+$current_home_url = pll_home_url();
 ?>
 
 <?php
@@ -21,7 +21,7 @@ $departments = get_terms(array(
         <div class="container">
             <div class="breadcrumds">
                 <ul>
-                    <li><a href="./">HOME</a></li>
+                    <li><a href="<?php echo $current_home_url ?>">HOME</a></li>
                     <li>Projects</li>
                 </ul>
             </div>
@@ -54,6 +54,7 @@ $departments = get_terms(array(
                         ),
                     ),
                 );
+                $query = new WP_Query($args);
                 $query = new WP_Query($args);
             ?>
         <div id="<?php echo $department->slug ?>" class="section project-slider">

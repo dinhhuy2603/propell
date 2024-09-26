@@ -46,27 +46,6 @@
           padding-right: rem(100);
         }
       }
-      &--ico{
-        display: block;
-        width: rem(201);
-        height: rem(204);
-        position: relative;
-        @include sp{
-          margin-top: rem(10);
-          width: rem(75);
-          height: rem(76);
-        }
-        &:before{
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: url("../../assets/img/terms/icon_dot.png") center no-repeat;
-          background-size: contain;
-        }
-      }
     }
     .c-list{
       li{

@@ -754,10 +754,21 @@ function live_search_ajax_handler() {
                         }
                     ?>
                 <div class="item">
-                    <div class="photo"><img src="<?php echo $thumbnail ?>" alt="<?php echo the_title() ?>"></div>
+                    <?php if (get_post_type() === 'project'): ?>
+                        <div class="photo"><img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr(get_the_title()); ?>"></div>
+                    <?php else: ?>
+                        <a href="<?php echo get_permalink(); ?>" class="">
+                            <div class="photo"><img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr(get_the_title()); ?>"></div>
+                        </a>
+                    <?php endif; ?>
                     <div class="group">
-                        <h3 class="c-title"><?php echo the_title() ?></h3>
-<!--                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+                        <?php if (get_post_type() === 'project'): ?>
+                            <h3 class="c-title"><?php echo esc_html(get_the_title()); ?></h3>
+                        <?php else: ?>
+                            <a href="<?php echo get_permalink(); ?>" class="">
+                                <h3 class="c-title"><?php echo esc_html(get_the_title()); ?></h3>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php
@@ -830,3 +841,15 @@ function propellExtensionTinyMCE($init) {
 
 add_filter('tiny_mce_before_init', 'propellExtensionTinyMCE' );
 
+// Show 404 error for single project posts
+function project_post_404() {
+    if (is_singular('project') && !current_user_can('administrator')) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        nocache_headers();
+        include(get_query_template('404'));
+        exit;
+    }
+}
+add_action('template_redirect', 'project_post_404');

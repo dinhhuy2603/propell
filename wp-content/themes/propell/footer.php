@@ -9,13 +9,14 @@
  * @package propell
  */
 $assets = get_path_assets();
+$current_home_url = pll_home_url();
 
 ?>
 
 <footer id="footer" class="footer mb-lg">
     <div class="container">
         <div class="footer__row01">
-            <div class="logo"><img src="<?php echo $assets ?>/img/logo-nav.png" alt="Logo"></div>
+            <div class="logo"></div>
             <div class="list">
                 <ul>
                     <li>Electrical Engineering</li>
@@ -32,7 +33,7 @@ $assets = get_path_assets();
                     <input class="subcrice__input" type="text" name="mail" placeholder="Your email...">
                     <a href="<?php echo get_page_url("contact")?>" class="subcrice__btn c-learn-more">SEND</a>
                 </div>
-                <ul class="partner only-pc">
+                <ul class="partner">
 <!--                    <li><img src="--><?php //echo $assets ?><!--/img/footer-logo01.png" alt=""></li>-->
                     <li><img src="<?php echo $assets ?>/img/footer-logo02.png" alt=""></li>
                     <li><img src="<?php echo $assets ?>/img/footer-logo03.png" alt=""></li>
@@ -40,22 +41,22 @@ $assets = get_path_assets();
                     <li><img src="<?php echo $assets ?>/img/footer-logo05.png" alt=""></li>
                     <li><img src="<?php echo $assets ?>/img/footer-logo06.png" alt=""></li>
                 </ul>
-                <div class="partner only-sp"><img src="<?php echo $assets ?>/img/footer-logo_sp.png" alt=""></div>
+<!--                <div class="partner only-sp"><img src="--><?php //echo $assets ?><!--/img/footer-logo_sp.png" alt=""></div>-->
             </div>
         </div>
         <div class="footer__row02">
             <ul class="nav">
-                <li><a href="/contact-us/">Contact Us</a></li>
-                <li><a href="#">Propell Responsibilites</a></li>
-                <li><a href="/careers/">Careers</a></li>
-                <li><a href="/terms-of-use/">Terms of Use</a></li>
-                <li><a href="/policy/">Personal Data Protection Policy</a></li>
+                <li><a href="<?php echo get_page_url('contact') ?>">Contact Us</a></li>
+                <li><a href="<?php echo esc_url($current_home_url.'services') ?>">Propell Responsibilites</a></li>
+                <li><a href="<?php echo get_page_url('careers') ?>">Careers</a></li>
+                <li><a href="<?php echo get_page_url('term') ?>">Terms of Use</a></li>
+                <li><a href="<?php echo get_page_url('policy') ?>">Personal Data Protection Policy</a></li>
             </ul>
-            <ul class="social">
-                <li><a href="#" target="_blank"><img src="<?php echo $assets ?>/img/icon-youtube.png" alt="youtube"></a></li>
-                <li><a href="#" target="_blank"><img src="<?php echo $assets ?>/img/icon-facebook.png" alt="facebook"></a></li>
-                <li><a href="#" target="_blank"><img src="<?php echo $assets ?>/img/icon-linkedin.png" alt="linkedin"></a></li>
-            </ul>
+<!--            <ul class="social">-->
+<!--                <li><a href="#" target="_blank"><img src="--><?php //echo $assets ?><!--/img/icon-youtube.png" alt="youtube"></a></li>-->
+<!--                <li><a href="#" target="_blank"><img src="--><?php //echo $assets ?><!--/img/icon-facebook.png" alt="facebook"></a></li>-->
+<!--                <li><a href="#" target="_blank"><img src="--><?php //echo $assets ?><!--/img/icon-linkedin.png" alt="linkedin"></a></li>-->
+<!--            </ul>-->
             <p class="copyright">© 2023 Propell Integrated Pte Ltd .<br/>All rights reserved.</p>
         </div>
     </div>

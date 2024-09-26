@@ -88,6 +88,11 @@
               height: rem(68);
             }
           }
+          &:nth-child(1){
+            @include sp{
+              width: 100%;
+            }
+          }
         }
       }
     }

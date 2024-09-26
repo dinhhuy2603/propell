@@ -52,29 +52,6 @@
     padding-right: 6.25rem;
   }
 }
-.page-policy .policy__table--ico {
-  display: block;
-  width: 12.5625rem;
-  height: 12.75rem;
-  position: relative;
-}
-@media (max-width: 750px) {
-  .page-policy .policy__table--ico {
-    margin-top: 0.625rem;
-    width: 4.6875rem;
-    height: 4.75rem;
-  }
-}
-.page-policy .policy__table--ico:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("../../assets/img/policy/icon_dot.png") center no-repeat;
-  background-size: contain;
-}
 .page-policy .policy .c-list li {
   letter-spacing: -0.04em;
   font-weight: 400;

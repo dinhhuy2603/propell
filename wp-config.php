@@ -21,13 +21,13 @@
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 
-define( 'DB_NAME', 'bitnami_wordpress' );
+define( 'DB_NAME', 'propell' );
 
 /** Database username */
-define( 'DB_USER', 'bn_wordpress' );
+define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', '70e77571f988be75b2e34c7298ffe1bac028c8669ad65be43fb5b234253edc27' );
+define( 'DB_PASSWORD', '' );
 
 /** Database hostname */
 define( 'DB_HOST', '127.0.0.1:3306' );

@@ -20,8 +20,8 @@
     <meta property="og:url" content="">
     <meta property="og:image" content="">
     <?php wp_head(); ?>
-    <link rel="apple-touch-icon" href="/icon.png">
-    <link rel="icon" href="/icon.png">
+    <link rel="apple-touch-icon" href="<?php echo $assets ?>/img/icon.png">
+    <link rel="icon" href="<?php echo $assets ?>/img/icon.png">
 </head>
 
 <body class="<?php echo get_page_class(); ?>">

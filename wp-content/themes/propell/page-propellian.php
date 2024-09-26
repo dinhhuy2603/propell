@@ -8,6 +8,8 @@ $assets = get_path_assets();
 
 $current_language = pll_current_language('slug');
 $block_csr = get_field('block_csr');
+$current_home_url = pll_home_url();
+
 ?>
 <?php if (have_posts()) : ?>
 
@@ -17,7 +19,7 @@ $block_csr = get_field('block_csr');
                 <div class="container">
                     <div class="breadcrumds">
                         <ul>
-                            <li><a href="./">HOME</a></li>
+                            <li><a href="<?php echo $current_home_url ?>">HOME</a></li>
                             <li>PROPELLIAN</li>
                         </ul>
                     </div>

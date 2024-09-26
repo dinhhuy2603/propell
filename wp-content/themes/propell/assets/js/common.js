@@ -4,11 +4,11 @@ var common = {
     var searchEl = $(".search-toggle");
     // menu
     $('.js-hamburger').click(function() {
-        if ($("body").hasClass("nav--open")) {
-          closeMenu($(this), menuEl)
-        } else {
-          openMenu($(this), menuEl)
-        }
+      if ($("body").hasClass("nav--open")) {
+        closeMenu($(this), menuEl)
+      } else {
+        openMenu($(this), menuEl)
+      }
     })
     $(".menu-toggle a, .js-hamburger--close").click(function () {
       closeMenu($('.js-hamburger'), menuEl)
@@ -48,17 +48,25 @@ var common = {
     $('a[href^="#"]').not('[href="#"]').not('[href*="#tab"]').not('[href*="#modal"]').not('a.js-anchor-detail').click(function(e) {
       var id = $(this).attr('href')
       if (id.split('')[0] === '#' && id != '#') {
-          var offsetTop = 0
-          event.preventDefault();
+        var offsetTop = 0
+        event.preventDefault();
         if ($('.header').length > 0) {
+          let offsetTop = $('.header').outerHeight();
+
           if ($(window).width() < 750) {
-            offsetTop =  $('.header').outerHeight() + $('.kv__submenu').outerHeight();
-          } else{
-            offsetTop =  $('.header').outerHeight()
+            const $submenu = $('.kv__submenu');
+            if ($submenu.length > 0) {
+              offsetTop += $submenu.outerHeight();
+            }
+          } else {
+            offsetTop -= 50;
           }
+
+          $('body, html').animate({
+            scrollTop: $(id).offset().top - offsetTop
+          }, 500); // Added duration for smoother animation
         }
-        $('body, html').animate({ scrollTop: $(id).offset().top - offsetTop })
-      } 
+      }
     })
     //anchor link different page
     var urlHash = window.location.href.split("#")[1];
@@ -97,7 +105,7 @@ function intTabs() {
     $(this).siblings().removeClass('is-active');
     $(this).addClass('is-active');
     $('.c-tabs__main--item').removeClass('active');
-    
+
     var activeTab = $(this).find('a').attr('href');
     $(activeTab).addClass('active');
     return false;
@@ -156,24 +164,24 @@ function intSliderFade() {
     fade: true
   });
 
-	//ticking machine
-	var percentTime;
-	var tick;
-	var time = 1;
-	var progressBarIndex = 0;
+  //ticking machine
+  var percentTime;
+  var tick;
+  var time = 1;
+  var progressBarIndex = 0;
 
-	$('.progressBarContainer .progressBar').each(function(index) {
+  $('.progressBarContainer .progressBar').each(function(index) {
     var progress = "<span class='inProgress inProgress" + index + "'></span>";
     $(this).html(progress);
-	});
+  });
 
-	function startProgressbar() {
+  function startProgressbar() {
     resetProgressbar();
     percentTime = 0;
     tick = setInterval(interval, 10);
-	}
+  }
 
-	function interval() {
+  function interval() {
     if (($sliderEl.find('.slick-track div[data-slick-index="' + progressBarIndex + '"]').attr("aria-hidden")) === "true") {
       progressBarIndex = $sliderEl.find('.slick-track div[aria-hidden="false"]').data("slickIndex");
       startProgressbar();
@@ -191,36 +199,36 @@ function intSliderFade() {
         startProgressbar();
       }
     }
-	}
+  }
 
-	function resetProgressbar() {
+  function resetProgressbar() {
     $('.inProgress').css({
       width: 0 + '%'
     });
     clearInterval(tick);
-	}
-	startProgressbar();
-	// End ticking machine
-	$('.progressBarContainer div').click(function () {
-		clearInterval(tick);
-		var goToThisIndex = $(this).find("span").data("slickIndex");
-		$sliderEl.slick('slickGoTo', goToThisIndex, false);
-		startProgressbar();
-	});
+  }
+  startProgressbar();
+  // End ticking machine
+  $('.progressBarContainer div').click(function () {
+    clearInterval(tick);
+    var goToThisIndex = $(this).find("span").data("slickIndex");
+    $sliderEl.slick('slickGoTo', goToThisIndex, false);
+    startProgressbar();
+  });
 }
 
 
 function intSelectBox() {
   const optionMenu = $(".select-menu"),
-  selectBtn = optionMenu.find(".select-btn"),
-  options = optionMenu.find(".option"),
-  sBtn_text = optionMenu.find(".sBtn-text");
+      selectBtn = optionMenu.find(".select-btn"),
+      options = optionMenu.find(".option"),
+      sBtn_text = optionMenu.find(".sBtn-text");
 
-   // Set the default option
-   const defaultOption = options.first();
-   const defaultOptionText = defaultOption.find(".option-text").text();
-   defaultOption.addClass("is-checked");
-   sBtn_text.text(defaultOptionText);
+  // Set the default option
+  const defaultOption = options.first();
+  const defaultOptionText = defaultOption.find(".option-text").text();
+  defaultOption.addClass("is-checked");
+  sBtn_text.text(defaultOptionText);
 
   selectBtn.on("click", function () {
     optionMenu.toggleClass("active");

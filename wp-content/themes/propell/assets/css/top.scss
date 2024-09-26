@@ -14,6 +14,10 @@
   color: #fff;
   @include sp {
     height: 100vh;
+    overflow: hidden;
+    @media screen and (orientation: landscape) {
+      height: 200vh;
+    }
   }
   &-slider {
     &__item {
@@ -21,6 +25,9 @@
       height: rem(900);
       @include sp {
         height: 100vh;
+        @media screen and (orientation: landscape) {
+          height: 200vh;
+        }
       }
     }
   }
@@ -313,8 +320,6 @@
             @include sp {
               width: rem(257);
               height: rem(257);
-              border-radius: initial;
-              overflow: initial;
               display: flex;
               align-items: center;
               position: absolute;
@@ -323,7 +328,9 @@
               img {
                 width: rem(140);
                 height: rem(140);
-                object-fit: initial;
+                border-radius: 50%;
+                overflow: hidden;
+                object-fit: cover;
                 transition: all ease .3s
               }
             }
@@ -701,7 +708,7 @@
         margin-right: 0;
         display: flex;
         position: relative;
-        margin-top: rem(-67);
+        margin-top: rem(-15);
       }
     }
   }
@@ -737,9 +744,6 @@
           }
           &:nth-child(6){
             order: 6;
-          }
-          &:nth-child(n + 3){
-            margin-top: rem(-20);
           }
         }
       }

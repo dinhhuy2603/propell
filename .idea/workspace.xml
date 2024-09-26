@@ -5,17 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1483dde-a2aa-4c8c-b1fa-9c178d978ce2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-ja.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-vi.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-zh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/archive-service-bak.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wp-content/themes/propell/archive-service-html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/archive-project-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/archive-project-category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/archive-service.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/archive-service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/backend/js/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/backend/js/contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/about.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/careers.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/careers.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/careers.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/careers.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_footer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/_header.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/common/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-jp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/img/icon-lang-vn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/policy.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/policy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/policy.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/policy.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/terms.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/terms.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/terms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/terms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/top.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.scss" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/css/what-we-do.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/assets/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/assets/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/functions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/page-about.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/page-about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/page-contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/page-contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/page-propellian.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/page-propellian.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/single-project-category.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/single-project-category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/single-project.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/single-project.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/propell/single-service.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/propell/single-service.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +59,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;dinhhuy260390&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dinhhuy2603/propell.git&quot;,
+    &quot;accountId&quot;: &quot;deb915e7-d444-498a-8cbe-aca5e7a27951&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -58,7 +93,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;huy&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/propell&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/propell/wp-content/themes/propell&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -70,9 +105,17 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/wp-content/themes/propell" />
+      <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18034.69" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -89,6 +132,15 @@
       <workItem from="1716947838444" duration="15000" />
       <workItem from="1716947900501" duration="2347000" />
       <workItem from="1721313100007" duration="955000" />
+      <workItem from="1724770111460" duration="1701000" />
+      <workItem from="1724936026936" duration="39406000" />
+      <workItem from="1725545283258" duration="36834000" />
+      <workItem from="1725952136401" duration="1037000" />
+      <workItem from="1726221170856" duration="3393000" />
+      <workItem from="1726239957130" duration="4814000" />
+      <workItem from="1726640013288" duration="3650000" />
+      <workItem from="1726753209827" duration="3119000" />
+      <workItem from="1727259394839" duration="2574000" />
     </task>
     <servers />
   </component>

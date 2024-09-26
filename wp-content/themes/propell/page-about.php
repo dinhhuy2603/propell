@@ -28,7 +28,7 @@ $current_language = pll_current_language('slug');
                         <li><a href="#registrations" class="js-anchor-detail">OUR REGISTRATIONS</a></li>
                         <li><a href="#certificates" class="js-anchor-detail">OUR CERTIFICATES</a></li>
                         <li><a href="#awards" class="js-anchor-detail">OUR ACHIEVEMENTS</a></li>
-                        <li><a href="#structions" class="js-anchor-detail">OUR GROUP STRUCTIONS</a></li>
+                        <li><a href="#structions" class="js-anchor-detail">OUR GROUP STRUCTURE</a></li>
                         <li><a href="#teams" class="js-anchor-detail">OUR TEAM</a></li>
                     </div>
                 </div>
@@ -178,7 +178,13 @@ $current_language = pll_current_language('slug');
                         <span class="c-ico"></span>
                     </div>
                     <div class="c-toggle__main">
-                        <?php echo $block_team['content'] ?>
+                        <?php if ($block_team['team_image'] != "") : ?>
+                            <div class="team">
+                                <div class="team__photo">
+                                    <img src="<?php echo $block_team['team_image']?>" alt="">
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

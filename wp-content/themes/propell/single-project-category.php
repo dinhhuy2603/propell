@@ -1,11 +1,9 @@
 <?php
-
-
 get_header();
 $assets = get_path_assets();
-
 $current_language = pll_current_language('slug');
 $page = get_query_var('paged') ? get_query_var('paged') : 1;
+$current_home_url = pll_home_url();
 
 ?>
 
@@ -31,7 +29,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
             <div class="container">
                 <div class="breadcrumds">
                     <ul>
-                        <li><a href="./">HOME</a></li>
+                        <li><a href="<?php echo $current_home_url ?>">HOME</a></li>
                         <?php if ($department_code) : ?>
                             <li><a href="<?php echo $post_type_archive_link ?>"><?php echo $department_code ?></a></li>
                         <?php endif; ?>
@@ -160,7 +158,7 @@ $page = get_query_var('paged') ? get_query_var('paged') : 1;
                     <p class="c-title-sub">YOU MAY ALSO CARE</p>
                     <div class="row">
                         <?php foreach ($departments as $department) :?>
-                            <a class="item" href="#">
+                            <a class="item" href="<?php echo esc_url($current_home_url.'categories') ?>">
                                 <?php $department_code = get_field('code', $department); ?>
                                 <?php if ($department_code == "FMD") : ?>
                                     <img class="img-fit" src="<?php echo $assets ?>/img/what-we-do/care_img01.jpg" alt="">

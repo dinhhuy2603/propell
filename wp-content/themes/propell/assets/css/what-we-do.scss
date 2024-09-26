@@ -121,6 +121,7 @@
           }
           &__icon {
             width: rem(95);
+            height: rem(95);
           }
           &__title {
             margin-top: rem(22);
@@ -161,6 +162,7 @@
             margin-top: rem(230);
             width: rem(189);
             height: rem(252);
+            position: relative;
             @include sp {
               margin-top: rem(208);
               width: rem(109);
@@ -210,10 +212,12 @@
         .c-learn-more {
           position: relative;
           top: rem(92);
-          float: right;
           z-index: 2;
+          @include pc{
+            float: right;
+          }
           @include sp {
-            top: rem(102);
+            top: rem(52);
           }
         }
       }
@@ -348,7 +352,7 @@
 
 .m-scroll {
   position: absolute;
-  top: rem(350);
+  bottom: rem(226);
   left: 0;
   width: 100%;
   display: flex;
@@ -357,9 +361,10 @@
   font-weight: bold;
   color: $cl-primary-light;
   white-space: nowrap;
+  z-index: -1;
   @include sp{
     font-size: rem(40);
-    top: rem(408);
+    bottom: rem(133);
   }
   &__inner {
     display: flex;

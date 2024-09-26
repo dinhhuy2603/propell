@@ -714,7 +714,7 @@ textarea {
   left: 0;
   width: 100%;
   background: #fff;
-  z-index: 10;
+  z-index: 100;
   -webkit-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out;
 }
@@ -953,6 +953,7 @@ textarea {
   height: 3.5rem;
   color: #fff;
   cursor: pointer;
+  z-index: 9;
 }
 .header .hamburger__close:hover {
   opacity: 0.7;
@@ -1416,6 +1417,11 @@ body.nav--open {
 @media (max-width: 750px) {
   .footer__row01 .group .partner li img {
     height: 4.25rem;
+  }
+}
+@media (max-width: 750px) {
+  .footer__row01 .group .partner li:nth-child(1) {
+    width: 100%;
   }
 }
 .footer__row02 {

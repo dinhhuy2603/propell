@@ -7,18 +7,27 @@
     var form = $(".c-form");
     form.validate({
         rules: {
-        name: {
-            required: true,
-            minlength: 3
-        },
-        email: {
-            required: true,
-            email: true
-        },
-        message: {
-            required: true,
-            minlength: 10
-        }
+            name: {
+                required: true,
+                minlength: 3
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            message: {
+                required: true,
+                minlength: 10
+            },
+            'g-recaptcha-response': {
+                required: function() {
+                    if (grecaptcha.getResponse().length === 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
         },
         messages: {
             name: {
@@ -32,6 +41,9 @@
             message: {
                 required: $('#message_required').val(),
                 minlength: $('#message_minlength').val()
+            },
+            'g-recaptcha-response': {
+                required: 'Please complete the reCAPTCHA.'
             }
         },
         submitHandler: function(form){
@@ -40,17 +52,24 @@
             let input_subject = $('.select-menu').find('.options > .option.is-checked').data('val');
             let input_message = $('#input_message').val();
             let form_id = $('#btn-submit').data('id');
+            let recaptcha_response = grecaptcha.getResponse();
+            if (recaptcha_response.length === 0) {
+                alert('Please complete the reCAPTCHA.');
+                return false;
+            }
+
             $.ajax({
                 url: ajax_url[0],
                 type: "POST",
                 dataType:'json',
                 data: {
-                  action:'send_contact_email',
-                  name: input_name,
-                  from: input_email,
-                  to: input_subject,
-                  message: input_message,
-                  template_id: form_id
+                    action:'send_contact_email',
+                    name: input_name,
+                    from: input_email,
+                    to: input_subject,
+                    message: input_message,
+                    template_id: form_id,
+                    'g-recaptcha-response': recaptcha_response
                 }, success: function(response){
                     if(response.success) {
                         localStorage.setItem('sendmail', 1);

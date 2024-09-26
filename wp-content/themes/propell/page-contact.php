@@ -110,7 +110,7 @@ if($subjects != '') {
                 <input type="hidden" id="message_minlength" value="<?php echo $block_right['right_message_minlength'] ?? ''; ?>" />
               </div>
               <div class="form-captcha">
-                <div class="g-recaptcha" data-sitekey="6LcGH-YpAAAAAEn55zXx2AQ0RpAsH_yA_1xulcbX"></div>
+                <div class="g-recaptcha" data-sitekey="6LeDAToqAAAAAMq9s4R_QHgL9890to9Q6xTxVjf8"></div>
               </div>
               <div class="form-btn" id="btn-submit" data-id="<?php echo $template_id; ?>">
                 <button class="btn c-btn" type="submit"><span><?php echo $block_right['right_submit'] ?? ''; ?></span></button>
